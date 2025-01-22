@@ -1,26 +1,70 @@
 ---
 import Heading from '@lara/components/Heading/Heading';
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import Layout from '@lara/layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
 
-const studio = await getCollection('el-estudio');
+const estudio = await getCollection('estudio');
+//console.log(estudio)
+
+const { title, headerImage, images, quotes } = estudio[0].data; 
+const { Content } = await render(estudio[0])
+
 
 ---
+<Layout title="El estudio | Lara González" description="">
+	<header>
+		<Heading tag="h1" size="lg" className='sr-only'>
+			{title}
+		</Heading>
+		<img src={headerImage} alt="Cabecera del estudio" />
+	</header>
+	<article>
+		<!-- Reenderiza el markdown definido en el estudio.md -->
+		<Content></Content>
 
-<Layout title="El estudio | Lara González" description=''>
-		{		
-			studio.map(s => {
-				const { data } = s
-				const { title, description } = data
-
-				return (
-					<article>
-						<Heading tag="h1" size="lg">
-							{title}
-						</Heading>
-						<p>{description}</p>
-					</article>
-				)
-			})
-		}
+		<div class="studio__images">
+			{images.map((image) => (
+				<img src={image} alt="Imagen del estudio" />
+			))}
+		</div>
+		<section>
+			<Heading tag="h2" size="md">{quotes.heading}</Heading>
+			<ul>
+			{quotes.items.map((quote) => (
+				<li>
+					<blockquote>
+						<p>"{quote}"</p>
+					</blockquote>
+				</li>
+			))}
+			</ul>
+		</section>
+	</article>
+		
 </Layout>
+
+<style lang="scss">
+	@use "dawuti" as *;
+
+	header{
+		margin-top: var(--s6);
+	}
+
+	.studio{
+		&__images{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: var(--s3);
+
+			img{
+				width: 280px;
+				height: 350px;
+
+			}
+		}
+	}
+
+
+</style>
+

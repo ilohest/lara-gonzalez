@@ -30,6 +30,9 @@ const SideMenu = ({ open, setOpen, email, address, rrss }: Props) => {
       </button>
       <nav className="side-menu__nav">
         <ul>
+        <li>
+            <a href="/">Lara González</a>
+          </li>
           <li>
             <a href="/proyectos">Proyectos</a>
           </li>
@@ -55,7 +58,7 @@ const SideMenu = ({ open, setOpen, email, address, rrss }: Props) => {
             })}
           </div>
         )}
-        <a className="button button--light" href="/contacto">
+        <a className="button button--link button--light" href="/contacto">
           ¿Hablamos?
         </a>
       </div>

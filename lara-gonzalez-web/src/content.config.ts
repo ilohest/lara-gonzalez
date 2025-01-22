@@ -40,9 +40,14 @@ const homeCollection = defineCollection({
   const studioCollection = defineCollection({
     type: 'content',
     schema: z.object({
-        title: z.string(),
-        description: z.string(),
-    })
+      title: z.string(),
+      headerImage: z.string(),
+      images: z.array(z.string()),
+      quotes: z.object({
+        heading: z.string(),
+        items: z.array(z.string()),
+      }),
+    }),
   });
 
   const contactCollection = defineCollection({
@@ -57,7 +62,6 @@ const homeCollection = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
-        description: z.string(),
     })
   });
 
@@ -65,14 +69,13 @@ const homeCollection = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
-        description: z.string(),
     })
   });
   
   export const collections = {
     //home: homeCollection,
     proyectos: projectsCollection,
-    "el-estudio": studioCollection,
+    estudio: studioCollection,
     contacto: contactCollection,
     privacidad: privacyCollection,
     cookies: cookiesCollection,

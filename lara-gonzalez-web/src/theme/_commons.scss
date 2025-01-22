@@ -3,6 +3,8 @@
 @include reset-all();
 @include wrapper-fluid();
 @include enhance-text();
+@include grid-helpers();
+@include sr-only();
 
 body,
 html {
@@ -29,6 +31,12 @@ main {
   position: relative;
   z-index: 1;
   background-color: var(--color-bg-light);
+}
+
+.grid{
+  display: grid;
+  column-gap: var(--gutter);
+  grid-template-columns: repeat(var(--cols), 1fr);
 }
 
 body {

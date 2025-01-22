@@ -24,6 +24,7 @@ export default defineConfig({
             '@lara/templates/': `${resolve(__dirname, './src/templates')}/`,
             '@lara/layout/': `${resolve(__dirname, './src/layout')}/`,
             '@lara/models/': `${resolve(__dirname, './src/models')}/`,
+            '@lara/services/': `${resolve(__dirname, './src/services')}/`,
             '@lara/theme/': `${resolve(__dirname, './src/theme')}/`,
             '@lara/utils/': `${resolve(__dirname, './src/utils')}/`,
             '@lara/static-icons/': `${resolve(__dirname, './static-icons')}/`,
