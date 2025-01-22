@@ -1,0 +1,60 @@
+---
+const { classes, direction } = Astro.props;
+---
+
+<div class={`marquee-css ${direction} ${classes ? classes : ''}`}>
+  <div class="marquee-css__content">
+    <slot />
+  </div>
+  <div class="marquee-css__content">
+    <slot />
+  </div>
+  <div class="marquee-css__content">
+    <slot />
+  </div>
+  <div class="marquee-css__content">
+    <slot />
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  @use "dawuti" as *;
+
+  .marquee-css {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    mix-blend-mode: multiply;
+
+
+    &.mobile-only {
+      @include mq-md {
+        display: none;
+      }
+    }
+
+    &.to-right {
+      .marquee-css__content {
+        animation-direction: reverse;
+      }
+    }
+    &__content {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-around;
+      gap: var(--gap, calc(var(--s) * 10));
+      min-width: 30%;
+      padding-inline-start: 0;
+      animation: scroll var(--speed, 20s) linear infinite;
+    }
+
+    + .marquee-css {
+      margin-top: calc(var(--s) * 4);
+      @include mq-lg {
+        margin-top: 0;
+      }
+    }
+  }
+</style>

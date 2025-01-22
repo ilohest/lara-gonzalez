@@ -1,0 +1,7 @@
+@function clamp-calc($min, $max) {
+  @return clamp(
+    calc($min / var(--html-font-size-v) * 1rem),
+    calc(100 * $max / 1440 * 1vw),
+    calc($max / var(--html-font-size-v) * 1rem)
+  );
+}

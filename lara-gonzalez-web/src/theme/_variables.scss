@@ -1,0 +1,80 @@
+@use 'sass:math' as *;
+@use 'dawuti' as *;
+@use './mixins' as *;
+
+$html-font-size-v: 16;
+$sv: div(6, 16);
+
+:root {
+  --html-font-size-v: #{$html-font-size-v};
+  --html-font-size: calc(var(--html-font-size-v) * 1px);
+
+  --font-primary: 'LaraGonzalez', sans-serif;
+
+  --sv: #{$sv};
+  --s: calc(var(--sv) * 1rem);
+  @for $i from 1 through 10 {
+    --s#{$i}: #{$sv * $i}rem;
+  }
+
+  --safe-area: #{clamp-calc(12, 24)};
+
+  --gap: #{clamp-calc(12, 20)};
+  --gutter: calc(var(--gap) / 2);
+
+  // Colors
+  --color-primary: #000000;
+  --color-primary-rgb: 0,0,0;
+  --color-primary-contrast: #ffffff;
+  --color-primary-contrast-rgb: 255,
+  255,
+  255;
+
+  --color-error: #A90909; //TODO
+  --color-error-bg: #FEE7E7; //TODO
+
+  --color-success: #0DA137; //TODO
+  --color-success-bg: #D4FFDE; //TODO
+
+  --color-dark: var(--color-primary);
+  --color-light: var(--color-primary-contrast);
+
+// Grid cols
+& {
+  --cols: 8;
+  @include mq-sm {
+    --cols: 12;
+  }
+}
+
+// Font sizes
+& {
+  --fs-base-v: 16;
+  --fs-base: #{rem-css-vars(--fs-base-v)};
+  --lh-base: #{calc-lh(16, 19)};
+}
+
+& {
+  --fs-md-v: 20;
+  --fs-md: #{clamp-calc(20, 24)};
+  --lh-md: #{calc-lh(20, 24)};
+}
+
+& {
+  --fs-lg-v: 30;
+  --fs-lg: #{clamp-calc(30, 40)};
+  --lh-lg: 1.142;
+}
+
+& {
+  --fs-xl-v: 46;
+  --fs-xl: #{clamp-calc(46, 62)};
+  --lh-xl: 1.13;
+  @include mq-sm {
+    --lh-xl: 1.06;
+  }
+}
+
+// Specific fonts
+
+}

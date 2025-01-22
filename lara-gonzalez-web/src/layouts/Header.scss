@@ -1,0 +1,76 @@
+@use "dawuti" as *;
+
+// Logo templates
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .header__logotype {
+        &--mobile {
+            padding-top: calc(var(--s) * 2);
+            @include mq-lg {
+                display: none;
+            }
+        }
+        &--main {
+            img {
+                height: auto;
+                width: 43vw;
+                @include mq-xs {
+                    width: 20vw;
+                }
+                @include mq-lg {
+                    width: 12.2vw;
+                }
+            }
+        }
+        &--white {
+            display: none;
+        }
+
+    }
+    .header__main-nav {
+        display: none;
+        @include mq-lg {
+            margin-top: calc(var(--s) * 2);
+            margin-bottom: calc(var(--s) * 7);
+            display: flex;
+            justify-content: space-between;
+            flex-basis: 100%;
+            align-items: flex-start;
+        }
+
+        &--item {
+            font-family: var(--font-primary);
+            @include f("menu", 400, true);
+            color: inherit;
+            transition: color .15s linear;
+
+
+            @include mq-lg {
+                font-family: var(--font-tertiary);
+            }
+
+            &:first-child {
+                text-align: left;
+            }
+            &:focus,
+            &:hover {
+                color: var(--color-grey-900);
+            }
+        }
+    }
+
+    .button-side-menu-open {
+        width: calc(var(--s) * 6);
+        padding-top: calc(var(--s) * 4);
+        margin-left: auto;
+        @include mq-lg {
+            display: none;
+        }
+        &--white {
+            display: none;
+        }
+    }
+}

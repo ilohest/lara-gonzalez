@@ -1,0 +1,92 @@
+---
+import type { ImageModel } from "@lara/models/generic.model";
+import { classList } from "@lara/utils/react.utils";
+import { Picture } from "astro:assets";
+
+
+interface Props {
+  image: ImageModel;
+  classes?: string;
+  cover?: boolean;
+}
+
+const { image, classes, cover = false } = Astro.props;
+
+const classesList = classList({
+  image: true,
+  "image--with-legend": image?.name?.length > 0,
+  [`${classes ?? ""}`]: true,
+  "image--cover": cover,
+});
+
+const widths = [800, 2000];
+const formats = ["webp"];
+const sizes = `(max-width: 768px) 800px, (max-width: 1600px) 2000px`;
+const quality = "mid";
+const loading = "eager";
+---
+
+{
+  image && (
+    <>
+      <figure class={classesList}>
+        <Picture
+          src={image?.url}
+          alt={image?.alt ? image.alt : ""}
+          widths={widths}
+          formats={formats}
+          sizes={sizes}
+          width={image?.width}
+          height={image?.height}
+          quality={quality}
+          loading={loading}
+        />
+        {image?.name && <figcaption>{image?.name}</figcaption>}
+      </figure>
+    </>
+  )
+}
+
+<style lang="scss">
+  @use "dawuti" as *;
+
+  :global(figure) {
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+  :global(picture) {
+    will-change: transform, transition;
+    transition: all 0.43s cubic-bezier(0.17, 0.17, 0.35, 1);
+    transform: scale(1);
+    overflow: hidden;
+  }
+  
+  .image {
+    &--cover {
+      height: 100%;
+      :global(picture) {
+        height: 100%;
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    figcaption {
+      color: var(--color-primary);
+      @include f("tert-xs", 400, true);
+      margin-top: calc(var(--s) * 2);
+      @include mq-lg {
+        max-width: clamp(325px, 80%, 400px);
+        margin-top: calc(var(--s) * 2);
+      }
+      @include mq-xxl {
+        max-width: clamp(325px, 80%, 70%);
+      }
+    }
+  }
+</style>
