@@ -1,0 +1,132 @@
+@use "dawuti" as *;
+
+.side-menu {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
+    border: none;
+    padding: calc(var(--s) * 3) var(--safe-area, 15px) calc(var(--s) * 5);
+
+    &--open {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: scroll;
+
+        @include mq-lg {
+            display: none;
+        }
+    }
+
+    &__email {
+        display: block;
+        margin-bottom: calc(var(--s) * 5);
+
+        @include mq-xs {
+            margin-bottom: calc(var(--s) * 2);
+        }
+    }
+
+    &__address {
+        display: block;
+        margin-bottom: calc(var(--s) * 5);
+
+        @include mq-xs {
+            margin-bottom: calc(var(--s) * 2);
+        }
+
+        a {
+            display: block;
+        }
+
+        &--phone {
+            margin-top: calc(var(--s) * 1);
+        }
+    }
+
+    &__social {
+        a {
+            display: block;
+
+            &+a {
+                margin-top: calc(var(--s) * 5);
+
+                @include mq-xs {
+                    margin-top: calc(var(--s) * 2);
+                }
+            }
+        }
+    }
+
+    .button-side-menu-close {
+        width: calc(var(--s) * 6);
+        align-self: flex-end;
+    }
+
+    .side-menu__nav {
+        margin-top: calc(var(--s) * 4);
+        height: 50%;
+        padding-bottom: calc(var(--s) * 5);
+
+        @include mq-xs {
+            padding-bottom: calc(var(--s) * 2);
+            margin-top: 0;
+        }
+
+        @include mq-sm {
+            padding-bottom: calc(var(--s) * 5);
+            margin-top: calc(var(--s) * 4);
+            height: 67%;
+        }
+
+        li {
+            text-align: center;
+
+            &+li {
+                margin-top: calc(var(--s) * 1);
+            }
+        }
+
+        a {
+            @include f('lg', 400, true);
+            font-family: var(--font-primary);
+            color: var(--color-primary-contrast);
+        }
+    }
+
+    .side-menu__bottom {
+        text-align: center;
+        margin-top: calc(var(--s) * 2);
+        padding-left: calc(var(--s) * 10);
+        padding-right: calc(var(--s) * 10);
+
+        .side-menu__address,
+        .side-menu__social {
+            a {
+                @include f('sm', 400, true);
+                font-family: var(--font-primary);
+                color: var(--color-primary-contrast);
+
+                @include mq-sm {
+                    @include f('sm', 400, true);
+                }
+            }
+        }
+
+        .button {
+            margin-top: calc(var(--s) * 5);
+            margin-bottom: calc(var(--s) * 5);
+
+            @include mq-xs {
+                margin-top: calc(var(--s) * 2);
+            }
+
+            @include mq-sm {
+                margin-top: calc(var(--s) * 5);
+            }
+        }
+    }
+}

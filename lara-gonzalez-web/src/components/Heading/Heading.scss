@@ -1,0 +1,22 @@
+@use 'dawuti' as *;
+
+.heading {
+  --padding: 0;
+  --margin: 0;
+  --text-transform: none;
+  padding: var(--padding);
+  margin: var(--margin);
+
+  &--base {
+    @include f('base');
+  }
+  &--md {
+    @include f('md');
+  }
+  &--lg {
+    @include f('lg');
+  }
+  &--xl {
+    @include f('xl');
+  }
+}

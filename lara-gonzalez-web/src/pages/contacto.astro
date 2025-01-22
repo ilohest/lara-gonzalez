@@ -1,0 +1,26 @@
+---
+import Heading from '@lara/components/Heading/Heading';
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const contact = await getCollection('contacto');
+
+---
+
+<Layout title="Contacto | Lara González" description=''>
+		{		
+			contact.map(home => {
+				const { slug, data } = home
+				const { title, description } = data
+
+				return (
+					<article>
+						<Heading tag="h1" size="lg">
+							{title}
+						</Heading>
+						{description}
+					</article>
+				)
+			})
+		}
+</Layout>

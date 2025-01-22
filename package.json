@@ -1,0 +1,16 @@
+{
+  "name": "lara-gonzalez-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.workoholics.es:clients/lara-gonzalez/lara-gonzalez-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

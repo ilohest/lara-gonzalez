@@ -1,0 +1,67 @@
+---
+import "@lara/theme/theme.scss";
+import { ClientRouter } from 'astro:transitions';
+import Header from "./Header";
+import Footer from "./Footer.astro";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#000000" />
+		<meta name="msapplication-navbutton-color" content="#000000" />
+		<link rel="canonical" href={canonicalURL} />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<!-- Facebook Meta Tags -->
+		<meta property="og:url" content="https://laragonzalez.com" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta
+			property="og:image" 
+			content="/static-images/share.jpg";
+		/>
+	
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="twitter:domain" content="laragonzalez.com" />
+		<meta property="twitter:url" content="https://laragonzalez.com" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta 
+			name="twitter:image"
+			content="/static-images/share.jpg"; 
+		/>
+
+		<!-- Transiciones entre ruras -->
+		<ClientRouter />
+	</head>
+	<body>
+		<Header
+			email="contacto@laragonzalez.com"
+			logoType="main"
+	  		client:load 
+		/>	
+			<main class="wrapper-fluid">
+				<slot />
+			</main>		
+		<Footer addresses="" rrss=""/>
+
+	</body>
+</html>

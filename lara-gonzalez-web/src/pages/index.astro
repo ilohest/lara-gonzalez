@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const home = await getCollection('index');
+
+---
+
+<Layout title="Bienvenida | Lara González" description=''>
+		{		
+			home.map(home => {
+				const { data } = home
+				const { title, description } = data
+
+				return (
+					<article>
+						{title}
+						{description}
+					</article>
+				)
+			})
+		}
+</Layout>

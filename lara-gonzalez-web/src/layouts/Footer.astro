@@ -1,0 +1,214 @@
+---
+
+import Heading from "@lara/components/Heading/Heading";
+import type { RSModel } from "@lara/models/generic.model";
+
+const d = new Date();
+let currentYear = d.getFullYear();
+
+const { rrss } = Astro.props;
+---
+
+<footer class="footer wrapper-fluid">
+  <Heading tag="h1" size="lg">
+    Lara González studio
+  </Heading>
+  {
+    rrss && (
+      <div class="footer__rrss">
+        <p class="footer__title">Síguenos</p>
+        <ul>
+          {rrss.map((rs: RSModel) => {
+            return (
+              <li>
+                <a class="link" href={rs.link} target="_blank">
+                  {rs.name}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    )
+  }
+  <div class="footer__bottom">
+    <nav class="footer__legal">
+      <ul>
+        <li>
+          <a class="link" href="/politica-privacidad">Política de privacidad</a>
+        </li>
+        <li>
+          <a class="link" href="/politica-cookies">Uso de cookies</a>
+        </li>
+      </ul>
+    </nav>
+    <p class="footer__copyright">Lara González © {currentYear}</p>
+  </div>
+</footer>
+<style lang="scss">
+  @use "dawuti" as *;
+  .footer {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    padding-top: calc(var(--s) * 6);
+    padding-bottom: calc(var(--s) * 3);
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    > * {
+      font-family: var(--font-primary);
+    }
+
+    @include mq-xs {
+      padding-top: calc(var(--s) * 5);
+      grid-template-rows: repeat(2, auto);
+    }
+    @include mq-lg {
+      padding-top: calc(var(--s) * 6);
+    }
+    @include mq-xxl {
+      padding-top: calc(var(--s) * 8);
+    }
+
+    &__logo {
+      height: auto;
+      width: 100%;
+      margin-bottom: 40px;
+      grid-row: 1/2;
+      grid-column: 1/3;
+      @include mq-xs {
+        margin-bottom: 0px;
+        grid-column: 1/2;
+        max-width: calc(var(--s) * 13);
+      }
+      @include mq-lg {
+        max-width: calc(var(--s) * 20);
+        grid-column: 1/4;
+      }
+    }
+    &__rrss {
+      > * {
+        font-family: var(--font-primary);
+      }
+
+      .footer__title {
+        @include f("sm", 500);
+      }
+    }
+
+    &__rrss,
+    &__legal {
+      a {
+        color: var(--color-primary);
+      }
+    }
+
+    &__title {
+      @include f("tert-sm");
+      font-weight: 500;
+      margin-bottom: calc(var(--s) * 2);
+    }
+
+    &__subtitle {
+      color: var(--color-grey-800);
+      font-weight: 500;
+    }
+
+    &__rrss {
+      grid-row: 3/4;
+      grid-column: 1/7;
+      @include mq-xs {
+        grid-row: 1/2;
+        grid-column: 5/6;
+      }
+      @include mq-lg {
+        grid-row: 1/2;
+        grid-column: 19/22;
+      }
+      @include mq-xl {
+        grid-column: 20/23;
+      }
+
+      p,
+      a,
+      li {
+        @include f("tert-sm", 400, true);
+      }
+
+      .footer__title {
+        font-weight: 500;
+        margin-top: calc(var(--s) * 4);
+        @include mq-xs {
+          margin-top: 0;
+        }
+      }
+      li + li {
+        margin-top: calc(var(--s) * 2);
+      }
+    }
+
+    &__contact {
+      grid-row: 4/5;
+      grid-column: 1/7;
+      margin-top: calc(var(--s) * 4);
+      margin-bottom: calc(var(--s) * 7);
+      @include mq-xs {
+        grid-row: 1/2;
+        grid-column: 6/7;
+        margin: 0;
+      }
+      @include mq-lg {
+        grid-row: 1/2;
+        grid-column: 22/25;
+        justify-self: flex-end;
+      }
+    }
+
+    &__bottom {
+      grid-row: 5/6;
+      grid-column: 1/7;
+      @include mq-xs {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: calc(var(--s) * 10);
+      }
+      @include mq-lg {
+        grid-row: 2/3;
+        grid-column: 1/25;
+      }
+      @include mq-xl {
+        margin-top: calc(var(--s) * 14);
+      }
+    }
+
+    &__legal {
+      @include f("link", 400, true);
+      font-family: var(--font-tertiary);
+
+      li {
+        @include mq-xs {
+          display: inline-flex;
+        }
+      }
+
+      li + li {
+        margin-top: calc(var(--s) * 2);
+        @include mq-xs {
+          margin-top: 0;
+          margin-left: calc(var(--s) * 5);
+        }
+      }
+    }
+
+    &__copyright {
+      margin-top: calc(var(--s) * 3);
+      opacity: 0.6;
+      font-family: var(--font-primary);
+      @include mq-sm {
+        margin-top: 0;
+      }
+    }
+  }
+</style>

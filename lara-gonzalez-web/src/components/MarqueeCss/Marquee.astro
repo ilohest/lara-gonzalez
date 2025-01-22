@@ -1,0 +1,97 @@
+---
+const { classes } = Astro.props;
+---
+
+<div class={`marquee ${classes}`}>
+  <div class="marquee__inner">
+    <div class="marquee__content">
+      <slot></slot>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+	@use "dawuti" as *;
+  .marquee {
+    --translation: unset;
+    --duration: 5;
+    --item-duration: 1;
+    --direction: normal;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    &__inner {
+      display: flex;
+    }
+
+    &__content {
+      display: inline-flex;
+      
+      animation: marquee calc(var(--duration) * var(--item-duration) * 1s) linear infinite var(--direction);
+      > *,
+      :global(> *) {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  @include keyframes(marquee) {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(var(--translation) * -1));
+    }
+  }
+</style>
+
+<script>
+
+  interface Marquee {
+    el: HTMLElement;
+    itemWidth?: number;
+    content: HTMLElement;
+    originalHTML: string;
+  }
+
+  const init = (el: HTMLElement) => {
+    const content = el.querySelector('.marquee__content') as HTMLElement;
+    const marquee: Marquee = {
+      el,
+      content,
+      originalHTML: content.innerHTML,
+    }
+    buildMarquee(marquee);
+    window.addEventListener('resize', () => {
+      refresh(marquee);
+    });
+  }
+
+  const buildMarquee = (marquee: Marquee) => {
+    const marqueeWidth = marquee.el.getBoundingClientRect().width;
+    const itemWidth = marquee.content.getBoundingClientRect().width;
+    const itemsToClone = Math.floor(marqueeWidth / itemWidth) + 1;
+    clone(marquee, Math.floor(marqueeWidth / itemWidth) + 1);
+    marquee.content.style.setProperty('--translation', `${itemWidth}px`);
+    marquee.el.style.setProperty('--item-duration', itemsToClone.toString());
+  } 
+
+  const clone = (marquee: Marquee, count: number) => {
+    const html = marquee.content.innerHTML;
+    for (let i = 0; i < count; i++) {
+      marquee.content.insertAdjacentHTML('beforeend', html);
+    }
+  }
+
+  const marqueeEls = document.querySelectorAll('.marquee');
+  marqueeEls.forEach((el) => {
+    init(el as HTMLElement);
+  });
+
+  const refresh = (marquee: Marquee) => {
+    marquee.content.innerHTML = marquee.originalHTML;
+    buildMarquee(marquee);
+  }
+</script>

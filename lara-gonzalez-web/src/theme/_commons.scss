@@ -1,0 +1,42 @@
+@use 'dawuti' as *;
+
+@include reset-all();
+@include wrapper-fluid();
+@include enhance-text();
+
+body,
+html {
+  font-family: var(--font-primary);
+  font-size: var(--html-font-size);
+  font-weight: 400;
+  line-height: var(--html-line-height);
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  @include f('base');
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-bg-light);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  >main {
+    flex: 1;
+  }
+}
