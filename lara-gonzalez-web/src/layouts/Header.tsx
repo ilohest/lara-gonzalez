@@ -67,7 +67,7 @@ const Header = ({
           <a className="header__main-nav--item" aria-label="Ir a página del estudio" href="/el-estudio">
             El estudio
           </a>
-          <a className="button button--dark" aria-label="Ir a página de contacto" href="/contacto">
+          <a className="button button--link button--dark" aria-label="Ir a página de contacto" href="/contacto">
             ¿Hablamos?
           </a>
         </nav>

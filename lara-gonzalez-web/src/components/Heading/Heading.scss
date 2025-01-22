@@ -19,4 +19,7 @@
   &--xl {
     @include f('xl');
   }
+  &--xxl {
+    @include f('xxl', 300);
+  }
 }

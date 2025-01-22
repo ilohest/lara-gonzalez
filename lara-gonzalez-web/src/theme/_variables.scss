@@ -41,9 +41,12 @@ $sv: div(6, 16);
 
 // Grid cols
 & {
-  --cols: 8;
+  --safe-area: var(--s2);
+  --gutter: var(--s2);
+  --cols: 6;
   @include mq-sm {
-    --cols: 12;
+    --cols: 24;
+    --safe-area: var(--s3);
   }
 }
 
@@ -72,6 +75,16 @@ $sv: div(6, 16);
   --lh-xl: 1.13;
   @include mq-sm {
     --lh-xl: 1.06;
+  }
+}
+& {
+  --fs-xxl-v: 60;
+  --fs-xxl: #{clamp-calc(60, 80)};
+  --lh-xxl: 1.13;
+  @include mq-sm {
+    --fs-xxl-v: 60;
+    --fs-xxl: #{clamp-calc(212, 80)};
+    --lh-xxl: 1.13;
   }
 }
 

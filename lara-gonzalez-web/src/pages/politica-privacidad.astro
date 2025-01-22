@@ -1,15 +1,21 @@
 ---
 import Heading from "@lara/components/Heading/Heading";
 import Layout from "@lara/layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
 
+const privacy = await getCollection('privacidad');
+console.log(privacy)
 
+const { title } = privacy[0].data; 
+const { Content } = await render(privacy[0])
 ---
 
 <Layout
   title="Política privacidad | Lara González"
-  description="Política privacidad"
+  description=""
 >
   <Heading tag="h1" size="lg">
-      Política de privacidad
+      {title}
   </Heading>
+  <Content></Content>
 </Layout>

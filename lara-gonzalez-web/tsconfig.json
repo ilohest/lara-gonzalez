@@ -28,6 +28,7 @@
       "@lara/components/*": ["src/components/*"],
       "@lara/layouts/*": ["src/layouts/*"],
       "@lara/models/*": ["src/models/*"],
+      "@lara/services/*": ["src/services/*"],
       "@lara/utils/*": ["src/utils/*"],
     }
   },
