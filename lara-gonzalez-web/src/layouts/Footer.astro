@@ -21,7 +21,7 @@ const { rrss } = Astro.props;
           {rrss.map((rs: RSModel) => {
             return (
               <li>
-                <a class="link" href={rs.link} target="_blank">
+                <a class="button--link" href={rs.link} target="_blank">
                   {rs.name}
                 </a>
               </li>
@@ -35,10 +35,10 @@ const { rrss } = Astro.props;
     <nav class="footer__legal">
       <ul>
         <li>
-          <a class="link" href="/politica-privacidad">Política de privacidad</a>
+          <a class="button--link" href="/politica-privacidad">Política de privacidad</a>
         </li>
         <li>
-          <a class="link" href="/politica-cookies">Uso de cookies</a>
+          <a class="button--link" href="/politica-cookies">Uso de cookies</a>
         </li>
       </ul>
     </nav>

@@ -1,15 +1,41 @@
 import { defineCollection, z } from "astro:content";
 // z --> zod schema validador
 // Contenido como Markdown (type: 'content') o formatos de datos como JSON o YAML (type: 'data').
-// TODO: Revisar los types
+
 
 const homeCollection = defineCollection({
-    type: 'content',
-    schema: z.object({
-        title: z.string(),
-        description: z.string(),
-    })
-  });
+  type: 'content',
+  schema: z.object({
+    title: z.string(), 
+    headerImage: z.string(), 
+    intro: z.object({
+      subtitle: z.string(), 
+      description: z.string().optional(), 
+    }),
+    gallery: z.array(z.string()), 
+    creativitySection: z.object({
+      heading: z.string(), 
+      subheading: z.string(),
+      image: z.string(), 
+    }),
+    services: z.array(
+      z.object({
+        category: z.string(), 
+        button: z.object({
+          link: z.string(), 
+          text: z.string(), 
+        }),
+        steps: z.array(
+          z.object({
+            number: z.string(), 
+            title: z.string(), 
+            list: z.array(z.string()), 
+          })
+        ),
+      })
+    ),
+  }),
+});
 
   export const projectsCollection = {
     proyectos: defineCollection({
@@ -73,7 +99,7 @@ const homeCollection = defineCollection({
   });
   
   export const collections = {
-    //home: homeCollection,
+    home: homeCollection,
     proyectos: projectsCollection,
     estudio: studioCollection,
     contacto: contactCollection,

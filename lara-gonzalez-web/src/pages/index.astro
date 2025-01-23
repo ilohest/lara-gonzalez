@@ -1,23 +1,189 @@
 ---
+import Heading from '@lara/components/Heading/Heading';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { Collapse } from '@lara/components/Collapse/Collapse';
+import { Card } from '@lara/components/Card/Card';
 
-const home = await getCollection('index');
+const home = await getCollection('home');
+//console.log(home)
+
+const { title, headerImage, intro, gallery, creativitySection, services } = home[0].data; 
 
 ---
 
-<Layout title="Bienvenida | Lara González" description=''>
-		{		
-			home.map(home => {
-				const { data } = home
-				const { title, description } = data
-
-				return (
-					<article>
-						{title}
-						{description}
-					</article>
-				)
-			})
-		}
+<Layout title="Bienvenida | Lara González" description="">
+	<div class="hero">
+		<Heading tag="h1" size="xl">{title}</Heading>
+		<img src={headerImage} alt="Lara Gonzalez hero image" />
+	</div>
+	<section>
+		<Heading tag="h2" size="lg">{intro.subtitle}</Heading>
+		<p>{intro.description}</p>
+	</section>
+	
+	<section class="js-home-slider home__image-slider">
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				{gallery.map((image) => {
+					return(
+						<div class="swiper-slide">
+							{<img src={image} />}
+						</div>
+					)	
+				})}
+			</div>
+			<div class="swiper-navigation">
+				<button class="swiper-navigation--prev" title="Foto anterior">
+				<svg
+					width="36"
+					height="36"
+					viewBox="0 0 36 36"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+					d="M14.7984 18.1195L20.9484 11.9695L19.9984 10.9695L12.8484 18.1195L19.9984 25.2695L20.9484 24.2695L14.7984 18.1195ZM17.9897 0.719535C20.3955 0.719535 22.6577 1.17605 24.7763 2.08908C26.895 3.00215 28.7379 4.24129 30.3051 5.80649C31.8723 7.37172 33.1129 9.2123 34.0271 11.3282C34.9413 13.4442 35.3984 15.705 35.3984 18.1108C35.3984 20.5166 34.9419 22.7788 34.0289 24.8974C33.1158 27.0161 31.8767 28.859 30.3115 30.4261C28.7463 31.9933 26.9057 33.234 24.7897 34.1482C22.6738 35.0624 20.4129 35.5195 18.0071 35.5195C15.6013 35.5195 13.3391 35.063 11.2205 34.15C9.10191 33.2369 7.25901 31.9978 5.69184 30.4326C4.12464 28.8673 2.88394 27.0268 1.96974 24.9108C1.05554 22.7949 0.598444 20.534 0.598444 18.1282C0.598444 15.7224 1.05496 13.4602 1.96799 11.3416C2.88106 9.223 4.12019 7.38008 5.68539 5.81288C7.25063 4.24572 9.09121 3.00503 11.2071 2.09083C13.3231 1.17663 15.5839 0.719534 17.9897 0.719535ZM17.9984 2.11953C13.5318 2.11953 9.74844 3.66953 6.64844 6.76953C3.54844 9.86953 1.99844 13.6529 1.99844 18.1195C1.99844 22.5862 3.54844 26.3695 6.64844 29.4695C9.74844 32.5695 13.5318 34.1195 17.9984 34.1195C22.4651 34.1195 26.2484 32.5695 29.3484 29.4695C32.4484 26.3695 33.9984 22.5862 33.9984 18.1195C33.9984 13.6529 32.4484 9.86953 29.3484 6.76953C26.2484 3.66953 22.4651 2.11953 17.9984 2.11953Z"
+					fill="black"
+					/>
+				</svg>
+				</button>
+				<button class="swiper-navigation--next" title="Siguiente foto">
+				<svg
+					width="36"
+					height="36"
+					viewBox="0 0 36 36"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+					d="M21.2016 18.1227L15.0516 24.2727L16.0016 25.2727L23.1516 18.1227L16.0016 10.9727L15.0516 11.9727L21.2016 18.1227ZM18.0103 35.5227C15.6045 35.5227 13.3423 35.0661 11.2237 34.1531C9.10503 33.24 7.26211 32.0009 5.69491 30.4357C4.12775 28.8705 2.88706 27.0299 1.97286 24.914C1.05866 22.798 0.601563 20.5372 0.601563 18.1314C0.601563 15.7256 1.05808 13.4634 1.97111 11.3448C2.88418 9.22612 4.12331 7.38322 5.68851 5.81605C7.25375 4.24885 9.09433 3.00816 11.2103 2.09396C13.3262 1.17976 15.5871 0.722656 17.9929 0.722656C20.3987 0.722656 22.6609 1.17917 24.7795 2.09221C26.8981 3.00527 28.741 4.24441 30.3082 5.80961C31.8754 7.37484 33.1161 9.21542 34.0303 11.3314C34.9445 13.4473 35.4016 15.7082 35.4016 18.114C35.4016 20.5198 34.945 22.782 34.032 24.9006C33.1189 27.0192 31.8798 28.8621 30.3146 30.4293C28.7494 31.9965 26.9088 33.2372 24.7929 34.1514C22.6769 35.0656 20.4161 35.5227 18.0103 35.5227ZM18.0016 34.1227C22.4682 34.1227 26.2516 32.5727 29.3516 29.4727C32.4516 26.3727 34.0016 22.5893 34.0016 18.1227C34.0016 13.656 32.4516 9.87266 29.3516 6.77266C26.2516 3.67266 22.4682 2.12266 18.0016 2.12266C13.5349 2.12266 9.75156 3.67266 6.65156 6.77266C3.55156 9.87266 2.00156 13.656 2.00156 18.1227C2.00156 22.5893 3.55156 26.3727 6.65156 29.4727C9.75156 32.5727 13.5349 34.1227 18.0016 34.1227Z"
+					fill="black"
+					/>
+				</svg>
+				</button>
+			</div>
+		</div>
+	</section>
+	
+	<section>
+		<Heading tag="h3" size="lg">{creativitySection.heading}</Heading>
+		<Heading tag="h4" size="md">{creativitySection.subheading}</Heading>
+		<img src={creativitySection.image} alt="Creatividad y estrategia imagen" />
+	</section>
+	
+	<section class="home__services">
+		<Heading tag="h2" size="xl">{creativitySection.subheading}</Heading>
+			{services.map((service) => (
+			<>
+			<Collapse
+				heading={service.category}
+				hasCTA={true}
+				CTA={service.button}
+				headingTag="h3"
+				subsHeaderHeight={true}
+				client:load
+			>
+				{service.steps.map((step, i) => (
+					<Card card={step} index={i}></Card>
+				))}
+			</Collapse>
+			</>
+		))}
+	</section>
 </Layout>
+
+<style lang="scss">
+	@use "dawuti" as *;
+
+.home{
+	&__image-slider {
+		margin-top: calc(var(--s) * 10);
+		.swiper {
+		  &-navigation {
+			margin-top: calc(var(--s) * 4);
+			margin-right: calc(var(--s) * 4);
+			display: flex;
+			justify-content: flex-end;
+			column-gap: calc(var(--s) * 3);
+			&--prev,
+			&--next {
+			  cursor: pointer;
+			  display: inline-block;
+			  svg,
+			  path {
+				transition: fill 0.2s linear;
+			  }
+  
+			  &:active,
+			  &:hover,
+			  &:focus-visible {
+				outline: none;
+				svg {
+				  background-color: var(--color-light);
+				  border-radius: 100%;
+				  padding: 1px;
+				}
+				svg path {
+				  fill: var(--color-primary);
+				}
+			  }
+			}
+		  }
+  
+		  &-wrapper {
+			.swiper-slide {
+			  height: auto;
+			  width: auto;
+			  :global(.image img) {
+				height: 500px;
+				width: auto;
+				@include mq-lg {
+				  height: 570px;
+				}
+			  }
+			}
+		  }
+		}
+	}
+
+	&__services{
+		&-header{
+			display:flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}
+</style>
+
+<script>
+	import Swiper from 'swiper';
+	import 'swiper/css';
+
+	const swiper = new Swiper('.js-home-slider .swiper', {
+		loop: true,
+		slidesPerView: 'auto',
+		spaceBetween: 0,
+		height: 647,
+		slidesOffsetBefore: 15,
+		// freeMode: false,
+		// autoplay: false,
+		allowSlidePrev: true,
+		allowSlideNext: true,
+		simulateTouch: true,
+	});
+
+	const prevEls = Array.from(document.querySelectorAll('.swiper-navigation--prev')) || [];
+	const nextEls = Array.from(document.querySelectorAll('.swiper-navigation--next')) || [];
+
+	prevEls.forEach((prev) => {
+		prev.addEventListener('click', () => {
+		swiper.slidePrev();
+		});
+	});
+
+	nextEls.forEach((next) => {
+		next.addEventListener('click', () => {
+		swiper.slideNext();
+		});
+	});
+</script>

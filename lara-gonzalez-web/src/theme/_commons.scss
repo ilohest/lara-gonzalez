@@ -27,6 +27,12 @@ button {
   @include f('base');
 }
 
+a{
+  text-decoration: none;
+  text-transform: uppercase;
+  @include f('base',400);
+}
+
 main {
   position: relative;
   z-index: 1;

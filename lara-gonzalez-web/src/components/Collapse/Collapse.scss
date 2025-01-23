@@ -1,0 +1,28 @@
+@use "dawuti" as *;
+
+.collapse {
+  --exp-height: 0;
+
+  &__header{
+    @include f('lg', 300);
+    border-top: 1px solid var(--color-dark);
+    padding: var(--s6) 0;
+  }
+
+  &__heading{
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+  }
+
+  &__content {
+    overflow: hidden;
+    height: var(--exp-height);
+    transition: all .3s cubic-bezier(0.17, 0.17, 0.2, 1);
+
+    &-inner{
+      display: flex;
+      gap: var(--s3);
+    }
+  }
+}

@@ -31,40 +31,14 @@ const Header = ({
   return (
     <>
       <header className="wrapper-fluid">
-        {/* <a
-          className={`header__logotype header__logotype--mobile header__logotype--main}`}
-          aria-label="Ir a la página de inicio"
-          href="/"
-        >
-
-            <img
-              src={mainLogo.src}
-              width={176}
-              height={63}
-              alt="Lara González logo"
-            />
-          
-        </a> */}
         <nav className="header__main-nav">
-          <a className="header__main-nav--item" aria-label="Ir a página principal" href="/">
+          <a className="button--link header__main-nav--item" aria-label="Ir a página principal" href="/">
             Lara González
           </a>
-          {/* <a
-            className={`header__logotype header__logotype--main`}
-            aria-label="Ir a la página de inicio"
-            href="/"
-          >
-            <img
-              src={mainLogo.src}
-              width={176}
-              height={63}
-              alt="Lara González logo"
-            />
-          </a> */}
-          <a className="header__main-nav--item" aria-label="Ir a página de proyectos" href="/proyectos">
+          <a className="button--link header__main-nav--item" aria-label="Ir a página de proyectos" href="/proyectos">
             Proyectos
           </a>
-          <a className="header__main-nav--item" aria-label="Ir a página del estudio" href="/el-estudio">
+          <a className="button--link header__main-nav--item" aria-label="Ir a página del estudio" href="/el-estudio">
             El estudio
           </a>
           <a className="button button--link button--dark" aria-label="Ir a página de contacto" href="/contacto">

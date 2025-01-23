@@ -48,7 +48,7 @@ const Heading = ({
   headingFontWeight = headingFontWeight || 'inherit';
 
   const headingStyle = {
-    '--heading-font-variation-settings': headingFontWeight,
+    '--heading-font-variation-settings': headingFontWeight !,
   };
 
   const Tag = tag as keyof JSX.IntrinsicElements;

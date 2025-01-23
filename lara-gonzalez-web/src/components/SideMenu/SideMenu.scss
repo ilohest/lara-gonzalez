@@ -41,10 +41,6 @@
         a {
             display: block;
         }
-
-        &--phone {
-            margin-top: calc(var(--s) * 1);
-        }
     }
 
     &__social {
@@ -64,6 +60,7 @@
     .button-side-menu-close {
         width: calc(var(--s) * 6);
         align-self: flex-end;
+        cursor: pointer;
     }
 
     .side-menu__nav {

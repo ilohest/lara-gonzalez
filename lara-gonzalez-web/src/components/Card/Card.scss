@@ -1,0 +1,50 @@
+@use "dawuti" as *;
+
+.card {
+  padding: var(--s4);
+  border: 1px solid var(--color-dark);
+  height: 100%;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+  .inner-top {
+
+    &__number {
+
+    }
+    &__title {
+
+    }
+    &__description {
+
+    }
+  }
+  .inner-bottom {
+    &__list {
+      list-style-type: none;
+      padding: 0;
+
+      .list-item {
+        position: relative;
+        @include f("base", 300);
+        &:not(:last-child) {
+          padding-bottom: var(--s);
+        }
+        &::after {
+          // content: "";
+          // display: block;
+          // position: relative;
+          // margin-top: var(--s);
+          // height: 1px;
+          // width: 100%;
+          // background: linear-gradient(
+          //   90deg,
+          //   #ffff19 0%,
+          //   rgba(255, 255, 25, 0) 100%
+          // );
+        }
+      }
+    }
+  }
+}
