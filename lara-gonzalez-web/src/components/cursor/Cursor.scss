@@ -1,0 +1,23 @@
+//@import '@lara/theme/mixins';
+@use "dawuti" as *;
+.wip-2023-cursor{
+  position: fixed;
+  z-index: 30;
+  pointer-events: none;
+  display: none;
+  transition: transform linear;
+  @include mq(768px) {
+    display: block;
+    opacity: 0;
+    &.not-allowed{
+        filter:grayscale(1);
+    }
+  }
+
+  // @for $i from 0 through 5 {
+  //   &.cursor-#{$i}{transition-duration: #{$i * 50}ms; }
+  // }
+
+
+
+}

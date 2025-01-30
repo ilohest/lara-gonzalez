@@ -3,6 +3,7 @@ import "@lara/theme/theme.scss";
 import { ClientRouter } from 'astro:transitions';
 import Header from "./Header";
 import Footer from "./Footer.astro";
+import Cursor from "@lara/components/cursor/Cursor";
 
 interface Props {
 	title: string;
@@ -61,7 +62,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		/>	
 			<main class="wrapper-fluid">		
 				<slot />
-				<!-- <Cursor client:load></Cursor> -->
+				<Cursor hidden={false} notAllowed={false} client:load></Cursor>
 			</main>		
 		<Footer addresses="" rrss=""/>
 
