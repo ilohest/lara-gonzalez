@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import mainLogo from "../assets/images/logo.svg";
-import altLogo from "../assets/images/logo.svg";
 import menuLogo from "../assets/icons/menu.svg";
 
 

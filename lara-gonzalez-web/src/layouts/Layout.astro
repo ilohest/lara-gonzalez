@@ -53,13 +53,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<ClientRouter />
 	</head>
 	<body>
+		
 		<Header
 			email="contacto@laragonzalez.com"
 			logoType="main"
 	  		client:load 
 		/>	
-			<main class="wrapper-fluid">
+			<main class="wrapper-fluid">		
 				<slot />
+				<!-- <Cursor client:load></Cursor> -->
 			</main>		
 		<Footer addresses="" rrss=""/>
 

@@ -75,14 +75,14 @@ button {
       padding-bottom: 0.2rem;
       overflow: hidden;
     
-      &:hover::after,
-      &:focus::after {
-        opacity: 1;
-        transition:
-          opacity 0.3s,
-          transform 0.3s;
-        transform: translate3d(0, 0, 0);
-      }
+      // &:hover::after,
+      // &:focus::after {
+      //   opacity: 1;
+      //   transition:
+      //     opacity 0.3s,
+      //     transform 0.3s;
+      //   transform: translate3d(0, 0, 0);
+      // }
     
       &:after {
         content: "";

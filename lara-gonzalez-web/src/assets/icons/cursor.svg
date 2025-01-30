@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- Aumentamos el brillo y el difuso -->
+      <feComponentTransfer in="SourceAlpha">
+        <feFuncA type="table" tableValues="0 1" />
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="6" result="blurred" /> <!-- Aumentamos el difuso -->
+      <feFlood flood-color="rgba(0, 0, 255, 0.8)" result="color" /> <!-- Sombra más fuerte -->
+      <feComposite in2="blurred" operator="in" />
+      <feComposite in2="SourceAlpha" operator="in" />
+    </filter>
+  </defs>
+
+  <!-- Círculo más grande con una sombra más intensa -->
+  <circle cx="32" cy="32" r="24" fill="rgba(0, 0, 255, 0.3)" filter="url(#glow)" />
+</svg>

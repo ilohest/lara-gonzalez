@@ -39,6 +39,9 @@ const { Content } = await render(estudio[0])
 				</li>
 			))}
 			</ul>
+			{quotes.cta &&
+				<a class="button button--link button--dark" href={quotes.cta.url}>{quotes.cta.text}</a>
+			}
 		</section>
 		{marquee &&
 		<Marquee link={marquee.url} client:load>

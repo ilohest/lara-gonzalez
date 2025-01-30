@@ -72,6 +72,10 @@ const homeCollection = defineCollection({
       quotes: z.object({
         heading: z.string(),
         items: z.array(z.string()),
+        cta: z.object({
+          text: z.string(),
+          url: z.string(),
+        }),
       }),
       marquee: z.object({
         text: z.string(),

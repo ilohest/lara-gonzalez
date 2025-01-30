@@ -12,6 +12,9 @@ quotes:
     - "La creatividad no tiene límites."
     - "Valoras la creatividad, la innovación y el diseño."
     - "Crees que hay vida más allá de un logotipo y buscas crear una marca duradera."
+  cta:
+    text: '¿Hablamos?'
+    url: '/contacto'
 marquee:
   text: 'proyectos'
   url: '/proyectos'
