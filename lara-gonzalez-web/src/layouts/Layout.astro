@@ -4,6 +4,8 @@ import { ClientRouter } from 'astro:transitions';
 import Header from "./Header";
 import Footer from "./Footer.astro";
 import Cursor from "@lara/components/cursor/Cursor";
+import Hero from "@lara/components/hero/Hero";
+import Wrapper from "@lara/components/wrapper/HeaderWrapper";
 
 interface Props {
 	title: string;
@@ -11,8 +13,14 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const email = "contacto@laragonzalez.com";
+const address = { name: "Bilbao", address: "", phone: "" };
+const rrss = [
+  { platform: "LinkedIn", url: "https://www.linkedin.com" },
+  { platform: "Instagram", url: "https://www.instagram.com" },
+];
 ---
 
 <!doctype html>
@@ -49,22 +57,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			name="twitter:image"
 			content="/static-images/share.jpg"; 
 		/>
-
-		<!-- Transiciones entre ruras -->
 		<ClientRouter />
 	</head>
 	<body>
-		
-		<Header
-			email="contacto@laragonzalez.com"
-			logoType="main"
-	  		client:load 
-		/>	
-			<main class="wrapper-fluid">		
-				<slot />
-				<Cursor hidden={false} notAllowed={false} client:load></Cursor>
-			</main>		
+		<main>		
+			<slot />
+			<Cursor hidden={false} notAllowed={false} client:load></Cursor>
+		</main>		
 		<Footer addresses="" rrss=""/>
-
 	</body>
 </html>

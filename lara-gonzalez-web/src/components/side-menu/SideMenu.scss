@@ -5,8 +5,8 @@
     width: 100vw;
     height: 100vh;
     z-index: 10;
-    background-color: var(--color-primary);
-    color: var(--color-primary-contrast);
+    background-color: var(--color-text);
+    color: var(--color-text-contrast);
     border: none;
     padding: calc(var(--s) * 3) var(--safe-area, 15px) calc(var(--s) * 5);
 
@@ -90,7 +90,7 @@
         a {
             @include f('lg', 400, true);
             font-family: var(--font-primary);
-            color: var(--color-primary-contrast);
+            color: var(--color-text-contrast);
         }
     }
 
@@ -105,7 +105,7 @@
             a {
                 @include f('sm', 400, true);
                 font-family: var(--font-primary);
-                color: var(--color-primary-contrast);
+                color: var(--color-text-contrast);
 
                 @include mq-sm {
                     @include f('sm', 400, true);

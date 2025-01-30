@@ -60,7 +60,7 @@ const CollapseInner = ({ heading, headingTag, hasCTA, CTA, icon, children, onCha
         heading
       )}
       {hasCTA && CTA && (
-        <a className="button button--link button--dark" href={CTA.link}>
+        <a className="button button--dark" href={CTA.link}>
           {CTA.text}
         </a>
       )}

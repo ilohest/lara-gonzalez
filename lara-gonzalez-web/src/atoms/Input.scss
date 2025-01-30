@@ -11,7 +11,7 @@ input,
 textarea {
     @include f('input', 400, true);
     font-family: var(--font-secondary);
-    color: var(--color-primary);
+    color: var(--color-text);
     background-color: transparent;
     &::placeholder {
         @include f('input', 400, true);
@@ -22,7 +22,7 @@ textarea {
 input, textarea {
     &:focus, &:focus-visible {
         outline: none;
-        background-color: var(--color-primary-contrast)!important;
+        background-color: var(--color-text-contrast)!important;
     }
 }
 
@@ -62,12 +62,12 @@ textarea {
             position: relative;
             width: 100%;
             border: none;
-            border-bottom: 1px solid var(--color-primary);
+            border-bottom: 1px solid var(--color-text);
             background-color: transparent;
             padding: calc(var(--s) * 1);
             &:focus,
             &:focus-visible {
-                background:linear-gradient(to top,var(--color-primary) 1px,transparent 0);
+                background:linear-gradient(to top,var(--color-text) 1px,transparent 0);
             }
         }
     }
@@ -270,7 +270,7 @@ textarea {
                 }   
                 &:focus,
                 &:focus-visible {
-                background:linear-gradient(to top,var(--color-primary) 1px,transparent 0);
+                background:linear-gradient(to top,var(--color-text) 1px,transparent 0);
                 }
             }
         }
@@ -296,7 +296,7 @@ textarea {
             a {
                 cursor: pointer;
                 text-decoration: underline;
-                color: var(--color-primary);
+                color: var(--color-text);
                 transition: color .15s linear;
                 &:hover, &:focus, &:focus-visible {
                     outline: 1px solid var(--color-grey-800);

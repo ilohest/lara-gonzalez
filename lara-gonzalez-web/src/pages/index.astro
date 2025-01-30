@@ -1,30 +1,22 @@
 ---
 import Heading from '@lara/components/heading/Heading';
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { Collapse } from '@lara/components/collapse/Collapse';
-import Card from '@lara/components/card/Card';
-
-
+import { Card } from '@lara/components/card/Card';
+import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 
 const home = await getCollection('home');
 //console.log(home)
+const { title, hero, projectsSection, services } = home[0].data; 
+const { Content } = await render(home[0])
 
-const { title, headerImage, intro, gallery, creativitySection, services } = home[0].data; 
 
 ---
 
 <Layout title="Bienvenida | Lara González" description="">
-	<div class="hero">
-		<Heading tag="h1" size="xl">{title}</Heading>
-		<img src={headerImage} alt="Lara Gonzalez hero image" />
-	</div>
-	<section>
-		<Heading tag="h2" size="lg">{intro.subtitle}</Heading>
-		<p>{intro.description}</p>
-	</section>
-	
-	<section class="js-home-slider home__image-slider">
+	<WrapperHeader hero={hero}  client:load />	
+	<!-- <section class="js-home-slider home__image-slider">
 		<div class="swiper">
 			<div class="swiper-wrapper">
 				{gallery.map((image) => {
@@ -64,30 +56,33 @@ const { title, headerImage, intro, gallery, creativitySection, services } = home
 				</button>
 			</div>
 		</div>
+	</section> -->
+	
+	<section class="home__projects-section wrapper-fluid">
+		<Content></Content>
+		<!-- <Heading tag="h3" size="lg">{projectsSection.title}</Heading> -->
+		<img src={projectsSection.imageLg} alt="Creatividad y estrategia imagen" />
+		<img src={projectsSection.imageSm} alt="Creatividad y estrategia imagen" />
+		<div class="actions-wrapper actions-wrapper--center">
+		 	<a class="button button--dark" href={projectsSection.cta.url}>{projectsSection.cta.text}</a>
+		</div>
 	</section>
 	
-	<section>
-		<Heading tag="h3" size="lg">{creativitySection.heading}</Heading>
-		<Heading tag="h4" size="md">{creativitySection.subheading}</Heading>
-		<img src={creativitySection.image} alt="Creatividad y estrategia imagen" />
-	</section>
-	
-	<section class="home__services">
-		<Heading tag="h2" size="xl">{creativitySection.subheading}</Heading>
+	<section class="home__services-section wrapper-fluid">
 			{services.map((service) => (
 			<>
-			<Collapse
-				heading={service.category}
-				hasCTA={true}
-				CTA={service.button}
-				headingTag="h3"
-				subsHeaderHeight={true}
-				client:load
-			>
-				{service.steps.map((step, i) => (
-					<Card card={step} index={i}></Card>
-				))}
-			</Collapse>
+				<Collapse
+					heading={service.category}
+					hasCTA={true}
+					CTA={service.button}
+					headingTag="h3"
+					subsHeaderHeight={true}
+					client:load
+				>
+					{service.steps.map((step, i) => (
+						<Card card={step} index={i}></Card>
+					))}
+				</Collapse>
 			</>
 		))}
 	</section>
@@ -97,55 +92,55 @@ const { title, headerImage, intro, gallery, creativitySection, services } = home
 	@use "dawuti" as *;
 
 .home{
-	&__image-slider {
-		margin-top: calc(var(--s) * 10);
-		.swiper {
-		  &-navigation {
-			margin-top: calc(var(--s) * 4);
-			margin-right: calc(var(--s) * 4);
-			display: flex;
-			justify-content: flex-end;
-			column-gap: calc(var(--s) * 3);
-			&--prev,
-			&--next {
-			  cursor: pointer;
-			  display: inline-block;
-			  svg,
-			  path {
-				transition: fill 0.2s linear;
-			  }
+	// &__image-slider {
+	// 	margin-top: calc(var(--s) * 10);
+	// 	.swiper {
+	// 	  &-navigation {
+	// 		margin-top: calc(var(--s) * 4);
+	// 		margin-right: calc(var(--s) * 4);
+	// 		display: flex;
+	// 		justify-content: flex-end;
+	// 		column-gap: calc(var(--s) * 3);
+	// 		&--prev,
+	// 		&--next {
+	// 		  cursor: pointer;
+	// 		  display: inline-block;
+	// 		  svg,
+	// 		  path {
+	// 			transition: fill 0.2s linear;
+	// 		  }
   
-			  &:active,
-			  &:hover,
-			  &:focus-visible {
-				outline: none;
-				svg {
-				  background-color: var(--color-light);
-				  border-radius: 100%;
-				  padding: 1px;
-				}
-				svg path {
-				  fill: var(--color-primary);
-				}
-			  }
-			}
-		  }
+	// 		  &:active,
+	// 		  &:hover,
+	// 		  &:focus-visible {
+	// 			outline: none;
+	// 			svg {
+	// 			  background-color: var(--color-light);
+	// 			  border-radius: 100%;
+	// 			  padding: 1px;
+	// 			}
+	// 			svg path {
+	// 			  fill: var(--color-text);
+	// 			}
+	// 		  }
+	// 		}
+	// 	  }
   
-		  &-wrapper {
-			.swiper-slide {
-			  height: auto;
-			  width: auto;
-			  :global(.image img) {
-				height: 500px;
-				width: auto;
-				@include mq-lg {
-				  height: 570px;
-				}
-			  }
-			}
-		  }
-		}
-	}
+	// 	  &-wrapper {
+	// 		.swiper-slide {
+	// 		  height: auto;
+	// 		  width: auto;
+	// 		  :global(.image img) {
+	// 			height: 500px;
+	// 			width: auto;
+	// 			@include mq-lg {
+	// 			  height: 570px;
+	// 			}
+	// 		  }
+	// 		}
+	// 	  }
+	// 	}
+	// }
 
 	&__services{
 		&-header{
@@ -157,7 +152,7 @@ const { title, headerImage, intro, gallery, creativitySection, services } = home
 }
 </style>
 
-<script>
+<!-- <script>
 	import Swiper from 'swiper';
 	import 'swiper/css';
 
@@ -188,4 +183,4 @@ const { title, headerImage, intro, gallery, creativitySection, services } = home
 		swiper.slideNext();
 		});
 	});
-</script>
+</script> -->

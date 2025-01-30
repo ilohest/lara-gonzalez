@@ -2,21 +2,29 @@ import { defineCollection, z } from "astro:content";
 // z --> zod schema validador
 // Contenido como Markdown (type: 'content') o formatos de datos como JSON o YAML (type: 'data').
 
-
 const homeCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(), 
-    headerImage: z.string(), 
-    intro: z.object({
-      subtitle: z.string(), 
-      description: z.string().optional(), 
+    hero: z.object({
+      title: z.string(), 
+      subtitle: z.string(),
+      gallery: z.array(z.string()),
     }),
-    gallery: z.array(z.string()), 
-    creativitySection: z.object({
-      heading: z.string(), 
-      subheading: z.string(),
-      image: z.string(), 
+    // headerImage: z.string().optional(), 
+    // intro: z.object({
+    //   subtitle: z.string(), 
+    //   description: z.string().optional(), 
+    // }),
+    // gallery: z.array(z.string()), 
+    projectsSection: z.object({
+      title: z.string(), 
+      imageLg: z.string(), 
+      imageSm: z.string(),
+      cta: z.object({
+        text: z.string(),
+        url: z.string(),
+      }),
     }),
     services: z.array(
       z.object({
@@ -67,8 +75,13 @@ const homeCollection = defineCollection({
     type: 'content',
     schema: z.object({
       title: z.string(),
-      headerImage: z.string(),
-      images: z.array(z.string()),
+      // headerImage: z.string().optional(),
+      hero: z.object({
+        title: z.string(), 
+        subtitle: z.string(),
+        gallery: z.array(z.string()),
+      }),
+      gallery: z.array(z.string()),
       quotes: z.object({
         heading: z.string(),
         items: z.array(z.string()),

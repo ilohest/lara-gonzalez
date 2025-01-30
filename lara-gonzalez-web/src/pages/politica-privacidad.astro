@@ -1,5 +1,6 @@
 ---
 import Heading from "@lara/components/heading/Heading";
+import WrapperHeader from "@lara/components/wrapper/HeaderWrapper";
 import Layout from "@lara/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 
@@ -14,6 +15,7 @@ const { Content } = await render(privacy[0])
   title="Política privacidad | Lara González"
   description=""
 >
+<WrapperHeader client:load />
   <Heading tag="h1" size="lg">
       {title}
   </Heading>

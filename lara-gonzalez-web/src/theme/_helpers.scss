@@ -1,0 +1,35 @@
+@use "dawuti" as *;
+@include display-helpers();
+
+.actions-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--s) * 3);
+  justify-content: center;
+  @include mq-sm {
+    justify-content: flex-start;
+  }
+
+  &--start {
+    justify-content: flex-start;
+  }
+  
+  &--center {
+    @include mq-sm {
+      justify-content: center;
+    }
+  }
+  &--column{
+    flex-direction: column;
+    align-items: center;
+    @include mq-md {
+      align-items: start;
+    }
+  }
+}
+
+.list {
+  &--unstyled {
+    list-style: none;
+  }
+}

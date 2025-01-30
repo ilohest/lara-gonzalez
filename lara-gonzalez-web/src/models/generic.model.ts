@@ -17,14 +17,12 @@ export interface General {
 }
 
 export interface RSModel {
-  name: string;
-  link: string;
+  platform: string;
+  url: string;
 }
 
 export interface AddressModel {
   name: string;
   address: string;
-  link: string;
   phone: string;
-  main: boolean;
 }

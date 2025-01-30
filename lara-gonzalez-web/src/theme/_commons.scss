@@ -14,6 +14,7 @@ html {
   line-height: var(--html-line-height);
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  color: var(--color-text);
 }
 
 * {
@@ -31,6 +32,7 @@ a{
   text-decoration: none;
   text-transform: uppercase;
   @include f('base',400);
+  color: var(--color-text);
 }
 
 main {

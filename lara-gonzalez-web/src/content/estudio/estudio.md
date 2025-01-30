@@ -1,7 +1,14 @@
 ---
 title: "El Estudio"
-headerImage: "/static-images/estudio-header.png"
-images:
+#headerImage: "/static-images/estudio-header.png"
+hero:
+  title: Branding
+  subtitle: Studio
+  gallery: 
+    # - "/static-images/lara-gonzalez-8.jpg"
+    # - "/static-images/lara-gonzalez-7.jpg"
+    - "/static-images/lara-gonzalez-6.jpg"
+gallery:
   - "/static-images/lara-gonzalez-1.jpg"
   - "/static-images/lara-gonzalez-2.jpg"
   - "/static-images/lara-gonzalez-3.jpg"

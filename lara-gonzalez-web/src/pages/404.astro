@@ -1,10 +1,12 @@
 ---
+import WrapperHeader from "@lara/components/wrapper/HeaderWrapper";
 import Layout from "@lara/layouts/Layout.astro";
 
 
 ---
 
 <Layout title="Página no encontrada | Lara González" description="Página no encontrada">
+    <WrapperHeader client:load />
     <section class="error-404__wrapper">
         <p class="error-404__desc">Oh! Algo ha fallado.</p>
         <a class="error-404__link" href="/">Volver</a>

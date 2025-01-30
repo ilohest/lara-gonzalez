@@ -23,21 +23,18 @@ $sv: div(6, 16);
   --gutter: calc(var(--gap) / 2);
 
   // Colors
-  --color-primary: #000000;
-  --color-primary-rgb: 0,0,0;
-  --color-primary-contrast: #ffffff;
-  --color-primary-contrast-rgb: 255,
-  255,
-  255;
+  --color-primary: #597ed9;
+  --color-primary-contrast: #000;
+  --color-secondary: #eca650;
+  --color-secondary-contrast: #000;
+  --color-tertiary: #e64939;
+  --color-tertiary-contrast: #000;
 
-  --color-error: #A90909; //TODO
-  --color-error-bg: #FEE7E7; //TODO
+  --color-dark: #000;
+  --color-light: #fff;
 
-  --color-success: #0DA137; //TODO
-  --color-success-bg: #D4FFDE; //TODO
-
-  --color-dark: var(--color-primary);
-  --color-light: var(--color-primary-contrast);
+  --color-text: var(--color-dark);
+  --color-text-contrast: var(--color-light);
 
 // Grid cols
 & {

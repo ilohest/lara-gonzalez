@@ -4,14 +4,17 @@ import Layout from '@lara/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import 'swiper/css';
 import Heading from '@lara/components/heading/Heading';
-import ImageWrapper from '@lara/components/image-wrapper/ImageWrapper.astro';
+import ImageWrapper from '@lara/components/wrapper/ImageWrapper.astro';
+import Wrapper from '@lara/components/wrapper/HeaderWrapper';
+import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 
 const proyectos = await getCollection('proyectos');
 //console.log(proyectos);
-const { pageTitle, anchors, projects } = proyectos[0].data; 
+const { pageTitle, hero, anchors, projects } = proyectos[0].data; 
 ---
 
 <Layout title="Proyectos | Lara González" description="">
+	<WrapperHeader hero={hero}  client:load />
 	<section>
 		<Heading tag="h1" size="xxl">
 			{pageTitle}
@@ -19,7 +22,7 @@ const { pageTitle, anchors, projects } = proyectos[0].data;
 	  
 		<div class="projects-header-list">
 		  {anchors.map((anchor: any) => (
-			<a href={`#${anchor.toLowerCase().replace(/\s+/g, '-')}`} >{anchor}</a>
+			<a class="button--link"href={`#${anchor.toLowerCase().replace(/\s+/g, '-')}`} >{anchor}</a>
 		  ))}
 		</div>
 	  
@@ -147,7 +150,7 @@ const { pageTitle, anchors, projects } = proyectos[0].data;
 				  padding: 1px;
 				}
 				svg path {
-				  fill: var(--color-primary);
+				  fill: var(--color-text);
 				}
 			  }
 			}

@@ -1,18 +1,28 @@
 ---
-title: "Lara González Estudio"
-headerImage: "/static-images/lara-gonzalez-hero.png"
-intro:
-  subtitle: "Estudio de branding y social media."
-  #description: "Tu marca merece ser vista y recordada."
-gallery:
-  - "/static-images/lara-gonzalez-8.jpg"
-  - "/static-images/lara-gonzalez-7.jpg"
-  - "/static-images/lara-gonzalez-6.jpg"
-  - "/static-images/lara-gonzalez-5.jpg"
-creativitySection:
-  heading: "Creatividad & estrategia"
-  subheading: "Tu marca merece ser vista y recordada."
-  image: "/static-images/creatividad-y-estrategia.png"
+title: "Branding Studio"
+#headerImage: "/static-images/lara-gonzalez-hero.png"
+hero:
+  title: Branding
+  subtitle: Studio
+  gallery: 
+    - "/static-images/lara-gonzalez-8.jpg"
+    # - "/static-images/lara-gonzalez-7.jpg"
+    # - "/static-images/lara-gonzalez-6.jpg"
+# intro:
+#   subtitle: "Estudio de branding y social media."
+#   description: "Tu marca merece ser vista y recordada."
+# gallery:
+#   - "/static-images/lara-gonzalez-8.jpg"
+#   - "/static-images/lara-gonzalez-7.jpg"
+#   - "/static-images/lara-gonzalez-6.jpg"
+#   - "/static-images/lara-gonzalez-5.jpg"
+projectsSection:
+  title: "Creatividad & estrategia"
+  imageLg: "/static-images/lara-gonzalez-1.jpg"
+  imageSm: "/static-images/lara-gonzalez-2.jpg"
+  cta:
+    text: "Proyectos"
+    url: "/proyectos"
 services:
   - category: "Branding"
     button:
@@ -71,3 +81,5 @@ services:
           - "Diseño estructural"
           - "Prototipos de alta fidelidad"
 ---
+
+Creamos <u>marcas con personalidad</u> porque creemos que es la única forma de hacerlo.

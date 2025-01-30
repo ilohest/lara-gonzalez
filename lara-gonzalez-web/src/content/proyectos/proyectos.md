@@ -1,5 +1,12 @@
 ---
 pageTitle: "Proyectos"
+# hero:
+#   title: Branding
+#   subtitle: Studio
+#   gallery: 
+#     - "/static-images/lara-gonzalez-8.jpg"
+#     - "/static-images/lara-gonzalez-7.jpg"
+#     - "/static-images/lara-gonzalez-6.jpg"
 anchors:
   - Vermicelli
   - Francachella Estudio

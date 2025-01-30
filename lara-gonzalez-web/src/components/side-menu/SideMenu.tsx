@@ -58,7 +58,7 @@ const SideMenu = ({ open, setOpen, email, address, rrss }: Props) => {
             })}
           </div>
         )}
-        <a className="button button--link button--light" href="/contacto">
+        <a className="button button--light" href="/contacto">
           ¿Hablamos?
         </a>
       </div>

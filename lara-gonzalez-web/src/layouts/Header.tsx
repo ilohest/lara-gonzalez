@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import menuLogo from "../assets/icons/menu.svg";
-
-
 import "./Header.scss";
 import type { AddressModel, RSModel } from "@lara/models/generic.model";
 import SideMenu from "@lara/components/side-menu/SideMenu";
@@ -10,60 +8,34 @@ const Header = ({
   email,
   address,
   rrss,
+  backgroundColor,
+  textColor,
 }: {
   email: string | undefined;
   address?: AddressModel | undefined;
   rrss?: RSModel[] | undefined;
-  logoType?: "main" | "alt" | "white";
+  backgroundColor: string;
+  textColor: string;
 }) => {
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
-    }
-  });
-
   return (
-    <>
-      <header className="wrapper-fluid">
-        <nav className="header__main-nav">
-          <a className="button--link header__main-nav--item" aria-label="Ir a página principal" href="/">
-            Lara González
-          </a>
-          <a className="button--link header__main-nav--item" aria-label="Ir a página de proyectos" href="/proyectos">
-            Proyectos
-          </a>
-          <a className="button--link header__main-nav--item" aria-label="Ir a página del estudio" href="/el-estudio">
-            El estudio
-          </a>
-          <a className="button button--link button--dark" aria-label="Ir a página de contacto" href="/contacto">
-            ¿Hablamos?
-          </a>
-        </nav>
-        <button
-          title="Menu"
-          id="button-side-menu-open"
-          className="button-side-menu-open"
-          aria-expanded="false"
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          <img src={menuLogo.src} width={45} height={8} alt="Open menu" />
-
-        </button>
-      </header>
-      <SideMenu
-        open={open}
-        setOpen={setOpen}
-        email={email}
-        address={address}
-        rrss={rrss}
-      />
-    </>
+    <header className="wrapper-fluid" style={{ backgroundColor }}>
+      <nav className="header__main-nav" style={{ color: textColor }}>
+        <a className="button--link header__main-nav--item" href="/">Lara González</a>
+        <a className="button--link header__main-nav--item" href="/proyectos">Proyectos</a>
+        <a className="button--link header__main-nav--item" href="/el-estudio">El estudio</a>
+        <a className="button button--dark" href="/contacto">¿Hablamos?</a>
+      </nav>
+      <button
+        id="button-side-menu-open"
+        className="button-side-menu-open"
+        onClick={() => setOpen(true)}
+      >
+        <img src={menuLogo.src} width={45} height={8} alt="Open menu" />
+      </button>
+      <SideMenu open={open} setOpen={setOpen} email={email} address={address} rrss={rrss} />
+    </header>
   );
 };
 

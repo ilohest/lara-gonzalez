@@ -1,33 +1,36 @@
 ---
 import Heading from '@lara/components/heading/Heading';
 import Marquee from '@lara/components/marquee/Marquee';
+import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 import Layout from '@lara/layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 const estudio = await getCollection('estudio');
 //console.log(estudio)
 
-const { title, headerImage, images, quotes, marquee, footerImage } = estudio[0].data; 
+const { title, gallery, quotes, marquee, footerImage, hero } = estudio[0].data; 
 const { Content } = await render(estudio[0])
 
 
 ---
 <Layout title="El estudio | Lara González" description="">
+	<WrapperHeader hero={hero}  client:load />
 	<header>
 		<Heading tag="h1" size="lg" className='sr-only'>
 			{title}
 		</Heading>
-		<img src={headerImage} alt="Cabecera del estudio" />
+		<!-- <img src={headerImage} alt="Cabecera del estudio" /> -->
 	</header>
 	<article>
 		<!-- Reenderiza el markdown definido en el estudio.md -->
 		<Content></Content>
 
-		<div class="studio__images">
-			{images.map((image) => (
+		<!-- TODO: NEREA -->
+		<!-- <div class="studio__images">
+			{gallery.map((image) => (
 				<img src={image} alt="Imagen del estudio" />
 			))}
-		</div>
+		</div> -->
 		<section>
 			<Heading tag="h2" size="md">{quotes.heading}</Heading>
 			<ul>
@@ -40,7 +43,9 @@ const { Content } = await render(estudio[0])
 			))}
 			</ul>
 			{quotes.cta &&
-				<a class="button button--link button--dark" href={quotes.cta.url}>{quotes.cta.text}</a>
+				<div class="actions-wrapper actions-wrapper--center">
+					<a class="button button--dark" href={quotes.cta.url}>{quotes.cta.text}</a>
+				</div>
 			}
 		</section>
 		{marquee &&

@@ -16,16 +16,16 @@ button {
     width: fit-content;
     padding: calc(var(--s) * 1) calc(var(--s) * 3);
     @include f("base", 400, true);
-    color: var(--color-primary);
-    background-color: var(--color-primary-contrast);
+    color: var(--color-text);
+    background-color: var(--color-text-contrast);
     border-radius: var(--s6);
-    border: 1px solid var(--color-primary);
+    border: 1px solid var(--color-text);
     cursor: pointer;
     transition: all .15s linear;
 
     &:disabled {
-        background-color: var(--color-primary);
-        color: var(--color-primary-contrast);
+        background-color: var(--color-text);
+        color: var(--color-text-contrast);
         cursor: not-allowed;
         opacity: 0.7;
     }
@@ -33,9 +33,9 @@ button {
     // &:not(:disabled):hover,
     // &:not(:disabled):focus,
     // &:not(:disabled):focus-visible {
-    //     background-color: var(--color-primary);
-    //     color: var(--color-primary-contrast);
-    //     border-color: var(--color-primary);
+    //     background-color: var(--color-text);
+    //     color: var(--color-text-contrast);
+    //     border-color: var(--color-text);
     // }
   
     &--light {
@@ -46,23 +46,23 @@ button {
   
       &:hover,
       &:focus-visible {
-        border: 1px solid var(--color-primary);
-        color: var(--color-primary);
-        background-color: var(--color-primary-contrast);
+        border: 1px solid var(--color-text);
+        color: var(--color-text);
+        background-color: var(--color-text-contrast);
       }
     }
   
     &--dark {
-      border: 1px solid var(--color-primary);
-      color: var(--color-primary);
+      border: 1px solid var(--color-text);
+      color: var(--color-text);
       transition: all 0.15s linear;
   
       &:hover,
       &:focus,
       &:focus-visible {
-        border: 1px solid var(--color-primary);
-        color: var(--color-primary-contrast);
-        background-color: var(--color-primary);
+        border: 1px solid var(--color-text);
+        color: var(--color-text-contrast);
+        background-color: var(--color-text);
       }
     }
 
@@ -75,14 +75,14 @@ button {
       padding-bottom: 0.2rem;
       overflow: hidden;
     
-      // &:hover::after,
-      // &:focus::after {
-      //   opacity: 1;
-      //   transition:
-      //     opacity 0.3s,
-      //     transform 0.3s;
-      //   transform: translate3d(0, 0, 0);
-      // }
+      &:hover::after,
+      &:focus::after {
+        opacity: 1;
+        transition:
+          opacity 0.3s,
+          transform 0.3s;
+        transform: translate3d(0, 0, 0);
+      }
     
       &:after {
         content: "";
@@ -92,7 +92,7 @@ button {
         width: 100%;
         height: 1px;
         opacity: 0;
-        background-color: var(--color-primary);
+        background-color: var(--color-text);
         transition:
           opacity 0.3s,
           transform 0.3s;
