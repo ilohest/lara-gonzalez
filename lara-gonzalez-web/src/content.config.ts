@@ -73,6 +73,11 @@ const homeCollection = defineCollection({
         heading: z.string(),
         items: z.array(z.string()),
       }),
+      marquee: z.object({
+        text: z.string(),
+        url: z.string(),
+      }),
+      footerImage:z.string(),
     }),
   });
 

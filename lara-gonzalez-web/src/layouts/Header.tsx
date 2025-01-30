@@ -6,7 +6,7 @@ import menuLogo from "../assets/icons/menu.svg";
 
 import "./Header.scss";
 import type { AddressModel, RSModel } from "@lara/models/generic.model";
-import SideMenu from "@lara/components/SideMenu/SideMenu";
+import SideMenu from "@lara/components/side-menu/SideMenu";
 
 const Header = ({
   email,

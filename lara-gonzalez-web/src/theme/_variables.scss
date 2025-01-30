@@ -90,4 +90,10 @@ $sv: div(6, 16);
 
 // Specific fonts
 
+& {
+  --fs-marquee-v: 128;
+  --fs-marquee: #{clamp-calc(128, 192)};
+  --lh-marquee: #{calc-lh(128, 128)};
+}
+
 }

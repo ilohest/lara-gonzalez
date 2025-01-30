@@ -1,12 +1,13 @@
 ---
-import Heading from '@lara/components/Heading/Heading';
+import Heading from '@lara/components/heading/Heading';
+import Marquee from '@lara/components/marquee/Marquee';
 import Layout from '@lara/layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 const estudio = await getCollection('estudio');
 //console.log(estudio)
 
-const { title, headerImage, images, quotes } = estudio[0].data; 
+const { title, headerImage, images, quotes, marquee, footerImage } = estudio[0].data; 
 const { Content } = await render(estudio[0])
 
 
@@ -39,8 +40,13 @@ const { Content } = await render(estudio[0])
 			))}
 			</ul>
 		</section>
+		{marquee &&
+		<Marquee link={marquee.url} client:load>
+			<span>{marquee.text}</span>
+		</Marquee>
+		}
 	</article>
-		
+	<img src={footerImage} alt="Cabecera del estudio" />
 </Layout>
 
 <style lang="scss">

@@ -12,6 +12,10 @@ quotes:
     - "La creatividad no tiene límites."
     - "Valoras la creatividad, la innovación y el diseño."
     - "Crees que hay vida más allá de un logotipo y buscas crear una marca duradera."
+marquee:
+  text: 'proyectos'
+  url: '/proyectos'
+footerImage: "/static-images/estudio-header.png"
 ---
 
 Detrás del estudio me encuentro…¡yo misma! Diseñadora gráfica y social media manager. He dedicado mi carrera a ayudar a las marcas a aterrizar en el mercado a través de soluciones creativas y estratégicas.

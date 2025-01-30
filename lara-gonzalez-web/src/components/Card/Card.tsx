@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.scss";
-import Heading from "../Heading/Heading";
+import Heading from "../heading/Heading";
 
 interface Card {
   title: string;
