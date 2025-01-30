@@ -3,13 +3,5 @@
 .hero{
     display: flex;
     justify-content: space-between;
-    padding-top: var(--s8);
-    padding-bottom: var(--s8);
-    &__header{
-
-    }
-
-    &__gallery{
-
-    }
+    height: 100vh;
 }

@@ -54,32 +54,14 @@ services:
     button:
       link: "/contacto"
       text: "Pide información"
-    steps:
-      - number: "Fase 1"
-        title: "Estrategia de contenidos"
-        list:
-          - "Análisis de audiencia"
-          - "Creación de calendario de publicaciones"
   - category: "Diseño web"
     button:
       link: "/contacto"
       text: "Pide información"
-    steps:
-      - number: "Fase 1"
-        title: "Wireframes"
-        list:
-          - "Diseño estructural del sitio web"
-          - "Prototipos de alta fidelidad"
   - category: "Diseño gráfico"
     button:
       link: "/contacto"
       text: "Pide información"
-    steps:
-      - number: "Fase 1"
-        title: "Wireframes"
-        list:
-          - "Diseño estructural"
-          - "Prototipos de alta fidelidad"
 ---
 
 Creamos <u>marcas con personalidad</u> porque creemos que es la única forma de hacerlo.

@@ -2,8 +2,8 @@
 title: "El Estudio"
 #headerImage: "/static-images/estudio-header.png"
 hero:
-  title: Branding
-  subtitle: Studio
+  title: El estudio
+  subtitle: test
   gallery: 
     # - "/static-images/lara-gonzalez-8.jpg"
     # - "/static-images/lara-gonzalez-7.jpg"

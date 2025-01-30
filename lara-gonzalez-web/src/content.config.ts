@@ -1,11 +1,10 @@
 import { defineCollection, z } from "astro:content";
-// z --> zod schema validador
 // Contenido como Markdown (type: 'content') o formatos de datos como JSON o YAML (type: 'data').
 
 const homeCollection = defineCollection({
   type: 'content',
   schema: z.object({
-    title: z.string(), 
+    title: z.string().optional(), 
     hero: z.object({
       title: z.string(), 
       subtitle: z.string(),
@@ -39,46 +38,50 @@ const homeCollection = defineCollection({
             title: z.string(), 
             list: z.array(z.string()), 
           })
+        ).optional(),
+      })
+    ),
+  }),
+});
+
+const projectsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().optional(),
+    hero: z.object({
+      title: z.string(), 
+      subtitle: z.string(),
+      gallery: z.array(z.string()),
+    }),
+    anchors: z.array(z.string()), 
+    projectsList: z.array(
+      z.object({
+        title: z.string(),
+        sector: z.string(),
+        location: z.string(),
+        collaboration: z.string(),
+        images: z.array(
+          z.object({
+            url: z.string(),    
+            alt: z.string(),  
+            name: z.string(), 
+            width: z.number(),  
+            height: z.number(),
+          })
         ),
       })
     ),
   }),
 });
 
-  export const projectsCollection = {
-    proyectos: defineCollection({
-      schema: z.object({
-        pageTitle: z.string(), 
-        anchors: z.array(z.string()), 
-        projectsList: z.array(
-          z.object({
-            title: z.string(),
-            sector: z.string(),
-            location: z.string(),
-            collaboration: z.string(),
-            images: z.array(
-              z.object({
-                url: z.string().url(),    
-                alt: z.string(),  
-                name: z.string(), 
-                width: z.number(),  
-                height: z.number(),
-              })
-            ),
-          })
-        ),
-      }),
-    }),
-  };
-
   const studioCollection = defineCollection({
     type: 'content',
     schema: z.object({
-      title: z.string(),
+      title: z.string().optional(), 
       // headerImage: z.string().optional(),
       hero: z.object({
         title: z.string(), 
-        subtitle: z.string(),
+        subtitle: z.string().optional(),
         gallery: z.array(z.string()),
       }),
       gallery: z.array(z.string()),

@@ -2,7 +2,6 @@
 import Heading from '@lara/components/heading/Heading';
 import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
-import { Collapse } from '@lara/components/collapse/Collapse';
 import { Card } from '@lara/components/card/Card';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 
@@ -58,7 +57,7 @@ const { Content } = await render(home[0])
 		</div>
 	</section> -->
 	
-	<section class="home__projects-section wrapper-fluid">
+	<section class="home__projects wrapper-fluid">
 		<Content></Content>
 		<!-- <Heading tag="h3" size="lg">{projectsSection.title}</Heading> -->
 		<img src={projectsSection.imageLg} alt="Creatividad y estrategia imagen" />
@@ -68,23 +67,26 @@ const { Content } = await render(home[0])
 		</div>
 	</section>
 	
-	<section class="home__services-section wrapper-fluid">
-			{services.map((service) => (
-			<>
-				<Collapse
-					heading={service.category}
-					hasCTA={true}
-					CTA={service.button}
-					headingTag="h3"
-					subsHeaderHeight={true}
-					client:load
-				>
-					{service.steps.map((step, i) => (
-						<Card card={step} index={i}></Card>
-					))}
-				</Collapse>
+	<section class="home__services wrapper-fluid">
+		{services.map((service) => (
+			<div class="home__services-header">
+			  <Heading tag="h2" size="lg" headingFontWeight={900}>{service.category}</Heading>
+
+			  <a href={service.button.link} class="button button--dark">
+				{service.button.text}
+			  </a>
+			</div>
+		  
+		  	<>
+			  {service.steps && service.steps?.length > 0 && (
+				<div class="home__steps">
+				  {service.steps.map((step, i) => (
+					<Card card={step} index={i} />
+				  ))}
+				</div>
+			  )}
 			</>
-		))}
+		  ))}
 	</section>
 </Layout>
 
@@ -143,12 +145,24 @@ const { Content } = await render(home[0])
 	// }
 
 	&__services{
+
 		&-header{
 			display:flex;
 			justify-content: space-between;
 			align-items: center;
+			padding: var(--s6) 0;
+			&:not(:first-child) {
+				border-bottom: 1px solid var(--color-dark);
+			}
 		}
 	}
+
+	&__steps{
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: var(--s4);
+	}
+
 }
 </style>
 

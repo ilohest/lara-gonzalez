@@ -5,41 +5,36 @@ import { getCollection } from 'astro:content';
 import 'swiper/css';
 import Heading from '@lara/components/heading/Heading';
 import ImageWrapper from '@lara/components/wrapper/ImageWrapper.astro';
-import Wrapper from '@lara/components/wrapper/HeaderWrapper';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 
 const proyectos = await getCollection('proyectos');
-//console.log(proyectos);
-const { pageTitle, hero, anchors, projects } = proyectos[0].data; 
+const { title, hero, anchors, projectsList,  } = proyectos[0].data; 
 ---
 
 <Layout title="Proyectos | Lara González" description="">
-	<WrapperHeader hero={hero}  client:load />
-	<section>
-		<Heading tag="h1" size="xxl">
-			{pageTitle}
-		</Heading>
-	  
+	<WrapperHeader hero={hero} client:load />
+	<section class="wrapper-fluid">
+		<!-- <Heading tag="h1" size="xxl">{title}</Heading> -->
 		<div class="projects-header-list">
 		  {anchors.map((anchor: any) => (
-			<a class="button--link"href={`#${anchor.toLowerCase().replace(/\s+/g, '-')}`} >{anchor}</a>
+			<a class="button--link" href={`#${anchor.toLowerCase().replace(/\s+/g, '-')}`} >{anchor}</a>
 		  ))}
 		</div>
 	  
-		{projects.map((proyecto: any, index: number) => (
-		  	<div id={proyecto.title.toLowerCase().replace(/\s+/g, '-')}>
+		{projectsList.map((proyect: any, index: number) => (
+		  	<div id={proyect.title.toLowerCase().replace(/\s+/g, '-')}>
 				<Heading tag="h2" size="md" headingFontWeight={600}>
-					{proyecto.title}
+					{proyect.title}
 				</Heading>
-				<p><strong>Sector:</strong> {proyecto.sector}</p>
-				<p><strong>Ubicación:</strong> {proyecto.location}</p>
-				<p><strong>Colaboración:</strong> {proyecto.collaboration}</p>
+				<p><strong>Sector:</strong> {proyect.sector}</p>
+				<p><strong>Ubicación:</strong> {proyect.location}</p>
+				<p><strong>Colaboración:</strong> {proyect.collaboration}</p>
 				<section class="projects__image-slider">
 					<div id={`swiper-${index}`} class="swiper js-image-slider">
 						<div class="swiper-wrapper">
 							<div class="swiper">
 								<div class="swiper-wrapper">
-									{proyecto.images.map((slide: any) => {
+									{proyect.images.map((slide: any) => {
 										return(
 											<div class="swiper-slide">
 												{<ImageWrapper image={slide} />}

@@ -1,23 +1,21 @@
 ---
-pageTitle: "Proyectos"
-# hero:
-#   title: Branding
-#   subtitle: Studio
-#   gallery: 
-#     - "/static-images/lara-gonzalez-8.jpg"
-#     - "/static-images/lara-gonzalez-7.jpg"
-#     - "/static-images/lara-gonzalez-6.jpg"
+title: Proyectos
+hero:
+  title: Proyectos
+  subtitle: Studio
+  gallery: 
+    - "/static-images/lara-gonzalez-4.jpg"
 anchors:
   - Vermicelli
   - Francachella Estudio
   - Tauro
   - MUDE Studio
   - Pure Grains
-projects:
-  - title: "Vermicelli"
-    sector: "Restauración"
-    location: "Palermo, Italia"
-    collaboration: "Pizzas, Pastas y Más"
+projectsList:
+  - title: Vermicelli
+    sector: Restauración
+    location: Palermo, Italia
+    collaboration: Pizzas, Pastas y Más
     images:
       - url: "/static-images/lara-gonzalez-2.jpg"
         alt: "Imagen Lara González 1"
