@@ -11,7 +11,7 @@ const { Content } = await render(home[0])
 
 ---
 
-<Layout title="Bienvenida | Lara González" description="">
+<Layout title="Lara González" description="">
 	<WrapperHeader hero={hero}  client:load />	
 	
 	<section class="home__projects wrapper-fluid">
@@ -62,7 +62,6 @@ const { Content } = await render(home[0])
 		}
 
 		&__services{
-			background-color: var(--color-light);
 
 			&-header{
 				display:flex;
@@ -90,36 +89,3 @@ const { Content } = await render(home[0])
 		@include f('lg', 700, true);
 	}
 </style>
-
-<!-- <script>
-	import Swiper from 'swiper';
-	import 'swiper/css';
-
-	const swiper = new Swiper('.js-home-slider .swiper', {
-		loop: true,
-		slidesPerView: 'auto',
-		spaceBetween: 0,
-		height: 647,
-		slidesOffsetBefore: 15,
-		// freeMode: false,
-		// autoplay: false,
-		allowSlidePrev: true,
-		allowSlideNext: true,
-		simulateTouch: true,
-	});
-
-	const prevEls = Array.from(document.querySelectorAll('.swiper-navigation--prev')) || [];
-	const nextEls = Array.from(document.querySelectorAll('.swiper-navigation--next')) || [];
-
-	prevEls.forEach((prev) => {
-		prev.addEventListener('click', () => {
-		swiper.slidePrev();
-		});
-	});
-
-	nextEls.forEach((next) => {
-		next.addEventListener('click', () => {
-		swiper.slideNext();
-		});
-	});
-</script> -->
