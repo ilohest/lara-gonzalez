@@ -6,35 +6,42 @@ import Form from '@lara/components/form/Form';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 
 const contact = await getCollection('contacto');
+const { title, description } = contact[0].data; 
 
 ---
 
 <Layout title="Contacto | Lara González" description="">
 	<WrapperHeader client:load />
-
-		{		
-			contact.map(contact => {
-				const { data } = contact
-				const { title, description } = data
-
-				return (
-					<Heading tag="h1" size="xxl">
-						{title}
-					</Heading>
-					<article class="contact grid">
-						<div class="contact__description">{description}</div>
-						<div class="contact__form">
-							<Form client:load />
-						</div>
-					</article>
-				)
-			})
-		}
+	<article class="contact">
+		<section class="contact__heading">
+			<Heading tag="h1" size="xxl">
+				{title}
+			</Heading>
+		</section>
+		<section class="wrapper-fluid">
+			<div class="grid">
+				<div class="contact__description">{description}</div>
+				<div class="contact__form">
+					<Form client:load />
+				</div>
+			</div>
+		</section>
+	</article>
 </Layout>
 
 <style lang="scss">
 	@use "dawuti" as *;
 	.contact{
+		background-color: var(--color-light);
+
+		&__heading{
+			padding-top: var(--s8);
+			padding-bottom: var(--s8);
+			@include mq-md{
+				padding-top: calc(var(--s2)*12);
+				padding-bottom: calc(var(--s2)*12);
+			}
+		}
 		&__description{
 			grid-column: 1/7;
 			@include mq-md{

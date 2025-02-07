@@ -12,13 +12,8 @@ export interface HeadingProps {
   size?: HeadingSizes;
   color?:
     | 'dark'
-    | 'light'
-    | 'primary'
-    | 'secondary'
-    | 'grey'
-    | 'gradient'
-    | 'custom';
-  fontFamily?: 'primary' | 'secondary' | 'tertiary';
+    | 'light';
+  fontFamily?: 'primary' | 'secondary';
   headingFontWeight?: number | string;
   description?: string;
   children?: React.ReactNode;
@@ -47,8 +42,8 @@ const Heading = ({
   fontFamily = fontFamily || 'primary';
   headingFontWeight = headingFontWeight || 'inherit';
 
-  const headingStyle = {
-    '--heading-font-variation-settings': headingFontWeight !,
+  const headingStyle: CustomProps = {
+    '--heading-font-variation-settings': `'wght' ${headingFontWeight}`,
   };
 
   const Tag = tag as keyof JSX.IntrinsicElements;

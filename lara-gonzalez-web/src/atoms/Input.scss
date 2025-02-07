@@ -10,12 +10,12 @@ input:-webkit-autofill:focus  {
 input,
 textarea {
     @include f('input', 400, true);
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     color: var(--color-text);
     background-color: transparent;
     &::placeholder {
         @include f('input', 400, true);
-        font-family: var(--font-secondary);
+        font-family: var(--font-primary);
     }
 }
 
@@ -28,7 +28,7 @@ input, textarea {
 
 textarea {
     @include f('input-content', 400, true);
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
 }
 
 .input {

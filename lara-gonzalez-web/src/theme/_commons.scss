@@ -3,15 +3,14 @@
 @include reset-all();
 @include wrapper-fluid();
 @include enhance-text();
-@include grid-helpers();
+//@include grid-helpers();
 @include sr-only();
 
 body,
 html {
   font-family: var(--font-primary);
   font-size: var(--html-font-size);
-  font-weight: 400;
-  line-height: var(--html-line-height);
+  line-height: var(--lh-base);
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   color: var(--color-text);
@@ -25,20 +24,40 @@ html {
 }
 
 button {
-  @include f('base');
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+  border-style: none;
+  border-color: unset;
+  border-image: none;
+  font-family: var(--font-primary);
+  background: transparent;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+li {
+  list-style: none;
 }
 
 a{
   text-decoration: none;
-  text-transform: uppercase;
-  @include f('base',400);
   color: var(--color-text);
 }
 
 main {
   position: relative;
   z-index: 1;
-  background-color: var(--color-bg-light);
+  background-color: var(--color-light);
 }
 
 .grid{
@@ -56,3 +75,5 @@ body {
     flex: 1;
   }
 }
+
+

@@ -8,18 +8,34 @@
   margin: var(--margin);
 
   &--base {
-    @include f('base');
+    @include f('base', 400, true);
   }
   &--md {
-    @include f('md');
+    @include f('md', 400, true);
   }
   &--lg {
-    @include f('lg');
+    @include f('lg', 400, true);
   }
   &--xl {
-    @include f('xl');
+    @include f('xl', 700, true);
   }
   &--xxl {
-    @include f('xxl', 300);
+    @include f('xxl', 300, true);
+  }
+
+  &--primary{
+    font-family: var(--font-primary);
+  }
+
+  &--secondary{
+    font-family: var(--font-secondary);
+  }
+
+  &--dark{
+    color: var(--color-dark);
+  }
+
+  &--light{
+    color: var(--color-light);
   }
 }

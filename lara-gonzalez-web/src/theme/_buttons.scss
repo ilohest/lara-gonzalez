@@ -1,31 +1,14 @@
 @use 'dawuti' as *;
 
-  button {
-    padding: 0;
-    margin: 0;
-    border-width: 0;
-    border-style: none;
-    border-color: unset;
-    border-image: none;
-    font-family: var(--font-primary);
-    font-weight: 300;
-    background: transparent;
-  }
-  
   .button {
     width: fit-content;
-    padding: calc(var(--s) * 1) calc(var(--s) * 3);
-    @include f("base", 400, true);
     color: var(--color-text);
-    background-color: var(--color-text-contrast);
+    padding: var(--s) var(--s3);
     border-radius: var(--s6);
     border: 1px solid var(--color-text);
     cursor: pointer;
-    transition: all .15s linear;
 
     &:disabled {
-        background-color: var(--color-text);
-        color: var(--color-text-contrast);
         cursor: not-allowed;
         opacity: 0.7;
     }
@@ -37,32 +20,43 @@
     //     color: var(--color-text-contrast);
     //     border-color: var(--color-text);
     // }
+
   
-    &--light {
-      border: 1px solid var(--color-light);
+    &--outline {
+      border: 1px solid var(--color-dark);
       background-color: transparent;
-      color: var(--color-light);
-      transition: all 0.15s linear;
-  
-      &:hover,
-      &:focus-visible {
-        border: 1px solid var(--color-text);
-        color: var(--color-text);
-        background-color: var(--color-text-contrast);
-      }
-    }
-  
-    &--dark {
-      border: 1px solid var(--color-text);
-      color: var(--color-text);
+      color: var(--color-dark);
       transition: all 0.15s linear;
   
       &:hover,
       &:focus,
       &:focus-visible {
-        border: 1px solid var(--color-text);
-        color: var(--color-text-contrast);
-        background-color: var(--color-text);
+        color: var(--color-light);
+        background-color: var(--color-dark);
+      }
+
+      &-inverse{
+        border: 1px solid var(--color-light);
+        color: var(--color-text);
+        background-color: transparent;
+    
+        &:hover,
+        &:focus,
+        &:focus-visible {
+          color: var(--color-light-contrast);
+          background-color: var(--color-light);
+        }
+      }
+    }
+
+    &--solid{
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        color: var(--color-text);
+        background-color: var(--color-light);
       }
     }
 
@@ -102,8 +96,9 @@
 
     &--link-footer{
         position: relative;
-        text-decoration: none;
+        @include f("link", 300, true);
         color: var(--color-text);
+        text-decoration: none;
       
       &:after {
         content: "";

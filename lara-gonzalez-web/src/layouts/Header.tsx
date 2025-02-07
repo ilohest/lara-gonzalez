@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import menuLogo from "../assets/icons/menu.svg";
+import mainLogo from "../assets/icons/lara-gonzalez-light.svg";
 import "./Header.scss";
 import type { AddressModel, RSModel } from "@lara/models/generic.model";
 import SideMenu from "@lara/components/side-menu/SideMenu";
@@ -9,27 +10,58 @@ const Header = ({
   address,
   rrss,
   backgroundColor,
-  textColor,
+  themeMode,
 }: {
   email: string | undefined;
   address?: AddressModel | undefined;
   rrss?: RSModel[] | undefined;
   backgroundColor: string;
-  textColor: string;
+  themeMode: "light-mode" | "dark-mode";
 }) => {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+  });
+  
   return (
-    <header className="wrapper-fluid" style={{ backgroundColor }}>
-      <nav className="header__main-nav" style={{ color: textColor }}>
-        <a className="button--link header__main-nav--item" href="/">Lara González</a>
+    <header className={`wrapper-fluid header__${themeMode}`} style={{ backgroundColor }}>
+        <a
+          className="header__logotype header__logotype--xs"
+          aria-label="Ir a la página de inicio"
+          href="/"
+        >
+            <img
+              src={mainLogo.src}
+              width={165}
+              height={12}
+              alt="Lara González logo"
+            />
+        </a>
+      <nav className="header__main-nav">
+        <a
+          className="header__logotype header__logotype--lg"
+          aria-label="Ir a la página de inicio"
+          href="/"
+        >
+            <img
+              src={mainLogo.src}
+              width={190}
+              height={15}
+              alt="Lara González logo"
+            />
+        </a> 
         <a className="button--link header__main-nav--item" href="/proyectos">Proyectos</a>
         <a className="button--link header__main-nav--item" href="/el-estudio">El estudio</a>
-        <a className="button button--dark" href="/contacto">¿Hablamos?</a>
+        <a className={themeMode === "light-mode" ? "button button--outline" : "button button--outline-inverse"} href="/contacto">¿Hablamos?</a>
       </nav>
       <button
         id="button-side-menu-open"
-        className="button-side-menu-open"
+        className={`button-side-menu-open header__${themeMode}`}
         onClick={() => setOpen(true)}
       >
         <img src={menuLogo.src} width={45} height={8} alt="Open menu" />

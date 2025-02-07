@@ -1,11 +1,14 @@
 //@import '@lara/theme/mixins';
 @use "dawuti" as *;
-.wip-2023-cursor{
+
+.lara-cursor{
   position: fixed;
   z-index: 30;
   pointer-events: none;
   display: none;
   transition: transform linear;
+  mix-blend-mode: difference;
+
   @include mq(768px) {
     display: block;
     opacity: 0;
@@ -13,11 +16,4 @@
         filter:grayscale(1);
     }
   }
-
-  // @for $i from 0 through 5 {
-  //   &.cursor-#{$i}{transition-duration: #{$i * 50}ms; }
-  // }
-
-
-
 }

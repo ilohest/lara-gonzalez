@@ -23,7 +23,7 @@
     text-decoration: none;
     color: inherit;
     display: inline-block;
-    @include f('marquee');
+    @include f('marquee', 400, true);
     text-transform: uppercase;
   }
 
@@ -36,7 +36,7 @@
   }
 
   &__item {
-    padding-right: var(--gap);
+    padding-right: var(--s5);
   }
 }
 
