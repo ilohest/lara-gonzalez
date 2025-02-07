@@ -33,7 +33,13 @@ $sv: div(4, 20);
 
   --color-dark: #000;
   --color-light: #fff;
-  --color-grey: #808080; // links proyectos
+  --color-grey: #808080;
+  
+  --color-error: var(--color-secondary);
+  --color-error-bg: #FEE7E7;
+
+  --color-success: #0DA137;
+  --color-success-bg: #D4FFDE;
 
   --color-text: var(--color-dark);
   --color-text-contrast: var(--color-light);

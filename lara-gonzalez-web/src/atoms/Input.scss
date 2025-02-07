@@ -46,7 +46,14 @@ textarea {
             margin-top: calc(var(--s) * 4);
         }
     }
-    
+    margin-top: calc(var(--s) * 4);
+
+    &__error{
+        @include f('xs', 400, true);
+        margin-top: 2px;
+        color: var(--color-error);
+    }
+
     .input__label {
         display: none;
     }

@@ -83,7 +83,7 @@
 
     .contact-form__feedback {
         margin-top: calc(var(--s) * 3);
-        @include f("tert-sm", 400, true);
+        @include f("base", 400, true);
         padding: calc(var(--s) * 2) calc(var(--s) * 3);
         display: inline-block;
         border-radius: calc(var(--s) * 1);

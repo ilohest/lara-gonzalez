@@ -44,7 +44,6 @@ const CollapseInner = ({ heading, headingTag, hasCTA, CTA, icon, children, onCha
     }
 
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, [])
 
@@ -92,6 +91,7 @@ export const Collapse = ({ className, headingTag, tag, heading, CTA, hasCTA, ico
   const setElsHeights = (contentInnerEl: HTMLElement, headerEl: HTMLElement) => {
     const headerElHeight = headerEl.getBoundingClientRect().height;
     const contentInnerElHeight = contentInnerEl.getBoundingClientRect().height;
+
     setHeaderHeight(headerElHeight);
     setHeight(subsHeaderHeight && !isMobile() ? contentInnerElHeight - headerElHeight : contentInnerElHeight);
   }
