@@ -50,9 +50,9 @@ const projectsCollection = defineCollection({
     projectsList: z.array(
       z.object({
         title: z.string(),
-        sector: z.string(),
-        location: z.string(),
-        collaboration: z.string(),
+        sector: z.string().optional(),
+        location: z.string().optional(),
+        collaboration: z.string().optional(),
         images: z.array(
           z.object({
             url: z.string(),    

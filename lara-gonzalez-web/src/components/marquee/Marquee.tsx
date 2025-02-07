@@ -9,7 +9,7 @@ interface CustomCSSProps extends CSSProperties {
 }
 
 const Marquee = ({
-  clones = 2,
+  clones = 4,
   children,
   link,
 }: {
@@ -20,7 +20,6 @@ const Marquee = ({
   const firstItemRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [itemWidth, setItemWidth] = useState<number>(0);
-  //const [duration, setDuration] = useState<number>(0);
   const secondCheckTimeoutRef = useRef<any| null>(null);
 
   clones = clones < 2 ? 2 : clones;

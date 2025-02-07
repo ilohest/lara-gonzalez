@@ -1,0 +1,9 @@
+@use 'dawuti' as *;
+
+.project-list{
+    &__heading-detail{
+        display: flex;
+        gap: var(--s6);
+        @include f('sec-md', 400, true);
+    }
+}
