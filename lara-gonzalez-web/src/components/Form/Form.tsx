@@ -151,7 +151,7 @@ const Form = ({}: {}) => {
         <Input
           name="name"
           label="Nombre"
-          placeholder="Nombre*"
+          placeholder="Nombre y apellido*"
           value={form.name}
           type="text"
           style="primary"
@@ -209,9 +209,9 @@ const Form = ({}: {}) => {
           onChange={handleInputChange}
         />
 
-        <p className="contact-form__advice">
+        {/* <p className="contact-form__advice">
           Los campos obligatorios están marcados con *.
-        </p>
+        </p> */}
 
         <div className="contact-form__actions">
           <button

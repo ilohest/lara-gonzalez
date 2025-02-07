@@ -9,26 +9,22 @@ input:-webkit-autofill:focus  {
 
 input,
 textarea {
-    @include f('input', 400, true);
+    @include f('input', 300, true);
     font-family: var(--font-primary);
     color: var(--color-text);
     background-color: transparent;
     &::placeholder {
-        @include f('input', 400, true);
+        @include f('input', 300, true);
         font-family: var(--font-primary);
     }
 }
 
-input, textarea {
+input, 
+textarea {
     &:focus, &:focus-visible {
         outline: none;
         background-color: var(--color-text-contrast)!important;
     }
-}
-
-textarea {
-    @include f('input-content', 400, true);
-    font-family: var(--font-primary);
 }
 
 .input {
@@ -46,7 +42,6 @@ textarea {
             margin-top: calc(var(--s) * 4);
         }
     }
-    margin-top: calc(var(--s) * 4);
 
     &__error{
         @include f('xs', 400, true);
@@ -88,164 +83,6 @@ textarea {
         }
     }
 
-    &--radio {
-        border: none;
-        padding: 0;
-
-        @include mq-sm() {
-            margin-top: calc(var(--s) * 7);
-        }
-
-        legend {
-            margin-bottom: calc(var(--s) * 3);
-
-            @include mq-sm() {
-                margin-bottom: calc(var(--s) * 5);
-            }
-        }
-        .input__wrapper {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: calc(var(--s) * 2);
-
-            @include mq-sm() {
-                justify-content: center;
-            }
-        }
-        .radio-input {
-            padding-right: calc(var(--s) * 3);
-
-            label {
-                margin-left: calc(var(--s) * -2.4);
-                position: relative;
-                padding: 5px 0 5px 35px;
-                display: block;
-            }
-
-            input {
-                appearance: none;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                visibility: hidden;
-                position: absolute;
-                right: 0;
-            }
-
-            & input + i {
-                margin-top: 9px;
-                background: #f0f0f0;
-                border: 1px solid #000;
-                position: absolute;
-                left: 0;
-                top: 0;
-
-                @include mq-sm() {
-                    margin-top: 12px;
-                }
-            }
-
-            & [type="radio"] + i {
-                height: 12px;
-                width: 12px;
-                border-radius: 100%;
-                left: 15px;
-            }
-        }
-
-        label input[type="radio"] + i:before {
-            content: "";
-            display: block;
-            inset: 2px;
-            border-radius: 100%;
-            position: absolute;
-            z-index: 1;
-            background: var(--color-dark);
-            transition: all 0.25s ease;
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        label input[type="radio"]:checked + i:before {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
-    &--list {
-        padding-bottom: calc(var(--s) * 8);
-        display: flex;
-        flex-flow: column nowrap;
-        row-gap: calc(var(--s) * 6);
-
-        @include mq-sm() {
-            margin-top: calc(var(--s) * 7);
-            padding-bottom: calc(var(--s) * 2);
-            row-gap: calc(var(--s) * 8);
-        }
-
-        input {
-            height: calc(var(--s) * 7);
-            border: none;
-            border-bottom: 1px solid #000;
-
-            @include mq-sm() {
-                margin: 0 auto;
-                width: 80%;
-            }
-            @include mq-lg() {
-                margin: 0 auto;
-                width: 50%;
-            }
-        }
-    }
-    &--file {
-        .input__label {
-            margin-bottom: calc(var(--s) * 2);
-        }
-
-        p {
-            padding-top: calc(var(--s) * 2);
-
-            @include mq-sm() {
-                padding-top: calc(var(--s) * 3);
-            }
-        }
-
-        input {
-            margin-top: calc(var(--s) * 5);
-            height: calc(var(--s) * 7);
-            width: 50%;
-            border: 1px dashed var(--color-grey-300);
-            border-radius: 20px;
-            position: relative;
-            display: inline-block;
-
-            @include mq-sm() {
-                width: 40%;
-            }
-
-            &::before {
-                background-color: #fff;
-                color: #000;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                content: "Selezionare il file";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-            }
-
-            input[type="file"] {
-                opacity: 0;
-                width: 200px;
-                height: 32px;
-                display: inline-block;
-            }
-        }
-    }
     &--textarea {
         @include mq-sm() {
             margin-top: calc(var(--s) * 7);
@@ -267,7 +104,7 @@ textarea {
                 width: 100%;
                 height: calc(var(--s) * 30);
                 border: transparent;
-                border-bottom: 1px solid #000;
+                border-bottom: 1px solid var(--color-dark);
                 background-color: transparent;
                 @include mq-xs {
                     height: calc(var(--s) * 20); 
@@ -287,7 +124,7 @@ textarea {
 
         label {
             position: relative;
-            padding: 5px 0 5px calc(var(--s) * 3);
+            padding: var(--s) 0 var(--s) var(--s5);
             display: flex;
             flex-flow: row nowrap;
             justify-content: flex-start;
@@ -306,8 +143,8 @@ textarea {
                 color: var(--color-text);
                 transition: color .15s linear;
                 &:hover, &:focus, &:focus-visible {
-                    outline: 1px solid var(--color-grey-800);
-                    color: var(--color-grey-800);
+                    outline: 1px solid var(--color-grey);
+                    color: var(--color-grey);
                 }
             }
 
@@ -329,7 +166,7 @@ textarea {
 
                 & + i {
                     margin-top: 7px;
-                    border: 1px solid #000;
+                    border: 1px solid var(--color-dark);
                     position: absolute;
                     left: 0;
                     top: 0;
@@ -341,28 +178,29 @@ textarea {
             }
 
             input[type="checkbox"] + i {
-                width: calc(var(--s) * 2);
-                height: calc(var(--s) * 2);
-                @include mq-md {
-                    width: calc(var(--s) * 3);
-                    height: calc(var(--s) * 3);
-                }
-                @include mq-lg {
-                    width: calc(var(--s) * 4);
-                    height: calc(var(--s) * 4);
-                }
-
-                &:before {
-                    content: "";
-                    display: block;
-                    inset: 2px;
-                    position: absolute;
-                    z-index: 1;
-                    background: var(--color-dark);
-                    transition: all 0.25s ease;
-                    transform: scale(0);
-                    opacity: 0;
-                }
+                width: var(--s4);
+                height: var(--s4);
+                border: 1px solid var(--color-dark);
+                display: inline-block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                transition: all 0.2s ease-in-out;
+            }
+            
+            input[type="checkbox"]:checked + i {
+                background: var(--color-light);
+            }
+            
+            input[type="checkbox"]:checked + i::after {
+                content: "";
+                inset:1px;
+                background: var(--color-dark);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 14px;
             }
         }
         label input[type="checkbox"]:checked + i:before,
@@ -370,46 +208,6 @@ textarea {
         label input[type="checkbox"]:focus-visible + i:before {
             transform: scale(1);
             opacity: 1;
-        }
-    }
-
-    &--secondary {
-        display: flex;
-        flex-flow: column;
-        align-items: flex-start;
-        row-gap: 0;
-
-        @include mq-sm() {
-            margin-top: calc(var(--s) * 7);
-        }
-
-        .input__wrapper {
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: flex-start;
-            row-gap: 0;
-
-            @include mq-sm() {
-                margin: 0 auto;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                column-gap: var(--gutter);
-            }
-            @include mq-lg() {
-                column-gap: calc(var(--gutter) * 2.5);
-            }
-
-            .radio-input {
-                margin-bottom: 0;
-
-                @include mq-sm() {
-                    padding-right: 0;
-                }
-
-                label {
-                    text-align: left;
-                }
-            }
         }
     }
 }

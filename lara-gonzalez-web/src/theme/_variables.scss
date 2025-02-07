@@ -141,21 +141,28 @@ $sv: div(4, 20);
     --lh-sec-md: #{calc-lh(24, 28)};
   }
 
-  // Specific fonts
-
+  // SPECIFIC FONTS
+  // FORM
+  & {
+    --fs-input-v: 16;
+    --fs-input: #{rem-css-vars(--fs-input-v)};
+    --lh-input: #{calc-lh(16, 19)};
+    --ls-input: 0;
+  }
+  // MENU ITEMS
   & {
     --fs-menu-v: 16;
     --fs-menu: #{rem-css-vars(--fs-menu-v)};
     --lh-menu: #{calc-lh(16, 16)};
   }
-
+  // MARQUEE
   & {
     --fs-marquee-v: 52;
     --fs-marquee: #{clamp-calc(52, 104)};
     --lh-marquee: #{calc-lh(52, 41)};
     --ls-marquee: -7%;
   }
-
+  // LINKS
   & {
     --fs-link-v: 16;
     --fs-link: #{rem-css-vars(--fs-link-v)};
@@ -169,4 +176,4 @@ $sv: div(4, 20);
     --lh-link-md: #{calc-lh(24, 24)};
     --ls-link-md: -2%;
   }
-  }
+}

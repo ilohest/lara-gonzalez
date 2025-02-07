@@ -170,9 +170,9 @@ const Input = ({
             <label htmlFor={name}>
               <input
                 type="checkbox"
+                checked={checked ?? false}
                 tabIndex={tabIndex}
                 id={name}
-                checked={checked}
                 onChange={(ev) => onChange(ev.currentTarget, name)}
                 disabled={disabled}
               />
