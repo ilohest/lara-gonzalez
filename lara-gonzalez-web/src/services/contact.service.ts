@@ -79,8 +79,9 @@ const getValidation: {
       : { valid: false, message: "El email no es correcto" };
   },
   phone: (value: string) => {
-    const re = /^[+]?[0-9]{0,3}?[6-9][0-9]{8}$/im;
-
+    // Un signo + opcional al inicio de 0 a 3 dígitos numéricos opcionales después del + y un número entre 6 y 9 seguido de 8 dígitos adicionales
+    //const re = /^[+]?[0-9]{0,3}?[6-9][0-9]{8}$/im;
+    const re = /^[6-9][0-9]{8}$/;
     return re.test(value.toLowerCase())
       ? { valid: true, message: undefined }
       : { valid: false, message: "El teléfono es incorrecto" };

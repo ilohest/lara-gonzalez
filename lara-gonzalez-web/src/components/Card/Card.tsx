@@ -16,21 +16,18 @@ export const Card = ({
 }) => {
   return (
     <article className="card">
-      <div className="card__inner">
-  
-        <p className="inner-top__number">Fase {index + 1}</p>
-        <Heading tag="h5" size="base" headingFontWeight={900}>{card.title}</Heading>
-   
-        <section className="inner-bottom">
-          <ul className="inner-bottom__list">
-            {card.list.map((listItem, i) => (
-              <p key={`${listItem}-${i}`} className="list-item">
-                {listItem}
-              </p>
-            ))}
-          </ul>
-        </section>
-      </div>
+        <div className="card__header">
+          <span className="card__inner-step">Fase {index + 1}</span>
+          <Heading tag="h5" size="base" headingFontWeight={900}>{card.title}</Heading>
+        </div>
+        <ul className="card__list">
+          {card.list.map((listItem, i) => (
+            <li key={`${listItem}-${i}`}>
+              {listItem}
+            </li>
+          ))}
+        </ul>
+ 
     </article>
   );
 };

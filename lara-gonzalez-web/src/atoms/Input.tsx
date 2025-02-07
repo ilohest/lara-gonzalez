@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { classList } from "src/utils/react.utils";
-
+import { 
+  validatePhone, 
+  validateEmail, 
+  validateText, 
+  validateTextarea 
+} from "../utils/validations.utils";
 import "./Input.scss";
 
 interface Props {
@@ -44,6 +49,7 @@ const Input = ({
   classes = "",
   hiddenLabel = false,
 }: Props) => {
+  const [error, setError] = useState<string | null>(null);
   const classesList = classList({
     input: true,
     [`input--${type}`]: true,
@@ -51,9 +57,23 @@ const Input = ({
     [classes]: true,
   });
 
+  const handleBlur = () => {
+    let validationError = null;
+    if (type === "phone") {
+      validationError = validatePhone(value || "");
+    } else if (type === "email") {
+      validationError = validateEmail(value || "");
+    } else if (type === "text") {
+      validationError = validateText(value || "");
+    } else if (type === "textarea") {
+      validationError = validateTextarea(value || "");
+    }
+    setError(validationError);
+  };
+
   return (
     <>
-      {(type === "text" || type === "email" || type === "phone" ) && (
+      {(type === "text" || type === "email" || type === "phone") && (
         <div className={classesList}>
           <label
             className={`input__label${hiddenLabel ? " sr-only" : ""}`}
@@ -67,11 +87,33 @@ const Input = ({
               name={name}
               placeholder={placeholder}
               onChange={(ev) => onChange(ev.currentTarget, name)}
+              onBlur={handleBlur} 
+              value={value}
+              inputMode={"text"} 
+            />
+          </div>
+          {error && <div className="input__error">{error}</div>}  
+        </div>
+      )}
+
+      {type === "textarea" && (
+        <div className={classesList}>
+          <label className="input__label" htmlFor={name}>
+            {label}
+          </label>
+          <div className="input__wrapper">
+            <textarea
+              name={name}
+              placeholder={placeholder}
+              onChange={(ev) => onChange(ev.currentTarget, name)}
+              onBlur={handleBlur}
               value={value}
             />
           </div>
+          {error && <div className="input__error">{error}</div>} 
         </div>
       )}
+
       {type === "radio" && options && (
         <fieldset className={classesList}>
           <legend className="input__label">{label}</legend>
@@ -97,6 +139,7 @@ const Input = ({
           </div>
         </fieldset>
       )}
+
       {type === "list" && options && (
         <div className={classesList}>
           <label className="input__label" htmlFor={name}>
@@ -120,37 +163,7 @@ const Input = ({
           </datalist>
         </div>
       )}
-      {type === "file" && (
-        <div className={classesList}>
-          <label className="input__label" htmlFor={name}>
-            {label}
-          </label>
-          <p>{placeholder}</p>
-          {value && <p>{`File selezionato: ${value}`}</p>}
-          <input
-            name={name}
-            type="file"
-            accept="image/*, .pdf, .doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            size={12582912}
-            onChange={(ev) => onChange(ev.currentTarget, name)}
-          />
-        </div>
-      )}
-      {type === "textarea" && (
-        <div className={classesList}>
-          <label className="input__label" htmlFor={name}>
-            {label}
-          </label>
-          <div className="input__wrapper">
-            <textarea
-              name={name}
-              placeholder={placeholder}
-              onChange={(ev) => onChange(ev.currentTarget, name)}
-              value={value}
-            />
-          </div>
-        </div>
-      )}
+      
       {type === "checkbox" && (
         <div className={classesList}>
           <div className="input__wrapper">
