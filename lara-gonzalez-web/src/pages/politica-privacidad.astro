@@ -20,12 +20,21 @@ const { Content } = await render(privacy[0])
     <Heading tag="h1" size="lg">
         {title}
     </Heading>
-    <Content></Content>
+    <div class="legal-content">
+      <Content />
+    </div>
   </section>
 </Layout>
 
 <style lang="scss">
 	@use "dawuti" as *;
 
-
+  .legal-content {
+    :global(h2) {
+      @include f('sec-md', 400, true);
+    }
+    :global(strong){
+      font-weight: 700;
+    }
+  }
   </style>

@@ -10,20 +10,26 @@ const { Content } = await render(legal[0])
 
 ---
 
-<Layout
-  title="Aviso Legal | Lara González"
-  description=""
->
+<Layout title="Aviso Legal | Lara González" description="">
   <WrapperHeader client:load />
   <section class="wrapper-fluid">
-    <Heading tag="h1" size="lg">
-      {title}
-    </Heading>
-    <Content></Content>
+    <Heading tag="h1" size="lg">{title}</Heading>
+    <div class="legal-content">
+      <Content></Content>
+    </div>
   </section>
 </Layout>
 
 <style lang="scss">
 @use "dawuti" as *;
+
+.legal-content {
+  :global(h2) {
+    @include f('sec-md', 400, true);
+  }
+  :global(strong){
+      font-weight: 700;
+    }
+}
 
 </style>
