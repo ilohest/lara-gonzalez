@@ -39,8 +39,14 @@ header {
     }
 
     &__light-mode{
-        img{
+        .menu{
             filter: invert(1);
+        }
+        .header__logotype{
+            
+            img{
+                filter: invert(1);
+            }
         }
     }
 

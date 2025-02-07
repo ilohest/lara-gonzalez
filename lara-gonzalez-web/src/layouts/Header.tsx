@@ -64,7 +64,7 @@ const Header = ({
         className={`button-side-menu-open header__${themeMode}`}
         onClick={() => setOpen(true)}
       >
-        <img src={menuLogo.src} width={45} height={8} alt="Open menu" />
+        <img src={menuLogo.src} width={45} height={8} alt="Open menu" className="menu" />
       </button>
       <SideMenu open={open} setOpen={setOpen} email={email} address={address} rrss={rrss} />
     </header>
