@@ -1,166 +1,86 @@
 ---
-
-import Heading from "@lara/components/heading/Heading";
 import type { RSModel } from "@lara/models/generic.model";
+import localImage from "../assets/icons/lara-gonzalez-dark.svg";
+import { Image } from "astro:assets";
 
-const d = new Date();
-let currentYear = d.getFullYear();
+// const d = new Date();
+// let currentYear = d.getFullYear();
 
 const { rrss } = Astro.props;
 ---
 
 <footer class="footer wrapper-fluid">
-  <Heading tag="h1" size="lg">
-    Lara González studio
-  </Heading>
-  {
-    rrss && (
-      <div class="footer__rrss">
-        <p class="footer__title">Síguenos</p>
+  <Image
+    class="footer__logo"
+    src={localImage}
+    alt="Lara González estudio logo"
+  />
+  <div class="footer__content">
+    <section class="footer__legal">
+      <nav>
         <ul>
-          {rrss.map((rs: RSModel) => {
-            return (
-              <li>
-                <a class="button--link" href={rs.url} target="_blank">
-                  {rs.platform}
-                </a>
-              </li>
-            );
-          })}
+          <li>
+            <a class="button--link-footer" href="/aviso-legal">Aviso Legal</a>
+          </li>
+          <li>
+            <a class="button--link-footer" href="/politica-cookies">Política de cookies</a>
+          </li>
+          <li>
+            <a class="button--link-footer" href="/politica-privacidad">Política de Privacidad</a>
+          </li>
         </ul>
-      </div>
-    )
-  }
-  <div class="footer__bottom">
-    <nav class="footer__legal">
-      <ul>
-        <li>
-          <a class="button--link-footer" href="/politica-privacidad">Política de privacidad</a>
-        </li>
-        <li>
-          <a class="button--link-footer" href="/politica-cookies">Uso de cookies</a>
-        </li>
-      </ul>
-    </nav>
-    <p class="footer__copyright">Lara González © {currentYear}</p>
+      </nav>
+    </section>
+
+    {
+      rrss && (
+        <section class="footer__rrss">
+          <ul>
+            {rrss.map((rs: RSModel) => {
+              return (
+                <li>
+                  <a class="button--link" href={rs.url} target="_blank">
+                    {rs.platform}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )
+    }
   </div>
 </footer>
+
 <style lang="scss">
   @use "dawuti" as *;
   .footer {
-    padding-top: calc(var(--s) * 6);
-    padding-bottom: calc(var(--s) * 3);
+    padding-top: var(--s6);
+    padding-bottom: var(--s8);
     background-color: var(--color-light);
-    color: var(--color-text);
-    > * {
-      font-family: var(--font-primary);
-    }
 
-    @include mq-xs {
-      padding-top: calc(var(--s) * 5);
-      grid-template-rows: repeat(2, auto);
-    }
-    @include mq-lg {
-      padding-top: calc(var(--s) * 6);
-    }
-    @include mq-xxl {
-      padding-top: calc(var(--s) * 8);
-    }
-
-    &__rrss {
-      > * {
-        font-family: var(--font-primary);
-      }
-    }
-
-    &__title {
-      @include f("sm", 500);
-      margin-bottom: calc(var(--s) * 2);
-    }
-
-    &__subtitle {
-      color: var(--color-grey-800);
-      font-weight: 500;
-    }
-
-    &__rrss {
-      grid-row: 3/4;
-      grid-column: 1/7;
-      @include mq-xs {
-        grid-row: 1/2;
-        grid-column: 5/6;
-      }
-      @include mq-lg {
-        grid-row: 1/2;
-        grid-column: 19/22;
-      }
-      @include mq-xl {
-        grid-column: 20/23;
-      }
-
-      p,
-      a,
-      li {
-        @include f("tert-sm", 400, true);
-      }
-
-      .footer__title {
-        font-weight: 500;
-        margin-top: calc(var(--s) * 4);
-        @include mq-xs {
-          margin-top: 0;
-        }
-      }
-      li + li {
-        margin-top: calc(var(--s) * 2);
-      }
-    }
-
-    &__bottom {
-      grid-row: 5/6;
-      grid-column: 1/7;
-      @include mq-xs {
+    &__content{
+      display: flex;
+      justify-content: space-between;
+      margin-top: calc(var(--s2)*9);
+      ul{
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-top: calc(var(--s) * 10);
+        flex-direction: row;
+        gap: var(--s4);
       }
-      @include mq-lg {
-        grid-row: 2/3;
-        grid-column: 1/25;
+    }
+
+    &__rrss {
+      li{
+        text-transform: uppercase;
       }
-      @include mq-xl {
-        margin-top: calc(var(--s) * 14);
-      }
+
     }
 
     &__legal {
-      @include f("link", 400, true);
-      font-family: var(--font-tertiary);
 
-      li {
-        @include mq-xs {
-          display: inline-flex;
-        }
-      }
 
-      li + li {
-        margin-top: calc(var(--s) * 2);
-        @include mq-xs {
-          margin-top: 0;
-          margin-left: calc(var(--s) * 5);
-        }
-      }
     }
 
-    &__copyright {
-      margin-top: calc(var(--s) * 3);
-      opacity: 0.6;
-      font-family: var(--font-primary);
-      @include mq-sm {
-        margin-top: 0;
-      }
-    }
   }
 </style>

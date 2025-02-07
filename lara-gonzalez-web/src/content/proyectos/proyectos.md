@@ -2,9 +2,6 @@
 title: Proyectos
 hero:
   title: Proyectos
-  subtitle: Studio
-  gallery: 
-    - "/static-images/lara-gonzalez-4.jpg"
 anchors:
   - Vermicelli
   - Francachella Estudio
@@ -20,18 +17,12 @@ projectsList:
       - url: "/static-images/lara-gonzalez-2.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-1"
-        width: 1200
-        height: 800
       - url: "/static-images/lara-gonzalez-3.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
-        width: 1200
-        height: 800
       - url: "/static-images/lara-gonzalez-4.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
-        width: 1200
-        height: 800
   - title: "Francachella Estudio"
     sector: "Moda"
     location: "Londres, Reino Unido"
@@ -40,23 +31,15 @@ projectsList:
       - url: "/static-images/lara-gonzalez-5.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-1"
-        width: 1200
-        height: 800
       - url: "/static-images/lara-gonzalez-4.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
-        width: 1200
-        height: 800
       - url: "/static-images/lara-gonzalez-6.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-1"
-        width: 1200
-        height: 800
       - url: "/static-images/lara-gonzalez-7.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
-        width: 1200
-        height: 800
   - title: "Tauro"
     sector: "Peluquería y Estilismo"
     location: "Vitoria-Gasteiz, España"
@@ -65,13 +48,9 @@ projectsList:
       - url: "/static-images/lara-gonzalez-8.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-1"
-        width: 1200
-        height: 800
       - url: "/static-images/lara-gonzalez-7.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
-        width: 1200
-        height: 800
   - title: "MUDE Studio"
     sector: "Arte y Diseño"
     location: "París, Francia"
@@ -80,13 +59,9 @@ projectsList:
       - url: "/static-images/lara-gonzalez-1.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-5"
-        width: 1200
-        height: 800
       - url: "/static-images/lara-gonzalez-2.jpg"
         alt: "Imagen Lara González 6"
         name: "proyecto-1-imagen-2"
-        width: 1200
-        height: 800
   - title: "Pure Grains"
     sector: "Alimentación"
     location: "Oslo, Noruega"
@@ -95,11 +70,7 @@ projectsList:
       - url: "/static-images/lara-gonzalez-1.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-3"
-        width: 1200
-        height: 800
       - url: "/static-images/lara-gonzalez-2.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-4"
-        width: 1200
-        height: 800
 ---

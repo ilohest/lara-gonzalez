@@ -1,10 +1,12 @@
 import Header from "@lara/layouts/Header";
 import React, { useEffect, useState } from "react";
 import Hero from "../hero/Hero";
+import "./HeaderWrapper.scss";
+
 
 interface HeroData {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   gallery: string[];
 }
 
@@ -16,43 +18,36 @@ const WrapperHeader = ({
   email?: string;
 }) => {
   const [backgroundColor, setBackgroundColor] = useState("var(--color-light)");
-  const [textColor, setTextColor] = useState("var(--color-dark-contrast)");
+  const [themeMode, setThemeMode] = useState<"light-mode" | "dark-mode">("light-mode");
 
   const getBackgroundColor = (path: string) => {
     switch (path) {
       case "/":
-        return "var(--color-dark)";
+        return "var(--color-primary)";
       case "/proyectos":
-        return "var(--color-secondary)";
-      case "/el-estudio":
-        return "var(--color-tertiary)";
       case "/contacto":
-        return "var(--color-light)";
       case "/politica-privacidad":
-          return "var(--color-light)";
       case "/politica-cookies":
-          return "var(--color-light)";
+        return "var(--color-light)";
+      case "/el-estudio":
+        return "var(--color-secondary)";
       default:
         return "var(--color-light)";
     }
   };
 
-  const getTextColor = (path: string) => {
+  const getThemeMode = (path: string): "light-mode" | "dark-mode" => {
     switch (path) {
       case "/":
-        return "var(--color-light)";
+        return "dark-mode"; 
       case "/proyectos":
-        return "var(--color-secondary-contrast)";
       case "/el-estudio":
-        return "var(--color-tertiary-contrast)";
       case "/contacto":
-        return "var(--color-dark)";
       case "/politica-privacidad":
-          return "var(--color-dark)";
       case "/politica-cookies":
-          return "var(--color-dark)";
+        return "light-mode"; 
       default:
-        return "var(--color-light)";
+        return "light-mode";
     }
   };
 
@@ -60,15 +55,15 @@ const WrapperHeader = ({
     if (typeof window !== "undefined") {
       const path = window.location.pathname;
       setBackgroundColor(getBackgroundColor(path));
-      setTextColor(getTextColor(path));
+      setThemeMode(getThemeMode(path));
     }
   }, []);
 
   return (
-    <div style={{ backgroundColor, color: textColor }}>
-      <Header email={email} backgroundColor={backgroundColor} textColor={textColor} />
-      {hero && <Hero hero={hero} backgroundColor={backgroundColor} textColor={textColor} />}
-    </div>
+    <section style={{ backgroundColor }} className="header-wrapper">
+      <Header email={email} backgroundColor={backgroundColor} themeMode={themeMode} />
+      {hero && <Hero hero={hero} backgroundColor={backgroundColor} themeMode={themeMode} />}
+    </section>
   );
 };
 

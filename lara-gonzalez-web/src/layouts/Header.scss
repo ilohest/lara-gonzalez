@@ -3,10 +3,52 @@
 header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    .header__main-nav {
+    min-width: var(--s9);
+
+    .button-side-menu-open {
+        width: var(--s6);
+        padding-top: var(--s4);
+        margin-left: auto;
+        cursor: pointer;
+        @include mq-lg {
+            display: none;
+        }
+    }
+}
+
+.header {
+
+    &__logotype{
+        margin-top: var(--s4);
+        @include mq-lg{
+            margin-top: 0;
+        }
+        &--xs{
+            display: block;
+            @include mq-lg{
+                display: none;
+            }
+        }
+    }
+
+
+    &__dark-mode{
+        a{
+            color: var(--color-light);
+        }
+    }
+
+    &__light-mode{
+        img{
+            filter: invert(1);
+        }
+    }
+
+    &__main-nav {
         display: none;
         @include mq-lg {
+            @include f('xs', 400, true);
+            text-transform: uppercase;
             margin-top: calc(var(--s) * 2);
             margin-bottom: calc(var(--s) * 7);
             display: flex;
@@ -14,20 +56,9 @@ header {
             flex-basis: 100%;
             align-items: center;
         }
-
-        &--item {
-            color: inherit;
-            transition: color .15s linear;
-        }
     }
 
-    .button-side-menu-open {
-        width: calc(var(--s) * 6);
-        padding-top: calc(var(--s) * 4);
-        margin-left: auto;
-        cursor: pointer;
-        @include mq-lg {
-            display: none;
-        }
+    .button{
+        @include f('xs', 400, true);
     }
 }

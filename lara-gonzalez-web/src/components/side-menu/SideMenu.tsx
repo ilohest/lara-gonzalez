@@ -51,14 +51,14 @@ const SideMenu = ({ open, setOpen, email, address, rrss }: Props) => {
           <div className="side-menu__social">
             {rrss.map((rs: RSModel, index: number) => {
               return (
-                <a key={index} href={rs.link} target="_blank">
-                  {rs.name}
+                <a key={index} href={rs.url} target="_blank">
+                  {rs.platform}
                 </a>
               );
             })}
           </div>
         )}
-        <a className="button button--light" href="/contacto">
+        <a className="button button--outline-inverse" href="/contacto">
           ¿Hablamos?
         </a>
       </div>

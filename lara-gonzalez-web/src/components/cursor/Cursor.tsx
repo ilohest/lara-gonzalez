@@ -9,9 +9,8 @@ interface CursorProps {
 
 const Cursor: React.FC<CursorProps> = ({ hidden, notAllowed }) => {
   const cursorPosition = useCursorPosition();
-  const initialSize = 135;
-  const sizes = [140, 100, 76, 76, 50];
-  const left = [0, 20, 32, 32, 45];
+  const sizes = [210, 100, 76, 76, 50];
+  const left = [-40, 20, 32, 32, 45];
 
   return (
     <>
@@ -21,7 +20,7 @@ const Cursor: React.FC<CursorProps> = ({ hidden, notAllowed }) => {
           viewBox="0 0 304 304"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className={`wip-2023-cursor ${notAllowed ? "not-allowed" : ""} cursor-0`}
+          className={`lara-cursor ${notAllowed ? "not-allowed" : ""} cursor-0`}
           style={{
               transform:
                   "matrix(1, 0, 0, 1, " +
@@ -35,8 +34,8 @@ const Cursor: React.FC<CursorProps> = ({ hidden, notAllowed }) => {
           }}
       >
           <g filter="url(#filter0_f_238_1022)">
-              <circle cx="151.695" cy="151.753" r="67.5" fill="#1E90FF" /> {/* Azul */}
-              <circle cx="151.695" cy="151.753" r="67" stroke="#010315" />
+              <circle cx="151.695" cy="151.753" r="67.5" fill="#fff" />
+              {/* <circle cx="151.695" cy="151.753" r="67" stroke="#010315" /> */}
           </g>
           <defs>
               <filter

@@ -70,6 +70,7 @@ const Marquee = ({
           <div className="marquee__item" ref={firstItemRef}>
             <a href={link} className="marquee__link">
               {children}
+              <span>·</span>
             </a>
           </div>
 
@@ -77,6 +78,7 @@ const Marquee = ({
             <div className="marquee__item" key={i}>
               <a href={link} className="marquee__link">
                 {children}
+                <span>·</span>
               </a>
             </div>
           ))}

@@ -215,7 +215,7 @@ const Form = ({}: {}) => {
 
         <div className="contact-form__actions">
           <button
-            className="button"
+            className="button button--outline"
             type="submit"
             onClick={() => {}}
             disabled={!formValidation.valid || !form.privacyCheck}>

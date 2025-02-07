@@ -1,0 +1,51 @@
+
+@use "dawuti" as *;
+
+.image-slider {
+    margin-top: calc(var(--s) * 10);
+    .swiper {
+        &-wrapper {
+            .swiper-slide {
+                height: auto;
+                width: auto;
+                :global(.image img) {
+                height: 500px;
+                width: auto;
+                @include mq-lg {
+                    height: 570px;
+                }
+                }
+            }
+        }
+        &-navigation {
+        margin-top: calc(var(--s) * 4);
+        margin-right: calc(var(--s) * 4);
+        display: flex;
+        justify-content: flex-end;
+        column-gap: calc(var(--s) * 3);
+        &--prev,
+        &--next {
+            cursor: pointer;
+            display: inline-block;
+            svg,
+            path {
+            transition: fill 0.2s linear;
+            }
+
+            &:active,
+            &:hover,
+            &:focus-visible {
+            outline: none;
+            svg {
+                background-color: var(--color-light);
+                border-radius: 100%;
+                padding: 1px;
+            }
+            svg path {
+                fill: var(--color-text);
+            }
+            }
+        }
+        }
+    }
+}

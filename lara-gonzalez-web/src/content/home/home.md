@@ -1,21 +1,12 @@
 ---
 title: "Branding Studio"
-#headerImage: "/static-images/lara-gonzalez-hero.png"
 hero:
   title: Branding
   subtitle: Studio
   gallery: 
     - "/static-images/lara-gonzalez-8.jpg"
-    # - "/static-images/lara-gonzalez-7.jpg"
-    # - "/static-images/lara-gonzalez-6.jpg"
-# intro:
-#   subtitle: "Estudio de branding y social media."
-#   description: "Tu marca merece ser vista y recordada."
-# gallery:
-#   - "/static-images/lara-gonzalez-8.jpg"
-#   - "/static-images/lara-gonzalez-7.jpg"
-#   - "/static-images/lara-gonzalez-6.jpg"
-#   - "/static-images/lara-gonzalez-5.jpg"
+    - "/static-images/lara-gonzalez-7.jpg"
+    - "/static-images/lara-gonzalez-6.jpg"
 projectsSection:
   title: "Creatividad & estrategia"
   imageLg: "/static-images/lara-gonzalez-1.jpg"
@@ -26,6 +17,7 @@ projectsSection:
 services:
   - category: "Branding"
     button:
+      type: "outline"
       link: "/contacto"
       text: "Pide información"
     steps:
@@ -52,14 +44,17 @@ services:
           - "Otros diseños de marca a elegir (tarjetas, flyers, etc.)"
   - category: "Social Media"
     button:
+      type: "solid"
       link: "/contacto"
       text: "Pide información"
   - category: "Diseño web"
     button:
+      type: "solid"
       link: "/contacto"
       text: "Pide información"
   - category: "Diseño gráfico"
     button:
+      type: "solid"
       link: "/contacto"
       text: "Pide información"
 ---

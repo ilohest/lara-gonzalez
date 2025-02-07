@@ -1,5 +1,8 @@
 import { defineCollection, z } from "astro:content";
-// Contenido como Markdown (type: 'content') o formatos de datos como JSON o YAML (type: 'data').
+
+const simpleTitleSchema = z.object({
+  title: z.string(),
+});
 
 const homeCollection = defineCollection({
   type: 'content',
@@ -10,12 +13,6 @@ const homeCollection = defineCollection({
       subtitle: z.string(),
       gallery: z.array(z.string()),
     }),
-    // headerImage: z.string().optional(), 
-    // intro: z.object({
-    //   subtitle: z.string(), 
-    //   description: z.string().optional(), 
-    // }),
-    // gallery: z.array(z.string()), 
     projectsSection: z.object({
       title: z.string(), 
       imageLg: z.string(), 
@@ -29,6 +26,7 @@ const homeCollection = defineCollection({
       z.object({
         category: z.string(), 
         button: z.object({
+          type: z.enum(['solid', 'outline']),
           link: z.string(), 
           text: z.string(), 
         }),
@@ -48,11 +46,6 @@ const projectsCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string().optional(),
-    hero: z.object({
-      title: z.string(), 
-      subtitle: z.string(),
-      gallery: z.array(z.string()),
-    }),
     anchors: z.array(z.string()), 
     projectsList: z.array(
       z.object({
@@ -65,8 +58,8 @@ const projectsCollection = defineCollection({
             url: z.string(),    
             alt: z.string(),  
             name: z.string(), 
-            width: z.number(),  
-            height: z.number(),
+            width: z.number().optional(),  
+            height: z.number().optional(),
           })
         ),
       })
@@ -78,13 +71,11 @@ const projectsCollection = defineCollection({
     type: 'content',
     schema: z.object({
       title: z.string().optional(), 
-      // headerImage: z.string().optional(),
       hero: z.object({
         title: z.string(), 
         subtitle: z.string().optional(),
         gallery: z.array(z.string()),
       }),
-      gallery: z.array(z.string()),
       quotes: z.object({
         heading: z.string(),
         items: z.array(z.string()),
@@ -111,16 +102,17 @@ const projectsCollection = defineCollection({
 
   const privacyCollection = defineCollection({
     type: 'content',
-    schema: z.object({
-        title: z.string(),
-    })
+    schema: simpleTitleSchema,
   });
 
   const cookiesCollection = defineCollection({
     type: 'content',
-    schema: z.object({
-        title: z.string(),
-    })
+    schema: simpleTitleSchema,
+  });
+
+  const legalCollection = defineCollection({
+    type: 'content',
+    schema: simpleTitleSchema,
   });
   
   export const collections = {
@@ -130,4 +122,5 @@ const projectsCollection = defineCollection({
     contacto: contactCollection,
     privacidad: privacyCollection,
     cookies: cookiesCollection,
+    legal: legalCollection,
   };

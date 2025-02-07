@@ -2,14 +2,15 @@
 @use 'dawuti' as *;
 @use './mixins' as *;
 
-$html-font-size-v: 16;
-$sv: div(6, 16);
+$html-font-size-v: 18;
+$sv: div(4, 20);
 
 :root {
   --html-font-size-v: #{$html-font-size-v};
   --html-font-size: calc(var(--html-font-size-v) * 1px);
 
-  --font-primary: 'LaraGonzalez', sans-serif;
+  --font-primary: Helvetica, Sans-Serif;
+  --font-secondary: 'Behind', sans-serif;
 
   --sv: #{$sv};
   --s: calc(var(--sv) * 1rem);
@@ -23,15 +24,16 @@ $sv: div(6, 16);
   --gutter: calc(var(--gap) / 2);
 
   // Colors
-  --color-primary: #597ed9;
-  --color-primary-contrast: #000;
-  --color-secondary: #eca650;
+  --color-primary: #000;
+  --color-primary-contrast: #fff;
+  --color-secondary: #FF0012;
   --color-secondary-contrast: #000;
-  --color-tertiary: #e64939;
+  --color-tertiary: #3D82E5;
   --color-tertiary-contrast: #000;
 
   --color-dark: #000;
   --color-light: #fff;
+  --color-grey: #808080; // links proyectos
 
   --color-text: var(--color-dark);
   --color-text-contrast: var(--color-light);
@@ -49,48 +51,115 @@ $sv: div(6, 16);
 
 // Font sizes
 & {
-  --fs-base-v: 16;
+  --fs-base-v: 20;
   --fs-base: #{rem-css-vars(--fs-base-v)};
-  --lh-base: #{calc-lh(16, 19)};
-}
-
-& {
-  --fs-md-v: 20;
-  --fs-md: #{clamp-calc(20, 24)};
-  --lh-md: #{calc-lh(20, 24)};
-}
-
-& {
-  --fs-lg-v: 30;
-  --fs-lg: #{clamp-calc(30, 40)};
-  --lh-lg: 1.142;
-}
-
-& {
-  --fs-xl-v: 46;
-  --fs-xl: #{clamp-calc(46, 62)};
-  --lh-xl: 1.13;
+  --lh-base: #{calc-lh(20, 22)};
+  --ls-base: -4%;
   @include mq-sm {
-    --lh-xl: 1.06;
+    --fs-base-v: 24;
+    --fs-base: #{clamp-calc(24, 26)};
+    --lh-base: #{calc-lh(24, 26)};
   }
 }
+
+& {
+  --fs-sec-base-v: 20;
+  --fs-sec-base: #{rem-css-vars(--fs-sec-base-v)};
+  --lh-sec-base: #{calc-lh(20, 33)};
+}
+
+& {
+  --fs-xs-v: 16;
+  --fs-xs: #{clamp-calc(16, 18)};
+  --lh-xs: #{calc-lh(16, 18)};
+}
+
+& {
+  --fs-sm-v: 20;
+  --fs-sm: #{clamp-calc(20, 30)};
+  --lh-sm: #{calc-lh(20, 33)};
+}
+
+& {
+  --fs-md-v: 24;
+  --fs-md: #{rem-css-vars(--fs-md-v)};
+  --lh-md: #{calc-lh(24, 24)};
+  --ls-md: -4%;
+  @include mq-sm {
+    --fs-md-v: 36;
+    --fs-md: #{rem-css-vars(--fs-md-v)};
+    --lh-md: #{calc-lh(36, 36)};
+  }
+}
+
+& {
+  --fs-lg-v: 36;
+  --fs-lg: #{rem-css-vars(--fs-lg-v)};
+  --lh-lg: #{calc-lh(36, 32)};
+  --ls-lg: -6%;
+  @include mq-sm {
+    --fs-lg-v: 72;
+    --fs-lg: #{rem-css-vars(--fs-lg-v)};
+    --lh-lg: #{calc-lh(72, 60)};
+  }
+}
+
+& {
+  --fs-xl-v: 40;
+  --fs-xl: #{rem-css-vars(--fs-xl-v)};
+  --lh-xl: #{calc-lh(40, 40)};
+  --ls-xl: -6%;
+  @include mq-sm {
+    --fs-lg-v: 64;
+    --fs-lg: #{rem-css-vars(--fs-lg-v)};
+    --lh-lg: #{calc-lh(64, 78)};
+  }
+}
+
 & {
   --fs-xxl-v: 60;
-  --fs-xxl: #{clamp-calc(60, 80)};
-  --lh-xxl: 1.13;
-  @include mq-sm {
-    --fs-xxl-v: 60;
-    --fs-xxl: #{clamp-calc(212, 80)};
-    --lh-xxl: 1.13;
+  --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
+  --lh-xxl: #{calc-lh(60, 80)};
+  --ls-base: -6%;
+  @include mq-md {
+    --fs-xxl-v: 215;
+    --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
+    --lh-xxl: #{calc-lh(215, 172)};
   }
 }
 
 // Specific fonts
 
 & {
-  --fs-marquee-v: 128;
-  --fs-marquee: #{clamp-calc(128, 192)};
-  --lh-marquee: #{calc-lh(128, 128)};
+  --fs-menu-v: 16;
+  --fs-menu: #{rem-css-vars(--fs-menu-v)};
+  --lh-menu: #{calc-lh(16, 16)};
+}
+
+& {
+  --fs-marquee-v: 52;
+  --fs-marquee: #{clamp-calc(52, 104)};
+  --lh-marquee: #{calc-lh(52, 41)};
+  --ls-marquee: -7%;
+  // @include mq-sm {
+  //   --fs-marquee-v: 64;
+  //   --fs-marquee: #{rem-css-vars(--fs-lg-v)};
+  //   --lh-marquee: #{calc-lh(64, 78)};
+  // }
+}
+
+& {
+  --fs-link-v: 16;
+  --fs-link: #{rem-css-vars(--fs-link-v)};
+  --lh-link: #{calc-lh(16, 16)};
+  --ls-link: -2%;
+}
+
+& {
+  --fs-link-md-v: 24;
+  --fs-link-md: #{rem-css-vars(--fs-link-md-v)};
+  --lh-link-md: #{calc-lh(24, 24)};
+  --ls-link-md: -2%;
 }
 
 }

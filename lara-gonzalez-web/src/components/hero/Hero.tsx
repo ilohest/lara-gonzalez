@@ -5,23 +5,23 @@ import Heading from "../heading/Heading";
 interface HeroProps {
   hero: {
     title: string;
-    subtitle: string;
+    subtitle?: string;
     gallery: string[];
   };
   backgroundColor: string;
-  textColor: string;
+  themeMode: "light-mode" | "dark-mode";
 }
 
-const Hero: React.FC<HeroProps> = ({ hero, backgroundColor, textColor }) => {
+const Hero: React.FC<HeroProps> = ({ hero, backgroundColor, themeMode }) => {
   return (
-    <section className="hero wrapper-fluid" style={{ backgroundColor, color: textColor }}>
+    <section className="hero wrapper-fluid" style={{ backgroundColor }}>
       <div className="hero__header">
-        <Heading tag="h1" size="xl" headingFontWeight={900}>{hero.title}</Heading>
-        <Heading tag="h1" size="xl" headingFontWeight={900}>{hero.subtitle}</Heading>
+        <Heading tag="h1" size="xl" color={themeMode === "light-mode" ? "dark" : "light"}>{hero.title}</Heading>
+        <Heading tag="h2" size="xl" color={themeMode === "light-mode" ? "dark" : "light"} fontFamily="secondary">{hero.subtitle}</Heading>
       </div>
       <div className="hero__gallery">
           {hero.gallery.map((img, index) => (
-            <img key={index} src={img} alt={`Gallery image ${index}`} />
+            <img key={`image-${index}`} className={`studio-gallery studio-gallery-${index}`} src={img} alt={`Lara González gallery image ${index}`} />
           ))}
       </div>
     </section>

@@ -1,7 +1,11 @@
 @use "dawuti" as *;
 
 .hero{
-    display: flex;
-    justify-content: space-between;
+
     height: 100vh;
+
+    &__gallery{
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

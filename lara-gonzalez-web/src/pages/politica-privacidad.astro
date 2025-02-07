@@ -15,9 +15,20 @@ const { Content } = await render(privacy[0])
   title="Política privacidad | Lara González"
   description=""
 >
-<WrapperHeader client:load />
-  <Heading tag="h1" size="lg">
-      {title}
-  </Heading>
-  <Content></Content>
+  <WrapperHeader client:load />
+  <section class="wrapper-fluid">
+    <Heading tag="h1" size="lg">
+        {title}
+    </Heading>
+    <Content></Content>
+  </section>
 </Layout>
+
+<style lang="scss">
+	@use "dawuti" as *;
+
+  section{
+    background-color: var(--color-light);
+  }
+
+  </style>
