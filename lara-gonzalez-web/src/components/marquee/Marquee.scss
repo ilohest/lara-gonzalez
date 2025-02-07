@@ -10,6 +10,10 @@
   max-width: 100%;
   border-top: 1px solid var(--color-dark);
   border-bottom: 1px solid var(--color-dark);
+  &:hover{
+    background-color: var(--color-dark);
+    color: var(--color-light);
+  }
 
   &--loaded {
     --animation: marquee-move var(--animation-duration) linear infinite;

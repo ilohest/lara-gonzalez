@@ -12,7 +12,7 @@ projectsList:
   - title: Vermicelli
     sector: Restauración
     location: Palermo, Italia
-    collaboration: Pizzas, Pastas y Más
+    collaboration: "@collaboration"
     images:
       - url: "/static-images/lara-gonzalez-2.jpg"
         alt: "Imagen Lara González 1"
@@ -26,7 +26,7 @@ projectsList:
   - title: "Francachella Estudio"
     sector: "Moda"
     location: "Londres, Reino Unido"
-    collaboration: "Colaboración Especial"
+    #collaboration: "Colaboración Especial"
     images:
       - url: "/static-images/lara-gonzalez-5.jpg"
         alt: "Imagen Lara González 1"

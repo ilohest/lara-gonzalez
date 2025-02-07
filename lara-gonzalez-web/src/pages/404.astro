@@ -1,18 +1,37 @@
 ---
 import WrapperHeader from "@lara/components/wrapper/HeaderWrapper";
 import Layout from "@lara/layouts/Layout.astro";
-
-
 ---
 
 <Layout title="Página no encontrada | Lara González" description="Página no encontrada">
     <WrapperHeader client:load />
-    <section class="error-404__wrapper">
+    <section class="error-404 error-404__wrapper">
         <p class="error-404__desc">Oh! Algo ha fallado.</p>
-        <a class="error-404__link" href="/">Volver</a>
+        <div class="actions-wrapper actions-wrapper--center">
+            <a class="button button--solid error-404__link" href="/">Volver</a>
+        </div>
     </section>  
 </Layout>
 <style lang="scss">
 	@use "dawuti" as *;
+    .error-404 {
+      height: 100%;
+
+      &__wrapper {
+        margin-top: calc(var(--s2)*20);
+        text-align: center;
+      }
+
+      &__desc {
+        @include f('xl', 400, true);
+      }
+
+      &__desc, 
+      &__link {
+        display: block;
+        margin-top: var(--s6);
+        font-family: var(--font-secondary);
+      }
+    }
 
 </style>

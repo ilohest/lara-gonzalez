@@ -1,6 +1,7 @@
 import React from "react";
 import Heading from "@lara/components/heading/Heading";
-import ImageSlider from "../image/ImageSlider";
+import './PorjectList.scss';
+import ImageSlider from "../slider/ImageSlider";
 
 export interface Project {
   title: string;
@@ -21,15 +22,24 @@ const ProjectList = ( { projectsList }: any) => {
           <Heading tag="h2" size="md" headingFontWeight={600}>
             {project.title}
           </Heading>
-          <p>
-            <strong>Sector:</strong> {project.sector}
-          </p>
-          <p>
-            <strong>Ubicación:</strong> {project.location}
-          </p>
-          <p>
-            <strong>Colaboración:</strong> {project.collaboration}
-          </p>
+
+          <div className="project-list__heading-detail">
+            {project.sector &&
+              <p>
+                {project.sector}
+              </p>
+            }
+            {project.location &&
+              <p>
+                {project.location}
+              </p>
+            }
+            {project.collaboration &&
+              <p>
+                {project.collaboration}
+              </p>
+            }
+          </div>
           <ImageSlider images={project.images} index={index} />
         </div>
       ))}
