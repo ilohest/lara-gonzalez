@@ -2,19 +2,17 @@ import React, { useEffect, useState } from "react";
 import menuLogo from "../assets/icons/menu.svg";
 import mainLogo from "../assets/icons/lara-gonzalez-light.svg";
 import "./Header.scss";
-import type { AddressModel, RSModel } from "@lara/models/generic.model";
+import type { RSModel } from "@lara/models/generic.model";
 import SideMenu from "@lara/components/side-menu/SideMenu";
 
 const Header = ({
   email,
-  address,
   rrss,
   backgroundColor,
   themeMode,
 }: {
   email: string | undefined;
-  address?: AddressModel | undefined;
-  rrss?: RSModel[] | undefined;
+  rrss: RSModel[] | undefined;
   backgroundColor: string;
   themeMode: "light-mode" | "dark-mode";
 }) => {
@@ -66,7 +64,12 @@ const Header = ({
       >
         <img src={menuLogo.src} width={45} height={8} alt="Open menu" className="menu" />
       </button>
-      <SideMenu open={open} setOpen={setOpen} email={email} address={address} rrss={rrss} />
+      <SideMenu 
+        open={open} 
+        setOpen={setOpen} 
+        email={email} 
+        rrss={rrss} 
+      />
     </header>
   );
 };
