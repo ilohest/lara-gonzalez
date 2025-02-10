@@ -3,7 +3,7 @@
 @use './mixins' as *;
 
 $html-font-size-v: 18;
-$sv: div(4, 20);
+$sv: div(5.5555555, 20);
 
 :root {
   --html-font-size-v: #{$html-font-size-v};
@@ -18,7 +18,7 @@ $sv: div(4, 20);
     --s#{$i}: #{$sv * $i}rem;
   }
 
-  --safe-area: #{clamp-calc(12, 24)};
+  --safe-area: 16;
 
   --gap: #{clamp-calc(12, 20)};
   --gutter: calc(var(--gap) / 2);
@@ -44,15 +44,13 @@ $sv: div(4, 20);
   --color-text: var(--color-dark);
   --color-text-contrast: var(--color-light);
 
-  // Grid cols
-  & {
-    --safe-area: var(--s2);
-    --gutter: var(--s2);
-    --cols: 6;
-    @include mq-sm {
-      --cols: 24;
-      --safe-area: var(--s3);
-    }
+// Grid cols
+& {
+  --safe-area: calc(var(--s) * 3.2);
+  --gutter: var(--s2);
+  --cols: 6;
+  @include mq-sm {
+    --cols: 24;
   }
 
   // PRIMARY

@@ -60,7 +60,7 @@ main {
   background-color: var(--color-light);
 }
 
-.grid{
+.grid {
   display: grid;
   column-gap: var(--gutter);
   grid-template-columns: repeat(var(--cols), 1fr);

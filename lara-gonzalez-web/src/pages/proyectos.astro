@@ -23,7 +23,7 @@ const { title, anchors, projectsList } = proyectos[0].data;
 		<div class="projects__list">
 			{anchors.map((anchor) => (
 			<a
-				class="button--link"
+				class="button button--link"
 				href={`#${anchor.toLowerCase().replace(/\s+/g, "-")}`}
 				data-anchor={anchor.toLowerCase().replace(/\s+/g, "-")}
 			>
