@@ -3,19 +3,23 @@ import React, { useEffect, useState } from "react";
 import Hero from "../hero/Hero";
 import "./HeaderWrapper.scss";
 
-
 interface HeroData {
   title: string;
   subtitle?: string;
   gallery: string[];
 }
 
+const rrss = [
+  { platform: "Instagram", url: "https://www.instagram.com/lara.gonzalez.estudio?igsh=MWgxZDZkZWdkN3dtZw==" },
+  { platform: "Linkedin", url: "https://www.linkedin.com" }
+];
+
+const email = "hola@laragonzalez.com"
+
 const WrapperHeader = ({ 
   hero,
-  email,
 }: {
   hero?: HeroData; 
-  email?: string;
 }) => {
   const [backgroundColor, setBackgroundColor] = useState("var(--color-light)");
   const [themeMode, setThemeMode] = useState<"light-mode" | "dark-mode">("light-mode");
@@ -61,7 +65,7 @@ const WrapperHeader = ({
 
   return (
     <section style={{ backgroundColor }} className="header-wrapper">
-      <Header email={email} backgroundColor={backgroundColor} themeMode={themeMode} />
+      <Header email={email} rrss={rrss} backgroundColor={backgroundColor} themeMode={themeMode} />
       {hero && <Hero hero={hero} backgroundColor={backgroundColor} themeMode={themeMode} />}
     </section>
   );

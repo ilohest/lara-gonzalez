@@ -13,16 +13,9 @@ export interface VideoModel {
 export interface General {
   email: string;
   rrss: RSModel[];
-  addresses: AddressModel[];
 }
 
 export interface RSModel {
   platform: string;
   url: string;
-}
-
-export interface AddressModel {
-  name: string;
-  address: string;
-  phone: string;
 }

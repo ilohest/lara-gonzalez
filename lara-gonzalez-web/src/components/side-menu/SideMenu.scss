@@ -30,7 +30,7 @@
         }
     }
 
-    &__address {
+    &__email {
         display: block;
         margin-bottom: calc(var(--s) * 5);
 
@@ -100,7 +100,7 @@
         padding-left: calc(var(--s) * 10);
         padding-right: calc(var(--s) * 10);
 
-        .side-menu__address,
+        .side-menu__email,
         .side-menu__social {
             a {
                 @include f('sm', 400, true);
