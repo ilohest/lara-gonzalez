@@ -15,16 +15,17 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null); 
 
   return (
-    <section className="image-slider">
-      <div className="image-slider__wrapper">
+
+      <div className="swiper-container-wrapper">
         {/* Swiper principal */}
-        <div className="image-slider__main">
+        <div className="swiper-container swiper-container-wrapper__main">
           <Swiper
             loop={true}
-            //slidesPerView={1}
+            slidesPerView={1}
             spaceBetween={16}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[Thumbs]}
+            style={{ height: "100%" }}
             autoplay={false}
             simulateTouch={true}
           >
@@ -37,15 +38,24 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
         </div>
 
         {/* Swiper de miniaturas */}
-        <div className="image-slider__thumbs">
+        <div className="swiper-container swiper-container-wrapper__thumbs">
           <Swiper
             onSwiper={(swiper) => setThumbsSwiper(swiper)}
             spaceBetween={10}
-            slidesPerView={5}
+            slidesPerView={10}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[Thumbs]}
-            className="thumbs"
+            // breakpoints={{
+            //   0: {
+            //     direction: "horizontal",
+            //     slidesPerView: 3,
+            //   },
+            //   768: {
+            //     direction: "vertical",
+            //     slidesPerView: 4,
+            //   },
+            // }}
           >
             {images.map((slide, i) => (
               <SwiperSlide key={`thumb-${slide.url}`}>
@@ -60,7 +70,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
           </Swiper>
         </div>
       </div>
-    </section>
+
   );
 };
 

@@ -9,8 +9,8 @@ hero:
     - "/static-images/lara-gonzalez-6.jpg"
 projectsSection:
   title: "Creatividad & estrategia"
-  imageLg: "/static-images/lara-gonzalez-1.jpg"
-  imageSm: "/static-images/lara-gonzalez-2.jpg"
+  imageLg: "/static-images/lara-gonzalez-home-1.png"
+  imageSm: "/static-images/lara-gonzalez-home-2.png"
   cta:
     text: "Proyectos"
     url: "/proyectos"

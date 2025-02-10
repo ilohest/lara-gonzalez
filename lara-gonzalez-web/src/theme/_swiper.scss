@@ -1,18 +1,73 @@
 @use "dawuti" as *;
 
 .swiper-slide {
-
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
     img {
-        height: 760px;
+        height: 1200px;
         width: 100%;
-
     }
+}
+
+.swiper-container {
+  overflow: hidden;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @include mq-md(){
+    min-height: 320px;
+  }
+  &-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100vh;
+    //width: 100vw;
+    @include mq-md(){
+      flex-flow: row nowrap;
+    }
+
+    &__main{
+      position: relative;
+      width: 100%;
+      height: 85vh;
+      @include mq-md(){
+        width: 85%;
+        height: 100vh;
+        margin-right: 10px;
+      }
+    }
+
+    &__thumbs{
+        width: 100%;
+        height: 10vh;
+        padding-top: 10px;
+        @include mq-md(){
+          width: 10%;
+          height: 100vh;
+          padding: 0;
+        }
+        .swiper-wrapper {
+          flex-direction: row;
+          @include mq-md(){
+            flex-direction: column;
+          }
+        }
+        .swiper-slide {
+          width: initial;
+          cursor: pointer;
+          @include mq-md(){
+            width: 100% !important;
+            flex-flow: row nowrap !important;
+            height: 100% !important;
+         
+          }
+        }
+    }
+  }
 }
 
 
 
-
-
-
-  
 
