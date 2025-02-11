@@ -1,11 +1,124 @@
 @use "dawuti" as *;
 
-.hero{
 
-    height: 100vh;
+// TODO
+// .page__estudio {
+//     .hero {
+//         display: grid;
+//         grid-template-areas: 
+//         "img1 img2"
+//         "title ."; 
+//         grid-template-columns:
+//     }
+// }
 
-    &__gallery{
+
+.hero {
+    height: calc(100dvh - var(--site-header));
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    padding-bottom: calc(var(--s) * 10);
+    @include mq-xs {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    @include mq-sm {
+        height: calc(65dvh - var(--site-header));
+    }
+
+    @include mq-md{
+        height: calc(100dvh - var(--site-header));
+    }
+
+
+    &__header {
+        z-index: 1;
+        order: 2;
+        margin-top: calc(var(--s) * 15);
+        @include mq-xs {
+            order: 1;
+        }
+    }   
+
+    &__gallery {
+        position: relative;
+        order: 1;
         display: flex;
         flex-wrap: wrap;
+        height: 100%;
+        width: 100%;
+        padding: var(--safe-area);
+
+    }
+
+    .studio-gallery {
+        position: absolute;
+
+        img {
+            object-fit: contain;
+        }
+        &-0 {
+            width: 28dvw;
+            top: 0;
+            left: 0;
+            @include mq-xs {
+                width: 47dvh;
+                top: calc(var(--s) * -5);
+                left: 20%
+            }
+            @include mq-sm {
+                width: 57dvw;
+                left: unset;
+                right: 18dvw;
+                top: calc(var(--s) * 5);
+            }
+            @include mq-md {
+                width: 27.2dvw;
+                top: calc(var(--s)* -2);
+                left: -9vw;
+            }
+        }
+        &-1 {
+            width: 59dvw;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            @include mq-xs {
+                width: 40dvh;
+                top: 5%;
+                transform: unset;
+            }
+            @include mq-sm {
+                width: 33dvh;
+                top: 23%;
+            }
+            @include mq-md {
+                width: 38.5dvh;
+                top: 50%;
+                transform: translateY(-50%);
+                right: var(--safe-area);
+            }
+        }
+        &-2 {
+            width: 38.4dvw;
+            bottom: 0;
+            left: calc(var(--s) * 13.3);
+            @include mq-xs {
+                width: 30dvw;
+                left: 40%;
+                bottom: calc(var(--s) * -5);
+            }
+            @include mq-sm {
+                width: 22dvw;
+                left: -20vw;
+                bottom: 5vh;
+            }
+            @include mq-md {
+                width: 18.8dvw;
+                left: 8%;
+                bottom: 5vh;
+            }
+        }
     }
 }

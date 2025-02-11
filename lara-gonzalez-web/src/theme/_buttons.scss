@@ -2,12 +2,43 @@
 
   .button {
 
+    &--regular {
+      @include f('link', 400, true);
+      padding: calc(var(--s) * 3.2) calc(var(--s) * 4.8);
+    }
+
+    &--big {
+      @include f('link-lg', 400, true);
+      padding: calc(var(--s)* 2.3) calc(var(--s)* 8);
+    }
+
+    
     &--outline,
-    &--solid {
+    &--outline-inverse,
+    &--solid,
+    &--solid-inverse,
+    &--link {
+      &:hover,
+      &:focus-visible {
+
+        .icon--arrow {
+          transform: translate(3px, -3px);
+        }
+      }
+    }
+
+
+    &--outline,
+    &--outline-inverse,
+    &--solid,
+    &--solid-inverse {
       width: fit-content;
+      display: flex;
+      column-gap: calc(var(--s) * 2.3);
+      flex-shrink: 0;
+      align-items: center;
       color: var(--color-text);
-      padding: var(--s) var(--s3);
-      border-radius: var(--s6);
+      border-radius: calc(var(--s) * 20);
       border: 1px solid var(--color-text);
       cursor: pointer;
     }
@@ -28,9 +59,16 @@
       &:focus-visible {
         color: var(--color-light);
         background-color: var(--color-dark);
+        .icon--arrow {
+          --color: var(--color-primary-contrast);
+        }
       }
 
-      &-inverse{
+      .icon--arrow {
+        --color: var(--color-primary);
+      }
+
+      &-inverse {
         border: 1px solid var(--color-light);
         color: var(--color-light);
         background-color: transparent;
@@ -40,32 +78,90 @@
         &:focus-visible {
           color: var(--color-light-contrast);
           background-color: var(--color-light);
+          .icon--arrow {
+            --color: var(--color-primary);
+          }
+        }
+
+        .icon--arrow {
+          --color: var(--color-primary-contrast);
         }
       }
     }
 
-    &--solid{
-      background-color: var(--color-dark);
-      color: var(--color-light);
+
+    &--solid,
+    &--solid-inverse {
+      background-color: var(--btn-bg);
+      color: var(--btn-color);
+
       &:hover,
       &:focus,
       &:focus-visible {
-        color: var(--color-text);
-        background-color: var(--color-light);
+        background-color: var(--btn-bg);
+        color: var(--btn-color);
+        .icon--arrow {
+          --color: var(--color-primary);
+        }
       }
     }
+
+    &--solid {
+      --btn-bg: var(--color-dark);
+      --btn-color: var(--color-light);
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        --btn-bg: var(--color-light);
+        --btn-color: var(--color-text);
+        .icon--arrow {
+          --color: var(--color-primary);
+        }
+      }
+
+      .icon--arrow {
+        --color: var(--color-primary-contrast);
+      }
+    }
+
+    &--solid-inverse {
+      --btn-bg: var(--color-light);
+      --btn-color: var(--color-dark);
+      border: calc(var(--s) * .2) solid var(--btn-color);
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        --btn-bg: var(--color-dark);
+        --btn-color: var(--color-light);
+        .icon--arrow {
+          --color: var(--color-primary);
+        }
+      }
+
+      .icon--arrow {
+        --color: var(--color-primary-contrast);
+      }
+    }
+
+
 
     &--link {
       cursor: pointer;
       text-decoration: none;
       transition: opacity 0.83s cubic-bezier(0.17, 0.17, 0.35, 1);
       display: flex;
+      column-gap: var(--s1);
       align-items: center;
       position: relative;
       width: max-content;
+      overflow: hidden;
+
+      > * {
+        padding: 3px 3px .2rem 0;
+      }
+
 
       span {
-        padding-bottom: 0.2rem;
         position: relative;
         &:after {
           content: "";
@@ -75,12 +171,16 @@
           width: 100%;
           height: 1px;
           opacity: 0;
-          background-color: var(--color-text);
+          background-color: var(--mode-color);
           transition:
             opacity 0.3s,
             transform 0.3s;
           transform: translate3d(-100%, 0, 0);
         }
+      }
+
+      .icon--arrow {
+        --color: var(--new-color, var(--color-primary));
       }
 
       &:hover,
@@ -128,10 +228,8 @@
     }
 
     .icon {
-      transition: transform .25s linear;
+      transition: transform .25s linear, color .25s linear;
       &--arrow {
-        margin-left: var(--s1);
-        margin-bottom: 0.2rem;
         --width: 17px;
         --height: 16px;
       }

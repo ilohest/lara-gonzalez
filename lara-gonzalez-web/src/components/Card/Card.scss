@@ -1,14 +1,52 @@
 @use "dawuti" as *;
 
 .card {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  height: 100%;
-  padding: var(--s4);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: auto;
+  padding: var(--s5);
   border: 1px solid var(--color-dark);
-
-  &__list {
-    align-self: end
+  @include mq-sm {
+    padding: var(--s8) var(--s10) var(--s6) var(--s5);
+  }
+  @include mq-lg {
+    aspect-ratio: 1/1.2;
   }
 
+  &__header {
+    > * {
+      @include f('md', 400, true);
+      @include mq-sm {
+        @include f('base', 400, true);
+      }
+      @include mq-xl {
+        @include f('md', 400, true);
+      }
+    }
+    .heading {
+      font-weight: 700;
+    }
+  }
+
+  &__inner-step {
+    display: inline-block;
+    margin-bottom: calc(var(--s) * 1);
+  }
+
+  &__list {
+    margin-top: calc(var(--s) * 15);
+    @include mq-xs {
+      margin-top: calc(var(--s) * 10);
+    }
+    @include mq-sm {
+      margin-top: calc(var(--s) * 32);
+    }
+    li {
+      @include f('base', 400, true);
+      + li {
+        margin-top: calc(var(--s) * 3);
+      }
+    }
+  }
 }

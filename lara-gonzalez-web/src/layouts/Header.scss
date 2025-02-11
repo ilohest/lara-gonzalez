@@ -1,28 +1,34 @@
 @use "dawuti" as *;
 
 header {
-    display: flex;
-    justify-content: space-between;
-    min-width: var(--s9);
+
 
     .button-side-menu-open {
-        width: var(--s6);
-        padding-top: var(--s4);
+        --width: var(--s5);
+        --height: var(--s5);
+        --color: var(--color-primary-contrast);
         margin-left: auto;
         cursor: pointer;
         @include mq-lg {
             display: none;
         }
     }
+
 }
 
 .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: var(--s9);
+    padding-top: var(--s6);
+    padding-bottom: var(--s9);
+    @include mq-lg{
+        padding-top: var(--s3);
+    }
 
-    &__logotype{
-        margin-top: var(--s4);
-        @include mq-lg{
-            margin-top: 0;
-        }
+
+    &__logotype {
         &--xs{
             display: block;
             @include mq-lg{
@@ -31,22 +37,15 @@ header {
         }
     }
 
-
-    &__dark-mode{
-        a{
-            color: var(--color-light);
-        }
+    &__dark-mode {
+        --mode-color: var(--color-light);
     }
-
-    &__light-mode{
-        .menu{
+ 
+    &__light-mode {
+        --mode-color: var(--color-dark);
+        .header__logotype img,
+        .button-side-menu-open {
             filter: invert(1);
-        }
-        .header__logotype{
-            
-            img{
-                filter: invert(1);
-            }
         }
     }
 
@@ -62,9 +61,18 @@ header {
             flex-basis: 100%;
             align-items: center;
         }
+
+        &--item {
+            color: var(--color-primary-contrast);
+        }
     }
 
-    .button{
-        @include f('xs', 400, true);
+    .button {
+        color: var(--mode-color);
+        @include f('link-md', 400, true);
+
+        @include mq-md {
+            @include f('xs', 400, true);
+        }
     }
 }

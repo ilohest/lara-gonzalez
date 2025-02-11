@@ -1,13 +1,34 @@
 @use "dawuti" as *;
 
+
+.swiper-thumbs {
+  .swiper-wrapper {
+    @include mq-md {
+      gap: calc(var(--s) * 3);
+    }
+  }
+
+  .swiper-slide {
+    aspect-ratio: 22/28;
+    img {
+      object-fit: cover!important;
+      min-width: 100%;
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+
 .swiper-slide {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  
     img {
-        height: 1200px;
         width: 100%;
+        height: auto;
+        object-fit: cover;
     }
 }
 
@@ -16,36 +37,29 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  @include mq-md(){
-    min-height: 320px;
-  }
   &-wrapper {
     display: flex;
     flex-flow: column nowrap;
-    height: 100vh;
-    //width: 100vw;
     @include mq-md(){
       flex-flow: row nowrap;
+      align-items: flex-end;
     }
 
     &__main{
       position: relative;
       width: 100%;
-      height: 85vh;
       @include mq-md(){
-        width: 85%;
-        height: 100vh;
+        width: size-by-cols(23, 24); 
         margin-right: 10px;
       }
     }
 
     &__thumbs{
         width: 100%;
-        height: 10vh;
-        padding-top: 10px;
+        gap: calc(var(--s) * 3);
+        padding-top: calc(var(--s) * 3);
         @include mq-md(){
-          width: 10%;
-          height: 100vh;
+          width: size-by-cols(1, 24);
           padding: 0;
         }
         .swiper-wrapper {
@@ -61,13 +75,8 @@
             width: 100% !important;
             flex-flow: row nowrap !important;
             height: 100% !important;
-         
           }
         }
     }
   }
 }
-
-
-
-

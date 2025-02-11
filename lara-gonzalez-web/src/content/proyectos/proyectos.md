@@ -8,19 +8,19 @@ anchors:
   - Tauro
   - MUDE Studio
   - Pure Grains
-projectsList:
+projectitem:
   - title: Vermicelli
     sector: Restauración
     location: Palermo, Italia
     collaboration: "@collaboration"
     images:
-      - url: "/static-images/lara-gonzalez-2.jpg"
+      - url: "/static-images/lara-gonzalez-project-1.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-1"
-      - url: "/static-images/lara-gonzalez-3.jpg"
+      - url: "/static-images/lara-gonzalez-project-1.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
-      - url: "/static-images/lara-gonzalez-4.jpg"
+      - url: "/static-images/lara-gonzalez-project-1.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
   - title: "Francachella Estudio"
@@ -28,16 +28,16 @@ projectsList:
     location: "Londres, Reino Unido"
     #collaboration: "Colaboración Especial"
     images:
-      - url: "/static-images/lara-gonzalez-5.jpg"
+      - url: "/static-images/lara-gonzalez-project-2.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-1"
-      - url: "/static-images/lara-gonzalez-4.jpg"
+      - url: "/static-images/lara-gonzalez-project-2.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
-      - url: "/static-images/lara-gonzalez-6.jpg"
+      - url: "/static-images/lara-gonzalez-project-2.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-1"
-      - url: "/static-images/lara-gonzalez-7.jpg"
+      - url: "/static-images/lara-gonzalez-project-2.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
   - title: "Tauro"
@@ -45,10 +45,10 @@ projectsList:
     location: "Vitoria-Gasteiz, España"
     collaboration: "Creatividad sin límites"
     images:
-      - url: "/static-images/lara-gonzalez-8.jpg"
+      - url: "/static-images/lara-gonzalez-project-3.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-1"
-      - url: "/static-images/lara-gonzalez-7.jpg"
+      - url: "/static-images/lara-gonzalez-project-3.jpg"
         alt: "Imagen Lara González 2"
         name: "proyecto-1-imagen-2"
   - title: "MUDE Studio"
@@ -56,10 +56,10 @@ projectsList:
     location: "París, Francia"
     collaboration: "Arte meets Earth"
     images:
-      - url: "/static-images/lara-gonzalez-1.jpg"
+      - url: "/static-images/lara-gonzalez-project-4.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-5"
-      - url: "/static-images/lara-gonzalez-2.jpg"
+      - url: "/static-images/lara-gonzalez-project-4.jpg"
         alt: "Imagen Lara González 6"
         name: "proyecto-1-imagen-2"
   - title: "Pure Grains"
@@ -67,7 +67,7 @@ projectsList:
     location: "Oslo, Noruega"
     collaboration: "Cereal Creativo"
     images:
-      - url: "/static-images/lara-gonzalez-1.jpg"
+      - url: "/static-images/lara-gonzalez-project-5.jpg"
         alt: "Imagen Lara González 1"
         name: "proyecto-1-imagen-3"
       - url: "/static-images/lara-gonzalez-2.jpg"

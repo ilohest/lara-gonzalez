@@ -59,7 +59,6 @@ const { rrss } = Astro.props;
     background-color: var(--color-light);
     padding-top: var(--s6);
     padding-bottom: var(--s8);
-    margin-top: var(--s);
     padding-top: calc(var(--s) * 15);
     padding-bottom: var(--s7);
     background-color: var(--color-light);
@@ -126,9 +125,11 @@ const { rrss } = Astro.props;
           margin-top: 0;
         }
       }
-
-
+      a {
+        @include f('xs', 400, true);
+      }
     }
+    
     &__logo {
       width: 100%;
       height: auto;

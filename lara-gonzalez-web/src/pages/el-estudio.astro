@@ -1,6 +1,6 @@
 ---
 import Heading from '@lara/components/heading/Heading';
-import Marquee from '@lara/components/marquee/Marquee';
+import Marquee from '@lara/components/marquee/Marquee.astro';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 import Layout from '@lara/layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
@@ -20,29 +20,37 @@ const { Content } = await render(estudio[0])
 			<Content />
 		</section>
 		<section class="studio__content wrapper-fluid">
-			<Heading tag="h2" size="md">{quotes.heading}</Heading>
-			<ul>
-			{quotes.items.map((quote) => (
-				<li>
-					<blockquote>
-						<p>{quote}</p>
-					</blockquote>
-				</li>
-			))}
-			</ul>
-			{quotes.cta &&
-				<div class="actions-wrapper actions-wrapper--center">
-					<a class="button button--solid" href={quotes.cta.url}>{quotes.cta.text}</a>
+			{quotes && 
+			<>
+				<Heading tag="h2" size="md">{quotes.heading}</Heading>
+				<div class="studio__content--col">
+					<ul class="studio__content--list">
+						{quotes.items.map((quote) => (
+							<li>{quote}</li>
+						))}
+					</ul>
+					{quotes.cta &&
+						<a class="button button--regular button--solid" href={quotes.cta.url}>{quotes.cta.text}</a>
+					}
 				</div>
+			</>
 			}
+
 		</section>
+
 		{marquee &&
-		<Marquee link={marquee.url} client:load>
-			<span>{marquee.text}</span>
-		</Marquee>
+			<a class="words-carrousel__link" href={marquee.url}>
+				<Marquee direction="to-left">
+						<span>{marquee.text}</span>
+						<span>{marquee.separator}</span> 
+				</Marquee>
+			</a>
 		}
+
 	</article>
-	<img src={footerImage} alt="Lara González estudio" />
+	<div class="studio__profile wrapper-fluid">
+		<img src={footerImage} alt="Lara González estudio" />
+	</div>
 </Layout>
 
 <style lang="scss">
@@ -53,17 +61,76 @@ const { Content } = await render(estudio[0])
 	}
 
 	.studio{
-		&__markdown-content{
-			margin-top: var(--s10);
-			margin-bottom: var(--s10);
+		&__markdown-content {
+			margin-top: calc(var(--s) * 14);
+			margin-bottom: calc(var(--s) * 14);
+			@include mq-xs {
+				padding-right: size-by-cols(1, 6);
+			}
+			@include mq-md {
+				padding-right: size-by-cols(2, 24);
+			}
+			:global(p + p) {
+				margin-top: calc(var(--s) * 6);
+			}
 			:global(p) {
 				@include f('md', 400, true);
 			}
 		}
 
 		&__content{
-			margin-top: var(--s10);
-			margin-bottom: var(--s10);
+			border-top: 1px solid var(--color-dark);
+			padding-top: var(--s6);
+			padding-bottom: calc(var(--s) * 11);
+
+			@include mq-md {
+				display: flex;
+				padding-top: var(--s8);
+				padding-bottom: calc(var(--s) * 13);
+			}
+
+			:global(.heading) {
+				margin-bottom: var(--s5);
+				font-weight: 600;
+				@include mq-md {
+					@include f('base', 600, true);
+					line-height: 1.2;
+					flex-basis: size-by-cols(9, 24);
+					padding-right: size-by-cols(2, 24);
+				}
+			}
+
+			&--list {
+				margin-bottom: calc(var(--s) * 8);
+				@include mq-md {
+					margin-bottom: calc(var(--s) * 14);
+				}
+
+				:global(li) {
+					@include f('md', 400, true);
+					@include mq-md {
+						@include f('base', 400, true);
+						line-height: 1.2;
+						letter-spacing: -1.8px;
+					}
+					+ :global(li ) {
+						margin-top: var(--s3);
+						@include mq-sm {
+							margin-top: var(--s2);
+						}
+					}
+				}
+			}
+
+			&--col {
+				@include mq-xs {
+					padding-right: size-by-cols(.5, 12);
+				}
+				@include mq-md {
+					flex-basis: size-by-cols(15, 24);
+					padding-right: size-by-cols(1, 24);
+				}
+			}
 		}
 		&__images{
 			display: flex;
@@ -75,6 +142,21 @@ const { Content } = await render(estudio[0])
 				width: 280px;
 				height: 350px;
 
+			}
+		}
+
+		&__profile {
+			img {
+				aspect-ratio: 34 / 42;
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+				@include mq-xs {
+					aspect-ratio: 95 / 42;
+				}
+				@include mq-md {
+					aspect-ratio: 140 / 80;
+				}
 			}
 		}
 	}

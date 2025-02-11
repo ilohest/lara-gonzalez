@@ -4,9 +4,9 @@ hero:
   title: Branding
   subtitle: Studio
   gallery: 
-    - "/static-images/lara-gonzalez-8.jpg"
-    - "/static-images/lara-gonzalez-7.jpg"
-    - "/static-images/lara-gonzalez-6.jpg"
+    - "/static-images/lara-gonzalez-9.jpg"
+    - "/static-images/lara-gonzalez-10.jpg"
+    - "/static-images/lara-gonzalez-11.jpg"
 projectsSection:
   title: "Creatividad & estrategia"
   imageLg: "/static-images/lara-gonzalez-home-1.png"
@@ -59,4 +59,4 @@ services:
       text: "Pide información"
 ---
 
-Creamos <u>marcas con personalidad</u> porque creemos que es la única forma de hacerlo.
+Creamos <em>marcas con personalidad</em> porque creemos que es la única forma de hacerlo.

@@ -1,5 +1,6 @@
 import React from "react";
-import closeIcon from "../../assets/icons/close.svg";
+import Icon from '../shared/Icon';
+import mainLogo from "../../assets/icons/lara-gonzalez-light.svg";
 
 
 import "./SideMenu.scss";
@@ -17,16 +18,30 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
 
   return (
     <dialog className={`side-menu${classOpen}`}>
-      <button
-        title="Menu cerrar"
-        id="button-side-menu-close"
-        className="button-side-menu-close"
-        aria-expanded="false"
-        onClick={() => {
-          setOpen(false);
-        }}>
-        <img src={closeIcon.src} width={32} height={32} alt="Cerrar menú" />
-      </button>
+      <header className="side-menu__header">
+        <a
+          className="header__logotype header__logotype--xs"
+          aria-label="Ir a la página de inicio"
+          href="/"
+        >
+          <img
+            src={mainLogo.src}
+            width={165}
+            height={12}
+            alt="Lara González logo"
+          />
+        </a>
+        <button
+          title="Menu cerrar"
+          id="button-side-menu-close"
+          className="button-side-menu-close"
+          aria-expanded="false"
+          onClick={() => {
+            setOpen(false);
+          }}>
+          <Icon classes="icon--close" url="src/assets/icons/close.svg" />
+        </button>
+      </header>
       <nav className="side-menu__nav">
         <ul>
           <li>
@@ -38,7 +53,7 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
         </ul>
       </nav>
       <div className="side-menu__bottom">
-        <a className="button button--outline-inverse" href="/contacto">
+        <a className="button button--solid-inverse" href="/contacto">
           ¿Hablamos?
         </a>
         {email && (
@@ -49,15 +64,18 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
           </div>
         )}
         {rrss && (
-          <div className="side-menu__social">
+          <ul className="side-menu__social">
             {rrss.map((rs: RSModel, index: number) => {
               return (
-                <a key={index} href={rs.url} target="_blank">
-                  {rs.platform}
-                </a>
+                <li>
+                  <a key={index} href={rs.url} className="button button--link" target="_blank">
+                    <span>{rs.platform}</span>
+                    <Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
+                  </a>
+                </li>
               );
             })}
-          </div>
+          </ul>
         )}
       </div>
     </dialog>

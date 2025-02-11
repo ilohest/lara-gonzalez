@@ -54,11 +54,22 @@ a{
   color: var(--color-text);
 }
 
+em {
+  text-decoration: underline;
+}
+
 main {
+  overflow: hidden;
   position: relative;
   //z-index: 1;
   background-color: var(--color-light);
 }
+
+// ul, ol {
+//   margin-block-start: 0;
+//   margin-inline-start: 0;
+//   padding-inline-start: 0px;
+// }
 
 .grid {
   display: grid;
