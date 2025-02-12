@@ -1,124 +1,254 @@
 @use "dawuti" as *;
 
+.page__home {
+    .hero {
+        grid-template-rows: auto auto;
+        @include mq-xs {
+            grid-template-columns: repeat(9, 1fr);
+            grid-template-areas: 
+            "title title title gallery gallery gallery gallery gallery gallery";
+        }
+        @include mq-md {
+            grid-template-areas: 
+            "title title title . . gallery gallery gallery gallery"
+            "title title title . . . . . .";
+        }
+    }
+    .heading--primary {
+        font-weight: 600;
+    }
+    .hero__gallery {
+        grid-template-rows: 15vh 14vh min-content 1fr;
+        
+        @include mq-xs {
+            grid-template-rows: 7vh 22vh auto
+        }
+        @include mq-sm {
+            grid-template-rows: 8vh 18vh auto;
+        }
+        @include mq-md {
+            grid-template-rows: 21vh 23vh auto;
+        }
+        @include mq-lg {
+            grid-template-rows: 18vh 21vh 0;
+        }
+        @include mq-xl {
+            grid-template-rows: 13vh 18vh 0;
+        }
+    }
 
-// TODO
-// .page__estudio {
-//     .hero {
-//         display: grid;
-//         grid-template-areas: 
-//         "img1 img2"
-//         "title ."; 
-//         grid-template-columns:
-//     }
-// }
+    .studio-gallery {
+        &-0 {
+            grid-area: img0;
+            grid-column: 1 / 9;
+            @include mq-xs {
+                grid-column: 5 / 10;
+            }
+            @include mq-sm {
+                grid-column: 1 / 9;
+            }
+            @include mq-md {
+                grid-column: 3 / 8;
+            }
+            @include mq-lg {
+                grid-column: 1 / 8;
+                max-height: 55vh;
+            }
+            @include mq-xl {
+                grid-column: 2 / 9;
+            }
+            @include mq-xxl {
+                max-height: 61vh;
+            }
+        }
+        &-1 {
+            grid-area: img1;
+            grid-column: 6 / 13;
+            @include mq-xs {
+                grid-column: 9 / 15;
+            }
+
+            @include mq-sm {
+                grid-column: 6 / 13;
+            }
+            @include mq-md {
+                grid-column: 7 / 11;
+            }
+            @include mq-lg {
+                grid-column: 6 / 12;
+                max-height: 43vh;
+            }
+            @include mq-xxl {
+                grid-column: 6 / 12;
+            }
+        }
+        &-2 {
+            grid-area: img2;
+            grid-column: 3 / 8;
+            @include mq-xs {
+                grid-column: 4 / 7;
+            }
+           @include mq-sm {
+                grid-column: 5 / 10;
+            }
+            @include mq-md {
+                grid-column: 5 / 8;
+            }
+            @include mq-lg {
+                grid-column: 2 / 7;
+                max-height: 33vh;
+            }
+            @include mq-xl {
+                grid-column: 1 / 5;
+            }
+        }
+    }
+}
+
+.page__estudio {
+    .hero {
+        // grid-template-rows: 7vh auto;
+        // @include mq-xs {
+        //     grid-template-rows: auto;
+        // }
+        // @include mq-sm {
+        //     grid-template-rows: 8vh auto;
+        // }
+
+        @include mq-md {
+            grid-template-rows: 21vh auto;
+        }
+        @include mq-md {
+            grid-template-rows: 13vh  auto;
+        }
+        @include mq-xs {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: 
+            "title gallery";
+        }
+        @include mq-md {
+            grid-template-areas: 
+            ". gallery"
+            "title title";
+        }
+            
+        &__header {
+            @include mq-sm {
+                grid-row: 2 / -1;
+            }
+        }
+    }
+
+    .hero__gallery {
+        grid-template-rows: 7vh auto;
+        @include mq-xs {
+            grid-template-rows: 23vh 0;
+        }
+        @include mq-sm {
+            grid-template-rows: 17vh 0;
+        }
+        @include mq-md {
+            grid-template-rows: 0 0;
+            align-content: flex-start;
+        }
+    }
+
+
+    .studio-gallery {
+        &-0 {
+            grid-area: img0;
+            grid-column: 1 / 5;
+            @include mq-xs {
+                grid-column: 5 / 10;
+            }
+            @include mq-sm {
+                grid-column: 1 / 9;
+            }
+            @include mq-md {
+                grid-column: 1 / 6;
+                padding-right: size-by-cols(1.5, 24);
+            }
+            @include mq-xl {
+                grid-column: 3 / 7;
+                max-height: 35vh;
+            }
+        }
+        &-1 {
+            grid-area: img1;
+            grid-column: 6 / 13;
+            @include mq-xs {
+                grid-column: 9 / 15;
+            }
+
+            @include mq-sm {
+                grid-column: 6 / 13;
+            }
+            @include mq-md {
+                grid-column: 6 / 12;
+            }
+            @include mq-lg {
+                grid-column: 6 / 14;
+            }
+            @include mq-xl {
+                grid-column: 7 / 12;
+                max-height: 46vh;
+            }
+        }
+    }
+}
+
 
 
 .hero {
     height: calc(100dvh - var(--site-header));
-    display: flex;
-    flex-direction: column;
-    justify-items: flex-end;
     padding-bottom: calc(var(--s) * 10);
-    @include mq-xs {
-        flex-direction: row;
-        align-items: flex-end;
-    }
+    // nuevos
+    display: grid;
+    grid-template-areas: 
+    "gallery" 
+    "title"; 
+    grid-template-columns: 1fr;
+
     @include mq-sm {
         height: calc(65dvh - var(--site-header));
     }
-
-    @include mq-md{
+    @include mq-lg {
         height: calc(100dvh - var(--site-header));
+    }
+    @include mq-xl {
+        max-height: calc(85dvh - var(--site-header));
     }
 
 
     &__header {
+        grid-area: title;
+        grid-column: 1 / 12;
         z-index: 1;
-        order: 2;
-        margin-top: calc(var(--s) * 15);
-        @include mq-xs {
-            order: 1;
+        margin-top: calc(var(--s) * 9);
+        align-content: end;
+        @include mq-md {
+            height: 100%;
+            align-content: flex-end;
+            margin-top: 0;
         }
     }   
 
     &__gallery {
+        align-content: flex-start;
+        grid-area: gallery;
         position: relative;
-        order: 1;
-        display: flex;
-        flex-wrap: wrap;
         height: 100%;
         width: 100%;
-        padding: var(--safe-area);
-
+        display: grid;
+        grid-template-areas: 
+        "img0"
+        "img1"
+        "img2";
+        grid-template-columns: repeat(12, 1fr);
     }
 
     .studio-gallery {
-        position: absolute;
-
-        img {
-            object-fit: contain;
-        }
-        &-0 {
-            width: 28dvw;
-            top: 0;
-            left: 0;
-            @include mq-xs {
-                width: 47dvh;
-                top: calc(var(--s) * -5);
-                left: 20%
-            }
-            @include mq-sm {
-                width: 57dvw;
-                left: unset;
-                right: 18dvw;
-                top: calc(var(--s) * 5);
-            }
-            @include mq-md {
-                width: 27.2dvw;
-                top: calc(var(--s)* -2);
-                left: -9vw;
-            }
-        }
-        &-1 {
-            width: 59dvw;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0;
-            @include mq-xs {
-                width: 40dvh;
-                top: 5%;
-                transform: unset;
-            }
-            @include mq-sm {
-                width: 33dvh;
-                top: 23%;
-            }
-            @include mq-md {
-                width: 38.5dvh;
-                top: 50%;
-                transform: translateY(-50%);
-                right: var(--safe-area);
-            }
-        }
-        &-2 {
-            width: 38.4dvw;
-            bottom: 0;
-            left: calc(var(--s) * 13.3);
-            @include mq-xs {
-                width: 30dvw;
-                left: 40%;
-                bottom: calc(var(--s) * -5);
-            }
-            @include mq-sm {
-                width: 22dvw;
-                left: -20vw;
-                bottom: 5vh;
-            }
-            @include mq-md {
-                width: 18.8dvw;
-                left: 8%;
-                bottom: 5vh;
-            }
-        }
+        object-fit: contain;
+        width: 100%;
     }
 }

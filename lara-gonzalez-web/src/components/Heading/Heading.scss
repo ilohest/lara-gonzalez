@@ -25,7 +25,7 @@
     @include f('md', 400, true);
   }
   &--lg {
-    @include f('lg', 400, true);
+    @include f('heading-lg', 400, true);
   }
   &--xl {
     @include f('xl', 700, true);

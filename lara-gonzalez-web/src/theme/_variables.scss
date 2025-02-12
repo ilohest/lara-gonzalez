@@ -33,7 +33,7 @@ $sv: div(5.5555555, 20);
   // Colors
   --color-primary: #000;
   --color-primary-contrast: #fff;
-  --color-secondary: #FF0012;
+  --color-secondary: #FF0000;
   --color-secondary-contrast: #000;
   --color-tertiary: #3D82E5;
   --color-tertiary-contrast: #000;
@@ -45,7 +45,7 @@ $sv: div(5.5555555, 20);
   --color-error: var(--color-secondary); // TBD
   --color-error-bg: #FEE7E7; // TBD
 
-  --color-success: #0DA137; // TBD 
+  --color-success: #38A756; // TBD 
   --color-success-bg: #D4FFDE; // TBD
  
   --color-text: var(--color-dark);
@@ -71,6 +71,12 @@ $sv: div(5.5555555, 20);
         --fs-base: #{clamp-calc(24, 26)};
         --lh-base: #{calc-lh(24, 26)};
       }
+    }
+
+    & {
+      --fs-detail-v: 13;
+      --fs-detail: #{clamp-calc(13, 14)};
+      --lh-detail: #{calc-lh(13, 14)};
     }
 
     & {
@@ -164,6 +170,18 @@ $sv: div(5.5555555, 20);
       }
     }
 
+    & {
+      --fs-heading-lg-v: 64;
+      --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
+      --lh-heading-lg: #{calc-lh(64, 57)};
+      --ls-heading-lg: calc(var(--s) * -.8);
+      @include mq-lg { 
+        --fs-heading-lg-v: 104;
+        --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
+        --lh-heading-lg: #{calc-lh(104, 83)};
+      }
+    }
+
     // SECONDARY
     & {
       --fs-sec-base-v: 20;
@@ -180,14 +198,19 @@ $sv: div(5.5555555, 20);
     // SPECIFIC FONTS
     // PROJECTS
     & {
-      --fs-project-title-v: 86.3;
-      --fs-project-title: #{rem-css-vars(--fs-project-title-v)};
-      --lh-project-title: #{calc-lh(86.3, 69)};
-      --ls-project-title: calc(var(--s) * -.8);
+      --fs-hero-title-v: 70;
+      --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
+      --lh-hero-title: #{calc-lh(70, 56)};
+      --ls-hero-title: calc(var(--s) * -.8);
+      @include mq-sm {
+        --fs-hero-title-v: 100;
+        --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
+        --lh-hero-title: #{calc-lh(100, 80)};
+      }
       @include mq-lg { 
-        --fs-project-title-v: 215;
-        --fs-project-title: #{rem-css-vars(--fs-project-title-v)};
-        --lh-project-title: #{calc-lh(215, 172)};
+        --fs-hero-title-v: 215;
+        --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
+        --lh-hero-title: #{calc-lh(215, 172)};
       }
     }
     // FORM

@@ -53,7 +53,7 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
         </ul>
       </nav>
       <div className="side-menu__bottom">
-        <a className="button button--solid-inverse" href="/contacto">
+        <a className="button button--big button--solid-inverse" href="/contacto">
           ¿Hablamos?
         </a>
         {email && (

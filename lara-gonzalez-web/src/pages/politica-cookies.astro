@@ -3,6 +3,7 @@ import Heading from "@lara/components/heading/Heading";
 import WrapperHeader from "@lara/components/wrapper/HeaderWrapper";
 import Layout from "@lara/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
+import "../layouts/Legal.scss";
 
 const cookies = await getCollection('cookies');
 //console.log(cookies)
@@ -16,8 +17,8 @@ const { Content } = await render(cookies[0])
   title="Política de cookies | Lara González"
   description=""
 >
-  <WrapperHeader client:load />
-  <section class="wrapper-fluid">
+  <section class="legal-page wrapper-fluid">
+    <WrapperHeader client:load />
     <Heading tag="h1" size="lg">
       {title}
     </Heading>
@@ -26,15 +27,3 @@ const { Content } = await render(cookies[0])
     </div>
   </section>
 </Layout>
-
-<style lang="scss">
-	@use "dawuti" as *;
-  .legal-content {
-    :global(h2) {
-      @include f('sec-md', 400, true);
-    }
-    :global(strong){
-      font-weight: 700;
-    }
-  }
-</style>

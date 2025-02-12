@@ -5,10 +5,10 @@ import Layout from "@lara/layouts/Layout.astro";
 
 <Layout title="Página no encontrada | Lara González" description="Página no encontrada">
     <WrapperHeader client:load />
-    <section class="error-404 error-404__wrapper">
+    <section class="error-404 error-404__wrapper wrapper-fluid">
         <p class="error-404__desc">Oh! Algo ha fallado.</p>
         <div class="actions-wrapper actions-wrapper--center">
-            <a class="button button--solid error-404__link" href="/">Volver</a>
+            <a class="button button--big button--solid error-404__link" href="/">Volver</a>
         </div>
     </section>  
 </Layout>
@@ -18,19 +18,20 @@ import Layout from "@lara/layouts/Layout.astro";
       height: 100%;
 
       &__wrapper {
-        margin-top: calc(var(--s2)*20);
+        margin-top: calc(var(--s10) * 2);
+        margin-bottom: calc(var(--s10) * 2);
         text-align: center;
       }
 
       &__desc {
         @include f('xl', 400, true);
+        font-family: var(--font-secondary);
       }
 
       &__desc, 
       &__link {
         display: block;
-        margin-top: var(--s6);
-        font-family: var(--font-secondary);
+        margin-top: var(--s8);
       }
     }
 

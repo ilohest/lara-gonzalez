@@ -41,22 +41,30 @@ const { title, anchors, projectitem } = proyectos[0].data;
   
 	.projects {
 	  &__heading {
-		display: flex;
-		:global(.heading) {
-			@include f('project-title', 400, true);
-		}
+			display: flex;
+			:global(.heading) {
+				@include f('hero-title', 400, true);
+			}
 	  }
 
 	  :global(.projects__header) {
-		margin-top: calc(var(--s) * 3);
-        margin-bottom: calc(var(--s) * 3);
-		@include mq-md {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: flex-end;
-        	justify-content: space-between;
-			padding-right: calc(size-by-cols(1, 24) + 10px);
-		}
+			margin-top: calc(var(--s) * 3);
+			margin-bottom: calc(var(--s) * 3);
+			@include mq-md {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-end;
+				justify-content: space-between;
+				padding-right: calc(size-by-cols(1, 24) + 10px);
+				margin-bottom: calc(var(--s) * 4.5);
+				gap: var(--s4);
+			}
+			:global(.heading) {
+				margin-bottom: var(--s3);
+				@include mq-md {
+					margin-bottom: 0;
+				}
+			}
 	  }
 
 	  &__list{
@@ -66,7 +74,7 @@ const { title, anchors, projectitem } = proyectos[0].data;
 		column-gap: var(--s5);
 		row-gap: var(--s);
 		@include mq-md {
-			margin: var(--s10) 0 var(--s7);
+			margin: var(--s10) 0 0;
 		}
 
 		a {

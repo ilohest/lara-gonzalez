@@ -50,19 +50,22 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
               0: {
                 direction: "horizontal",
                 slidesPerView: 6,
+                spaceBetween: 8
               },
               667: {
                 direction: "horizontal",
                 slidesPerView: 10,
+                spaceBetween: 8
               },
               768: {
                 direction: "horizontal",
                 slidesPerView: 10,
+                spaceBetween: 16
               },
               1024: {
                 direction: "vertical",
                 slidesPerView: 6,
-                spaceBetween: 0
+                spaceBetween: 0,
               },
             }}
           >

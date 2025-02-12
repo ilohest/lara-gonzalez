@@ -7,9 +7,10 @@ import Cursor from "@lara/components/cursor/Cursor";
 interface Props {
 	title: string;
 	description: string;
+	classes?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, classes } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const rrss = [
@@ -56,7 +57,7 @@ const rrss = [
 		<ClientRouter />
 	</head>
 	<body>
-		<main>		
+		<main class={classes}>		
 			<slot />
 			<Cursor hidden={false} notAllowed={false} client:load></Cursor>
 		</main>		

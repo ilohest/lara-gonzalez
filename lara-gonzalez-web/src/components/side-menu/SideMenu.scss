@@ -11,17 +11,24 @@
     position: absolute;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     z-index: 10;
     background-color: var(--color-text);
     color: var(--color-text-contrast);
     border: none;
     padding: calc(var(--s) * 6) var(--safe-area, 15px) calc(var(--s) * 13);
+    @include mq-lg {
+        display: none; 
+    }
 
     &--open {
         transform: translate(0dvw);
         @include mq-lg {
             display: none;
+        }
+
+        .header__logotype img {
+            filter: none;
         }
     }
 
@@ -33,7 +40,10 @@
     }
 
     &__email {
-        @include f('xxs', 400, true);
+        a {
+            @include f('xxs', 400, true);
+            color: var(--color-primary-contrast);
+        }
     }
 
     &__social {

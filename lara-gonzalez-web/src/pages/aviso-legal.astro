@@ -3,7 +3,7 @@ import Heading from "@lara/components/heading/Heading";
 import WrapperHeader from "@lara/components/wrapper/HeaderWrapper";
 import Layout from "@lara/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
-
+import "../layouts/Legal.scss";
 const legal = await getCollection('legal');
 const { title } = legal[0].data; 
 const { Content } = await render(legal[0])
@@ -11,25 +11,11 @@ const { Content } = await render(legal[0])
 ---
 
 <Layout title="Aviso Legal | Lara González" description="">
-  <WrapperHeader client:load />
-  <section class="wrapper-fluid">
-    <Heading tag="h1" size="lg">{title}</Heading>
+  <section class="legal-page wrapper-fluid">
+    <WrapperHeader client:load />
+    <Heading tag="h1" size="xxl">{title}</Heading>
     <div class="legal-content">
       <Content></Content>
     </div>
   </section>
 </Layout>
-
-<style lang="scss">
-@use "dawuti" as *;
-
-.legal-content {
-  :global(h2) {
-    @include f('sec-md', 400, true);
-  }
-  :global(strong){
-      font-weight: 700;
-    }
-}
-
-</style>

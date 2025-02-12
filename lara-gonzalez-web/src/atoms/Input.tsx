@@ -177,7 +177,7 @@ const Input = ({
                 disabled={disabled}
               />
               <i></i>
-              <p dangerouslySetInnerHTML={{ __html: label }}></p>
+              <p className="input--checkbox-text" dangerouslySetInnerHTML={{ __html: label }}></p>
             </label>
           </div>
         </div>

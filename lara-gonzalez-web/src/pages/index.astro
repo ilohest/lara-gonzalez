@@ -7,14 +7,13 @@ import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 import Icon from '../components/shared/Icon';
 
 const home = await getCollection('home');
-const { hero, projectsSection, services } = home[0].data; 
+const { hero, projectsSection, services, } = home[0].data; 
 const { Content } = await render(home[0])
 
 ---
 
-<Layout title="Lara González" description="">
+<Layout title="Lara González" description="" classes="page__home">
 	<WrapperHeader hero={hero}  client:load />	
-	
 	<section class="home__projects wrapper-fluid">
 		<div class="home__projects--content">
 			<Content />

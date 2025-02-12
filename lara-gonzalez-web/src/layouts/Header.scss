@@ -1,8 +1,6 @@
 @use "dawuti" as *;
 
 header {
-
-
     .button-side-menu-open {
         --width: var(--s5);
         --height: var(--s5);
@@ -63,16 +61,17 @@ header {
         }
 
         &--item {
-            color: var(--color-primary-contrast);
+            color: var(--mode-color);
         }
     }
 
-    .button {
-        color: var(--mode-color);
-        @include f('link-md', 400, true);
+    // .button {
+    //     border: 2px solid red;
+    //     color: var(--mode-color);
+    //     @include f('link-md', 400, true);
 
-        @include mq-md {
-            @include f('xs', 400, true);
-        }
-    }
+    //     @include mq-md {
+    //         @include f('xs', 400, true);
+    //     }
+    // }
 }

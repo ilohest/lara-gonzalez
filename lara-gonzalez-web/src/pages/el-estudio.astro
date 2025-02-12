@@ -151,11 +151,15 @@ const { Content } = await render(estudio[0])
 				object-fit: cover;
 				height: 100%;
 				width: 100%;
+				max-height: calc(var(--s10) * 16);
 				@include mq-xs {
 					aspect-ratio: 95 / 42;
 				}
 				@include mq-md {
 					aspect-ratio: 140 / 80;
+				}
+				@include mq-lg {
+					object-position: 0 48%;
 				}
 			}
 		}
