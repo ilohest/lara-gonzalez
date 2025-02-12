@@ -68,7 +68,7 @@ textarea {
 
     &__error{
         @include f('detail', 400, true);
-        margin-top: calc(var(--s) * 1);
+        margin-top: calc(var(--s) * .8);
         color: var(--color-error);
         position: absolute;
     }

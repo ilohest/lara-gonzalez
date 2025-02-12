@@ -42,7 +42,6 @@ h4,
 h5,
 h6,
 input {
-  color: var(--color-text);
   &::selection {
     background: var(--color-tertiary);
     color: var(--color-primary);
