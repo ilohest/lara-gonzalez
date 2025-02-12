@@ -9,6 +9,9 @@
         row-gap: calc(var(--s) * 10);
         margin-top: calc(var(--s) * 23);
     }
+    @include mq-xl {
+        row-gap: calc(var(--s) * 21);
+    }
 
 }
 .projects__item {

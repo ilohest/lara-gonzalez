@@ -31,43 +31,43 @@
                 @include f('base', 400, true);
             }
         }
-    }
 
+        p + p,
+        li + li {
+            margin-top: .5em;
+        }
 
-    p + p,
-    li + li {
-        margin-top: .5em;
-    }
+        h2,
+        h3,
+        h4,
+        h5 {
+            @include f('base', 600, true);
+            margin: calc(var(--s) * 8) 0 calc(var(--s) * 4);
+        }
 
-    h2,
-    h3,
-    h4,
-    h5 {
-        @include f('base', 600, true);
-        margin: calc(var(--s) * 8) 0 calc(var(--s) * 4);
-    }
+        ul,
+        ol {
+            padding-inline-start: 1.5em;
+            margin: 1em 0 1.4em;
+        }
 
-    ul,
-    ol {
-        padding-inline-start: 1.5em;
-        margin: 1em 0 1.4em;
-    }
+        li {
+            list-style-type: inherit;
+        }
 
-    li {
-        list-style-type: inherit;
-    }
+        strong {
+            font-weight: 600;
+        }
 
-    strong {
-        font-weight: 600;
-    }
+        a {
+            text-decoration: underline;
+            color: var(--color-primary);
+            transition: color 0.15s linear;
 
-    a {
-        text-decoration: underline;
-        color: var(--color-primary);
-        transition: color 0.15s linear;
-
-        &:hover {
-            color: var(--color-grey);
+            &:hover {
+                color: var(--color-grey);
+            }
         }
     }
+
 }

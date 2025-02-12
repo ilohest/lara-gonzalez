@@ -21,6 +21,32 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  &:focus-visible {
+      outline: 2px solid var(--color-tertiary);
+      outline-offset: -2px;
+  }
+}
+
+p,
+b,
+span,
+li,
+ul,
+ol,
+strong,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input {
+  color: var(--color-text);
+  &::selection {
+    background: var(--color-tertiary);
+    color: var(--color-primary);
+  }
 }
 
 button {
@@ -32,6 +58,10 @@ button {
   border-image: none;
   font-family: var(--font-primary);
   background: transparent;
+}
+
+img {
+  user-select: none;
 }
 
 a,
@@ -49,12 +79,16 @@ li {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--color-text);
 }
 
-em {
+strong, b {
+  font-weight: 600;
+}
+
+em, i {
   text-decoration: underline;
 }
 

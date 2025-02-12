@@ -26,7 +26,7 @@ $sv: div(5.5555555, 20);
   // Site-header
   --site-header: calc(var(--s) * 20.5);
   @include mq-lg {
-    --site-header: calc(var(--s) * 31.8);
+    --site-header: calc(var(--s) * 28);
   }
 
 
@@ -75,24 +75,34 @@ $sv: div(5.5555555, 20);
 
     & {
       --fs-detail-v: 13;
-      --fs-detail: #{clamp-calc(13, 14)};
+      --fs-detail: #{rem-css-vars(--fs-detail-v)};
       --lh-detail: #{calc-lh(13, 14)};
+      @include mq-xl {
+        --fs-detail: #{clamp-calc(13, 14)};
+      }
     }
 
     & {
       --fs-xxs-v: 14;
-      --fs-xxs: #{clamp-calc(14, 18)};
+      --fs-xxs: #{rem-css-vars(--fs-xxs-v)};
       --lh-xxs: #{calc-lh(14, 16)};
+      @include mq-xl {
+        --fs-xxs: #{clamp-calc(14, 18)};
+      }
     }
 
     & {
       --fs-xs-v: 16;
-      --fs-xs: #{clamp-calc(16, 18)};
+      --fs-xs: #{rem-css-vars(--fs-xs-v)};
       --lh-xs: #{calc-lh(16, 18)};
+      @include mq-xl {
+        --fs-xs: #{clamp-calc(16, 18)};
+      }
     }
 
     & {
       --fs-sm-v: 20;
+      --fs-sm: #{rem-css-vars(--fs-sm-v)};
       --fs-sm: #{clamp-calc(20, 30)};
       --lh-sm: #{calc-lh(20, 33)};
     }
@@ -193,6 +203,9 @@ $sv: div(5.5555555, 20);
       --fs-sec-md-v: 24;
       --fs-sec-md: #{rem-css-vars(--fs-sec-base-v)};
       --lh-sec-md: #{calc-lh(24, 28)};
+      @include mq-xl { 
+        --fs-sec-md: #{clamp-calc(24, 28)};
+      }
     }
 
     // SPECIFIC FONTS
@@ -206,11 +219,7 @@ $sv: div(5.5555555, 20);
         --fs-hero-title-v: 100;
         --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
         --lh-hero-title: #{calc-lh(100, 80)};
-      }
-      @include mq-lg { 
-        --fs-hero-title-v: 215;
-        --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
-        --lh-hero-title: #{calc-lh(215, 172)};
+        --fs-hero-title: #{clamp-calc(100, 215)};
       }
     }
     // FORM
@@ -263,7 +272,7 @@ $sv: div(5.5555555, 20);
     & {
       --fs-link-lg-v: 32;
       --fs-link-lg: #{rem-css-vars(--fs-link-lg-v)};
-      --lh-link-lg: #{calc-lh(32, 37)};
+      --lh-link-lg: 1.4;
       --ls-link-lg: calc(var(--s) * -.3);
     }
   }

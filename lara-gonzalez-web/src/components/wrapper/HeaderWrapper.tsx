@@ -75,7 +75,7 @@ const WrapperHeader = ({
 
   // Para el HERO, solo la home tiene size "hg", el resto tiene size "lg"
   const getHeadingSize = (path: string) => {
-    return path === "/" ? "hg" : "lg";  
+    return path === "/" ? "hg" : "big";  
   };
 
   useEffect(() => {

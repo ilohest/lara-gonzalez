@@ -30,7 +30,7 @@ const { Content } = await render(estudio[0])
 						))}
 					</ul>
 					{quotes.cta &&
-						<a class="button button--regular button--solid" href={quotes.cta.url}>{quotes.cta.text}</a>
+						<a class="button button--huge button--solid" href={quotes.cta.url}>{quotes.cta.text}</a>
 					}
 				</div>
 			</>
@@ -62,13 +62,18 @@ const { Content } = await render(estudio[0])
 
 	.studio{
 		&__markdown-content {
-			margin-top: calc(var(--s) * 14);
+			margin-top: calc(var(--s) * 15);
 			margin-bottom: calc(var(--s) * 14);
 			@include mq-xs {
 				padding-right: size-by-cols(1, 6);
 			}
 			@include mq-md {
 				padding-right: size-by-cols(2, 24);
+			}
+			@include mq-xl {
+				margin-top: calc(var(--s) * 24);
+				margin-bottom: calc(var(--s) * 24);
+				padding-right: size-by-cols(6, 24);
 			}
 			:global(p + p) {
 				margin-top: calc(var(--s) * 6);
@@ -124,7 +129,7 @@ const { Content } = await render(estudio[0])
 
 			&--col {
 				@include mq-xs {
-					padding-right: size-by-cols(.5, 12);
+					padding-right: size-by-cols(1, 12);
 				}
 				@include mq-md {
 					flex-basis: size-by-cols(15, 24);

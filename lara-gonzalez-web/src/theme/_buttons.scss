@@ -12,6 +12,12 @@
       padding: calc(var(--s)* 2.3) calc(var(--s)* 8);
     }
 
+    &--huge {
+      @include f('link-lg', 400, true);
+      padding: calc(var(--s)* 2.3) calc(var(--s)* 8);
+      height: calc(var(--s) * 12.2);
+    }
+
     
     &--outline,
     &--outline-inverse,

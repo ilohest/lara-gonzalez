@@ -23,7 +23,7 @@ const { Content } = await render(home[0])
 			<img src={projectsSection.imageSm} alt="Creatividad y estrategia imagen" />
 		</div>
 		<div class="actions-wrapper actions-wrapper--center">
-		 	<a class="button button--solid button--big" href={projectsSection.cta.url}>{projectsSection.cta.text}</a>
+		 	<a class="button button--solid button--huge" href={projectsSection.cta.url}>{projectsSection.cta.text}</a>
 		</div>
 	</section>
 	
@@ -164,6 +164,9 @@ const { Content } = await render(home[0])
 				}
 				@include mq-xs {
 					padding-right: size-by-cols(2, 12);
+				}
+				@include mq-xxl {
+					padding-right: size-by-cols(4, 12);
 				}
 			}
 			&--images {

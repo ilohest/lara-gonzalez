@@ -21,7 +21,7 @@ export const Card = ({
     <article className="card swiper-slide">
         <div className="card__header">
           <span className="card__inner-step">Fase 0{index + 1}</span>
-          <Heading tag="h5" size="base" headingFontWeight={900}>{card.title}</Heading>
+          <Heading tag="h3" size="base" headingFontWeight={600}>{card.title}</Heading>
         </div>
         <ul className="card__list">
           {card.list.map((listItem, i) => (

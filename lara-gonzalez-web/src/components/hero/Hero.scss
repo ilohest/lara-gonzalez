@@ -27,7 +27,7 @@
             grid-template-rows: 8vh 18vh auto;
         }
         @include mq-md {
-            grid-template-rows: 21vh 23vh auto;
+            grid-template-rows: 13vh 13vh 0;
         }
         @include mq-lg {
             grid-template-rows: 18vh 21vh 0;

@@ -27,10 +27,23 @@ header {
 
 
     &__logotype {
-        &--xs{
+        &--xs {
             display: block;
             @include mq-lg{
                 display: none;
+            }
+        }
+        img {
+            width: 43.8vw;
+            height: auto;
+            @include mq-xs {
+                width: 28.2vw;
+            }
+            @include mq-sm {
+                width: 21vw;
+            }
+            @include mq-lg {
+                width: 13.2vw;
             }
         }
     }
@@ -50,8 +63,6 @@ header {
     &__main-nav {
         display: none;
         @include mq-lg {
-            @include f('xs', 400, true);
-            text-transform: uppercase;
             margin-top: calc(var(--s) * 2);
             margin-bottom: calc(var(--s) * 7);
             display: flex;
@@ -59,19 +70,19 @@ header {
             flex-basis: 100%;
             align-items: center;
         }
+        > a {
+            @include f('xs', 400, true);
+            text-transform: uppercase;
+        }
 
         &--item {
             color: var(--mode-color);
         }
+
+        .button {
+            padding: calc(var(--s)* 1.6) calc(var(--s) * 3.2);
+        }
     }
 
-    // .button {
-    //     border: 2px solid red;
-    //     color: var(--mode-color);
-    //     @include f('link-md', 400, true);
 
-    //     @include mq-md {
-    //         @include f('xs', 400, true);
-    //     }
-    // }
 }
