@@ -111,7 +111,7 @@ $sv: div(5.5555555, 20);
       --fs-md-v: 24;
       --fs-md: #{rem-css-vars(--fs-md-v)};
       --lh-md: #{calc-lh(24, 24)};
-      --ls-md: -.4px;
+      --ls-md: -.7px;
       @include mq-sm {
         --fs-md-v: 30;
         --lh-md: #{calc-lh(30, 30)};
