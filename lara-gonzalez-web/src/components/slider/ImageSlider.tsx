@@ -30,7 +30,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
             simulateTouch={true}
           >
             {images.map((slide, i) => (
-              <SwiperSlide key={slide.url}>
+              <SwiperSlide key={`image-${i}`}>
                 <ImageWrapper image={slide} />
               </SwiperSlide>
             ))}
@@ -58,7 +58,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
             // }}
           >
             {images.map((slide, i) => (
-              <SwiperSlide key={`thumb-${slide.url}`}>
+              <SwiperSlide key={`thumb-${i}`}>
                 <img
                   src={slide.url}
                   alt={slide.alt}
