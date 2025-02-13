@@ -107,14 +107,6 @@
 
 .page__estudio {
     .hero {
-        // grid-template-rows: 7vh auto;
-        // @include mq-xs {
-        //     grid-template-rows: auto;
-        // }
-        // @include mq-sm {
-        //     grid-template-rows: 8vh auto;
-        // }
-
         @include mq-md {
             grid-template-rows: 21vh auto;
         }
@@ -163,10 +155,12 @@
             }
             @include mq-sm {
                 grid-column: 1 / 9;
+                max-width: 30vw;
             }
             @include mq-md {
                 grid-column: 1 / 6;
                 padding-right: size-by-cols(1.5, 24);
+                max-width: unset;
             }
             @include mq-xl {
                 grid-column: 3 / 7;
@@ -179,12 +173,13 @@
             @include mq-xs {
                 grid-column: 9 / 15;
             }
-
             @include mq-sm {
                 grid-column: 6 / 13;
+                max-width: 24vw;
             }
             @include mq-md {
                 grid-column: 6 / 12;
+                max-width: unset;
             }
             @include mq-lg {
                 grid-column: 6 / 14;

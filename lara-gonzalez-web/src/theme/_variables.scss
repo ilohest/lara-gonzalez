@@ -183,8 +183,10 @@ $sv: div(5.5555555, 20);
     & {
       --fs-heading-lg-v: 64;
       --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
+      --fs-heading-lg: #{clamp-calc(64, 104)};
       --lh-heading-lg: #{calc-lh(64, 57)};
       --ls-heading-lg: calc(var(--s) * -.8);
+
       @include mq-lg { 
         --fs-heading-lg-v: 104;
         --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
