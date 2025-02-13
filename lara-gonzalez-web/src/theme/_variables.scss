@@ -58,6 +58,7 @@ $sv: div(5.5555555, 20);
     @include mq-xl {
       --safe-area: calc(var(--s) * 5);
     }
+  }
 
     // PRIMARY
     & {
