@@ -3,6 +3,12 @@
 .legal-page {
     
     .heading {
+        @include mq-lg {
+            margin-top: calc(var(--s) * 5);
+        }
+        @include mq-xl {
+            margin-top: calc(var(--s) * 10);
+        }
         @include f('xl', 400, true);
     }
 

@@ -24,11 +24,7 @@ $sv: div(5.5555555, 20);
   --gutter: calc(var(--gap) / 2);
 
   // Site-header
-  --site-header: calc(var(--s) * 20.5);
-  @include mq-lg {
-    --site-header: calc(var(--s) * 28);
-  }
-
+  --site-header: calc(var(--s) * 17.6);
 
   // Colors
   --color-primary: #000;
@@ -59,7 +55,9 @@ $sv: div(5.5555555, 20);
     @include mq-sm {
       --cols: 24;
     }
-  }
+    @include mq-xl {
+      --safe-area: calc(var(--s) * 5);
+    }
 
     // PRIMARY
     & {
@@ -168,7 +166,6 @@ $sv: div(5.5555555, 20);
       --fs-hg-v: 67;
       --fs-hg: #{rem-css-vars(--fs-hg-v)};
       --lh-hg: #{calc-lh(67, 57)};
-      --ls-hg: calc(var(--s) * -.8);
       @include mq-sm { 
         --fs-hg-v: 120;
         --fs-hg: #{rem-css-vars(--fs-hg-v)};
@@ -196,15 +193,15 @@ $sv: div(5.5555555, 20);
       --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
       --fs-heading-lg: #{clamp-calc(64, 104)};
       --lh-heading-lg: #{calc-lh(64, 57)};
-      --ls-heading-lg: calc(var(--s) * -.8);
 
       @include mq-lg { 
         --fs-heading-lg-v: 104;
         --lh-heading-lg: #{calc-lh(104, 83)};
+        --fs-heading-lg: #{clamp-calc(104, 130)};
       }
       @include mq-xl {
-        --fs-heading-lg-v: 140;
-        --lh-heading-lg: #{calc-lh(140, 120)};
+        --fs-heading-lg-v: 130;
+        --lh-heading-lg: #{calc-lh(130, 160)};
       }
       @include mq-xxl {
         --fs-heading-lg-v: 160;

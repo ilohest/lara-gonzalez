@@ -154,12 +154,8 @@ textarea {
             justify-content: flex-start;
             align-items: center;
             @include mq-md {
-                padding: var(--s) 0 var(--s) calc(var(--s) * 4);
-            }
-            @include mq-lg {
                 padding: var(--s) 0 var(--s) calc(var(--s) * 7.5);
             }
-
 
             a {
                 cursor: pointer;
@@ -195,10 +191,6 @@ textarea {
                     left: 0;
                     top: 0;
                     border-radius: calc(var(--s) * .5);
-
-                    @include mq-md {
-                        margin-top: calc(var(--s) * .6);
-                    }
                     @include mq-xl {
                         margin-top: 0;
                     }
