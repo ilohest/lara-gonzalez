@@ -4,7 +4,7 @@ import './Heading.scss';
 import { classList, wrapWordsInSpan } from '@lara/utils/react.utils';
 
 export type HeadingTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-export type HeadingSizes = 'hg'| 'big' | 'xxl' | 'xl' | 'lg' | 'md' | 'base';
+export type HeadingSizes = 'hg'| 'big' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'base';
 
 export interface HeadingProps {
   tag: HeadingTags;

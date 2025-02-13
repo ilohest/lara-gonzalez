@@ -240,6 +240,24 @@ $sv: div(5.5555555, 20);
         --fs-hero-title: #{clamp-calc(100, 215)};
       }
     }
+
+    & {
+      --fs-project-title-v: 36;
+      --fs-project-title: #{rem-css-vars(--fs-project-title-v)};
+      --lh-project-title: #{calc-lh(36, 41)};
+      --fs-project-title: #{clamp-calc(36, 48)};
+      --ls-project-title: calc(var(--s) * -.4);
+      @include mq-lg {
+        --fs-project-title-v: 48;
+        --fs-project-title: #{rem-css-vars(--fs-project-title-v)};
+        --lh-project-title: #{calc-lh(48, 48)};
+      }
+      @include mq-xl {
+        --fs-project-title-v: 60;
+        --lh-project-title: #{calc-lh(60, 60)};
+      }
+    }
+
     // FORM
     & {
       --fs-input-v: 16;
