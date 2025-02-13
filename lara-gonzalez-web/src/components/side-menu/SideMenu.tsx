@@ -67,8 +67,8 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
           <ul className="side-menu__social">
             {rrss.map((rs: RSModel, index: number) => {
               return (
-                <li>
-                  <a key={index} href={rs.url} className="button button--link" target="_blank">
+                <li key={index}>
+                  <a href={rs.url} className="button button--link" target="_blank">
                     <span>{rs.platform}</span>
                     <Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
                   </a>

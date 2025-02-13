@@ -59,6 +59,7 @@ $sv: div(5.5555555, 20);
     @include mq-sm {
       --cols: 24;
     }
+  }
 
     // PRIMARY
     & {
@@ -295,4 +296,3 @@ $sv: div(5.5555555, 20);
       --ls-link-lg: calc(var(--s) * -.3);
     }
   }
-}
