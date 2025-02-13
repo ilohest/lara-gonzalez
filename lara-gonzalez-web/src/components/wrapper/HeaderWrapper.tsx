@@ -11,7 +11,7 @@ interface HeroData {
 
 const rrss = [
   { platform: "Instagram", url: "https://www.instagram.com/lara.gonzalez.estudio?igsh=MWgxZDZkZWdkN3dtZw==" },
-  { platform: "Linkedin", url: "https://www.linkedin.com" }
+  { platform: "Linkedin", url: "https://www.linkedin.com/in/lara-gonz%C3%A1lez-775271133/" }
 ];
 
 const email = "hola@laragonzalez.com"
