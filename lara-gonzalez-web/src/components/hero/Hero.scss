@@ -195,7 +195,7 @@
 }
 
 .hero {
-    height: calc(100dvh - var(--site-header));
+    min-height: calc(100dvh - var(--site-header));
     padding-bottom: calc(var(--s) * 10);
     display: grid;
     grid-template-areas: 
@@ -205,11 +205,11 @@
     max-height: calc(var(--s) * 160); 
 
     @include mq-sm {
-        height: calc(65dvh - var(--site-header));
+        min-height: calc(65dvh - var(--site-header));
     }
     @include mq-lg {
         padding-top: calc(var(--s)* 16);
-        height: calc(100dvh - var(--site-header));
+        min-height: calc(100dvh - var(--site-header));
     }
     @include mq-xl {
         max-height: calc(75dvh - var(--site-header));
