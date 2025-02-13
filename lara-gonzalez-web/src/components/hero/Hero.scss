@@ -46,6 +46,7 @@
             }
             @include mq-sm {
                 grid-column: 1 / 9;
+                max-width: calc(var(--s) * 80);
             }
             @include mq-md {
                 grid-column: 3 / 8;
@@ -58,6 +59,7 @@
                 grid-column: 2 / 9;
             }
             @include mq-xxl {
+                grid-column: 3 / 10;
                 max-height: 61vh;
             }
         }
@@ -99,7 +101,7 @@
                 max-height: 33vh;
             }
             @include mq-xl {
-                grid-column: 1 / 5;
+                grid-column: 4 / 8;
             }
         }
     }
@@ -192,28 +194,33 @@
     }
 }
 
-
-
 .hero {
     height: calc(100dvh - var(--site-header));
     padding-bottom: calc(var(--s) * 10);
-    // nuevos
     display: grid;
     grid-template-areas: 
     "gallery" 
     "title"; 
     grid-template-columns: 1fr;
+    max-height: calc(var(--s) * 160); 
 
     @include mq-sm {
         height: calc(65dvh - var(--site-header));
     }
     @include mq-lg {
+        padding-top: calc(var(--s)* 16);
         height: calc(100dvh - var(--site-header));
     }
     @include mq-xl {
+        max-height: calc(75dvh - var(--site-header));
+    }
+    @include mq-xxl {
         max-height: calc(85dvh - var(--site-header));
     }
 
+    .heading--primary {
+        letter-spacing: -.06em;
+    }
 
     &__header {
         grid-area: title;

@@ -6,6 +6,17 @@
 //@include grid-helpers();
 @include sr-only();
 
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &:focus-visible {
+      outline: 2px solid var(--color-tertiary);
+      outline-offset: -2px;
+  }
+}
+
 body,
 html {
   font-family: var(--font-primary);
@@ -16,15 +27,8 @@ html {
   color: var(--color-text);
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  &:focus-visible {
-      outline: 2px solid var(--color-tertiary);
-      outline-offset: -2px;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 p,
@@ -42,6 +46,7 @@ h4,
 h5,
 h6,
 input {
+  text-rendering: optimizeLegibility;
   &::selection {
     background: var(--color-tertiary);
     color: var(--color-primary);
@@ -94,7 +99,6 @@ em, i {
 main {
   overflow: hidden;
   position: relative;
-  //z-index: 1;
   background-color: var(--color-light);
 }
 
