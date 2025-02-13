@@ -16,7 +16,7 @@
     background-color: var(--color-text);
     color: var(--color-text-contrast);
     border: none;
-    padding: calc(var(--s) * 6) var(--safe-area, 15px) calc(var(--s) * 13);
+    padding: calc(var(--s) * 4) var(--safe-area, 15px) calc(var(--s) * 13);
     @include mq-lg {
         display: none; 
     }

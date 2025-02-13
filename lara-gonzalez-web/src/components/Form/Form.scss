@@ -19,6 +19,7 @@
 
         .button {
             text-transform: uppercase;
+            padding: calc(var(--s)* 2.4) calc(var(--s)* 8);
         }
 
         .contact-form__actions {

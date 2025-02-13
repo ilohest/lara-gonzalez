@@ -29,7 +29,13 @@ const { title, description } = contact[0].data;
 
 <style lang="scss">
 	@use "dawuti" as *;
-	.contact{
+	.contact {
+		@include mq-sm {
+			margin-top: calc(var(--s) * 7);
+		}
+		@include mq-lg {
+			margin-top: calc(var(--s) * 13);
+		}
 		&__heading {
 			padding-bottom: var(--s8);
 			@include mq-sm {

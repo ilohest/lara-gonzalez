@@ -18,8 +18,10 @@ import Layout from "@lara/layouts/Layout.astro";
       height: 100%;
 
       &__wrapper {
-        margin-top: calc(var(--s10) * 2);
-        margin-bottom: calc(var(--s10) * 2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: calc(100dvh - var(--site-header));
         text-align: center;
       }
 
@@ -31,6 +33,8 @@ import Layout from "@lara/layouts/Layout.astro";
       &__desc, 
       &__link {
         display: block;
+      }
+      &__link {
         margin-top: var(--s8);
       }
     }
