@@ -21,6 +21,31 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  &:focus-visible {
+      outline: 2px solid var(--color-tertiary);
+      outline-offset: -2px;
+  }
+}
+
+p,
+b,
+span,
+li,
+ul,
+ol,
+strong,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input {
+  &::selection {
+    background: var(--color-tertiary);
+    color: var(--color-primary);
+  }
 }
 
 button {
@@ -32,6 +57,10 @@ button {
   border-image: none;
   font-family: var(--font-primary);
   background: transparent;
+}
+
+img {
+  user-select: none;
 }
 
 a,
@@ -49,18 +78,33 @@ li {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--color-text);
 }
 
+strong, b {
+  font-weight: 600;
+}
+
+em, i {
+  text-decoration: underline;
+}
+
 main {
+  overflow: hidden;
   position: relative;
   //z-index: 1;
   background-color: var(--color-light);
 }
 
-.grid{
+// ul, ol {
+//   margin-block-start: 0;
+//   margin-inline-start: 0;
+//   padding-inline-start: 0px;
+// }
+
+.grid {
   display: grid;
   column-gap: var(--gutter);
   grid-template-columns: repeat(var(--cols), 1fr);

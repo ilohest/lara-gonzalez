@@ -2,7 +2,7 @@
 import Heading from '@lara/components/heading/Heading';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import Form from '@lara/components/form/Form';
+import Form from '@lara/components/Form/Form';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 
 const contact = await getCollection('contacto');
@@ -12,44 +12,63 @@ const { title, description } = contact[0].data;
 
 <Layout title="Contacto | Lara González" description="">
 	<WrapperHeader client:load />
-	<article class="contact">
-		<section class="contact__heading">
+	<article class="contact wrapper-fluid">
+		<div class="contact__heading">
 			<Heading tag="h1" size="xxl">
 				{title}
 			</Heading>
-		</section>
-		<section class="wrapper-fluid">
-			<div class="grid">
-				<div class="contact__description">{description}</div>
-				<div class="contact__form">
-					<Form client:load />
-				</div>
+		</div>
+		<div class="grid">
+			<p class="contact__description">{description}</p>
+			<div class="contact__form">
+				<Form client:load />
 			</div>
-		</section>
+		</div>
 	</article>
 </Layout>
 
 <style lang="scss">
 	@use "dawuti" as *;
 	.contact{
-		&__heading{
-			padding-top: var(--s8);
+		&__heading {
 			padding-bottom: var(--s8);
+			@include mq-sm {
+				padding-bottom: calc(var(--s2)*8);
+			}
 			@include mq-md{
-				padding-top: calc(var(--s2)*12);
-				padding-bottom: calc(var(--s2)*12);
+				padding-bottom: calc(var(--s2)*11.5);
+			}
+
+			:global(.heading) {
+				@include f('hero-title', 400, true);
 			}
 		}
-		&__description{
+		
+		&__description {
+			margin-bottom: calc(var(--s) * 11);
 			grid-column: 1/7;
-			@include mq-sm{
-				grid-column: 1/8;
+			@include f('md', 400, true);
+			line-height: 1.25;
+			@include mq-xs {
+				grid-column: 1/6;
+			}
+			@include mq-sm {
+				grid-column: 1/12;
+				@include f('base', 400, true);
+				line-height: 1.25;
+			}
+			@include mq-lg {
+				grid-column: 1/9;
+
 			}
 		}
 
-		&__form{
+		&__form {
 			grid-column: 1/7;
-			@include mq-sm{
+			@include mq-sm {
+				grid-column: 13/24;
+			}
+			@include mq-md {
 				grid-column: 12/24;
 			}
 		}

@@ -1,0 +1,73 @@
+@use "dawuti" as *;
+
+.legal-page {
+    
+    .heading {
+        @include f('xl', 400, true);
+    }
+
+    .legal-content {
+        margin-top: calc(var(--s) * 17);
+        margin-bottom: calc(var(--s) * 10);
+        @include mq-xs {
+            padding-right: size-by-cols(1, 12);
+        }
+        @include mq-sm {
+            padding-right: size-by-cols(5, 24);
+            padding-left: size-by-cols(1, 24);
+        }
+
+        @include mq-lg {
+            margin-top: calc(var(--s) * 22);
+        }
+
+        @include mq-xl {
+            padding-right: size-by-cols(8, 24);
+        }
+
+        > p, li {
+            @include f('xs', 400, true);
+            @include mq-xl {
+                @include f('base', 400, true);
+            }
+        }
+
+        p + p,
+        li + li {
+            margin-top: .5em;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            @include f('base', 600, true);
+            margin: calc(var(--s) * 8) 0 calc(var(--s) * 4);
+        }
+
+        ul,
+        ol {
+            padding-inline-start: 1.5em;
+            margin: 1em 0 1.4em;
+        }
+
+        li {
+            list-style-type: inherit;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: underline;
+            color: var(--color-primary);
+            transition: color 0.15s linear;
+
+            &:hover {
+                color: var(--color-grey);
+            }
+        }
+    }
+
+}

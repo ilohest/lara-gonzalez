@@ -1,0 +1,84 @@
+---
+const { classes, direction } = Astro.props;
+---
+
+<div class={`words-carrousel ${direction} ${classes ? classes : ''}`}>
+  <div class="words-carrousel__content">
+    <slot />
+  </div>
+  <div class="words-carrousel__content">
+    <slot />
+  </div>
+  <div class="words-carrousel__content">
+    <slot />
+  </div>
+  <div class="words-carrousel__content">
+    <slot />
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  @use "dawuti" as *;
+
+  .words-carrousel__link {
+    display: block;
+    background-color: var(--color-light);
+    transition: background-color .25s ease-in-out;
+		&:focus-visible,
+    &:hover {
+      background-color: var(--color-dark);
+      color: var(--color-light);
+    }
+  }
+
+
+  .words-carrousel {
+    --gap: 1em;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    cursor: pointer;
+    border-top: 1px solid var(--color-dark);
+    border-bottom: 1px solid var(--color-dark);
+    margin-bottom: calc(var(--s) * 13);
+
+    span {
+      @include f('marquee', 400, true);
+      text-transform: uppercase;
+    }
+
+    &.to-right {
+      .words-carrousel__content {
+        animation-direction: reverse;
+      }
+    }
+
+    &__content {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-around;
+      gap: var(--gap, calc(var(--s) * 10));
+      padding-inline-start: 0;
+      animation: scroll var(--speed, 20s) linear infinite;
+      padding: calc(var(--s) * 4) 0;
+      @include mq-sm {
+        padding: calc(var(--s) * 6) 0;
+      }
+      @include mq-lg {
+        padding: calc(var(--s) * 8) 0;
+      }
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-100% - var(--gap)));
+      }
+    }
+  }
+
+</style>

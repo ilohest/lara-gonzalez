@@ -2,16 +2,18 @@
 @use "dawuti" as *;
 
 .lara-cursor{
-  position: fixed;
-  z-index: 30;
-  pointer-events: none;
   display: none;
-  transition: transform linear;
-  mix-blend-mode: difference;
+  pointer-events: none;
 
-  @include mq(768px) {
+
+  @include mq-lg {
+    // pointer-events: all;
     display: block;
+    position: fixed;
+    z-index: 30;
     opacity: 0;
+    transition: transform linear;
+    mix-blend-mode: difference;
     &.not-allowed{
         filter:grayscale(1);
     }

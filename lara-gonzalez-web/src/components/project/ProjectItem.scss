@@ -1,0 +1,33 @@
+@use 'dawuti' as *;
+
+
+.projects__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(var(--s) * 11);
+    @include mq-md {
+        row-gap: calc(var(--s) * 10);
+        margin-top: calc(var(--s) * 23);
+    }
+    @include mq-xl {
+        row-gap: calc(var(--s) * 21);
+    }
+
+}
+.projects__item {
+    &__heading-detail{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: calc(var(--s) * 5);
+        column-gap: var(--s6);
+        row-gap: var(--s3);
+        @include f('sec-md', 400, true);
+        @include mq-md {
+            margin-bottom: 0;
+        }
+    }
+    .heading {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}

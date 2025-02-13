@@ -41,21 +41,33 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
         <div className="swiper-container swiper-container-wrapper__thumbs">
           <Swiper
             onSwiper={(swiper) => setThumbsSwiper(swiper)}
-            spaceBetween={10}
+            spaceBetween={8}
             slidesPerView={10}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[Thumbs]}
-            // breakpoints={{
-            //   0: {
-            //     direction: "horizontal",
-            //     slidesPerView: 3,
-            //   },
-            //   768: {
-            //     direction: "vertical",
-            //     slidesPerView: 4,
-            //   },
-            // }}
+            breakpoints={{
+              0: {
+                direction: "horizontal",
+                slidesPerView: 6,
+                spaceBetween: 8
+              },
+              667: {
+                direction: "horizontal",
+                slidesPerView: 10,
+                spaceBetween: 8
+              },
+              768: {
+                direction: "horizontal",
+                slidesPerView: 10,
+                spaceBetween: 16
+              },
+              1024: {
+                direction: "vertical",
+                slidesPerView: 6,
+                spaceBetween: 0,
+              },
+            }}
           >
             {images.map((slide, i) => (
               <SwiperSlide key={`thumb-${i}`}>
@@ -63,7 +75,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
                   src={slide.url}
                   alt={slide.alt}
                   className="thumb"
-                  style={{ width: 80, height: 80, objectFit: "cover" }}
+                  style={{ objectFit: "cover" }}
                 />
               </SwiperSlide>
             ))}

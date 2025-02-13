@@ -3,7 +3,7 @@
 @use './mixins' as *;
 
 $html-font-size-v: 18;
-$sv: div(4, 20);
+$sv: div(5.5555555, 20);
 
 :root {
   --html-font-size-v: #{$html-font-size-v};
@@ -18,15 +18,22 @@ $sv: div(4, 20);
     --s#{$i}: #{$sv * $i}rem;
   }
 
-  --safe-area: #{clamp-calc(12, 24)};
+  --safe-area: 16;
 
   --gap: #{clamp-calc(12, 20)};
   --gutter: calc(var(--gap) / 2);
 
+  // Site-header
+  --site-header: calc(var(--s) * 20.5);
+  @include mq-lg {
+    --site-header: calc(var(--s) * 28);
+  }
+
+
   // Colors
   --color-primary: #000;
   --color-primary-contrast: #fff;
-  --color-secondary: #FF0012;
+  --color-secondary: #FF0000;
   --color-secondary-contrast: #000;
   --color-tertiary: #3D82E5;
   --color-tertiary-contrast: #000;
@@ -38,142 +45,254 @@ $sv: div(4, 20);
   --color-error: var(--color-secondary); // TBD
   --color-error-bg: #FEE7E7; // TBD
 
-  --color-success: #0DA137; // TBD 
+  --color-success: #38A756; // TBD 
   --color-success-bg: #D4FFDE; // TBD
-
+ 
   --color-text: var(--color-dark);
   --color-text-contrast: var(--color-light);
 
   // Grid cols
   & {
-    --safe-area: var(--s2);
+    --safe-area: calc(var(--s) * 3.2);
     --gutter: var(--s2);
     --cols: 6;
     @include mq-sm {
       --cols: 24;
-      --safe-area: var(--s3);
     }
-  }
 
-  // PRIMARY
-  & {
-    --fs-base-v: 20;
-    --fs-base: #{rem-css-vars(--fs-base-v)};
-    --lh-base: #{calc-lh(20, 22)};
-    --ls-base: -4%;
-    @include mq-sm {
-      --fs-base-v: 24;
-      --fs-base: #{clamp-calc(24, 26)};
-      --lh-base: #{calc-lh(24, 26)};
+    // PRIMARY
+    & {
+      --fs-base-v: 20;
+      --fs-base: #{rem-css-vars(--fs-base-v)};
+      --lh-base: #{calc-lh(20, 22)};
+      --ls-base: -.4px;
+      @include mq-sm {
+        --fs-base-v: 24;
+        --fs-base: #{clamp-calc(24, 26)};
+        --lh-base: #{calc-lh(24, 26)};
+      }
     }
-  }
 
-  & {
-    --fs-xs-v: 16;
-    --fs-xs: #{clamp-calc(16, 18)};
-    --lh-xs: #{calc-lh(16, 18)};
-  }
+    & {
+      --fs-detail-v: 13;
+      --fs-detail: #{rem-css-vars(--fs-detail-v)};
+      --lh-detail: #{calc-lh(13, 14)};
+      @include mq-xl {
+        --fs-detail: #{clamp-calc(13, 14)};
+      }
+    }
 
-  & {
-    --fs-sm-v: 20;
-    --fs-sm: #{clamp-calc(20, 30)};
-    --lh-sm: #{calc-lh(20, 33)};
-  }
+    & {
+      --fs-xxs-v: 14;
+      --fs-xxs: #{rem-css-vars(--fs-xxs-v)};
+      --lh-xxs: #{calc-lh(14, 16)};
+      @include mq-xl {
+        --fs-xxs: #{clamp-calc(14, 18)};
+      }
+    }
 
-  & {
-    --fs-md-v: 24;
-    --fs-md: #{rem-css-vars(--fs-md-v)};
-    --lh-md: #{calc-lh(24, 24)};
-    --ls-md: -4%;
-    @include mq-sm {
-      --fs-md-v: 36;
+    & {
+      --fs-xs-v: 16;
+      --fs-xs: #{rem-css-vars(--fs-xs-v)};
+      --lh-xs: #{calc-lh(16, 18)};
+      @include mq-xl {
+        --fs-xs: #{clamp-calc(16, 18)};
+      }
+    }
+
+    & {
+      --fs-sm-v: 20;
+      --fs-sm: #{rem-css-vars(--fs-sm-v)};
+      --fs-sm: #{clamp-calc(20, 30)};
+      --lh-sm: #{calc-lh(20, 33)};
+    }
+
+    & {
+      --fs-md-v: 24;
       --fs-md: #{rem-css-vars(--fs-md-v)};
-      --lh-md: #{calc-lh(36, 36)};
+      --lh-md: #{calc-lh(24, 24)};
+      --ls-md: -.7px;
+      @include mq-sm {
+        --fs-md-v: 30;
+        --lh-md: #{calc-lh(30, 30)};
+      }
+      @include mq-lg {
+        --fs-md-v: 36;
+        --lh-md: #{calc-lh(36, 36)};
+      }
     }
-  }
 
-  & {
-    --fs-lg-v: 36;
-    --fs-lg: #{rem-css-vars(--fs-lg-v)};
-    --lh-lg: #{calc-lh(36, 32)};
-    --ls-lg: -6%;
-    @include mq-sm {
-      --fs-lg-v: 72;
+    & {
+      --fs-lg-v: 36;
       --fs-lg: #{rem-css-vars(--fs-lg-v)};
-      --lh-lg: #{calc-lh(72, 60)};
+      --lh-lg: #{calc-lh(36, 32)};
+      --ls-lg: calc(var(--s) * -.3);
+      @include mq-sm {
+        --fs-lg-v: 52;
+        --fs-lg: #{rem-css-vars(--fs-lg-v)};
+        --lh-lg: #{calc-lh(52, 48)};
+      }
+      @include mq-lg {
+        --fs-lg-v: 72;
+        --fs-lg: #{rem-css-vars(--fs-lg-v)};
+        --lh-lg: #{calc-lh(72, 60)};
+      }
     }
-  }
 
-  & {
-    --fs-xl-v: 40;
-    --fs-xl: #{rem-css-vars(--fs-xl-v)};
-    --lh-xl: #{calc-lh(40, 40)};
-    --ls-xl: -6%;
-    @include mq-sm {
-      --fs-lg-v: 64;
-      --fs-lg: #{rem-css-vars(--fs-lg-v)};
-      --lh-lg: #{calc-lh(64, 78)};
+    & {
+      --fs-xl-v: 40;
+      --fs-xl: #{rem-css-vars(--fs-xl-v)};
+      --lh-xl: #{calc-lh(40, 40)};
+      --ls-xl: calc(var(--s) * -.4);
+      @include mq-sm {
+        --fs-xl-v: 64;
+        --fs-xl: #{rem-css-vars(--fs-xl-v)};
+        --lh-xl: #{calc-lh(64, 78)};
+      }
     }
-  }
 
-  & {
-    --fs-xxl-v: 60;
-    --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
-    --lh-xxl: #{calc-lh(60, 80)};
-    --ls-base: -6%;
-    @include mq-md {
-      --fs-xxl-v: 215;
+    & {
+      --fs-xxl-v: 60;
       --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
-      --lh-xxl: #{calc-lh(215, 172)};
+      --lh-xxl: #{calc-lh(60, 80)};
+      --ls-base: -6%;
+      @include mq-md {
+        --fs-xxl-v: 215;
+        --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
+        --lh-xxl: #{calc-lh(215, 172)};
+      }
     }
-  }
+    
+    & {
+      --fs-hg-v: 67;
+      --fs-hg: #{rem-css-vars(--fs-hg-v)};
+      --lh-hg: #{calc-lh(67, 57)};
+      --ls-hg: calc(var(--s) * -.8);
+      @include mq-sm { 
+        --fs-hg-v: 120;
+        --fs-hg: #{rem-css-vars(--fs-hg-v)};
+        --lh-hg: #{calc-lh(120, 100)};
+      }
+      @include mq-lg { 
+        --fs-hg-v: 215;
+        --fs-hg: #{rem-css-vars(--fs-hg-v)};
+        --lh-hg: #{calc-lh(215, 172)};
+      }
+      @include mq-xl { 
+        --fs-hg-v: 230;
+        --fs-hg: #{rem-css-vars(--fs-hg-v)};
+        --lh-hg: #{calc-lh(230, 190)};
+      }
+      @include mq-xxl { 
+        --fs-hg-v: 260;
+        --fs-hg: #{rem-css-vars(--fs-hg-v)};
+        --lh-hg: #{calc-lh(260, 210)};
+      }
+    }
 
-  // SECONDARY
-  & {
-    --fs-sec-base-v: 20;
-    --fs-sec-base: #{rem-css-vars(--fs-sec-base-v)};
-    --lh-sec-base: #{calc-lh(20, 33)};
-  }
+    & {
+      --fs-heading-lg-v: 64;
+      --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
+      --fs-heading-lg: #{clamp-calc(64, 104)};
+      --lh-heading-lg: #{calc-lh(64, 57)};
+      --ls-heading-lg: calc(var(--s) * -.8);
 
-  & {
-    --fs-sec-md-v: 24;
-    --fs-sec-md: #{rem-css-vars(--fs-sec-base-v)};
-    --lh-sec-md: #{calc-lh(24, 28)};
-  }
+      @include mq-lg { 
+        --fs-heading-lg-v: 104;
+        --lh-heading-lg: #{calc-lh(104, 83)};
+      }
+      @include mq-xl {
+        --fs-heading-lg-v: 140;
+        --lh-heading-lg: #{calc-lh(140, 120)};
+      }
+      @include mq-xxl {
+        --fs-heading-lg-v: 160;
+        --lh-heading-lg: #{calc-lh(160, 140)};
+      }
+    }
 
-  // SPECIFIC FONTS
-  // FORM
-  & {
-    --fs-input-v: 16;
-    --fs-input: #{rem-css-vars(--fs-input-v)};
-    --lh-input: #{calc-lh(16, 19)};
-    --ls-input: 0;
-  }
-  // MENU ITEMS
-  & {
-    --fs-menu-v: 16;
-    --fs-menu: #{rem-css-vars(--fs-menu-v)};
-    --lh-menu: #{calc-lh(16, 16)};
-  }
-  // MARQUEE
-  & {
-    --fs-marquee-v: 52;
-    --fs-marquee: #{clamp-calc(52, 104)};
-    --lh-marquee: #{calc-lh(52, 41)};
-    --ls-marquee: -7%;
-  }
-  // LINKS
-  & {
-    --fs-link-v: 16;
-    --fs-link: #{rem-css-vars(--fs-link-v)};
-    --lh-link: #{calc-lh(16, 16)};
-    --ls-link: -2%;
-  }
+    // SECONDARY
+    & {
+      --fs-sec-base-v: 20;
+      --fs-sec-base: #{rem-css-vars(--fs-sec-base-v)};
+      --lh-sec-base: #{calc-lh(20, 33)};
+    }
 
-  & {
-    --fs-link-md-v: 24;
-    --fs-link-md: #{rem-css-vars(--fs-link-md-v)};
-    --lh-link-md: #{calc-lh(24, 24)};
-    --ls-link-md: -2%;
+    & {
+      --fs-sec-md-v: 24;
+      --fs-sec-md: #{rem-css-vars(--fs-sec-base-v)};
+      --lh-sec-md: #{calc-lh(24, 28)};
+      @include mq-xl { 
+        --fs-sec-md: #{clamp-calc(24, 28)};
+      }
+    }
+
+    // SPECIFIC FONTS
+    // PROJECTS
+    & {
+      --fs-hero-title-v: 70;
+      --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
+      --lh-hero-title: #{calc-lh(70, 56)};
+      --ls-hero-title: calc(var(--s) * -.8);
+      @include mq-sm {
+        --fs-hero-title-v: 100;
+        --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
+        --lh-hero-title: #{calc-lh(100, 80)};
+        --fs-hero-title: #{clamp-calc(100, 215)};
+      }
+    }
+    // FORM
+    & {
+      --fs-input-v: 16;
+      --fs-input: #{rem-css-vars(--fs-input-v)};
+      --lh-input: #{calc-lh(16, 19)};
+      --ls-input: 0;
+    }
+    // MENU ITEMS
+    & {
+      --fs-menu-v: 16;
+      --fs-menu: #{rem-css-vars(--fs-menu-v)};
+      --lh-menu: #{calc-lh(16, 16)};
+    }
+    & {
+      --fs-menu-mobile-v: 28;
+      --fs-menu-mobile: #{rem-css-vars(--fs-menu-mobile-v)};
+      --lh-menu-mobile: #{calc-lh(28, 32)};
+    }
+    // MARQUEE
+    & {
+      --fs-marquee-v: 52;
+      --fs-marquee: #{clamp-calc(52, 104)};
+      --lh-marquee: #{calc-lh(52, 41)};
+      --ls-marquee: -7%;
+    }
+    // LINKS
+    & {
+      --fs-link-v: 16;
+      --fs-link: #{rem-css-vars(--fs-link-v)};
+      --lh-link: #{calc-lh(16, 16)};
+      --ls-link: calc(var(--s) * -.1);
+      @include mq-md {
+        --fs-link-v: 20;
+      }
+      @include mq-lg {
+        --fs-link-v: 24;
+      }
+    }
+
+    & {
+      --fs-link-md-v: 24;
+      --fs-link-md: #{rem-css-vars(--fs-link-md-v)};
+      --lh-link-md: #{calc-lh(24, 24)};
+      --ls-link-md: calc(var(--s) * -.3);
+
+    }
+
+    & {
+      --fs-link-lg-v: 32;
+      --fs-link-lg: #{rem-css-vars(--fs-link-lg-v)};
+      --lh-link-lg: 1.4;
+      --ls-link-lg: calc(var(--s) * -.3);
+    }
   }
 }

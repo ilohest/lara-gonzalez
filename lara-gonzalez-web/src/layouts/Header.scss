@@ -1,60 +1,68 @@
 @use "dawuti" as *;
 
 header {
-    display: flex;
-    justify-content: space-between;
-    min-width: var(--s9);
-
     .button-side-menu-open {
-        width: var(--s6);
-        padding-top: var(--s4);
+        --width: var(--s5);
+        --height: var(--s5);
+        --color: var(--color-primary-contrast);
         margin-left: auto;
         cursor: pointer;
         @include mq-lg {
             display: none;
         }
     }
+
 }
 
 .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: var(--s9);
+    padding-top: var(--s6);
+    padding-bottom: var(--s9);
+    @include mq-lg{
+        padding-top: var(--s3);
+    }
 
-    &__logotype{
-        margin-top: var(--s4);
-        @include mq-lg{
-            margin-top: 0;
-        }
-        &--xs{
+
+    &__logotype {
+        &--xs {
             display: block;
             @include mq-lg{
                 display: none;
             }
         }
-    }
-
-
-    &__dark-mode{
-        a{
-            color: var(--color-light);
-        }
-    }
-
-    &__light-mode{
-        .menu{
-            filter: invert(1);
-        }
-        .header__logotype{
-            
-            img{
-                filter: invert(1);
+        img {
+            width: 43.8vw;
+            height: auto;
+            @include mq-xs {
+                width: 28.2vw;
             }
+            @include mq-sm {
+                width: 21vw;
+            }
+            @include mq-lg {
+                width: 13.2vw;
+            }
+        }
+    }
+
+    &__dark-mode {
+        --mode-color: var(--color-light);
+    }
+ 
+    &__light-mode {
+        --mode-color: var(--color-dark);
+        .header__logotype img,
+        .button-side-menu-open {
+            filter: invert(1);
         }
     }
 
     &__main-nav {
         display: none;
         @include mq-lg {
-            @include f('xs', 400, true);
-            text-transform: uppercase;
             margin-top: calc(var(--s) * 2);
             margin-bottom: calc(var(--s) * 7);
             display: flex;
@@ -62,9 +70,19 @@ header {
             flex-basis: 100%;
             align-items: center;
         }
+        > a {
+            @include f('xs', 400, true);
+            text-transform: uppercase;
+        }
+
+        &--item {
+            color: var(--mode-color);
+        }
+
+        .button {
+            padding: calc(var(--s)* 1.6) calc(var(--s) * 3.2);
+        }
     }
 
-    .button{
-        @include f('xs', 400, true);
-    }
+
 }

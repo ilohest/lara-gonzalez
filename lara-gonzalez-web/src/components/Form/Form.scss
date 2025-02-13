@@ -16,11 +16,19 @@
     }
 
     form {
+
+        .button {
+            text-transform: uppercase;
+        }
+
         .contact-form__actions {
-            padding-top: calc(var(--s) * 5);
+            padding-top: calc(var(--s) * 6.5);
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
+            @include mq-md {
+                padding-top: calc(var(--s) * 10);
+            }
         }
 
         .contact-form__actions-loader {

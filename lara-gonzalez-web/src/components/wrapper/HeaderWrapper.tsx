@@ -23,6 +23,18 @@ const WrapperHeader = ({
 }) => {
   const [backgroundColor, setBackgroundColor] = useState("var(--color-light)");
   const [themeMode, setThemeMode] = useState<"light-mode" | "dark-mode">("light-mode");
+  const [pageTitle, setPageTitle] = useState<string>("");
+  const [size, setSize] = useState<string>("lg");
+
+  const pageTitles: { [key: string]: string } = {
+  "/": "page__home",
+  "/proyectos": "page__proyectos",
+  "/contacto": "page__contacto",
+  "/politica-privacidad": "page__legal",
+  "/politica-cookies": "page__legal",
+  "/el-estudio": "page__estudio"
+};
+
 
   const getBackgroundColor = (path: string) => {
     switch (path) {
@@ -55,18 +67,31 @@ const WrapperHeader = ({
     }
   };
 
+
+  const getPageTitle = (path: string) => {
+    return pageTitles[path] || "Página No Encontrada";
+  };
+
+
+  // Para el HERO, solo la home tiene size "hg", el resto tiene size "lg"
+  const getHeadingSize = (path: string) => {
+    return path === "/" ? "hg" : "big";  
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const path = window.location.pathname;
       setBackgroundColor(getBackgroundColor(path));
       setThemeMode(getThemeMode(path));
+      setPageTitle(getPageTitle(path));
+      setSize(getHeadingSize(path));
     }
   }, []);
 
   return (
-    <section style={{ backgroundColor }} className="header-wrapper">
+    <section style={{ backgroundColor }} className={`header-wrapper ${pageTitle}`}>
       <Header email={email} rrss={rrss} backgroundColor={backgroundColor} themeMode={themeMode} />
-      {hero && <Hero hero={hero} backgroundColor={backgroundColor} themeMode={themeMode} />}
+      {hero && <Hero hero={hero} size={size} backgroundColor={backgroundColor} themeMode={themeMode} />}
     </section>
   );
 };

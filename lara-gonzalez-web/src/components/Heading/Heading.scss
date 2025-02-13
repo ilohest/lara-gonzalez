@@ -1,5 +1,16 @@
 @use 'dawuti' as *;
 
+.page__estudio {
+  .heading {
+    &--primary{
+      font-weight: 400;
+    }
+    &--secondary{
+      font-family: var(--font-secondary);
+    }
+  }
+}
+
 .heading {
   --padding: 0;
   --margin: 0;
@@ -16,11 +27,19 @@
   &--lg {
     @include f('lg', 400, true);
   }
+
   &--xl {
     @include f('xl', 700, true);
   }
   &--xxl {
     @include f('xxl', 300, true);
+  }
+  &--big {
+    @include f('heading-lg', 400, true);
+  }
+
+  &--hg {
+    @include f('hg', 300, true);
   }
 
   &--primary{

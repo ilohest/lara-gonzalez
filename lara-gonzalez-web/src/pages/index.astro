@@ -4,88 +4,259 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 import { Card } from '@lara/components/card/Card';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
+import Icon from '../components/shared/Icon';
 
 const home = await getCollection('home');
-const { hero, projectsSection, services } = home[0].data; 
+const { hero, projectsSection, services, } = home[0].data; 
 const { Content } = await render(home[0])
 
 ---
 
-<Layout title="Lara González" description="">
+<Layout title="Lara González" description="" classes="page__home">
 	<WrapperHeader hero={hero}  client:load />	
-	
 	<section class="home__projects wrapper-fluid">
-		<div class="home__markdown-content">
+		<div class="home__projects--content">
 			<Content />
 		</div>
-		<div>
+		<div class="home__projects--images">
 			<img src={projectsSection.imageLg} alt="Creatividad y estrategia imagen" />
 			<img src={projectsSection.imageSm} alt="Creatividad y estrategia imagen" />
 		</div>
 		<div class="actions-wrapper actions-wrapper--center">
-		 	<a class="button button--solid" href={projectsSection.cta.url}>{projectsSection.cta.text}</a>
+		 	<a class="button button--solid button--huge" href={projectsSection.cta.url}>{projectsSection.cta.text}</a>
 		</div>
 	</section>
 	
-	<section class="home__services wrapper-fluid">
+	<section class="home__services">
 		{services.map((service) => (
-			<div class="home__services-header">
-			  <Heading tag="h2" size="xl" headingFontWeight={700}>{service.category}</Heading>
-
-			  <a href={service.button.link} class={`button button--${service.button.type}`}>
-				{service.button.text}
-			  </a>
-			</div>
-		  
-		  	<>
-			  {service.steps && service.steps?.length > 0 && (
-				<div class="home__steps">
-				  {service.steps.map((step, i) => (
-					<Card card={step} index={i} />
-				  ))}
+			<>
+	  
+			{service.steps && service.steps.length > 0 && (
+				<div class="home__services-item has-steps">
+					<div class="home__services-header wrapper-fluid">
+						<Heading tag="h2" size="xl" headingFontWeight={700}>{service.category}</Heading>
+						<div class="home__services-button home__services-button--desktop">
+							<a href={service.button.link} class={`button button--regular button--${service.button.type}`}>
+								{service.button.text}
+								<Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
+							</a>
+						</div>
+					</div>
+					<div class="home__steps-block swiper">
+						<div class="home__steps swiper-wrapper">
+							{service.steps.map((step, i) => (
+								<Card card={step} index={i} key={i} />
+							))}
+						</div>
+					</div>
+					<div class="home__services-button home__services-button--mobile wrapper-fluid">
+						<a href={service.button.link} class={`button button--regular button--${service.button.type}`}>
+							{service.button.text}
+							<Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
+						</a>
+					</div>
 				</div>
-			  )}
+			)}
+
+			{!service.steps && (
+				<div class="home__services-item no-steps">
+					<div class="home__services-header">
+						<Heading tag="h2" size="xl" headingFontWeight={700}>{service.category}</Heading>
+					</div>
+					<div class="home__services-button">
+						<a href={service.button.link} class={`button button--regular button--${service.button.type}`}>
+							{service.button.text}
+							<Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
+						</a>
+					</div>
+				</div>
+			)}
 			</>
-		  ))}
+		))}
 	</section>
 </Layout>
 
 <style lang="scss">
 	@use "dawuti" as *;
 
-	.home{
+	.home {
 
-		&__markdown-content{
-			:global(p) {
-				@include f('lg', 700, true);
+		&__services {
+			padding-top: calc(var(--s) * 7);
+			@include mq-md {
 			}
-		}
 
-		&__services{
-
-			&-header{
-				display:flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: var(--s6) 0;
-				&:not(:first-child) {
-					border-bottom: 1px solid var(--color-dark);
+			.has-steps {
+				position: relative;
+				.home__services-button {
+					&--desktop {
+						display: none;
+						@include mq-xs {
+							display: block;
+						}
+					}
+					&--mobile {
+						margin-top: var(--s6);
+						@include mq-xs {
+							display: none;
+						}
+					}
+				}
+				.home__services-header {
+					padding-bottom: var(--s8);
 				}
 			}
+
+			.no-steps {
+				margin-right: var(--safe-area);
+				margin-left: var(--safe-area);
+				@include mq-xs {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+				}
+				.home__services-header {
+					padding-bottom: calc(var(--s) * 6.3);
+					@include mq-xs {
+						padding-bottom: 0;
+					}
+				}
+			}
+			&-item {
+				padding-top: var(--s10);
+				padding-bottom: var(--s9);
+				border-bottom: 1px solid var(--color-dark);
+			}
+
+			&-header {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				row-gap: calc(var(--s) * 6.3);
+				@include mq-xs {
+					flex-direction: row;
+					align-items: center;
+				}
+			}
+
+			.swiper {
+				padding-left: var(--safe-area)!important;
+				padding-right: var(--safe-area)!important;
+			}
 		}
 
-		&__steps{
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-			gap: var(--s4);
+		&__steps {
+			padding-right: var(--safe-area);
 		}
 
-		&__projects{
+		&__projects {
+			padding-top: calc(var(--s) * 13);
+			padding-bottom: calc(var(--s) * 11);
 			background-color: var(--color-tertiary);
-		}
-	}
+			@include mq-lg {
+				padding-top: calc(var(--s) * 16);
+				padding-bottom: calc(var(--s) * 8);
+			}
 
-	p{
-		@include f('lg', 700, true);
+			&--content {
+				:global(p) {
+					@include f('lg', 700, true);
+				}
+				@include mq-xs {
+					padding-right: size-by-cols(2, 12);
+				}
+				@include mq-xxl {
+					padding-right: size-by-cols(4, 12);
+				}
+			}
+			&--images {
+				display: flex;
+				flex-direction: column;
+				row-gap: calc(var(--s) * 11);
+				margin-top: calc(var(--s) * 11);
+				margin-bottom: calc(var(--s) * 11);
+				@include mq-xs {
+					margin-top: calc(var(--s) * 9);
+					flex-direction: row;
+					align-items: flex-end;
+				}
+				@include mq-lg {
+					margin-bottom: calc(var(--s) * 20);
+				}
+
+				img {
+					width: 100%;
+					height: auto;
+					object-fit: contain;
+					&:first-child {
+						padding-right: size-by-cols(1, 6);
+						@include mq-xs {
+							width: size-by-cols(6, 12);
+							order:2;
+							padding-right: 0;
+						}
+						@include mq-md {
+							flex-basis: size-by-cols(13, 24);
+							width: size-by-cols(13, 24);
+							padding-right: size-by-cols(1, 24);
+						}
+					}
+					&:last-child {
+						padding-left: size-by-cols(3, 6);
+						@include mq-xs {
+							width: size-by-cols(12, 24);
+							padding-left: 0;
+							padding-right: size-by-cols(2, 6);
+						}
+						@include mq-md {
+							flex-basis: size-by-cols(11, 24);
+							padding-left: size-by-cols(2, 24);
+							padding-right: size-by-cols(6, 24);
+							width: size-by-cols(3, 24);
+						}
+					}
+				}
+
+			}
+		}
 	}
 </style>
+
+
+<script>
+  import Swiper from 'swiper';
+
+  const sliders = Array.from(
+    document.querySelectorAll('.home__steps-block')
+  ) as HTMLElement[];
+  sliders.forEach((s) => {
+    const swiper = new Swiper(s, {
+      loop: false,
+      slidesPerView: 1.15,
+      spaceBetween: 16,
+			scrollbar: {
+				draggable: true,
+			},
+			breakpoints: {
+				667: {
+					slidesPerView: 1.5,
+				},
+				768: {
+					slidesPerView: 1.7,
+				},
+				1024: {
+					slidesPerView: 2.3,
+				},
+				1440: {
+					slidesPerView: 3,
+				},
+				1920: {
+					slidesPerView: 4,
+				},
+			}
+
+    });
+
+  });
+
+</script>

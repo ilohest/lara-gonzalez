@@ -2,13 +2,13 @@
 
 import AnchorHandler from '@lara/components/anchor/AnchorHandler';
 import Heading from '@lara/components/heading/Heading';
-import ProjectList from '@lara/components/project/ProjectList';
+import ProjectItem from '@lara/components/project/ProjectItem';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 import Layout from '@lara/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 const proyectos = await getCollection('proyectos');
-const { title, anchors, projectsList } = proyectos[0].data; 
+const { title, anchors, projectitem } = proyectos[0].data; 
 
 ---
 
@@ -23,7 +23,7 @@ const { title, anchors, projectsList } = proyectos[0].data;
 		<div class="projects__list">
 			{anchors.map((anchor) => (
 			<a
-				class="button--link"
+				class="button button--link"
 				href={`#${anchor.toLowerCase().replace(/\s+/g, "-")}`}
 				data-anchor={anchor.toLowerCase().replace(/\s+/g, "-")}
 			>
@@ -32,7 +32,7 @@ const { title, anchors, projectsList } = proyectos[0].data;
 			))}
 		</div>
 		<AnchorHandler client:load />
-		<ProjectList projectsList={projectsList} client:load />
+		<ProjectItem projectitem={projectitem} client:load />
 	</section>
 </Layout>
 
@@ -40,20 +40,53 @@ const { title, anchors, projectsList } = proyectos[0].data;
 	@use "dawuti" as *;
   
 	.projects {
-		
 	  &__heading {
-		display: flex;
-		gap: var(--s6);
-		padding: var(--s10) 0;
+			display: flex;
+			:global(.heading) {
+				@include f('hero-title', 400, true);
+			}
+	  }
+
+	  :global(.projects__header) {
+			margin-top: calc(var(--s) * 3);
+			margin-bottom: calc(var(--s) * 3);
+			@include mq-md {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-end;
+				justify-content: space-between;
+				padding-right: calc(size-by-cols(1, 24) + 10px);
+				margin-bottom: calc(var(--s) * 4.5);
+				gap: var(--s4);
+			}
+			:global(.heading) {
+				margin-bottom: var(--s3);
+				@include mq-md {
+					margin-bottom: 0;
+				}
+			}
 	  }
 
 	  &__list{
+		margin: var(--s8) 0 var(--s7);
 		display: flex;
-		gap: var(--s8);
+		flex-wrap: wrap;
+		column-gap: var(--s5);
+		row-gap: var(--s);
+		@include mq-md {
+			margin: var(--s10) 0 0;
+		}
 
-		a{
+		a {
+			cursor: pointer;
 			@include f('sec-base', 400, true);
 			color: var(--color-grey);
+			transition: color .25s ease-in-out;
+			&:hover,
+			&:focus-visible {
+				color: var(--color-primary);
+			}
+
 		}
 	  }
 	}

@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import type ProjectItem from "./components/project/ProjectItem";
 
 const simpleTitleSchema = z.object({
   title: z.string(),
@@ -47,7 +48,7 @@ const projectsCollection = defineCollection({
   schema: z.object({
     title: z.string().optional(),
     anchors: z.array(z.string()), 
-    projectsList: z.array(
+    projectitem: z.array(
       z.object({
         title: z.string(),
         sector: z.string().optional(),
@@ -87,6 +88,7 @@ const projectsCollection = defineCollection({
       marquee: z.object({
         text: z.string(),
         url: z.string(),
+        separator: z.string(),
       }),
       footerImage:z.string(),
     }),

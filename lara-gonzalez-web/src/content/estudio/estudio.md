@@ -18,10 +18,10 @@ quotes:
 marquee:
   text: 'proyectos'
   url: '/proyectos'
+  separator: ' · '
 footerImage: "/static-images/lara-gonzalez-estudio.png"
 ---
 
-Detrás del estudio me encuentro…¡yo misma! Diseñadora gráfica y social media manager. He dedicado mi carrera a ayudar a las marcas a aterrizar en el mercado a través de soluciones creativas y estratégicas.
-</br>
-Con un enfoque personalizado y una atención a los detalles y las últimas tendencias, me gusta trabajar en colaboración con mis cliente/as para entender sus necesidades y objetivos, y así desarrollar marcas que conecten emocionalmente con su público.
+<p>Detrás del estudio me encuentro…¡yo misma! Diseñadora gráfica y social media manager. He dedicado mi carrera a ayudar a las marcas a aterrizar en el mercado a través de soluciones creativas y estratégicas.</p>
+<p>Con un enfoque personalizado y una atención a los detalles y las últimas tendencias, me gusta trabajar en colaboración con mis cliente/as para entender sus necesidades y objetivos, y así desarrollar marcas que conecten emocionalmente con su público.</p>
 

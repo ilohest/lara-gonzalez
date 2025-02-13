@@ -27,26 +27,50 @@ textarea {
     }
 }
 
-.input {
-    margin-top: calc(var(--s) * 4);
-    & + .input {
-        margin-top: calc(var(--s) * 2);
+.input--text,
+.input--email,
+.input--phone {
+    @include mq-md {
+        display: inline-block;
+        --gap: calc(var(--s) * 3.2);
+        width: calc(100% / 2 - calc(var(--gap) / 2));
+    }
+}
+.input--text:first-child,
+.input--phone {
+    @include mq-md {
+        margin-right: var(--gap);
+    }
+}
 
+.input:first-child,
+.input:nth-child(2) {
+    @include mq-md {
+        margin-top: 0!important;
+    }
+}
+
+
+
+.input {
+    & + .input {
+        margin-top: calc(var(--s) * 5);
         @include mq-md {
             margin-top: calc(var(--s) * 4);
         }
     }
     & + .input--checkbox {
-        margin-top: calc(var(--s) * 3);
+        margin-top: calc(var(--s) * 6.5);
         @include mq-md {
             margin-top: calc(var(--s) * 4);
         }
     }
 
     &__error{
-        @include f('xs', 400, true);
-        margin-top: 2px;
+        @include f('detail', 400, true);
+        margin-top: calc(var(--s) * .8);
         color: var(--color-error);
+        position: absolute;
     }
 
     .input__label {
@@ -66,7 +90,7 @@ textarea {
             border: none;
             border-bottom: 1px solid var(--color-text);
             background-color: transparent;
-            padding: calc(var(--s) * 1);
+            padding: calc(var(--s) * 2.5) 0;
             &:focus,
             &:focus-visible {
                 background:linear-gradient(to top,var(--color-text) 1px,transparent 0);
@@ -100,17 +124,17 @@ textarea {
 
             textarea {
                 position: relative;
-                padding: calc(var(--s) * 1);
                 width: 100%;
                 height: calc(var(--s) * 30);
                 border: transparent;
                 border-bottom: 1px solid var(--color-dark);
                 background-color: transparent;
+                padding: calc(var(--s)* 2.5) 0;
                 @include mq-xs {
                     height: calc(var(--s) * 20); 
                 }
                 @include mq-md {
-                    height: calc(var(--s) * 30);
+                    height: calc(var(--s) * 32);
                 }   
                 &:focus,
                 &:focus-visible {
@@ -124,16 +148,16 @@ textarea {
 
         label {
             position: relative;
-            padding: var(--s) 0 var(--s) var(--s5);
+            padding: var(--s) 0 var(--s) var(--s7);
             display: flex;
             flex-flow: row nowrap;
             justify-content: flex-start;
             align-items: center;
             @include mq-md {
-                padding: 5px 0 5px calc(var(--s) * 4);
+                padding: var(--s) 0 var(--s) calc(var(--s) * 4);
             }
             @include mq-lg {
-                padding: 5px 0 5px calc(var(--s) * 6);
+                padding: var(--s) 0 var(--s) calc(var(--s) * 7.5);
             }
 
 
@@ -165,21 +189,25 @@ textarea {
                 z-index: -2;
 
                 & + i {
-                    margin-top: 7px;
+                    margin-top: calc(var(--s) * .2);
                     border: 1px solid var(--color-dark);
                     position: absolute;
                     left: 0;
                     top: 0;
+                    border-radius: calc(var(--s) * .5);
 
                     @include mq-md {
-                        margin-top: 3px;
+                        margin-top: calc(var(--s) * .6);
+                    }
+                    @include mq-xl {
+                        margin-top: 0;
                     }
                 }
             }
 
             input[type="checkbox"] + i {
-                width: var(--s4);
-                height: var(--s4);
+                width: var(--s5);
+                height: var(--s5);
                 border: 1px solid var(--color-dark);
                 display: inline-block;
                 position: absolute;
@@ -194,7 +222,7 @@ textarea {
             
             input[type="checkbox"]:checked + i::after {
                 content: "";
-                inset:1px;
+                inset: calc(var(--s) * -1);
                 background: var(--color-dark);
                 position: absolute;
                 left: 50%;
@@ -208,6 +236,11 @@ textarea {
         label input[type="checkbox"]:focus-visible + i:before {
             transform: scale(1);
             opacity: 1;
+        }
+
+        &-text {
+            @include f('xs');
+            text-wrap: auto;
         }
     }
 }

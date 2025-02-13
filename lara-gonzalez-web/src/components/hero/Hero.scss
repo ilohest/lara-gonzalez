@@ -1,11 +1,249 @@
 @use "dawuti" as *;
 
-.hero{
+.page__home {
+    .hero {
+        grid-template-rows: auto auto;
+        @include mq-xs {
+            grid-template-columns: repeat(9, 1fr);
+            grid-template-areas: 
+            "title title title gallery gallery gallery gallery gallery gallery";
+        }
+        @include mq-md {
+            grid-template-areas: 
+            "title title title . . gallery gallery gallery gallery"
+            "title title title . . . . . .";
+        }
+    }
+    .heading--primary {
+        font-weight: 600;
+    }
+    .hero__gallery {
+        grid-template-rows: 15vh 14vh min-content 1fr;
+        
+        @include mq-xs {
+            grid-template-rows: 7vh 22vh auto
+        }
+        @include mq-sm {
+            grid-template-rows: 8vh 18vh auto;
+        }
+        @include mq-md {
+            grid-template-rows: 13vh 13vh 0;
+        }
+        @include mq-lg {
+            grid-template-rows: 18vh 21vh 0;
+        }
+        @include mq-xl {
+            grid-template-rows: 13vh 18vh 0;
+        }
+    }
 
-    height: 100vh;
+    .studio-gallery {
+        &-0 {
+            grid-area: img0;
+            grid-column: 1 / 9;
+            @include mq-xs {
+                grid-column: 5 / 10;
+            }
+            @include mq-sm {
+                grid-column: 1 / 9;
+            }
+            @include mq-md {
+                grid-column: 3 / 8;
+            }
+            @include mq-lg {
+                grid-column: 1 / 8;
+                max-height: 55vh;
+            }
+            @include mq-xl {
+                grid-column: 2 / 9;
+            }
+            @include mq-xxl {
+                max-height: 61vh;
+            }
+        }
+        &-1 {
+            grid-area: img1;
+            grid-column: 6 / 13;
+            @include mq-xs {
+                grid-column: 9 / 15;
+            }
 
-    &__gallery{
-        display: flex;
-        flex-wrap: wrap;
+            @include mq-sm {
+                grid-column: 6 / 13;
+            }
+            @include mq-md {
+                grid-column: 7 / 11;
+            }
+            @include mq-lg {
+                grid-column: 6 / 12;
+                max-height: 43vh;
+            }
+            @include mq-xxl {
+                grid-column: 6 / 12;
+            }
+        }
+        &-2 {
+            grid-area: img2;
+            grid-column: 3 / 8;
+            @include mq-xs {
+                grid-column: 4 / 7;
+            }
+           @include mq-sm {
+                grid-column: 5 / 10;
+            }
+            @include mq-md {
+                grid-column: 5 / 8;
+            }
+            @include mq-lg {
+                grid-column: 2 / 7;
+                max-height: 33vh;
+            }
+            @include mq-xl {
+                grid-column: 1 / 5;
+            }
+        }
+    }
+}
+
+.page__estudio {
+    .hero {
+        @include mq-md {
+            grid-template-rows: 21vh auto;
+        }
+        @include mq-md {
+            grid-template-rows: 13vh  auto;
+        }
+        @include mq-xs {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: 
+            "title gallery";
+        }
+        @include mq-md {
+            grid-template-areas: 
+            ". gallery"
+            "title title";
+        }
+            
+        &__header {
+            @include mq-sm {
+                grid-row: 2 / -1;
+            }
+        }
+    }
+
+    .hero__gallery {
+        grid-template-rows: 7vh auto;
+        @include mq-xs {
+            grid-template-rows: 23vh 0;
+        }
+        @include mq-sm {
+            grid-template-rows: 17vh 0;
+        }
+        @include mq-md {
+            grid-template-rows: 0 0;
+            align-content: flex-start;
+        }
+    }
+
+
+    .studio-gallery {
+        &-0 {
+            grid-area: img0;
+            grid-column: 1 / 5;
+            @include mq-xs {
+                grid-column: 5 / 10;
+            }
+            @include mq-sm {
+                grid-column: 1 / 9;
+                max-width: 30vw;
+            }
+            @include mq-md {
+                grid-column: 1 / 6;
+                padding-right: size-by-cols(1.5, 24);
+                max-width: unset;
+            }
+            @include mq-xl {
+                grid-column: 3 / 7;
+                max-height: 35vh;
+            }
+        }
+        &-1 {
+            grid-area: img1;
+            grid-column: 6 / 13;
+            @include mq-xs {
+                grid-column: 9 / 15;
+            }
+            @include mq-sm {
+                grid-column: 6 / 13;
+                max-width: 24vw;
+            }
+            @include mq-md {
+                grid-column: 6 / 12;
+                max-width: unset;
+            }
+            @include mq-lg {
+                grid-column: 6 / 14;
+            }
+            @include mq-xl {
+                grid-column: 7 / 12;
+                max-height: 46vh;
+            }
+        }
+    }
+}
+
+
+
+.hero {
+    height: calc(100dvh - var(--site-header));
+    padding-bottom: calc(var(--s) * 10);
+    // nuevos
+    display: grid;
+    grid-template-areas: 
+    "gallery" 
+    "title"; 
+    grid-template-columns: 1fr;
+
+    @include mq-sm {
+        height: calc(65dvh - var(--site-header));
+    }
+    @include mq-lg {
+        height: calc(100dvh - var(--site-header));
+    }
+    @include mq-xl {
+        max-height: calc(85dvh - var(--site-header));
+    }
+
+
+    &__header {
+        grid-area: title;
+        grid-column: 1 / 12;
+        z-index: 1;
+        margin-top: calc(var(--s) * 9);
+        align-content: end;
+        @include mq-md {
+            height: 100%;
+            align-content: flex-end;
+            margin-top: 0;
+        }
+    }   
+
+    &__gallery {
+        align-content: flex-start;
+        grid-area: gallery;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-areas: 
+        "img0"
+        "img1"
+        "img2";
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .studio-gallery {
+        object-fit: contain;
+        width: 100%;
     }
 }
