@@ -13,6 +13,10 @@
         row-gap: calc(var(--s) * 21);
     }
 
+    .image-wrapper img {
+        aspect-ratio: 16 / 9;
+    }
+
 }
 .projects__item {
     &__heading-detail{
