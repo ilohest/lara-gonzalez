@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 export default defineConfig({
     output: "static",
     site: "https://www.laragonzalez.com",
-    outDir: "../../dist/packages/lara-gonzalez-web",
+    outDir: "../lara-gonzalez-web/dist",
     integrations: [react()],
     devToolbar: {
       enabled: false
