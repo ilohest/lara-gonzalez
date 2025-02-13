@@ -178,6 +178,16 @@ $sv: div(5.5555555, 20);
         --fs-hg: #{rem-css-vars(--fs-hg-v)};
         --lh-hg: #{calc-lh(215, 172)};
       }
+      @include mq-xl { 
+        --fs-hg-v: 230;
+        --fs-hg: #{rem-css-vars(--fs-hg-v)};
+        --lh-hg: #{calc-lh(230, 190)};
+      }
+      @include mq-xxl { 
+        --fs-hg-v: 260;
+        --fs-hg: #{rem-css-vars(--fs-hg-v)};
+        --lh-hg: #{calc-lh(260, 210)};
+      }
     }
 
     & {
@@ -189,8 +199,15 @@ $sv: div(5.5555555, 20);
 
       @include mq-lg { 
         --fs-heading-lg-v: 104;
-        --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
         --lh-heading-lg: #{calc-lh(104, 83)};
+      }
+      @include mq-xl {
+        --fs-heading-lg-v: 140;
+        --lh-heading-lg: #{calc-lh(140, 120)};
+      }
+      @include mq-xxl {
+        --fs-heading-lg-v: 160;
+        --lh-heading-lg: #{calc-lh(160, 140)};
       }
     }
 
