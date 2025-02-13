@@ -7,7 +7,10 @@
     row-gap: calc(var(--s) * 11);
     @include mq-md {
         row-gap: calc(var(--s) * 10);
-        margin-top: calc(var(--s) * 23);
+        margin-top: calc(var(--s) * 13);
+    }
+    @include mq-lg {
+        margin-top: calc(var(--s) * 20);
     }
     @include mq-xl {
         row-gap: calc(var(--s) * 21);
