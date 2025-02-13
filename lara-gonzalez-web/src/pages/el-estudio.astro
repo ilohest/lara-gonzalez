@@ -6,7 +6,6 @@ import Layout from '@lara/layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 const estudio = await getCollection('estudio');
-//console.log(estudio[0].data.hero)
 
 const { quotes, marquee, footerImage, hero } = estudio[0].data; 
 const { Content } = await render(estudio[0])

@@ -6,7 +6,6 @@ import { getCollection, render } from "astro:content";
 import "../layouts/Legal.scss";
 
 const cookies = await getCollection('cookies');
-//console.log(cookies)
 
 const { title } = cookies[0].data; 
 const { Content } = await render(cookies[0])
