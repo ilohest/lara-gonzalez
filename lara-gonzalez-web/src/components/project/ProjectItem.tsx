@@ -22,7 +22,7 @@ const ProjectItem = ( { projectitem }: any) => {
           >
 
           <div className="projects__header">
-            <Heading tag="h2" size="lg" headingFontWeight={600}>
+            <Heading tag="h2" size="sm" headingFontWeight={600}>
               {project.title}
             </Heading>
             <div className="projects__item__heading-detail">

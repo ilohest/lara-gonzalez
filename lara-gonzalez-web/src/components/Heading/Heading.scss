@@ -21,6 +21,11 @@
   &--base {
     @include f('base', 400, true);
   }
+
+  &--sm {
+    @include f('project-title', 400, true);
+  }
+
   &--md {
     @include f('md', 400, true);
   }
