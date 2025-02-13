@@ -16,12 +16,12 @@ const { Content } = await render(privacy[0])
   title="Política privacidad | Lara González"
   description=""
 >
-  <section class="legal-page wrapper-fluid">
+  <section class="legal-page">
     <WrapperHeader client:load />
-    <Heading tag="h1" size="lg">
+      <Heading tag="h1" size="lg" className="wrapper-fluid">
         {title}
     </Heading>
-    <div class="legal-content">
+    <div class="legal-content wrapper-fluid">
       <Content />
     </div>
   </section>

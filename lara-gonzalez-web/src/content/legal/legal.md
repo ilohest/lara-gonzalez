@@ -63,7 +63,7 @@ El Titular se reserva el derecho a retirar todos aquellos comentarios y aportaci
 
 <br>
 
-## **PRrotección de datos**
+## **Protección de datos**
 Todo lo relativo al tratamiento de sus datos personales, se encuentra recogido en la política de privacidad.
 
 <br>

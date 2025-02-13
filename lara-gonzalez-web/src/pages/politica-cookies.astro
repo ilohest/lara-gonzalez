@@ -17,12 +17,10 @@ const { Content } = await render(cookies[0])
   title="Política de cookies | Lara González"
   description=""
 >
-  <section class="legal-page wrapper-fluid">
+  <section class="legal-page">
     <WrapperHeader client:load />
-    <Heading tag="h1" size="lg">
-      {title}
-    </Heading>
-    <div class="legal-content">
+    <Heading tag="h1" size="lg" className="wrapper-fluid">{title}</Heading>
+    <div class="legal-content wrapper-fluid">
       <Content />
     </div>
   </section>
