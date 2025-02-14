@@ -44,7 +44,8 @@
     }
     li {
       @include f('base', 400, true);
-      letter-spacing: -1.6px;
+      letter-spacing: calc(var(--s) * -.3);
+      
       + li {
         margin-top: calc(var(--s) * 3);
       }

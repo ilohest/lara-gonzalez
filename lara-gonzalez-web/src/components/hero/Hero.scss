@@ -17,6 +17,9 @@
     .heading--primary {
         font-weight: 600;
     }
+    .heading--secondary {
+        @include f('hg', 400, true);
+    }
     .hero__gallery {
         grid-template-rows: 15vh 14vh min-content 1fr;
         
@@ -208,7 +211,7 @@
         min-height: calc(65dvh - var(--site-header));
     }
     @include mq-lg {
-        padding-top: calc(var(--s)* 16);
+        padding-top: calc(var(--s)* 12);
         min-height: calc(100dvh - var(--site-header));
     }
     @include mq-xl {
