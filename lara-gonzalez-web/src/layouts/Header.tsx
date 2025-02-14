@@ -59,6 +59,7 @@ const Header = ({
       </nav>
       <button
         id="button-side-menu-open"
+        aria-label="Abrir/Cerrar menú"
         className={`button-side-menu-open header__${themeMode}`}
         onClick={() => setOpen(true)}
       >
