@@ -6,6 +6,7 @@ import Layout from "@lara/layouts/Layout.astro";
 <Layout title="Página no encontrada | Lara González" description="Página no encontrada">
     <WrapperHeader client:load />
     <section class="error-404 error-404__wrapper wrapper-fluid">
+        <p class="error-404__title">404</p>
         <p class="error-404__desc">Oh! Algo ha fallado.</p>
         <div class="actions-wrapper actions-wrapper--center">
             <a class="button button--big button--solid error-404__link" href="/">Volver</a>
@@ -20,14 +21,29 @@ import Layout from "@lara/layouts/Layout.astro";
       &__wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        height: calc(100dvh - var(--site-header));
-        text-align: center;
+        align-items: center;
+        min-height: calc(100dvh - var(--site-header));
+        margin-top: 25%;
+        @include mq-xs {
+          justify-content: center;
+          margin-top: 0;
+        }
+        @include mq-md {
+          min-height: calc(92dvh - var(--site-header));
+        }
+      }
+
+      &__title {
+        @include f('404', 300, true);
       }
 
       &__desc {
-        @include f('xl', 400, true);
+        @include f('link-lg', 400, true);
         font-family: var(--font-secondary);
+        @include mq-lg {
+          @include f('xl', 400, true);
+          font-family: var(--font-secondary);
+        }
       }
 
       &__desc, 
@@ -35,7 +51,10 @@ import Layout from "@lara/layouts/Layout.astro";
         display: block;
       }
       &__link {
-        margin-top: var(--s8);
+        margin-top: var(--s5);
+        @include mq-md {
+          margin-top: var(--s8);
+        }
       }
     }
 

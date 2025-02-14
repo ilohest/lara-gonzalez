@@ -89,10 +89,10 @@ const WrapperHeader = ({
   }, []);
 
   return (
-    <section style={{ backgroundColor }} className={`header-wrapper ${pageTitle}`}>
+    <header style={{ backgroundColor }} className={`header-wrapper ${pageTitle}`}>
       <Header email={email} rrss={rrss} backgroundColor={backgroundColor} themeMode={themeMode} />
       {hero && <Hero hero={hero} size={size} backgroundColor={backgroundColor} themeMode={themeMode} />}
-    </section>
+    </header>
   );
 };
 
