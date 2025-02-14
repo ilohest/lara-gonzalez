@@ -1,6 +1,13 @@
 @use 'dawuti' as *;
 
   .button {
+    &--regular, 
+    &--big, 
+    &--huge {
+      &:focus-visible {
+        outline-offset: calc(var(--s) * -.3);
+      }
+    }
 
     &--regular {
       @include f('link', 400, true);
