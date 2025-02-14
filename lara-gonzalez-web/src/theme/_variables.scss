@@ -302,7 +302,6 @@ $sv: div(5.5555555, 20);
       --fs-link-md: #{rem-css-vars(--fs-link-md-v)};
       --lh-link-md: #{calc-lh(24, 24)};
       --ls-link-md: calc(var(--s) * -.3);
-
     }
 
     & {
@@ -310,5 +309,17 @@ $sv: div(5.5555555, 20);
       --fs-link-lg: #{rem-css-vars(--fs-link-lg-v)};
       --lh-link-lg: 1.4;
       --ls-link-lg: calc(var(--s) * -.3);
+    }
+
+    & {
+      --fs-404-v: 180;
+      --fs-404: #{rem-css-vars(--fs-404-v)};
+      --lh-404: #{calc-lh(180, 180)};
+      --ls-404: calc(var(--s) * -2);
+      --fs-404: #{clamp-calc(180, 529)};
+      @include mq-lg {
+        --fs-404-v: 529;
+        --lh-404: #{calc-lh(529, 529)};
+      }
     }
   }
