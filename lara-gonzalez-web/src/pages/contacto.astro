@@ -53,14 +53,14 @@ const { title, description } = contact[0].data;
 		&__description {
 			margin-bottom: calc(var(--s) * 11);
 			grid-column: 1/7;
-			@include f('md', 400, true);
+			@include f('md', 300, true);
 			line-height: 1.25;
 			@include mq-xs {
 				grid-column: 1/6;
 			}
 			@include mq-sm {
 				grid-column: 1/12;
-				@include f('base', 400, true);
+				@include f('base', 300, true);
 				line-height: 1.25;
 			}
 			@include mq-lg {

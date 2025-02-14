@@ -112,12 +112,13 @@ const { Content } = await render(estudio[0])
 
 				:global(li) {
 					@include f('md', 400, true);
+					letter-spacing: calc(var(--s) * -.25);
+
 					@include mq-md {
 						@include f('base', 400, true);
-						line-height: 1.2;
-						letter-spacing: -1.8px;
+						letter-spacing: calc(var(--s) * -.25);
 					}
-					+ :global(li ) {
+					+ :global(li) {
 						margin-top: var(--s3);
 						@include mq-sm {
 							margin-top: var(--s2);

@@ -3,11 +3,17 @@ title: Proyectos
 hero:
   title: Proyectos
 anchors:
-  - Vermicelli
+  - La Madre
+  - Aloha Paradiso
+  - Horizon
+  - Puregrains
+  - Fauget
   - Francachella Estudio
+  - Godo
+  - Vermicelli
+  - Mude
+  - Didáctico
   - Tauro
-  - MUDE Studio
-  - Pure Grains
 projectitem:
   - title: Vermicelli
     sector: Restauración

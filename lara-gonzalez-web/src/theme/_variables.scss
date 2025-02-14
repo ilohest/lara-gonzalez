@@ -65,7 +65,7 @@ $sv: div(5.5555555, 20);
       --fs-base-v: 20;
       --fs-base: #{rem-css-vars(--fs-base-v)};
       --lh-base: #{calc-lh(20, 22)};
-      --ls-base: -.4px;
+      --ls-base: calc(var(--s) * -.1);
       @include mq-sm {
         --fs-base-v: 24;
         --fs-base: #{clamp-calc(24, 26)};
@@ -143,7 +143,7 @@ $sv: div(5.5555555, 20);
       --fs-xl-v: 40;
       --fs-xl: #{rem-css-vars(--fs-xl-v)};
       --lh-xl: #{calc-lh(40, 40)};
-      --ls-xl: calc(var(--s) * -.4);
+      --ls-xl: calc(var(--s) * -.2);
       @include mq-sm {
         --fs-xl-v: 64;
         --fs-xl: #{rem-css-vars(--fs-xl-v)};
@@ -155,11 +155,12 @@ $sv: div(5.5555555, 20);
       --fs-xxl-v: 60;
       --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
       --lh-xxl: #{calc-lh(60, 80)};
-      --ls-base: -6%;
+      --ls-xxl: calc(var(--s) * -.4);
       @include mq-md {
         --fs-xxl-v: 215;
         --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
         --lh-xxl: #{calc-lh(215, 172)};
+        --ls-xxl: calc(var(--s) * -.4);
       }
     }
     
@@ -167,6 +168,7 @@ $sv: div(5.5555555, 20);
       --fs-hg-v: 67;
       --fs-hg: #{rem-css-vars(--fs-hg-v)};
       --lh-hg: #{calc-lh(67, 57)};
+      --ls-hg: calc(var(--s) * -.5);
       @include mq-sm { 
         --fs-hg-v: 120;
         --fs-hg: #{rem-css-vars(--fs-hg-v)};
@@ -176,6 +178,7 @@ $sv: div(5.5555555, 20);
         --fs-hg-v: 215;
         --fs-hg: #{rem-css-vars(--fs-hg-v)};
         --lh-hg: #{calc-lh(215, 172)};
+        --ls-hg: calc(var(--s) * -1.8);
       }
       @include mq-xl { 
         --fs-hg-v: 230;
@@ -198,7 +201,8 @@ $sv: div(5.5555555, 20);
       @include mq-lg { 
         --fs-heading-lg-v: 104;
         --lh-heading-lg: #{calc-lh(104, 83)};
-        --fs-heading-lg: #{clamp-calc(104, 130)};
+        --fs-heading-lg: #{clamp-calc(64, 104)};
+        // --fs-heading-lg: #{clamp-calc(104, 130)};
       }
       @include mq-xl {
         --fs-heading-lg-v: 130;
@@ -237,6 +241,7 @@ $sv: div(5.5555555, 20);
         --fs-hero-title-v: 100;
         --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
         --lh-hero-title: #{calc-lh(100, 80)};
+        --ls-hero-title: calc(var(--s) * -2);
         --fs-hero-title: #{clamp-calc(100, 215)};
       }
     }
@@ -275,6 +280,13 @@ $sv: div(5.5555555, 20);
       --fs-menu-mobile-v: 28;
       --fs-menu-mobile: #{rem-css-vars(--fs-menu-mobile-v)};
       --lh-menu-mobile: #{calc-lh(28, 32)};
+      --ls-menu-mobile: calc(var(--s) * -.2);
+      --fs-menu-mobile: #{clamp-calc(28, 40)};
+
+      // @include mq-xs {
+      //   --fs-menu-mobile-v: 40;
+      //   --fs-menu-mobile: #{clamp-calc(40, 70)};
+      // }
     }
     // MARQUEE
     & {

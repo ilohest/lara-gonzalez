@@ -45,12 +45,15 @@
       align-items: flex-end;
     }
 
-    &__main{
+    &__main {
       position: relative;
       width: 100%;
       @include mq-md(){
         width: size-by-cols(23, 24); 
         margin-right: 10px;
+      }
+      .swiper-slide {
+        cursor: ew-resize;
       }
     }
 

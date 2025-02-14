@@ -25,7 +25,6 @@
       height: calc(var(--s) * 12.2);
     }
 
-    
     &--outline,
     &--outline-inverse,
     &--solid,
@@ -67,9 +66,9 @@
       color: var(--color-dark);
       transition: all 0.15s linear;
   
-      &:hover,
-      &:focus,
-      &:focus-visible {
+      &:hover:not(:disabled),
+      &:focus:not(:disabled),
+      &:focus-visible:not(:disabled) {
         color: var(--color-light);
         background-color: var(--color-dark);
         .icon--arrow {
