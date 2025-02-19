@@ -141,12 +141,6 @@ $sv: div(5.5555555, 20);
       --fs-xxl: #{clamp-calc(60, 215)};
       --lh-xxl: #{calc-lh(60, 215)};
       --ls-xxl: calc(var(--s) * -.4);
-      // @include mq-md {
-      //   --fs-xxl-v: 215;
-      //   --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
-      //   --lh-xxl: #{calc-lh(215, 172)};
-      //   --ls-xxl: calc(var(--s) * -.4);
-      // }
     }
     
     & {
@@ -167,20 +161,6 @@ $sv: div(5.5555555, 20);
       @include mq-xxl {
         --fs-heading-lg: #{clamp-calc(130, 180)};
       }
-      // @include mq-lg { 
-      //   --fs-heading-lg-v: 104;
-      //   --lh-heading-lg: #{calc-lh(104, 83)};
-      //   --fs-heading-lg: #{clamp-calc(64, 104)};
-      //   // --fs-heading-lg: #{clamp-calc(104, 130)};
-      // }
-      // @include mq-xl {
-      //   --fs-heading-lg-v: 130;
-      //   --lh-heading-lg: #{calc-lh(130, 160)};
-      // }
-      // @include mq-xxl {
-      //   --fs-heading-lg-v: 160;
-      //   --lh-heading-lg: #{calc-lh(160, 140)};
-      // }
     }
 
     // SECONDARY
@@ -199,9 +179,6 @@ $sv: div(5.5555555, 20);
       --fs-sec-md: #{rem-css-vars(--fs-sec-md-v)};
       --lh-sec-md: #{calc-lh(16, 26)};
       --fs-sec-md: #{clamp-calc(16, 24)};
-
-      // @include mq-xl { 
-      // }
     }
 
     // SPECIFIC FONTS
@@ -218,11 +195,6 @@ $sv: div(5.5555555, 20);
       --lh-project-title: #{calc-lh(36, 41)};
       --fs-project-title: #{clamp-calc(36, 48)};
       --ls-project-title: calc(var(--s) * -.4);
-      // @include mq-lg {
-      //   --fs-project-title-v: 48;
-      //   --fs-project-title: #{rem-css-vars(--fs-project-title-v)};
-      //   --lh-project-title: #{calc-lh(48, 48)};
-      // }
       @include mq-xl {
         --fs-project-title: #{clamp-calc(36, 50)};
       }
@@ -267,12 +239,6 @@ $sv: div(5.5555555, 20);
       --fs-link: #{clamp-calc(16, 24)};
       --lh-link: #{calc-lh(16, 16)};
       --ls-link: calc(var(--s) * -.1);
-      // @include mq-md {
-      //   --fs-link-v: 20;
-      // }
-      // @include mq-lg {
-      //   --fs-link-v: 24;
-      // }
     }
 
     & {
