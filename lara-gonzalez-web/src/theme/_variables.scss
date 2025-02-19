@@ -101,7 +101,7 @@ $sv: div(5.5555555, 20);
     & {
       --fs-md-v: 24;
       --fs-md: #{clamp-calc(24, 36)};
-      --lh-md: #{calc-lh(24, 36)};
+      --lh-md: #{calc-lh(24, 24)};
       --ls-md: -.7px;
     }
 
@@ -163,15 +163,15 @@ $sv: div(5.5555555, 20);
 
     // SECONDARY
     & {
-      --fs-sec-base-v: 20;
-      --fs-sec-base: #{rem-css-vars(--fs-sec-base-v)};
-      --lh-sec-base: #{calc-lh(20, 33)};
+      --fs-sec-base-v: 16;
+      --fs-sec-base: #{clamp-calc(16, 20)};
+      --lh-sec-base: #{calc-lh(16, 20)};
     }
 
     & {
       --fs-sec-md-v: 24;
       --fs-sec-md: #{rem-css-vars(--fs-sec-base-v)};
-      --lh-sec-md: #{calc-lh(24, 28)};
+      --lh-sec-md: #{calc-lh(24, 24)};
       @include mq-xl { 
         --fs-sec-md: #{clamp-calc(24, 28)};
       }
@@ -233,7 +233,7 @@ $sv: div(5.5555555, 20);
       //   --lh-menu-mobile: #{calc-lh(50, 35)};
       //   }
     }
-    
+
     // MARQUEE
     & {
       --fs-marquee-v: 52;
