@@ -42,41 +42,43 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
           <Icon classes="icon--close" url="src/assets/icons/close.svg" />
         </button>
       </header>
-      <nav className="side-menu__nav">
-        <ul>
-          <li>
-            <a href="/proyectos">Proyectos</a>
-          </li>
-          <li>
-            <a href="/el-estudio">El estudio</a>
-          </li>
-        </ul>
-      </nav>
-      <div className="side-menu__bottom">
-        <a className="button button--big button--solid-inverse" href="/contacto">
-          ¿Hablamos?
-        </a>
-        {email && (
-          <div className="side-menu__email">
-            <a href={`emailto:${email}`}>
-              {email}
-            </a>
-          </div>
-        )}
-        {rrss && (
-          <ul className="side-menu__social">
-            {rrss.map((rs: RSModel, index: number) => {
-              return (
-                <li key={index}>
-                  <a href={rs.url} className="button button--link" target="_blank">
-                    <span>{rs.platform}</span>
-                    <Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
-                  </a>
-                </li>
-              );
-            })}
+      <div className="side-menu__wrapper">
+        <nav className="side-menu__nav">
+          <ul>
+            <li>
+              <a href="/proyectos">Proyectos</a>
+            </li>
+            <li>
+              <a href="/el-estudio">El estudio</a>
+            </li>
           </ul>
-        )}
+        </nav>
+        <div className="side-menu__bottom">
+          <a className="button button--big button--solid-inverse" href="/contacto">
+            ¿Hablamos?
+          </a>
+          {email && (
+            <div className="side-menu__email">
+              <a href={`emailto:${email}`}>
+                {email}
+              </a>
+            </div>
+          )}
+          {rrss && (
+            <ul className="side-menu__social">
+              {rrss.map((rs: RSModel, index: number) => {
+                return (
+                  <li key={index}>
+                    <a href={rs.url} className="button button--link" target="_blank">
+                      <span>{rs.platform}</span>
+                      <Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
       </div>
     </dialog>
   );

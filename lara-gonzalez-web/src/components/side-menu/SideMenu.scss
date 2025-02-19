@@ -39,8 +39,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: calc(var(--s9) * 2);
-        margin-bottom: 11dvh;
+        // margin-bottom: calc(var(--s9) * 2);
+        // margin-bottom: 11dvh;
         @include mq-xs {
             @media (orientation: landscape) {
                 margin-bottom: 9dvh;
@@ -66,6 +66,7 @@
         align-items: center;
         row-gap: var(--s);
         column-gap: var(--s7);
+        margin-top: auto;
         @include mq-xs {
             @media (orientation: landscape) {
                 flex-direction: row;
@@ -103,11 +104,16 @@
         cursor: pointer;
     }
 
+    .side-menu__wrapper{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
     .side-menu__nav {
-        padding-bottom: 12.5vh;
-        @include mq-xs {
-            padding-bottom: 8.5vh;
-        }
+        flex: 0 0 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         li {
             text-align: center;
@@ -129,6 +135,8 @@
     }
 
     .side-menu__bottom {
+        flex: 1; 
+        
         text-align: center;
         height: 100%;
         display: grid;
@@ -140,7 +148,7 @@
         justify-items: center;
         align-items: center;
         justify-content: space-between;
-        row-gap: calc(var(--s) * 9);
+        //row-gap: calc(var(--s) * 9);
         @include mq-xs {
             @media (orientation: landscape) {
                 align-items: start;
