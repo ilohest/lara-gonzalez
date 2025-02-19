@@ -25,7 +25,7 @@ const { title, anchors, projectitem } = proyectos[0].data;
 			<a
 				class="button button--link"
 				href={`#${anchor.toLowerCase().replace(/\s+/g, "-")}`}
-				data-anchor={anchor.toLowerCase().replace(/\s+/g, "-")}
+				data-anchor={anchor.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, "-")}
 			>
 				{anchor}
 			</a>

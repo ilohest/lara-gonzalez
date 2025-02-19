@@ -18,7 +18,7 @@ const ProjectItem = ( { projectitem }: any) => {
           <div
             className="projects__item"
             key={project.title}
-            id={project.title.toLowerCase().replace(/\s+/g, "-")}
+            id={project.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, "-")}
           >
 
           <div className="projects__header">
