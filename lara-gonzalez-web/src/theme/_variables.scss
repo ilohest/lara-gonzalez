@@ -62,182 +62,103 @@ $sv: div(5.5555555, 20);
 
     // PRIMARY
     & {
-      --fs-base-v: 20;
+      --fs-base-v: 24;
       --fs-base: #{rem-css-vars(--fs-base-v)};
-      --lh-base: #{calc-lh(20, 22)};
+      --lh-base: #{calc-lh(24, 26)};
       --ls-base: calc(var(--s) * -.1);
-      @include mq-sm {
-        --fs-base-v: 24;
-        --fs-base: #{clamp-calc(20, 24)};
-        --lh-base: #{calc-lh(24, 26)};
-      }
+      // @include mq-sm {
+      //   --fs-base-v: 24;
+      //   --fs-base: #{clamp-calc(24, 26)};
+      //   --lh-base: #{calc-lh(24, 26)};
+      // }
     }
 
     & {
       --fs-detail-v: 13;
-      --fs-detail: #{rem-css-vars(--fs-detail-v)};
+      --fs-detail: #{clamp-calc(13, 14)};
       --lh-detail: #{calc-lh(13, 14)};
-      @include mq-xl {
-        --fs-detail: #{clamp-calc(13, 14)};
-      }
     }
 
     & {
       --fs-xxs-v: 14;
-      --fs-xxs: #{rem-css-vars(--fs-xxs-v)};
+      --fs-xxs: #{clamp-calc(14, 18)};
       --lh-xxs: #{calc-lh(14, 16)};
-      @include mq-xl {
-        --fs-xxs: #{clamp-calc(14, 18)};
-      }
     }
 
     & {
       --fs-xs-v: 16;
-      --fs-xs: #{rem-css-vars(--fs-xs-v)};
+      --fs-xs: #{clamp-calc(16, 18)};
       --lh-xs: #{calc-lh(16, 18)};
       --ls-xs: calc(var(--s) * -.1);
-      @include mq-xl {
-        --fs-xs: #{clamp-calc(16, 18)};
-      }
     }
 
     & {
       --fs-sm-v: 20;
-      --fs-sm: #{rem-css-vars(--fs-sm-v)};
       --fs-sm: #{clamp-calc(20, 30)};
       --lh-sm: #{calc-lh(20, 33)};
     }
 
     & {
       --fs-md-v: 24;
-      --fs-md: #{rem-css-vars(--fs-md-v)};
-      --lh-md: #{calc-lh(24, 24)};
-      --ls-md:  calc(var(--s) * -.19);
-      @include mq-sm {
-        --fs-md-v: 30;
-        --lh-md: #{calc-lh(30, 30)};
-      }
-      @include mq-lg {
-        --fs-md-v: 36;
-        --lh-md: #{calc-lh(36, 36)};
-      }
+      --fs-md: #{clamp-calc(24, 36)};
+      --lh-md: #{calc-lh(24, 36)};
+      --ls-md: -.7px;
     }
 
     & {
       --fs-lg-v: 36;
-      --fs-lg: #{rem-css-vars(--fs-lg-v)};
+      --fs-lg: #{clamp-calc(36, 72)};
       --lh-lg: #{calc-lh(36, 32)};
       --ls-lg: calc(var(--s) * -.3);
-      @include mq-sm {
-        --fs-lg-v: 52;
-        --fs-lg: #{rem-css-vars(--fs-lg-v)};
-        --lh-lg: #{calc-lh(52, 48)};
-      }
-      @include mq-lg {
-        --fs-lg-v: 72;
-        --fs-lg: #{rem-css-vars(--fs-lg-v)};
-        --lh-lg: #{calc-lh(72, 60)};
-      }
     }
 
     & {
       --fs-xl-v: 40;
-      --fs-xl: #{rem-css-vars(--fs-xl-v)};
-      --lh-xl: #{calc-lh(40, 40)};
+      --fs-xl: #{clamp-calc(40, 64)};
+      --lh-xl: #{calc-lh(40, 64)};
       --ls-xl: calc(var(--s) * -.2);
-      @include mq-sm {
-        --fs-xl-v: 64;
-        --fs-xl: #{rem-css-vars(--fs-xl-v)};
-        --lh-xl: #{calc-lh(64, 78)};
-      }
     }
 
     & {
       --fs-xxl-v: 60;
-      --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
-      --lh-xxl: #{calc-lh(60, 80)};
+      --fs-xxl: #{clamp-calc(60, 215)};
+      --lh-xxl: #{calc-lh(60, 215)};
       --ls-xxl: calc(var(--s) * -.4);
-      @include mq-md {
-        --fs-xxl-v: 215;
-        --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
-        --lh-xxl: #{calc-lh(215, 172)};
-        --ls-xxl: calc(var(--s) * -.4);
-      }
+      // @include mq-md {
+      //   --fs-xxl-v: 215;
+      //   --fs-xxl: #{rem-css-vars(--fs-xxl-v)};
+      //   --lh-xxl: #{calc-lh(215, 172)};
+      //   --ls-xxl: calc(var(--s) * -.4);
+      // }
     }
     
     & {
       --fs-hg-v: 67;
-      --fs-hg: #{rem-css-vars(--fs-hg-v)};
+      --fs-hg: #{clamp-calc(67, 215)};
       --lh-hg: #{calc-lh(67, 57)};
       --ls-hg: calc(var(--s) * -.5);
-
-      @include mq-xs { 
-        --fs-hg-v: 100;
-        --fs-hg: #{rem-css-vars(--fs-hg-v)};
-        --lh-hg: #{calc-lh(90, 80)};
-        --fs-hg: #{clamp-calc(67, 100)};
-      }
-
-      @include mq-sm { 
-        --fs-hg-v: 120;
-        --fs-hg: #{rem-css-vars(--fs-hg-v)};
-        --lh-hg: #{calc-lh(120, 100)};
-        --fs-hg: #{clamp-calc(100, 120)};
-      }
-      @include mq-md { 
-        --fs-hg-v: 180;
-        --fs-hg: #{rem-css-vars(--fs-hg-v)};
-        --lh-hg: #{calc-lh(180, 160)};
-        --fs-hg: #{clamp-calc(120, 180)};
-      }
-      @include mq-lg { 
-        --fs-hg-v: 215;
-        --fs-hg: #{rem-css-vars(--fs-hg-v)};
-        --lh-hg: #{calc-lh(215, 172)};
-        --ls-hg: calc(var(--s) * -1.8);
-        --fs-hg: #{clamp-calc(120, 215)};
-      }
-      @include mq-xl { 
-        --fs-hg-v: 230;
-        --fs-hg: #{rem-css-vars(--fs-hg-v)};
-        --lh-hg: #{calc-lh(230, 190)};
-        --fs-hg: #{clamp-calc(215, 230)};
-      }
-      @include mq-xxl { 
-        --fs-hg-v: 260;
-        --fs-hg: #{rem-css-vars(--fs-hg-v)};
-        --lh-hg: #{calc-lh(260, 210)};
-        --fs-hg: #{clamp-calc(120, 260)};
-      }
     }
 
     & {
       --fs-heading-lg-v: 64;
-      --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
+      --fs-heading-lg: #{clamp-calc(64, 104)};
       --lh-heading-lg: #{calc-lh(64, 57)};
+      --ls-hg: -7%;
 
-      @include mq-sm {
-        --fs-heading-lg-v: 84;
-        --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
-        --lh-heading-lg: #{calc-lh(84, 80)};
-        --fs-heading-lg: #{clamp-calc(64, 84)};
-      }
-
-      @include mq-md { 
-        --fs-heading-lg-v: 104;
-        --lh-heading-lg: #{calc-lh(104, 100)};
-        --fs-heading-lg: #{clamp-calc(84, 104)};
-      }
-      @include mq-xl {
-        --fs-heading-lg-v: 130;
-        --lh-heading-lg: #{calc-lh(130, 120)};
-        --fs-heading-lg: #{clamp-calc(104, 130)};
-      }
-      @include mq-xxl {
-        --fs-heading-lg-v: 160;
-        --lh-heading-lg: #{calc-lh(160, 140)};
-        --fs-heading-lg: #{clamp-calc(130, 160)};
-      }
+      // @include mq-lg { 
+      //   --fs-heading-lg-v: 104;
+      //   --lh-heading-lg: #{calc-lh(104, 83)};
+      //   --fs-heading-lg: #{clamp-calc(64, 104)};
+      //   // --fs-heading-lg: #{clamp-calc(104, 130)};
+      // }
+      // @include mq-xl {
+      //   --fs-heading-lg-v: 130;
+      //   --lh-heading-lg: #{calc-lh(130, 160)};
+      // }
+      // @include mq-xxl {
+      //   --fs-heading-lg-v: 160;
+      //   --lh-heading-lg: #{calc-lh(160, 140)};
+      // }
     }
 
     // SECONDARY
@@ -260,29 +181,21 @@ $sv: div(5.5555555, 20);
     // PROJECTS
     & {
       --fs-hero-title-v: 70;
-      --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
+      --fs-hero-title: #{clamp-calc(70, 214)};
       --lh-hero-title: #{calc-lh(70, 56)};
       --ls-hero-title: calc(var(--s) * -.8);
-      @include mq-sm {
-        --fs-hero-title-v: 100;
-        --fs-hero-title: #{rem-css-vars(--fs-hero-title-v)};
-        --lh-hero-title: #{calc-lh(100, 80)};
-        --ls-hero-title: calc(var(--s) * -2);
-        --fs-hero-title: #{clamp-calc(100, 215)};
-      }
     }
 
     & {
       --fs-project-title-v: 36;
-      --fs-project-title: #{rem-css-vars(--fs-project-title-v)};
       --lh-project-title: #{calc-lh(36, 41)};
       --fs-project-title: #{clamp-calc(36, 48)};
       --ls-project-title: calc(var(--s) * -.4);
-      @include mq-lg {
-        --fs-project-title-v: 48;
-        --fs-project-title: #{rem-css-vars(--fs-project-title-v)};
-        --lh-project-title: #{calc-lh(48, 48)};
-      }
+      // @include mq-lg {
+      //   --fs-project-title-v: 48;
+      //   --fs-project-title: #{rem-css-vars(--fs-project-title-v)};
+      //   --lh-project-title: #{calc-lh(48, 48)};
+      // }
       @include mq-xl {
         --fs-project-title-v: 60;
         --lh-project-title: #{calc-lh(60, 60)};
@@ -296,20 +209,19 @@ $sv: div(5.5555555, 20);
       --lh-input: #{calc-lh(16, 19)};
       --ls-input: 0;
     }
+
     // MENU ITEMS
     & {
       --fs-menu-v: 16;
       --fs-menu: #{rem-css-vars(--fs-menu-v)};
       --lh-menu: #{calc-lh(16, 16)};
     }
+
     & {
       --fs-menu-mobile-v: 28;
-      --fs-menu-mobile: #{rem-css-vars(--fs-menu-mobile-v)};
       --lh-menu-mobile: #{calc-lh(28, 32)};
       --ls-menu-mobile: calc(var(--s) * -.2);
       --fs-menu-mobile: #{clamp-calc(28, 35)};
-
-
       // @include mq-xs {
       // --fs-menu-mobile-v: 35;
       // --fs-menu-mobile: #{rem-css-vars(--fs-menu-mobile-v)};
@@ -321,6 +233,7 @@ $sv: div(5.5555555, 20);
       //   --lh-menu-mobile: #{calc-lh(50, 35)};
       //   }
     }
+    
     // MARQUEE
     & {
       --fs-marquee-v: 52;
@@ -328,18 +241,19 @@ $sv: div(5.5555555, 20);
       --lh-marquee: #{calc-lh(52, 41)};
       --ls-marquee: calc(var(--s) * -.8);
     }
+
     // LINKS
     & {
       --fs-link-v: 16;
-      --fs-link: #{rem-css-vars(--fs-link-v)};
+      --fs-link: #{clamp-calc(16, 24)};
       --lh-link: #{calc-lh(16, 16)};
       --ls-link: calc(var(--s) * -.1);
-      @include mq-md {
-        --fs-link-v: 20;
-      }
-      @include mq-lg {
-        --fs-link-v: 24;
-      }
+      // @include mq-md {
+      //   --fs-link-v: 20;
+      // }
+      // @include mq-lg {
+      //   --fs-link-v: 24;
+      // }
     }
 
     & {
@@ -358,19 +272,8 @@ $sv: div(5.5555555, 20);
 
     & {
       --fs-404-v: 180;
-      --fs-404: #{rem-css-vars(--fs-404-v)};
+      --fs-404: #{clamp-calc(180, 529)};
       --lh-404: #{calc-lh(180, 180)};
       --ls-404: calc(var(--s) * -2);
-      --fs-404: #{clamp-calc(180, 529)};
-      @include mq-xs {
-        --fs-404-v: 170;
-      }
-      @include mq-sm {
-        --fs-404-v: 180;
-      }
-      @include mq-lg {
-        --fs-404-v: 529;
-        --lh-404: #{calc-lh(529, 529)};
-      }
     }
   }
