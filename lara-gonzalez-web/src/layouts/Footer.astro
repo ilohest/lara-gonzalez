@@ -97,7 +97,7 @@ const { rrss } = Astro.props;
       li {
         text-transform: uppercase;
         a {
-          @include f('base', 300, true);
+          @include f('rrss', 300, true);
           display: flex;
           align-items: center;
           gap: var(--s);
@@ -128,7 +128,7 @@ const { rrss } = Astro.props;
         }
       }
       a {
-        @include f('xs', 400, true);
+        @include f('xs', 300, true);
         transition: opacity .25s ease-in-out;
         &:hover {
           opacity: .7;

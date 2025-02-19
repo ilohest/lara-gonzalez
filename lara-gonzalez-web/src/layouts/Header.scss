@@ -76,10 +76,14 @@ header {
         }
 
         &--item {
+            padding: calc(var(--s)* 1.6) calc(var(--s)* 3.2);
+            padding: 0;
             color: var(--mode-color);
+            position: relative;
+            overflow: hidden;
         }
 
-        .button {
+        .button--regular {
             padding: calc(var(--s)* 1.6) calc(var(--s) * 3.2);
         }
     }

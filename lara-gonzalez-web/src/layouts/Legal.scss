@@ -32,10 +32,10 @@
         }
 
         > p, li {
-            @include f('xs', 400, true);
-            @include mq-xl {
-                @include f('base', 400, true);
-            }
+            @include f('xs-grow', 400, true);
+            // @include mq-xl {
+            //     @include f('base', 400, true);
+            // }
         }
 
         p + p,

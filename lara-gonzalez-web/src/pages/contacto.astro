@@ -10,7 +10,7 @@ const { title, description } = contact[0].data;
 
 ---
 
-<Layout title="Contacto | Lara González" description="">
+<Layout title="Contacto | Lara Gonzalez Estudio" description="Hablando se entiende la gente, y aquí estoy para escucharte. Cuéntame tu proyecto, tus ideas o cualquier consulta, y hagámoslo realidad juntos.">
 	<WrapperHeader client:load />
 	<article class="contact wrapper-fluid">
 		<div class="contact__heading">
@@ -57,7 +57,7 @@ const { title, description } = contact[0].data;
 		&__description {
 			margin-bottom: calc(var(--s) * 11);
 			grid-column: 1/7;
-			@include f('md', 300, true);
+			@include f('md', 400, true);
 			line-height: 1.25;
 			@include mq-xs {
 				grid-column: 1/6;
@@ -65,7 +65,7 @@ const { title, description } = contact[0].data;
 			}
 			@include mq-sm {
 				grid-column: 1/12;
-				@include f('base', 300, true);
+				@include f('base', 400, true);
 				line-height: 1.25;
 			}
 			@include mq-md {

@@ -15,13 +15,13 @@
   }
 
   &__header {
+    @include mq-xs {
+      max-width: 80%;
+    }
     > * {
-      @include f('md', 400, true);
-      @include mq-sm {
-        @include f('base', 400, true);
-      }
+      @include f('link-md', 400, true);
       @include mq-xl {
-        @include f('md', 400, true);
+        @include f('sm', 400, true);
       }
     }
     .heading {
@@ -43,11 +43,11 @@
       margin-top: calc(var(--s) * 32);
     }
     li {
-      @include f('base', 400, true);
-      letter-spacing: calc(var(--s) * -.3);
+      @include f('sm', 400, true);
+      letter-spacing: calc(var(--s) * -.2);
       
       + li {
-        margin-top: calc(var(--s) * 3);
+        margin-top: calc(var(--s) * 3.7);
       }
     }
   }

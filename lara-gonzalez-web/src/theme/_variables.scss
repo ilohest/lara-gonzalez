@@ -66,43 +66,60 @@ $sv: div(5.5555555, 20);
       --fs-base: #{rem-css-vars(--fs-base-v)};
       --lh-base: #{calc-lh(24, 26)};
       --ls-base: calc(var(--s) * -.1);
-      // @include mq-sm {
-      //   --fs-base-v: 24;
-      //   --fs-base: #{clamp-calc(24, 26)};
-      //   --lh-base: #{calc-lh(24, 26)};
-      // }
+      @include mq-xl {
+        --fs-base: #{clamp-calc(24, 30)};
+      }
     }
 
     & {
       --fs-detail-v: 13;
+      --fs-detail: #{rem-css-vars(--fs-detail-v)};
       --fs-detail: #{clamp-calc(13, 14)};
       --lh-detail: #{calc-lh(13, 14)};
     }
 
     & {
       --fs-xxs-v: 14;
+      --fs-xxs: #{rem-css-vars(--fs-xxs-v)};
       --fs-xxs: #{clamp-calc(14, 18)};
       --lh-xxs: #{calc-lh(14, 16)};
     }
 
     & {
       --fs-xs-v: 16;
-      --fs-xs: #{clamp-calc(16, 18)};
-      --lh-xs: #{calc-lh(16, 18)};
+      --fs-xs: #{rem-css-vars(--fs-xs-v)};
+      --lh-xs: #{calc-lh(16, 16)};
       --ls-xs: calc(var(--s) * -.1);
+      @include mq-xl {
+        --fs-xs: #{clamp-calc(16, 20)};
+      }
+    }
+
+    & {
+      --fs-xs-grow-v: 16;
+      --fs-xs-grow: #{rem-css-vars(--fs-xs-grow-v)};
+      --lh-xs-grow: #{calc-lh(16, 18)};
+      --ls-xs-grow: calc(var(--s) * -.2);
+      --fs-xs-grow: #{clamp-calc(16, 18)};
+      @include mq-xl {
+        --fs-xs-grow: #{clamp-calc(16, 20)};
+      }
+      @include mq-xxl {
+        --fs-xs-grow: #{clamp-calc(20, 24)};
+      }
     }
 
     & {
       --fs-sm-v: 20;
-      --fs-sm: #{clamp-calc(20, 30)};
-      --lh-sm: #{calc-lh(20, 33)};
+      --fs-sm: #{clamp-calc(20, 24)};
+      --lh-sm: #{calc-lh(20, 20)};
     }
 
     & {
       --fs-md-v: 24;
       --fs-md: #{clamp-calc(24, 36)};
       --lh-md: #{calc-lh(24, 24)};
-      --ls-md: -.7px;
+      --ls-md: calc(var(--s) * -.2);
     }
 
     & {
@@ -141,10 +158,15 @@ $sv: div(5.5555555, 20);
 
     & {
       --fs-heading-lg-v: 64;
+      --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
       --fs-heading-lg: #{clamp-calc(64, 104)};
       --lh-heading-lg: #{calc-lh(64, 57)};
-      --ls-hg: -7%;
-
+      @include mq-xl {
+        --fs-heading-lg: #{clamp-calc(104, 130)};
+      }
+      @include mq-xxl {
+        --fs-heading-lg: #{clamp-calc(130, 180)};
+      }
       // @include mq-lg { 
       //   --fs-heading-lg-v: 104;
       //   --lh-heading-lg: #{calc-lh(104, 83)};
@@ -164,17 +186,22 @@ $sv: div(5.5555555, 20);
     // SECONDARY
     & {
       --fs-sec-base-v: 16;
+      --fs-sec-base: #{rem-css-vars(--fs-sec-base-v)};
       --fs-sec-base: #{clamp-calc(16, 20)};
       --lh-sec-base: #{calc-lh(16, 20)};
+      @include mq-xl {
+        --fs-sec-base: #{clamp-calc(20, 25)};
+      }
     }
 
     & {
-      --fs-sec-md-v: 24;
-      --fs-sec-md: #{rem-css-vars(--fs-sec-base-v)};
-      --lh-sec-md: #{calc-lh(24, 24)};
-      @include mq-xl { 
-        --fs-sec-md: #{clamp-calc(24, 28)};
-      }
+      --fs-sec-md-v: 16;
+      --fs-sec-md: #{rem-css-vars(--fs-sec-md-v)};
+      --lh-sec-md: #{calc-lh(16, 26)};
+      --fs-sec-md: #{clamp-calc(16, 24)};
+
+      // @include mq-xl { 
+      // }
     }
 
     // SPECIFIC FONTS
@@ -197,8 +224,7 @@ $sv: div(5.5555555, 20);
       //   --lh-project-title: #{calc-lh(48, 48)};
       // }
       @include mq-xl {
-        --fs-project-title-v: 60;
-        --lh-project-title: #{calc-lh(60, 60)};
+        --fs-project-title: #{clamp-calc(36, 50)};
       }
     }
 
@@ -219,19 +245,12 @@ $sv: div(5.5555555, 20);
 
     & {
       --fs-menu-mobile-v: 28;
+      --fs-menu-mobile: #{rem-css-vars(--fs-menu-mobile-v)};
       --lh-menu-mobile: #{calc-lh(28, 32)};
       --ls-menu-mobile: calc(var(--s) * -.2);
-      --fs-menu-mobile: #{clamp-calc(28, 35)};
-      // @include mq-xs {
-      // --fs-menu-mobile-v: 35;
-      // --fs-menu-mobile: #{rem-css-vars(--fs-menu-mobile-v)};
-      // --lh-menu-mobile: #{calc-lh(35, 39)};
-      // --fs-menu-mobile: #{clamp-calc(28, 35)};
-      // }
-      // @include mq-md {
-      //   --fs-menu-mobile-v: 50;
-      //   --lh-menu-mobile: #{calc-lh(50, 35)};
-      //   }
+      @include mq-xs {
+        --fs-menu-mobile: #{clamp-calc(28, 50)};
+      }
     }
 
     // MARQUEE
@@ -275,5 +294,12 @@ $sv: div(5.5555555, 20);
       --fs-404: #{clamp-calc(180, 529)};
       --lh-404: #{calc-lh(180, 180)};
       --ls-404: calc(var(--s) * -2);
+    }
+
+    & {
+      --fs-rrss-v: 20;
+      --fs-rrss: #{clamp-calc(20, 24)};
+      --lh-rrss: #{calc-lh(20, 20)};
+      --ls-rrss: calc(var(--s) * -.1);
     }
   }

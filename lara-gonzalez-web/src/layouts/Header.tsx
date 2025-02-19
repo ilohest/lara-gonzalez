@@ -53,8 +53,12 @@ const Header = ({
             alt="Lara González logo"
           />
         </a> 
-        <a className="button button--link header__main-nav--item" href="/proyectos">Proyectos</a>
-        <a className="button button--link header__main-nav--item" href="/el-estudio">El estudio</a>
+        <a className="button button--link header__main-nav--item" href="/proyectos">
+          <span>Proyectos</span>
+         </a>
+        <a className="button button--link header__main-nav--item" href="/el-estudio">
+          <span>El estudio</span>
+        </a>
         <a className={themeMode === "light-mode" ? "button button--regular button--outline" : "button button--regular button--outline-inverse"} href="/contacto">¿Hablamos?</a>
       </nav>
       <button
