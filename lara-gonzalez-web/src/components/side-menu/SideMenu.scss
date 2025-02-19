@@ -41,11 +41,11 @@
         justify-content: space-between;
         // margin-bottom: calc(var(--s9) * 2);
         // margin-bottom: 11dvh;
-        @include mq-xs {
-            @media (orientation: landscape) {
-                margin-bottom: 9dvh;
-            }
-        }
+        // @include mq-xs {
+        //     @media (orientation: landscape) {
+        //         margin-bottom: 9dvh;
+        //     }
+        // }
     }
 
     &__email {
@@ -136,7 +136,7 @@
 
     .side-menu__bottom {
         flex: 1; 
-        
+
         text-align: center;
         height: 100%;
         display: grid;
