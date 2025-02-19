@@ -182,7 +182,7 @@
           width: 100%;
           height: 1px;
           opacity: 0;
-          background-color: var(--mode-color);
+          background-color: var(--mode-color, var(--color-primary));
           transition:
             opacity 0.3s,
             transform 0.3s;

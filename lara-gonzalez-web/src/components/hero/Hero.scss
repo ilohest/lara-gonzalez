@@ -269,7 +269,7 @@
             }
             &-0 {
                 grid-area: img0;
-                grid-column: 1 / 6;
+                grid-column: 1 / 5;
                 @include mq-xs {
                     grid-column: 3 / 7;
                 }
@@ -280,7 +280,7 @@
             }
             &-1 {
                 grid-area: img1;
-                grid-column: 6 / 13;
+                grid-column: 5 / 13;
                 @include mq-xs {
                     grid-column: 7 / 13;
                 }

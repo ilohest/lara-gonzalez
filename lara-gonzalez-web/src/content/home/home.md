@@ -4,13 +4,13 @@ hero:
   title: Branding
   subtitle: Studio
   gallery: 
-    - "/static-images/lara-gonzalez-9.jpg"
-    - "/static-images/lara-gonzalez-10.jpg"
-    - "/static-images/lara-gonzalez-11.jpg"
+    - "/static-images/home/lara-gonzalez-hero-01.jpg"
+    - "/static-images/home/lara-gonzalez-hero-02.jpg"
+    - "/static-images/home/lara-gonzalez-hero-03.jpg"
 projectsSection:
   title: "Creatividad & estrategia"
-  imageLg: "/static-images/lara-gonzalez-home-1.jpg"
-  imageSm: "/static-images/lara-gonzalez-home-2.jpg"
+  imageLg: "/static-images/home/lara-gonzalez-proyecto-01.jpg"
+  imageSm: "/static-images/home/lara-gonzalez-proyecto-02.jpg"
   cta:
     text: "Proyectos"
     url: "/proyectos"

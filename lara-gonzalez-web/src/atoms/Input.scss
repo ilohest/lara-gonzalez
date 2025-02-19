@@ -62,7 +62,7 @@ textarea {
     & + .input--checkbox {
         margin-top: calc(var(--s) * 6.5);
         @include mq-md {
-            margin-top: calc(var(--s) * 4);
+            margin-top: calc(var(--s) * 5);
         }
     }
 
@@ -163,12 +163,12 @@ textarea {
                 color: var(--color-text);
                 transition: color .15s linear;
                 &:hover, &:focus, &:focus-visible {
-                    outline: 1px solid var(--color-grey);
                     color: var(--color-grey);
                 }
             }
 
             input {
+                cursor: pointer;
                 appearance: none;
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -185,6 +185,7 @@ textarea {
                 z-index: -2;
 
                 & + i {
+                    cursor: pointer;
                     margin-top: calc(var(--s) * .2);
                     border: 1px solid var(--color-dark);
                     position: absolute;

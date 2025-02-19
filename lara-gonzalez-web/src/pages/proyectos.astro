@@ -12,7 +12,7 @@ const { title, anchors, projectitem } = proyectos[0].data;
 
 ---
 
-<Layout title="Proyectos | Lara González" description="">
+<Layout title="Proyectos | Lara Gonzalez Estudio" description="Descubre los proyectos donde el branding y el diseño gráfico se unen para crear identidades visuales únicas, estratégicas y memorables.">
 	<WrapperHeader client:load />
 	<section class="projects wrapper-fluid">
 		<div class="projects__heading">
@@ -80,13 +80,16 @@ const { title, anchors, projectitem } = proyectos[0].data;
 		flex-wrap: wrap;
 		column-gap: var(--s5);
 		row-gap: var(--s);
+		@include mq-xs {
+			padding-right: size-by-cols(3, 12);
+		}
 		@include mq-sm {
 			display: flex;
 			margin-bottom: var(--s10);
 		}
 		@include mq-md {
 			margin: var(--s10) 0 0;
-			padding-right: size-by-cols(3, 12);
+			padding-right: size-by-cols(5, 12);
 		}
 		@include mq-lg {
 			padding-right: size-by-cols(7, 12);
