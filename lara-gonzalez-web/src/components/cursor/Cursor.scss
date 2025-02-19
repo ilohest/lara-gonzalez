@@ -1,13 +1,9 @@
-//@import '@lara/theme/mixins';
 @use "dawuti" as *;
 
 .lara-cursor{
   display: none;
   pointer-events: none;
-
-
   @include mq-lg {
-    // pointer-events: all;
     display: block;
     position: fixed;
     z-index: 30;
