@@ -1,66 +1,90 @@
 ---
 import "@lara/theme/theme.scss";
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
 import Footer from "./Footer.astro";
 import Cursor from "@lara/components/cursor/Cursor";
 
 interface Props {
-	title: string;
-	description: string;
-	classes?: string;
+  title: string;
+  description: string;
+  classes?: string;
 }
 
 const { title, description, classes } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const rrss = [
-  { platform: "Instagram", url: "https://www.instagram.com/lara.gonzalez.estudio?igsh=MWgxZDZkZWdkN3dtZw==" },
-  { platform: "Linkedin", url: "https://www.linkedin.com/in/lara-gonz%C3%A1lez-775271133/" }
+  {
+    platform: "Instagram",
+    url: "https://www.instagram.com/lara.gonzalez.estudio?igsh=MWgxZDZkZWdkN3dtZw==",
+  },
+  {
+    platform: "Linkedin",
+    url: "https://www.linkedin.com/in/lara-gonz%C3%A1lez-775271133/",
+  },
 ];
-
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="theme-color" content="#000000" />
-		<meta name="msapplication-navbutton-color" content="#000000" />
-		<link rel="canonical" href={canonicalURL} />
+  <head>
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-N2KQLM5F");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-navbutton-color" content="#000000" />
+    <link rel="canonical" href={canonicalURL} />
 
-		<title>{title}</title>
-		<meta name="description" content={description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
 
-		<!-- Facebook Meta Tags -->
-		<meta property="og:url" content="https://laragonzalez.com" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta
-			property="og:image" 
-			content="/static-images/share.jpg";
-		/>
-	
-		<!-- Twitter Meta Tags -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta property="twitter:domain" content="laragonzalez.com" />
-		<meta property="twitter:url" content="https://laragonzalez.com" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta 
-			name="twitter:image"
-			content="/static-images/share.jpg"; 
-		/>
-		<ClientRouter />
-	</head>
-	<body>
-		<main class={classes}>		
-			<slot />
-			<Cursor hidden={false} notAllowed={false} client:load></Cursor>
-		</main>		
-		<Footer rrss{rrss}/>
-	</body>
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://laragonzalez.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/static-images/share.jpg" ; />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="laragonzalez.com" />
+    <meta property="twitter:url" content="https://laragonzalez.com" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/static-images/share.jpg" ; />
+    <ClientRouter />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N2KQLM5F"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main class={classes}>
+      <slot />
+      <Cursor hidden={false} notAllowed={false} client:load />
+    </main>
+    <Footer {rrss} />
+  </body>
 </html>

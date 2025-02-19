@@ -46,6 +46,9 @@ const { classes, direction } = Astro.props;
     border-top: 1px solid var(--color-dark);
     border-bottom: 1px solid var(--color-dark);
     margin-bottom: calc(var(--s) * 13);
+    @include mq-md {
+      margin-bottom: calc(var(--s) * 15);
+    }
 
     span {
       @include f('marquee', 400, true);

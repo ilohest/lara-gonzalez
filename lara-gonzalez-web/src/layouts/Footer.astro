@@ -57,13 +57,11 @@ const { rrss } = Astro.props;
   @use "dawuti" as *;
   .footer {
     background-color: var(--color-light);
-    padding-top: var(--s6);
-    padding-bottom: var(--s8);
-    padding-top: calc(var(--s) * 15);
+    padding-top: calc(var(--s) * 16);
     padding-bottom: var(--s7);
     background-color: var(--color-light);
     @include mq-lg {
-      padding-top: calc(var(--s) * 25);
+      padding-top: calc(var(--s) * 21);
     }
 
     &__content {
@@ -72,6 +70,9 @@ const { rrss } = Astro.props;
       justify-content: space-between;
       @include mq-xs {
         flex-direction: row;
+        align-items: flex-end;
+      }
+      @include mq-sm {
         align-items: center;
       }
       ul {
@@ -88,14 +89,15 @@ const { rrss } = Astro.props;
         display: flex;
         flex-direction: column;
         row-gap: calc(var(--s) * 2.3);
-        @include mq-sm {
+        @include mq-xs {
           column-gap: calc(var(--s) * 3.3);
           flex-direction: row;
         }
       }
       li {
         text-transform: uppercase;
-        a{
+        a {
+          @include f('base', 300, true);
           display: flex;
           align-items: center;
           gap: var(--s);
@@ -127,6 +129,10 @@ const { rrss } = Astro.props;
       }
       a {
         @include f('xs', 400, true);
+        transition: opacity .25s ease-in-out;
+        &:hover {
+          opacity: .7;
+        }
       }
     }
     
@@ -138,7 +144,7 @@ const { rrss } = Astro.props;
         margin-bottom: calc(var(--s) * 11)
       }
       @include mq-lg {
-        margin-bottom: calc(var(--s) * 15);
+        margin-bottom: calc(var(--s) * 14);
       }
     }
 
