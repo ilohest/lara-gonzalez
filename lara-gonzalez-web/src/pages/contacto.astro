@@ -33,8 +33,12 @@ const { title, description } = contact[0].data;
 		@include mq-sm {
 			margin-top: calc(var(--s) * 7);
 		}
+		@include mq-md {
+			margin-bottom: calc(var(--s) * 7);
+		}
 		@include mq-lg {
 			margin-top: calc(var(--s) * 13);
+			margin-bottom: calc(var(--s) * 13);
 		}
 		&__heading {
 			padding-bottom: var(--s8);
@@ -57,14 +61,18 @@ const { title, description } = contact[0].data;
 			line-height: 1.25;
 			@include mq-xs {
 				grid-column: 1/6;
+				padding-top: calc(var(--s)* 2);
 			}
 			@include mq-sm {
 				grid-column: 1/12;
 				@include f('base', 300, true);
 				line-height: 1.25;
 			}
+			@include mq-md {
+				grid-column: 1/11;
+			}
 			@include mq-lg {
-				grid-column: 1/9;
+				grid-column: 1/8;
 
 			}
 		}

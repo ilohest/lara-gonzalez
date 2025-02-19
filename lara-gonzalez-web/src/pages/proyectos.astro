@@ -44,7 +44,8 @@ const { title, anchors, projectitem } = proyectos[0].data;
 			margin-top: calc(var(--s) * 7);
 		}
 		@include mq-lg {
-			margin-top: calc(var(--s) * 13);
+			margin-top: calc(var(--s) * 14);
+			margin-bottom: var(--s5);
 		}
 	  &__heading {
 			display: flex;
@@ -81,7 +82,7 @@ const { title, anchors, projectitem } = proyectos[0].data;
 		row-gap: var(--s);
 		@include mq-sm {
 			display: flex;
-			padding-right: size-by-cols(3, 12);
+			margin-bottom: var(--s10);
 		}
 		@include mq-md {
 			margin: var(--s10) 0 0;
@@ -100,7 +101,7 @@ const { title, anchors, projectitem } = proyectos[0].data;
 			padding: 0;
 			line-height: 1.4;
 			@include mq-sm {
-				flex: 0 1 calc(100% / 3);
+				flex: 0 1 calc(100% / 4);
 			}
 			@include mq-md {
 				flex: 0 1 calc(100% / 4);

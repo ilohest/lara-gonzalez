@@ -137,3 +137,152 @@ body {
 }
 
 
+// Cookie Yes
+
+html {
+
+  .cky-consent-container {
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 9999999;
+  }
+
+  .cky-preference-body-wrapper {
+    padding: 20px 24px 100px;
+    @include mq-sm {
+      padding: 20px 0;
+    }
+  }
+
+  .cky-revisit-bottom-left {
+    left: unset !important;
+    bottom: var(--s3) !important;
+    right: var(--s3) !important;
+  }
+
+  .cky-switch input[type="checkbox"]:checked {
+    background: var(--color-secondary)!important;
+  }
+
+  .cky-consent-container {
+    padding: var(--safe-area, 15px);
+    @include mq-sm {
+      padding: calc(var(--s) * 4);
+    }
+    .cky-consent-bar {
+      box-shadow: none;
+      @include mq-md {
+        padding-bottom: calc(var(--s) * 5);
+        margin-bottom: -1px;
+      }
+    }
+  }
+  .cky-btn {
+    text-transform: uppercase;
+  }
+  .cky-notice-btn-wrapper .cky-btn,
+  .cky-btn-accept,
+  .cky-btn-preferences {
+    border-radius: 120px;
+    @include mq-sm {
+      flex: 0;
+      white-space: pre;
+    }
+  }
+  .cky-notice-btn-wrapper {
+    @include mq-xs {
+      margin-top: calc(var(--s) * 3);
+    }
+    @include mq-sm {
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  .cky-preference-content-wrapper p,
+  .cky-accordion-header span {
+    @include f('xs');
+    @include mq-md {
+      max-width: 70vw;
+    }
+  }
+
+  .cky-preference-content-wrapper p {
+    + p {
+      margin-top: calc(var(--s) * 3)!important;
+    }
+  }
+
+  .cky-show-desc-btn {
+    margin-top: calc(var(--s) * 2);
+  }
+
+  .cky-notice-group {
+    @include mq-xs {
+      align-items: flex-end;
+    }
+  }
+  .cky-btn-customize {
+    margin-right: 0;
+    @include mq-xs {
+      margin-right: calc(var(--s) * 3);
+    }
+  }
+
+  button.cky-show-desc-btn:not(:hover):not(:active) {
+    color: var(--color-secondary);
+  }
+
+  .cky-accordion-header span {
+    color: var(--color-secondary)!important;
+  }
+
+  .cky-preference-header {
+    position: relative;
+
+    .cky-preference-title {
+      @include f('base');
+      color: var(--color-secondary)!important;
+    }
+  }
+
+  .cky-preference .cky-audit-table {
+    background-color: #eeeeee!important;
+    color: #474444!important;
+    border-bottom-color: #d5d5d5;
+    @include mq-sm {
+      width: 60vw;
+      padding: calc(var(--s) * 4);
+    }
+
+    .cky-cookie-des-table * {
+      @include f('xxs');
+    }
+  }
+
+  .cky-accordion-header-wrapper .cky-accordion-header-des p {
+    @include f('xxs');
+    @include mq-md {
+      flex-basis: 60vw;
+      max-width: 60vw;
+    }
+  }
+
+  .cky-preference {
+    max-height: 80vh;
+    @include mq-xs {
+      max-height: 16vw;
+    }
+    @include mq-sm {
+      max-height: 20vw;
+    }
+  }
+
+  .cky-footer-wrapper {
+    width: calc(100vw - calc(var(--safe-area)* 2));
+    @include mq-sm {
+      width: inherit;
+    }
+  }
+}

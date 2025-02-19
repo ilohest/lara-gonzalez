@@ -2,16 +2,35 @@
 
 .page__home {
     .hero {
-        grid-template-rows: auto auto;
+        grid-template-rows: auto min-content;
         @include mq-xs {
             grid-template-columns: repeat(9, 1fr);
             grid-template-areas: 
             "title title title gallery gallery gallery gallery gallery gallery";
         }
+        @include mq-sm {
+            @media (orientation: landscape) {
+                grid-template-areas: 
+                "title title title title title gallery gallery gallery gallery";
+            }
+            @media (orientation: portrait) {
+                grid-template-areas: 
+                "title title title title gallery gallery gallery gallery gallery";
+            }
+        }
         @include mq-md {
-            grid-template-areas: 
-            "title title title . . gallery gallery gallery gallery"
-            "title title title . . . . . .";
+            grid-template-rows: auto min-content;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-areas:
+            ". . . gallery gallery gallery"
+            "title title title gallery gallery gallery";
+            
+        }
+        @include mq-lg {
+            grid-template-columns: repeat(9, 1fr);
+            grid-template-areas:
+            ". . . . gallery gallery gallery gallery gallery"
+            "title title title title gallery gallery gallery gallery gallery";
         }
     }
     .heading--primary {
@@ -21,49 +40,91 @@
         @include f('hg', 400, true);
     }
     .hero__gallery {
-        grid-template-rows: 15vh 14vh min-content 1fr;
-        
+        grid-template-rows: 14dvh 14dvh auto;
+        align-content: center;
+        justify-self: center;
+        @media (orientation: landscape) {
+        }
+
+        @media (orientation: portrait) {
+            max-width: 50dvh;
+        }
+
+
         @include mq-xs {
-            grid-template-rows: 7vh 22vh auto
+            max-height: unset;
+            @media (orientation: landscape) {
+                grid-template-rows: 7dvh 22dvh auto;
+            }
+            @media (orientation: portrait) {
+                grid-template-rows: 9dvh 8dvh auto;
+            }
         }
         @include mq-sm {
-            grid-template-rows: 8vh 18vh auto;
+            justify-self: flex-end;
+            @media (orientation: landscape) {
+                max-height: 46dvw;
+                align-content: space-around;
+                align-self: center;
+                grid-template-rows: 3dvh 28dvh auto;
+            }
+            @media (orientation: portrait) {
+                grid-template-rows: 8dvh 16dvh auto;
+                max-width: calc(var(--s) * 90);
+            }
         }
         @include mq-md {
-            grid-template-rows: 13vh 13vh 0;
+            grid-template-rows: 13dvh 13dvh min-content;
+            @media (orientation: landscape) {
+                align-self: center;
+            }
         }
         @include mq-lg {
-            grid-template-rows: 18vh 21vh 0;
+            justify-self: flex-start;
+            grid-template-rows: 4dvh 14dvh min-content;
         }
         @include mq-xl {
-            grid-template-rows: 13vh 18vh 0;
+            grid-template-rows: 7dvh 20dvh min-content;
+        }
+        @include mq-xxl {
+            grid-template-rows: 9dvh 26dvh min-content;
         }
     }
 
     .studio-gallery {
+        object-position: right;
+        @include mq-xl {
+            object-position: center;
+        }
         &-0 {
             grid-area: img0;
             grid-column: 1 / 9;
             @include mq-xs {
                 grid-column: 5 / 10;
+                @media (orientation: landscape) {
+                    margin-top: calc(var(--s) * -6);
+                }
             }
             @include mq-sm {
-                grid-column: 1 / 9;
-                max-width: calc(var(--s) * 80);
+                grid-column: 2 / 9;
+                @media (orientation: landscape) {
+                }
             }
             @include mq-md {
-                grid-column: 3 / 8;
+                grid-column: 2 / 9;
             }
             @include mq-lg {
-                grid-column: 1 / 8;
+                grid-column: 3 / 9;
                 max-height: 55vh;
+                margin-left: calc(var(--s) * -6.5);
             }
             @include mq-xl {
+                margin-left: 0;
                 grid-column: 2 / 9;
             }
             @include mq-xxl {
-                grid-column: 3 / 10;
-                max-height: 61vh;
+                grid-column: 3 / 8;
+                max-height: 64vh;
             }
         }
         &-1 {
@@ -74,37 +135,45 @@
             }
 
             @include mq-sm {
-                grid-column: 6 / 13;
+                grid-column: 7 / 13;
             }
             @include mq-md {
-                grid-column: 7 / 11;
+                grid-column: 7/ 12;
             }
             @include mq-lg {
-                grid-column: 6 / 12;
-                max-height: 43vh;
+                max-height: 43dvh;
+                object-position: left;
             }
             @include mq-xxl {
-                grid-column: 6 / 12;
+                grid-column: 7 / 11;
+                max-height: 51dvh;
             }
         }
         &-2 {
             grid-area: img2;
             grid-column: 3 / 8;
             @include mq-xs {
-                grid-column: 4 / 7;
+                grid-column: 7 / 10;
             }
            @include mq-sm {
-                grid-column: 5 / 10;
+                @media (orientation: landscape) {
+                    grid-column: 5 / 9;
+                }
+                @media (orientation: portrait) {
+                    grid-column: 5 / 10;
+                }
             }
             @include mq-md {
-                grid-column: 5 / 8;
+                grid-column: 5 / 9;
             }
             @include mq-lg {
-                grid-column: 2 / 7;
+                object-position: left;
+                grid-column: 4 / 8;
                 max-height: 33vh;
             }
             @include mq-xl {
-                grid-column: 4 / 8;
+                grid-column: 5 / 8;
+                max-height: 40vh;
             }
         }
     }
@@ -112,18 +181,34 @@
 
 .page__estudio {
     .hero {
-        @include mq-md {
-            grid-template-rows: 21vh auto;
+        grid-template-rows: 1fr min-content;
+        @media (max-width: 500px) and (min-height: 932px) {
+            min-height: calc(var(--s) * 160);
         }
-        @include mq-md {
-            grid-template-rows: 13vh  auto;
-        }
+
         @include mq-xs {
             grid-template-columns: repeat(2, 1fr);
             grid-template-areas: 
             "title gallery";
+            @media (orientation: portrait) {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-areas: 
+                "title gallery gallery";
+            }
+        }
+        @include mq-sm {
+            grid-template-areas: unset;
+            @media (orientation: landscape) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media (orientation: portrait) {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-areas: 
+                "title gallery gallery";
+            }
         }
         @include mq-md {
+            grid-template-columns: repeat(2, 1fr);
             grid-template-areas: 
             ". gallery"
             "title title";
@@ -132,95 +217,125 @@
         &__header {
             @include mq-sm {
                 grid-row: 2 / -1;
-            }
-        }
-    }
-
-    .hero__gallery {
-        grid-template-rows: 7vh auto;
-        @include mq-xs {
-            grid-template-rows: 23vh 0;
-        }
-        @include mq-sm {
-            grid-template-rows: 17vh 0;
-        }
-        @include mq-md {
-            grid-template-rows: 0 0;
-            align-content: flex-start;
-        }
-    }
-
-
-    .studio-gallery {
-        &-0 {
-            grid-area: img0;
-            grid-column: 1 / 5;
-            @include mq-xs {
-                grid-column: 5 / 10;
-            }
-            @include mq-sm {
-                grid-column: 1 / 9;
-                max-width: 30vw;
-            }
-            @include mq-md {
-                grid-column: 1 / 6;
-                padding-right: size-by-cols(1.5, 24);
-                max-width: unset;
-            }
-            @include mq-xl {
-                grid-column: 3 / 7;
-                max-height: 35vh;
-            }
-        }
-        &-1 {
-            grid-area: img1;
-            grid-column: 6 / 13;
-            @include mq-xs {
-                grid-column: 9 / 15;
-            }
-            @include mq-sm {
-                grid-column: 6 / 13;
-                max-width: 24vw;
-            }
-            @include mq-md {
-                grid-column: 6 / 12;
-                max-width: unset;
+                grid-column: 1/-1;
             }
             @include mq-lg {
-                grid-column: 6 / 14;
+                grid-row: 1 / -1;
             }
             @include mq-xl {
-                grid-column: 7 / 12;
-                max-height: 46vh;
+                grid-row: 1 / 2;
+            }
+        }
+
+
+        .hero__gallery {
+            align-content: center;
+            grid-template-rows: 7dvh auto;
+            column-gap: calc(var(--s) * 3);
+            @include mq-xs {
+                align-content: start;
+                grid-template-rows: 3dvh min-content;
+                margin-top: calc(var(--s) * -6);
+            }
+            @include mq-sm {
+                display: flex;
+                width: size-by-cols(24, 24);
+                padding-right: size-by-cols(2, 24);
+                margin-top: 0;
+                height: min-content;
+                grid-row: 1 / -1;
+                grid-column: 2 / -1;
+            }
+            @include mq-lg {
+                grid-row: 1 / 2;
+            }
+            @include mq-xl {
+                padding-left: size-by-cols(4, 24);
+            }
+            @include mq-xxl {
+                padding-left: size-by-cols(5, 24);
+            }
+        }
+
+
+        .studio-gallery {
+            @include mq-sm {
+                width: unset;
+                height: min-content;
+                margin-top: calc(var(--s) * -5);
+            }
+            @include mq-md {
+                margin-top: 0;
+            }
+            &-0 {
+                grid-area: img0;
+                grid-column: 1 / 6;
+                @include mq-xs {
+                    grid-column: 3 / 7;
+                }
+                @include mq-sm {
+                    grid-column: unset;
+                    width: size-by-cols(10, 24);
+                }
+            }
+            &-1 {
+                grid-area: img1;
+                grid-column: 6 / 13;
+                @include mq-xs {
+                    grid-column: 7 / 13;
+                }
+                @include mq-sm {
+                    grid-column: unset;
+                    width: size-by-cols(14, 24);
+                }
             }
         }
     }
 }
 
 .hero {
-    min-height: calc(100dvh - var(--site-header));
     padding-bottom: calc(var(--s) * 10);
     display: grid;
     grid-template-areas: 
     "gallery" 
     "title"; 
     grid-template-columns: 1fr;
-    max-height: calc(var(--s) * 160); 
 
-    @include mq-sm {
-        min-height: calc(65dvh - var(--site-header));
+    @media (orientation: landscape) {
+        min-height: min-content;
     }
+    @media (orientation: portrait) {
+        min-height: calc(100dvh - var(--site-header));
+    }
+
+    @include mq-xs {
+        max-height: unset;
+        padding-bottom: calc(var(--s) * 8);
+
+        @media (orientation: landscape) {
+            min-height: calc(100dvh - var(--site-header));
+        }
+        @media (orientation: portrait) {
+            min-height: calc(65dvh - var(--site-header));
+        }
+    }
+    @include mq-sm {
+        @media (orientation: landscape) {
+            min-height: calc(100dvh - var(--site-header));
+            padding-bottom: calc(var(--s) * 6);
+        }
+        @media (orientation: portrait) {
+            min-height: calc(65dvh - var(--site-header));
+        }
+    }
+    @include mq-md {
+        padding-bottom: calc(var(--s) * 10);
+    }
+
     @include mq-lg {
         padding-top: calc(var(--s)* 12);
         min-height: calc(100dvh - var(--site-header));
     }
-    @include mq-xl {
-        max-height: calc(75dvh - var(--site-header));
-    }
-    @include mq-xxl {
-        max-height: calc(85dvh - var(--site-header));
-    }
-
     .heading--primary {
         letter-spacing: -.06em;
     }
@@ -231,11 +346,7 @@
         z-index: 1;
         margin-top: calc(var(--s) * 9);
         align-content: end;
-        @include mq-md {
-            height: 100%;
-            align-content: flex-end;
-            margin-top: 0;
-        }
+        align-self: flex-end;
     }   
 
     &__gallery {

@@ -17,6 +17,9 @@
     color: var(--color-text-contrast);
     border: none;
     padding: calc(var(--s) * 4) var(--safe-area, 15px) calc(var(--s) * 13);
+    @include mq-xs {
+        padding-bottom: calc(var(--s) * calc(var(--s) * 7));
+    }
     @include mq-lg {
         display: none; 
     }
@@ -37,25 +40,54 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: calc(var(--s9) * 2);
+        margin-bottom: 11dvh;
+        @include mq-xs {
+            @media (orientation: landscape) {
+                margin-bottom: 9dvh;
+            }
+        }
     }
 
     &__email {
+        grid-area: email;
         a {
             @include f('xxs', 400, true);
             color: var(--color-primary-contrast);
+            @include mq-sm {
+                @include f('base', 400, true);
+            }
         }
     }
 
     &__social {
+        grid-area: rrss;
         display: flex;
         flex-direction: column;
         align-items: center;
         row-gap: var(--s);
+        column-gap: var(--s7);
+        @include mq-xs {
+            @media (orientation: landscape) {
+                flex-direction: row;
+            }
+        }
+        @include mq-sm {
+            @media (orientation: landscape) {
+                flex-direction: row;
+            }
+            @media (orientation: portrait) {
+                flex-direction: column;
+            }
+        }
+        @include mq-md {
+            flex-direction: column;
+        }
+
         .button--link .icon--arrow {
             --new-color: var(--color-primary-contrast);
         }
         span {
-            @include f('sm', 400, true);
+            @include f('sm', 300, true);
             letter-spacing: calc(var(--s) * -.1);
             font-family: var(--font-primary);
             color: var(--color-text-contrast);
@@ -72,13 +104,9 @@
     }
 
     .side-menu__nav {
-        padding-bottom: calc(var(--s) * 20);
-
-
-        @include mq-sm {
-            padding-bottom: calc(var(--s) * 5);
-            margin-top: calc(var(--s) * 4);
-            height: 67%;
+        padding-bottom: 12.5vh;
+        @include mq-xs {
+            padding-bottom: 8.5vh;
         }
 
         li {
@@ -103,29 +131,30 @@
     .side-menu__bottom {
         text-align: center;
         height: 100%;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "btn"
+        "email"
+        "rrss" ;
+        justify-items: center;
         align-items: center;
         justify-content: space-between;
         row-gap: calc(var(--s) * 9);
+        @include mq-xs {
+            @media (orientation: landscape) {
+                align-items: start;
+                row-gap: calc(var(--s) * 4);
+            }
+        }
+
         @include mq-md {
             padding-left: calc(var(--s) * 10);
             padding-right: calc(var(--s) * 10);
         }
-
-
         .button {
+            grid-area: btn;
             text-transform: uppercase;
-            // margin-top: calc(var(--s) * 5);
-            // margin-bottom: calc(var(--s) * 5);
-
-            // @include mq-xs {
-            //     margin-top: calc(var(--s) * 2);
-            // }
-
-            // @include mq-sm {
-            //     margin-top: calc(var(--s) * 5);
-            // }
         }
     }
 }

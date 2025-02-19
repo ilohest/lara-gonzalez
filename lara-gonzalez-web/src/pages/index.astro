@@ -147,6 +147,7 @@ const { Content } = await render(home[0])
 
 		&__steps {
 			padding-right: var(--safe-area);
+			cursor: ew-resize;
 		}
 
 		&__projects {
@@ -172,13 +173,18 @@ const { Content } = await render(home[0])
 			&--images {
 				display: flex;
 				flex-direction: column;
-				row-gap: calc(var(--s) * 11);
-				margin-top: calc(var(--s) * 11);
-				margin-bottom: calc(var(--s) * 11);
+				row-gap: calc(var(--s) * 17.5);
+				margin-top: calc(var(--s) * 17.5);
+				margin-bottom: calc(var(--s) * 17.5);
 				@include mq-xs {
-					margin-top: calc(var(--s) * 9);
+					margin-top: var(--s9);
+					margin-bottom: calc(var(--s) * 12);
 					flex-direction: row;
 					align-items: flex-end;
+				}
+				@include mq-sm {
+					margin-top: var(--s10);
+					margin-bottom: calc(var(--s) * 18);
 				}
 				@include mq-lg {
 					margin-bottom: calc(var(--s) * 20);
@@ -189,30 +195,28 @@ const { Content } = await render(home[0])
 					height: auto;
 					object-fit: contain;
 					&:first-child {
-						padding-right: size-by-cols(1, 6);
+						padding-right: size-by-cols(2.5, 6);
 						@include mq-xs {
 							width: size-by-cols(6, 12);
-							order:2;
-							padding-right: 0;
+							padding-right: size-by-cols(1, 6);
+							padding-left: size-by-cols(.5, 6);
 						}
 						@include mq-md {
-							flex-basis: size-by-cols(13, 24);
-							width: size-by-cols(13, 24);
-							padding-right: size-by-cols(1, 24);
+							width: size-by-cols(11, 24);
+							padding-left: size-by-cols(2, 24);
+							padding-right: size-by-cols(4, 24);
 						}
 					}
 					&:last-child {
-						padding-left: size-by-cols(3, 6);
+						padding-left: size-by-cols(1, 6);
 						@include mq-xs {
-							width: size-by-cols(12, 24);
+							width: size-by-cols(6, 12);
+							padding-right: 0;
 							padding-left: 0;
-							padding-right: size-by-cols(2, 6);
 						}
 						@include mq-md {
-							flex-basis: size-by-cols(11, 24);
-							padding-left: size-by-cols(2, 24);
-							padding-right: size-by-cols(6, 24);
-							width: size-by-cols(3, 24);
+							width: size-by-cols(13, 24);
+							padding-right: size-by-cols(2, 24);
 						}
 					}
 				}
