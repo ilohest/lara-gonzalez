@@ -148,6 +148,9 @@ const { Content } = await render(home[0])
 		&__steps {
 			padding-right: var(--safe-area);
 			cursor: ew-resize;
+			@include mq-lg {
+				cursor: default;
+			}
 		}
 
 		&__projects {
@@ -251,7 +254,7 @@ const { Content } = await render(home[0])
 				1024: {
 					slidesPerView: 2.3,
 				},
-				1440: {
+				1200: {
 					slidesPerView: 3,
 				},
 				1920: {
