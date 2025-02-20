@@ -73,14 +73,12 @@ $sv: div(5.5555555, 20);
 
     & {
       --fs-detail-v: 13;
-      --fs-detail: #{rem-css-vars(--fs-detail-v)};
       --fs-detail: #{clamp-calc(13, 14)};
       --lh-detail: #{calc-lh(13, 14)};
     }
 
     & {
       --fs-xxs-v: 14;
-      --fs-xxs: #{rem-css-vars(--fs-xxs-v)};
       --fs-xxs: #{clamp-calc(14, 18)};
       --lh-xxs: #{calc-lh(14, 16)};
     }
@@ -97,10 +95,9 @@ $sv: div(5.5555555, 20);
 
     & {
       --fs-xs-grow-v: 16;
-      --fs-xs-grow: #{rem-css-vars(--fs-xs-grow-v)};
+      --fs-xs-grow: #{clamp-calc(16, 18)};
       --lh-xs-grow: #{calc-lh(16, 18)};
       --ls-xs-grow: calc(var(--s) * -.2);
-      --fs-xs-grow: #{clamp-calc(16, 18)};
       @include mq-xl {
         --fs-xs-grow: #{clamp-calc(16, 20)};
       }
@@ -152,7 +149,6 @@ $sv: div(5.5555555, 20);
 
     & {
       --fs-heading-lg-v: 64;
-      --fs-heading-lg: #{rem-css-vars(--fs-heading-lg-v)};
       --fs-heading-lg: #{clamp-calc(64, 104)};
       --lh-heading-lg: #{calc-lh(64, 57)};
       @include mq-xl {
@@ -166,7 +162,6 @@ $sv: div(5.5555555, 20);
     // SECONDARY
     & {
       --fs-sec-base-v: 16;
-      --fs-sec-base: #{rem-css-vars(--fs-sec-base-v)};
       --fs-sec-base: #{clamp-calc(16, 20)};
       --lh-sec-base: #{calc-lh(16, 20)};
       @include mq-xl {
@@ -176,7 +171,6 @@ $sv: div(5.5555555, 20);
 
     & {
       --fs-sec-md-v: 16;
-      --fs-sec-md: #{rem-css-vars(--fs-sec-md-v)};
       --lh-sec-md: #{calc-lh(16, 26)};
       --fs-sec-md: #{clamp-calc(16, 24)};
     }
