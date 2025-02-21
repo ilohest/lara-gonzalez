@@ -6,7 +6,7 @@ interface HeroProps {
   hero: {
     title: string;
     subtitle?: string;
-    gallery: string[];
+    gallery: { url: string; alt: string }[];
   };
   backgroundColor: string;
   themeMode: "light-mode" | "dark-mode";
@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ hero, backgroundColor, themeMode, size }) =
       </div>
       <div className="hero__gallery">
           {hero.gallery.map((img, index) => (
-            <img key={`image-${index}`} className={`studio-gallery studio-gallery-${index}`} src={img} alt={`Lara González gallery image ${index}`} />
+            <img key={`image-${index}`} className={`studio-gallery studio-gallery-${index}`} src={img.url} alt={img.alt} />
           ))}
       </div>
     </section>

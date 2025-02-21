@@ -12,7 +12,12 @@ const homeCollection = defineCollection({
     hero: z.object({
       title: z.string(), 
       subtitle: z.string(),
-      gallery: z.array(z.string()),
+      gallery: z.array(
+        z.object({
+          url: z.string(),
+          alt: z.string(),
+        })
+      ),
     }),
     projectsSection: z.object({
       title: z.string(), 
