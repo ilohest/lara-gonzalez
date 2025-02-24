@@ -7,7 +7,7 @@ hero:
     - url: "/static-images/estudio/lara-gonzalez-primer-plano.png"
       alt: "Primer plano Lara"
     - url: "/static-images/estudio/lara-gonzalez-retarto-silla.png"
-      alt: "Lara Gonzalez retrato silla"
+      alt: "Lara González retrato silla"
 quotes:
   heading: "El estudio es para ti si:"
   items:

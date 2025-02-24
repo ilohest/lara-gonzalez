@@ -1,0 +1,27 @@
+@use 'dawuti' as *;
+
+.back-to-top {
+  position: fixed;
+  bottom: var(--s8);
+  right: var(--s8);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:  var(--color-light);
+  border-radius: 50%;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // TODO: REVISAR NOE
+  cursor: pointer;
+
+  &:hover {
+    // TODO: REVISAR NOE
+  }
+
+  &__arrow {
+    --size: var(--s8);
+    --color: var(--color-dark);
+  }
+}
+

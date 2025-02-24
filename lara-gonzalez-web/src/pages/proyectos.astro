@@ -3,6 +3,7 @@
 import AnchorHandler from '@lara/components/anchor/AnchorHandler';
 import Heading from '@lara/components/heading/Heading';
 import ProjectItem from '@lara/components/project/ProjectItem';
+import BackToTopButton from '@lara/components/scroll-top/ScrollTopButton';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 import Layout from '@lara/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
@@ -12,13 +13,11 @@ const { title, anchors, projectitem } = proyectos[0].data;
 
 ---
 
-<Layout title="Proyectos | Lara Gonzalez Estudio" description="Descubre los proyectos donde el branding y el diseño gráfico se unen para crear identidades visuales únicas, estratégicas y memorables.">
+<Layout title="Proyectos | Lara González Estudio" description="Descubre los proyectos donde el branding y el diseño gráfico se unen para crear identidades visuales únicas, estratégicas y memorables.">
 	<WrapperHeader client:load />
 	<section class="projects wrapper-fluid">
 		<div class="projects__heading">
-			<Heading tag="h1">
-			{title}
-			</Heading>
+			<Heading tag="h1">{title}</Heading>
 		</div>
 		<div class="projects__list">
 			{anchors.map((anchor) => (
@@ -34,6 +33,8 @@ const { title, anchors, projectitem } = proyectos[0].data;
 		<AnchorHandler client:load />
 		<ProjectItem projectitem={projectitem} client:load />
 	</section>
+
+	<BackToTopButton client:load />
 </Layout>
 
   <style lang="scss">
