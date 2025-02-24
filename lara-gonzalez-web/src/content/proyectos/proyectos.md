@@ -131,9 +131,9 @@ projectitem:
       - url: "/static-images/proyectos/vermicelli/pizzas-ticket-vermicelli.png"
         alt: "Mockup ticket pizzas"
         name: "pizzas-ticket-vermicelli"
-      - url: "/static-images/proyectos/vermicelli/señoras-mockup-vermicelli.png"
+      - url: "/static-images/proyectos/vermicelli/senoras-mockup-vermicelli.png"
         alt: "Mockup Vermicelli"
-        name: "señoras-mockup-vermicelli"
+        name: "senoras-mockup-vermicelli"
 
   - title: "Mude"
     sector: "Arte y Diseño"
