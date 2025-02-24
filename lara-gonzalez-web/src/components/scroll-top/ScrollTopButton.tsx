@@ -16,18 +16,31 @@ const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const target = document.querySelector('.project-item-first'); 
+    const target = document.querySelector('.projects__item'); 
     if (!target) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(!entry.isIntersecting); 
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
-      { root: null, threshold: 0 } 
+      { root: null, threshold: 1 }
     );
 
     observer.observe(target);
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   if (!isVisible) return null;
