@@ -80,7 +80,12 @@ const projectsCollection = defineCollection({
       hero: z.object({
         title: z.string(), 
         subtitle: z.string().optional(),
-        gallery: z.array(z.string()),
+        gallery: z.array(
+          z.object({
+            url: z.string(),
+            alt: z.string(),
+          })
+        ),
       }),
       quotes: z.object({
         heading: z.string(),

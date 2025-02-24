@@ -172,7 +172,7 @@ $sv: div(5.5555555, 20);
     & {
       --fs-sec-md-v: 16;
       --lh-sec-md: #{calc-lh(16, 26)};
-      --fs-sec-md: #{clamp-calc(16, 24)};
+      --fs-sec-md: #{clamp-calc(16, 20)};
     }
 
     // SPECIFIC FONTS
