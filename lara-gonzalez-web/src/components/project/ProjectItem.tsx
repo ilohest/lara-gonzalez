@@ -17,7 +17,7 @@ const ProjectItem = ({ projectitem }: any) => {
     <div className="projects__items">
       {projectitem.map((project: any, index: number) => (
         <div
-          className={`projects__item ${index === 0 ? 'project-item-first' : ''}`}
+          className="projects__item"
           key={project.title}
           id={project.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, "-")}
         >
