@@ -17,9 +17,9 @@ anchors:
 projectitem:
 
   - title: La Madre
-    sector: XXX
-    location: XXX, XXX
-    collaboration: "@xxx"
+    sector: Pub y cocteleria
+    location: Miranda de Ebro
+    # collaboration: "@xxx"
     images:
       - url: "/static-images/proyectos/la-madre/bar-rebranding-marca.jpg"
         alt: "Proyecto rebranding La Madre"
@@ -31,9 +31,9 @@ projectitem:
         alt: "Vinilo La Madre"
         name: "vinilo-la-madre"
   - title: Aloha Paradiso
-    sector: XXX
-    location: XXX, XXX
-    collaboration: "@xxx"
+    sector: Agencia de viajes organizados
+    location: Madrid
+    # collaboration: "@xxx"
     images:
       - url: "/static-images/proyectos/aloha-paradiso/cartel-azul-chica-aloha-paradiso.png"
         alt: "Cartel Aloha Paradiso"
@@ -45,9 +45,9 @@ projectitem:
         alt: "Proyecto Aloha Paradiso"
         name: "rosa-amarillo-rayas-aloha-paradiso"
   - title: Horizon
-    sector: XXX
-    location: XXX, XXX
-    collaboration: "@xxx"
+    sector: Empresa de mudanzas
+    location: Barcelona
+    # collaboration: "@xxx"
     images:
       - url: "/static-images/proyectos/horizon/cartel-chicas-pizza-horizon.jpg"
         alt: "Cartel chicas cenando"
@@ -58,11 +58,10 @@ projectitem:
       - url: "/static-images/proyectos/horizon/mockup-web-horizon.jpg"
         alt: "Proyecto Horizon mockup web"
         name: "mockup-web-horizon"
-
   - title: Puregrains
-    sector: "Alimentación"
-    location: "Oslo, Noruega"
-    collaboration: "Cereal Creativo"
+    sector: "Granola blends"
+    # location: "Oslo, Noruega"
+    # collaboration: "Cereal Creativo"
     images:
       - url: "/static-images/proyectos/puregrains/diseño-camiseta-puregrains.jpg"
         alt: "Diseño camiseta Puregrains"
@@ -72,12 +71,11 @@ projectitem:
         name: "diseño-packaging-puregrains"
       - url: "/static-images/proyectos/puregrains/diseño-tote-bag-puregrains.jpg"
         alt: "Diseño tote bagPuregrains"
-        name: "diseño-tote-bag-puregrains"
-        
+        name: "diseño-tote-bag-puregrains"  
   - title: Fauget
-    sector: XXX
-    location: XXX, XXX
-    collaboration: "@xxx"
+    sector: Moda
+    # location: XXX, XXX
+    # collaboration: "@xxx"
     images:
       - url: "/static-images/proyectos/fauget/diseño-home-fauget.jpg"
         alt: "Diseño home Fauget"
@@ -90,9 +88,9 @@ projectitem:
         name: "slogan-fauget"
 
   - title: Francachella Estudio
-    sector: "Moda"
-    location: "Londres, Reino Unido"
-    # collaboration: "@xxx"
+    sector: Wedding and event planner
+    location: Asturias-Madrid
+    collaboration: Fotografía de @oldergarcia
     images:
       - url: "/static-images/proyectos/francachella-estudio/chica-bola-discoteca-slogan.jpg"
         alt: "Ultimo fiestón"
@@ -105,9 +103,9 @@ projectitem:
         name: "tarjetas-visita"
 
   - title: Godo
-    sector: XXX
-    location: XXX, XXX
-    collaboration: "@xxx"
+    sector: Ropa deportiva
+    # location: XXX, XXX
+    # collaboration: "@xxx"
     images:
       - url: "/static-images/proyectos/godo/camiseta-godo.jpg"
         alt: "Diseño camiseta Godo"
@@ -121,9 +119,9 @@ projectitem:
 
 
   - title: Vermicelli
-    sector: Restauración
-    location: Palermo, Italia
-    collaboration: "@collaboration"
+    sector: Restaurante de cocina italiana
+    # location: Palermo, Italia
+    # collaboration: "@collaboration"
     images:
       - url: "/static-images/proyectos/vermicelli/ordenador-mockup-vermicelli.jpg"
         alt: "Mockup Vermicelli ordenador"
@@ -134,11 +132,10 @@ projectitem:
       - url: "/static-images/proyectos/vermicelli/senoras-mockup-vermicelli.png"
         alt: "Mockup Vermicelli"
         name: "senoras-mockup-vermicelli"
-
-  - title: "Mude"
-    sector: "Arte y Diseño"
-    location: "París, Francia"
-    collaboration: "Arte meets Earth"
+  - title: Mude
+    sector: Estudio de cerámica
+    # location: "París, Francia"
+    # collaboration: "Arte meets Earth"
     images:
       - url: "/static-images/proyectos/mude/jarron-mude-studio.jpg"
         alt: "Mude Studio"
@@ -149,12 +146,10 @@ projectitem:
       - url: "/static-images/proyectos/mude/jarrones-mude-studio.jpg"
         alt: "Jarrones Mude Studio"
         name: "jarrones-mude-studio"
-
-
-  - title: "Didáctico"
-    sector: "Arte y Diseño"
-    location: "París, Francia"
-    collaboration: "Arte meets Earth"
+  - title: Didáctico
+    sector: Juegos y juguetes educativos
+    location: Miranda de Ebro
+    collaboration: Interiorismo @interior03_
     images:
       - url: "/static-images/proyectos/didactico/diseño-packaging-caja.jpg"
         alt: "Diseño packaging Didactico"
@@ -165,11 +160,10 @@ projectitem:
       - url: "/static-images/proyectos/didactico/cartel-slogan-didactico.jpg"
         alt: "Cartel slogan Didactico"
         name: "cartel-slogan-didactico"
-
-  - title: "Tauro"
-    sector: "Peluquería y Estilismo"
-    location: "Vitoria-Gasteiz, España"
-    collaboration: "Creatividad sin límites"
+  - title: Tauro
+    sector: Peluquería y estilistas
+    location: Vitoria-Gasteiz
+    collaboration: Vitoria-Gasteiz
     images:
       - url: "/static-images/proyectos/tauro/tarjetas-visita-tauro.jpg"
         alt: "Tarjetas visita Tauro"

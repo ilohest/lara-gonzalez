@@ -33,7 +33,7 @@
         }
         @include mq-md {
             margin-bottom: 0;
-            column-gap: var(--s9);
+            column-gap: var(--s6);
         }
         @include mq-lg {
             column-gap: calc(var(--s) * 14);
