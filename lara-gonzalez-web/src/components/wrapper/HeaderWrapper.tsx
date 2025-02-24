@@ -6,7 +6,7 @@ import "./HeaderWrapper.scss";
 interface HeroData {
   title: string;
   subtitle?: string;
-  gallery: string[];
+  gallery: { url: string; alt: string }[];
 }
 
 const rrss = [

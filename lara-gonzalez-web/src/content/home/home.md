@@ -3,14 +3,17 @@ title: "Branding Studio"
 hero:
   title: Branding
   subtitle: Studio
-  gallery: 
-    - "/static-images/home/lara-gonzalez-hero-01.jpg"
-    - "/static-images/home/lara-gonzalez-hero-02.jpg"
-    - "/static-images/home/lara-gonzalez-hero-03.jpg"
+  gallery:
+    - url: "/static-images/home/pizza-ticket-lara-gonzalez-hero.jpg"
+      alt: "Ticket pizza"
+    - url: "/static-images/home/tenis-chica-sportwear-lara-gonzalez-hero.jpg"
+      alt: "Sport wear"
+    - url: "/static-images/home/camiseta-diseno-lara-gonzalez-hero.jpg"
+      alt: "Diseño camiseta"
 projectsSection:
   title: "Creatividad & estrategia"
-  imageLg: "/static-images/home/lara-gonzalez-proyecto-01.jpg"
-  imageSm: "/static-images/home/lara-gonzalez-proyecto-02.jpg"
+  imageLg: "/static-images/home/restaurante-rebranding-copas.jpg"
+  imageSm: "/static-images/home/camiseta-chica-diseno-lara-gonzalez.jpg"
   cta:
     text: "Proyectos"
     url: "/proyectos"
