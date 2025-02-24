@@ -2,45 +2,33 @@ import React from "react";
 import Heading from "@lara/components/heading/Heading";
 import './ProjectItem.scss';
 import ImageSlider from "../slider/ImageSlider";
+import type { ImageModel } from "@lara/models/generic.model";
 
 export interface Project {
   title: string;
   sector: string;
   location: string;
   collaboration: string;
-  images: string[];
+  images: ImageModel[];
 }
 
-const ProjectItem = ( { projectitem }: any) => {
+const ProjectItem = ({ projectitem }: any) => {
   return (
     <div className="projects__items">
       {projectitem.map((project: any, index: number) => (
-          <div
-            className="projects__item"
-            key={project.title}
-            id={project.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, "-")}
-          >
-
+        <div
+          className={`projects__item ${index === 0 ? 'project-item-first' : ''}`}
+          key={project.title}
+          id={project.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, "-")}
+        >
           <div className="projects__header">
             <Heading tag="h2" size="sm" headingFontWeight={600}>
               {project.title}
             </Heading>
             <div className="projects__item__heading-detail">
-              {project.sector &&
-                <p>
-                  {project.sector}
-                </p>
-              }
-              {project.location &&
-                <p>
-                  {project.location}
-                </p>
-              }
-              {project.collaboration &&
-                <p>
-                  {project.collaboration}
-                </p>
-              }
+              {project.sector && <p>{project.sector}</p>}
+              {project.location && <p>{project.location}</p>}
+              {project.collaboration && <p>{project.collaboration}</p>}
             </div>
           </div>
           <ImageSlider images={project.images} index={index} />
