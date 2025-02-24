@@ -2,26 +2,40 @@
 
 .back-to-top {
   position: fixed;
-  bottom: var(--s8);
-  right: var(--s8);
-  width: 50px;
-  height: 50px;
+  bottom: var(--s7);
+  right: calc(var(--safe-area) + calc(var(--s) * 1));
+  width: calc(var(--s) * 10);
+  height: auto;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color:  var(--color-light);
-  border-radius: 50%;
+  border-radius: 100%;
   z-index: 999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // TODO: REVISAR NOE
+  box-shadow: 0 calc(var(--s) * 1) calc(var(--s) * .8) rgba(0, 0, 0, .2);
+  transition: box-shadow .25s ease-in-out;
   cursor: pointer;
+  @include mq-sm {
+    width: calc(var(--s) * 13);
+  }
 
-  &:hover {
-    // TODO: REVISAR NOE
+  &:hover,
+  &:focus-visible {
+    box-shadow: 0 calc(var(--s) * 1.6) calc(var(--s) * 2) rgba(0, 0, 0, 0.5);
+    .back-to-top__arrow {
+      opacity: .5;
+      margin-top: calc(var(--s) * -1);
+    }
   }
 
   &__arrow {
-    --size: var(--s8);
+    transition: all .2s ease-in-out;
+    width: calc(var(--s) * 9);
     --color: var(--color-dark);
+    @include mq-sm {
+      width: calc(var(--s) * 11);
+    }
   }
 }
 
