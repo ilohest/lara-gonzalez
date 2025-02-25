@@ -3,13 +3,13 @@ import Heading from '@lara/components/heading/Heading';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
-import Form from '@lara/components/form/Form';
+import Form from '@lara/components/Form/Form';
 const contact = await getCollection('contacto');
 const { title, description } = contact[0].data; 
 
 ---
 
-<Layout title="Contacto | Lara González Estudio" description="Hablando se entiende la gente, y aquí estoy para escucharte. Cuéntame tu proyecto, tus ideas o cualquier consulta, y hagámoslo realidad juntos.">
+<Layout title="Contacto | Lara González estudio" description="Hablando se entiende la gente, y aquí estoy para escucharte. Cuéntame tu proyecto, tus ideas o cualquier consulta, y hagámoslo realidad juntos.">
 	<WrapperHeader client:load />
 	<article class="contact wrapper-fluid">
 		<div class="contact__heading">
