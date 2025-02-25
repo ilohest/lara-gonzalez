@@ -182,9 +182,6 @@
 .page__estudio {
     .hero {
         grid-template-rows: 1fr min-content;
-        @media (max-width: 500px) and (min-height: 932px) {
-            min-height: calc(var(--s) * 160);
-        }
 
         @include mq-xs {
             grid-template-columns: repeat(2, 1fr);
