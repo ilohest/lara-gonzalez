@@ -7,9 +7,32 @@ header {
         --color: var(--color-primary-contrast);
         margin-left: auto;
         cursor: pointer;
+        transition: opacity .2s ease-in-out;
         @include mq-lg {
             display: none;
         }
+        &:hover,
+        &:focus-visible
+        &:active {
+            opacity: .4;
+        }
+
+        &[aria-expanded="false"] + .side-menu {
+            display: none;
+
+            &--open {
+                transform: translate(0dvw); 
+            }
+        }
+
+        &[aria-expanded="true"] + .side-menu {
+            display: block;
+
+            &--open {
+                transform: translate(0dvw); 
+            }
+        }
+
     }
 
 }
