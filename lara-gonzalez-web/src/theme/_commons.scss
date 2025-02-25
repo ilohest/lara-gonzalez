@@ -320,4 +320,17 @@ html {
       max-height: 20vw;
     }
   }
+
+  a.cky-banner-element {
+    display: block;
+    margin-top: calc(var(--s) * 4);
+    margin-bottom: calc(var(--s) * 4);
+    padding: 8px 30px;
+    background: #F8F9FA;
+    color: #858A8F;
+    border: 1px solid #DEE2E6;
+    box-sizing: border-box;
+    border-radius: 2px;
+    cursor: pointer;
+  }
 }
