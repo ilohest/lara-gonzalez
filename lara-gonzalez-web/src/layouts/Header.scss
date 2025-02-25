@@ -7,11 +7,16 @@ header {
         --color: var(--color-primary-contrast);
         margin-left: auto;
         cursor: pointer;
+        transition: opacity .2s ease-in-out;
         @include mq-lg {
             display: none;
         }
+        &:hover,
+        &:focus-visible
+        &:active {
+            opacity: .4;
+        }
     }
-
 }
 
 .header {
@@ -24,7 +29,6 @@ header {
     @include mq-lg{
         padding-top: calc(var(--s) * 2.4);
     }
-
 
     &__logotype {
         &--xs {

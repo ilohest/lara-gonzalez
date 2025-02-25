@@ -64,8 +64,9 @@ const Header = ({
       <button
         id="button-side-menu-open"
         aria-label="Abrir/Cerrar menú"
+        aria-expanded={open ? "true" : "false"}
         className={`button-side-menu-open header__${themeMode}`}
-        onClick={() => setOpen(true)}
+        onClick={() => setOpen(prevState => !prevState)}
       >
         {/* <img src={menuLogo.src} width={45} height={8} alt="Open menu" className="menu" /> */}
         <Icon classes="icon--open" url="src/assets/icons/menu.svg" />

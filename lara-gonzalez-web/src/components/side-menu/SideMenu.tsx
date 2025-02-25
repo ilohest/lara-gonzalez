@@ -15,11 +15,14 @@ interface Props {
 
 const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
   const classOpen = open ? " side-menu--open" : "";
+  const tabIndex = open ? 0 : -1;
+
 
   return (
     <dialog className={`side-menu${classOpen}`}>
       <header className="side-menu__header">
         <a
+          tabIndex={tabIndex}
           className="header__logotype header__logotype--xs"
           aria-label="Ir a la página de inicio"
           href="/"
@@ -46,20 +49,20 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
         <nav className="side-menu__nav">
           <ul>
             <li>
-              <a href="/proyectos">Proyectos</a>
+              <a href="/proyectos" tabIndex={tabIndex}>Proyectos</a>
             </li>
             <li>
-              <a href="/el-estudio">El estudio</a>
+              <a href="/el-estudio" tabIndex={tabIndex}>El estudio</a>
             </li>
           </ul>
         </nav>
         <div className="side-menu__bottom">
-          <a className="button button--big button--solid-inverse" href="/contacto">
+          <a className="button button--big button--solid-inverse" href="/contacto" tabIndex={tabIndex}>
             ¿Hablamos?
           </a>
           {email && (
             <div className="side-menu__email">
-              <a href={`emailto:${email}`}>
+              <a href={`emailto:${email}`} tabIndex={tabIndex}>
                 {email}
               </a>
             </div>
@@ -69,7 +72,7 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
               {rrss.map((rs: RSModel, index: number) => {
                 return (
                   <li key={index}>
-                    <a href={rs.url} className="button button--link" target="_blank">
+                    <a href={rs.url} className="button button--link" target="_blank" tabIndex={tabIndex}>
                       <span>{rs.platform}</span>
                       <Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
                     </a>

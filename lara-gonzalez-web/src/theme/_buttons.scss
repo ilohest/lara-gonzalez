@@ -196,7 +196,8 @@
       }
 
       &:hover,
-      &:focus-visible {
+      &:focus-visible,
+      &:active {
 
         .icon--arrow {
           transform: translate(3px, -3px);

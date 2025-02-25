@@ -33,10 +33,10 @@
         }
         @include mq-md {
             margin-bottom: 0;
-            column-gap: var(--s6);
+            column-gap: var(--s3);
         }
         @include mq-lg {
-            column-gap: calc(var(--s) * 14);
+            column-gap: calc(var(--s) * 11);
         }
     }
     .heading {

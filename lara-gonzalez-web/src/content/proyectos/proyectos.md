@@ -163,7 +163,7 @@ projectitem:
   - title: Tauro
     sector: Peluquería y estilistas
     location: Vitoria-Gasteiz
-    collaboration: Vitoria-Gasteiz
+     # collaboration: Vitoria-Gasteiz
     images:
       - url: "/static-images/proyectos/tauro/tarjetas-visita-tauro.jpg"
         alt: "Tarjetas visita Tauro"
