@@ -31,16 +31,14 @@
             padding-right: size-by-cols(8, 24);
         }
 
-        > p, li {
+        p, li, a {
             @include f('xs-grow', 400, true);
-            // @include mq-xl {
-            //     @include f('base', 400, true);
-            // }
+            letter-spacing: calc(var(--s)* -.1);
         }
 
         p + p,
         li + li {
-            margin-top: .5em;
+            margin-top: 1em;
         }
 
         h2,
