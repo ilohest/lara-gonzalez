@@ -24,7 +24,7 @@
   &:focus-visible {
     box-shadow: 0 calc(var(--s) * 1.6) calc(var(--s) * 2) rgba(0, 0, 0, 0.5);
     .back-to-top__arrow {
-      opacity: .5;
+      animation: bounce 0.5s ease infinite alternate;
       margin-top: calc(var(--s) * -1);
     }
   }
