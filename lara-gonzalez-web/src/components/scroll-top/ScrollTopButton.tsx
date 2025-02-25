@@ -16,16 +16,14 @@ const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const projectItems = document.querySelectorAll(".projects__item");
-    if (!projectItems.length) return;
-
-    const firstProject = projectItems[0];
+    const firstProject = document.querySelector(".projects__item--first");
+    if (!firstProject) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.boundingClientRect.top <= 0); //
+        setIsVisible(entry.boundingClientRect.top <= 0);
       },
-      { root: null, threshold: 1 }
+      { root: null, threshold: 0.1 }
     );
 
     observer.observe(firstProject);
