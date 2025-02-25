@@ -15,7 +15,7 @@ interface Props {
   type:
     | "text"
     | "email"
-    | "phone"
+    | "tel"
     | "textarea"
     | "radio"
     | "list"
@@ -59,7 +59,7 @@ const Input = ({
 
   const handleBlur = () => {
     let validationError = null;
-    if (type === "phone") {
+    if (type === "tel") {
       validationError = validatePhone(value || "");
     } else if (type === "email") {
       validationError = validateEmail(value || "");
@@ -73,7 +73,7 @@ const Input = ({
 
   return (
     <>
-      {(type === "text" || type === "email" || type === "phone") && (
+      {(type === "text" || type === "email" || type === "tel") && (
         <div className={classesList}>
           <label
             className={`input__label${hiddenLabel ? " sr-only" : ""}`}
@@ -84,12 +84,14 @@ const Input = ({
           <div className="input__wrapper">
             <input
               type={type}
+              id={name}
               name={name}
               placeholder={placeholder}
               onChange={(ev) => onChange(ev.currentTarget, name)}
               onBlur={handleBlur} 
               value={value}
-              inputMode={"text"} 
+              inputMode={"text"}
+              autoComplete={name}
             />
           </div>
           {error && <div className="input__error">{error}</div>}  
@@ -103,6 +105,7 @@ const Input = ({
           </label>
           <div className="input__wrapper">
             <textarea
+              id={name}
               name={name}
               placeholder={placeholder}
               onChange={(ev) => onChange(ev.currentTarget, name)}
