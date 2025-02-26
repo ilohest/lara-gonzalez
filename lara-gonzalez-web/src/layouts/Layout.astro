@@ -12,6 +12,7 @@ interface Props {
 
 const { title, description, classes } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const is404 = Astro.url.pathname === '/404';
 
 const rrss = [
   {
@@ -85,6 +86,6 @@ const rrss = [
       <slot />
       <Cursor hidden={false} notAllowed={false} client:load />
     </main>
-    <Footer {rrss} />
+    <Footer footerClass={is404 ? 'footer-404' : ''} {rrss} />
   </body>
 </html>
