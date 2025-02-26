@@ -165,14 +165,14 @@ projectitem:
     location: Vitoria-Gasteiz
      # collaboration: Vitoria-Gasteiz
     images:
+      - url: "/static-images/proyectos/tauro/tauro-signos-cartel.jpg"
+        alt: "Cartel signos Tauro"
+        name: "tauro-signos-cartel"
       - url: "/static-images/proyectos/tauro/tarjetas-visita-tauro.jpg"
         alt: "Tarjetas visita Tauro"
         name: "tarjetas-visita-tauro"
       - url: "/static-images/proyectos/tauro/cartel-verde-tauro.jpg"
         alt: "Cartel Tauro"
         name: "cartel-verde-tauro"
-      - url: "/static-images/proyectos/tauro/tauro-signos-cartel.jpg"
-        alt: "Cartel signos Tauro"
-        name: "tauro-signos-cartel"
 
 ---
