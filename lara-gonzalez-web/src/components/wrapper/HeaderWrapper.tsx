@@ -41,8 +41,8 @@ const WrapperHeader = ({
 
 
   const getBackgroundColor = (path: string) => {
-    const cleanPath = path.replace(/\/$/, '');
-    switch (cleanPath) {
+
+    switch (path) {
       case "/":
         return "var(--color-primary)";
       case "/proyectos":
@@ -58,8 +58,8 @@ const WrapperHeader = ({
   };
 
   const getThemeMode = (path: string): "light-mode" | "dark-mode" => {
-    const cleanPath = path.replace(/\/$/, '');
-    switch (cleanPath) {
+
+    switch (path) {
       case "/":
         return "dark-mode"; 
       case "/proyectos":
