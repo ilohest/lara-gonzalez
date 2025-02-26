@@ -68,7 +68,7 @@ const Header = ({
         className={`button-side-menu-open header__${themeMode}`}
         onClick={() => setOpen(prevState => !prevState)}
       >
-        <Icon classes="icon--open" url="/icons/menu.svg" />
+        <Icon classes="icon--open" url="/static-icons/menu.svg" />
       </button>
       <SideMenu 
         open={open} 
