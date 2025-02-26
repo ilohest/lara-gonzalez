@@ -25,6 +25,10 @@ const WrapperHeader = ({
   const [pageTitle, setPageTitle] = useState<string>("");
   const [size, setSize] = useState<string>("lg");
 
+  const cleanPath = (path: string): string => {
+    return path === "/" ? "/" : path.replace(/\/$/, "");
+  };
+
   const pageTitles: { [key: string]: string } = {
     "/": "page__home",
     "/proyectos": "page__proyectos",
@@ -35,14 +39,14 @@ const WrapperHeader = ({
   };
 
   const getPageTitle = (path: string) => {
-    const cleanPath = path === "/" ? "/" : path.replace(/\/$/, "");
-   return pageTitles[cleanPath] || "Página No Encontrada";
+    const normalizedPath = cleanPath(path);
+   return pageTitles[normalizedPath] || "Página No Encontrada";
   };
 
 
   const getBackgroundColor = (path: string) => {
-
-    switch (path) {
+    const normalizedPath = cleanPath(path);
+    switch (normalizedPath) {
       case "/":
         return "var(--color-primary)";
       case "/proyectos":
@@ -58,8 +62,8 @@ const WrapperHeader = ({
   };
 
   const getThemeMode = (path: string): "light-mode" | "dark-mode" => {
-
-    switch (path) {
+    const normalizedPath = cleanPath(path);
+    switch (normalizedPath) {
       case "/":
         return "dark-mode"; 
       case "/proyectos":
