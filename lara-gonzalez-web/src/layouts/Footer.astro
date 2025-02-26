@@ -12,7 +12,7 @@ const { rrss, footerClass } = Astro.props;
 <footer class=`footer wrapper-fluid ${footerClass}`>
   <img
     class="footer__logo"
-    src="icons/lara-gonzalez-dark.svg"
+    src="/icons/lara-gonzalez-dark.svg"
     alt="Lara González estudio logo"
   />
   <div class="footer__content">
@@ -25,7 +25,7 @@ const { rrss, footerClass } = Astro.props;
                 <li>
                   <a class="button button--link" href={rs.url} target="_blank">
                     <span>{rs.platform}</span>
-                    <Icon classes="icon--arrow" url="icons/arrow.svg" />
+                    <Icon classes="icon--arrow" url="/icons/arrow.svg" />
                   </a>
                 </li>
               );

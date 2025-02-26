@@ -3,6 +3,7 @@ import "./Header.scss";
 import type { RSModel } from "@lara/models/generic.model";
 import SideMenu from "@lara/components/side-menu/SideMenu";
 import Icon from '../components/shared/Icon';
+import LaraLight from "../assets/icons/lara-gonzalez-light.svg";
 
 const Header = ({
   email,
@@ -33,7 +34,7 @@ const Header = ({
           href="/"
         >
           <img
-            src="icons/lara-gonzalez-light.svg"
+            src={LaraLight.src}
             width={165}
             height={12}
             alt="Lara González logo"
@@ -46,7 +47,7 @@ const Header = ({
           href="/"
         >
           <img
-            src="icons/lara-gonzalez-light.svg"
+            src={LaraLight.src}
             width={190}
             height={15}
             alt="Lara González logo"
@@ -67,7 +68,7 @@ const Header = ({
         className={`button-side-menu-open header__${themeMode}`}
         onClick={() => setOpen(prevState => !prevState)}
       >
-        <Icon classes="icon--open" url="icons/menu.svg" />
+        <Icon classes="icon--open" url="/icons/menu.svg" />
       </button>
       <SideMenu 
         open={open} 
