@@ -17,7 +17,7 @@ anchors:
 projectitem:
 
   - title: La Madre
-    sector: Pub y cocteleria
+    sector: Pub y coctelería
     location: Miranda de Ebro
     # collaboration: "@xxx"
     images:
