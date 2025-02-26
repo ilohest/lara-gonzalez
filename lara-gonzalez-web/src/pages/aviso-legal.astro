@@ -13,7 +13,9 @@ const { Content } = await render(legal[0])
 <Layout title="Aviso Legal | Lara González estudio" description="Aviso legal">
   <section class="legal-page">
     <WrapperHeader client:load />
-    <Heading tag="h1" size="xxl" className="wrapper-fluid">{title}</Heading>
+    <div class="wrapper-fluid">
+      <Heading tag="h1" size="xxl">{title}</Heading>
+    </div>
     <div class="legal-content wrapper-fluid">
       <Content></Content>
     </div>
