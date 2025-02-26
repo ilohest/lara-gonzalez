@@ -3,6 +3,14 @@ title: Aviso Legal
 ---
 De conformidad con lo establecido en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico, se facilita la siguiente información:
 
+## **Datos identificativos**
+
+Puede contactar con el Titular por cualquiera de los siguientes medios:
+
+Correo electrónico de contacto: hola@laragonzalez.com
+
+Usted está visitando la página www.laragonzalez.com. Titularidad Lara González, en adelante, el TITULAR.
+
 ## **Usuarios**
 
 Mediante este documento ponemos en su conocimiento los términos y condiciones que regulan el acceso y uso de los sitios web y aplicaciones app móviles del Titular, así como de los servicios y contenidos asociados a dichos sitios y aplicaciones (en adelante también el/os sitio/s o los sitios web y app móviles).
