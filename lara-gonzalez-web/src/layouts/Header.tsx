@@ -33,7 +33,7 @@ const Header = ({
           href="/"
         >
           <img
-            src="/icons/lara-gonzalez-light.svg"
+            src="icons/lara-gonzalez-light.svg"
             width={165}
             height={12}
             alt="Lara González logo"
@@ -46,7 +46,7 @@ const Header = ({
           href="/"
         >
           <img
-            src="/icons/lara-gonzalez-light.svg"
+            src="icons/lara-gonzalez-light.svg"
             width={190}
             height={15}
             alt="Lara González logo"
@@ -67,7 +67,7 @@ const Header = ({
         className={`button-side-menu-open header__${themeMode}`}
         onClick={() => setOpen(prevState => !prevState)}
       >
-        <Icon classes="icon--open" url="/icons/menu.svg" />
+        <Icon classes="icon--open" url="icons/menu.svg" />
       </button>
       <SideMenu 
         open={open} 

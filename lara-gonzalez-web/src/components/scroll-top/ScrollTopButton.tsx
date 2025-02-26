@@ -39,7 +39,7 @@ const BackToTopButton: React.FC = () => {
 
   return (
     <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
-      <Icon classes="back-to-top__arrow" url={'/icons/arrow-top.svg'} />
+      <Icon classes="back-to-top__arrow" url={'icons/arrow-top.svg'} />
       <a className="sr-only">
         <span>Back to top</span>
       </a>

@@ -27,7 +27,7 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
           href="/"
         >
           <img
-            src="/icons/lara-gonzalez-light.svg"
+            src="icons/lara-gonzalez-light.svg"
             width={165}
             height={12}
             alt="Lara González logo"
@@ -41,7 +41,7 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
           onClick={() => {
             setOpen(false);
           }}>
-          <Icon classes="icon--close" url="/icons/close.svg" />
+          <Icon classes="icon--close" url="icons/close.svg" />
         </button>
       </header>
       <div className="side-menu__wrapper">
@@ -73,7 +73,7 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
                   <li key={index}>
                     <a href={rs.url} className="button button--link" target="_blank" tabIndex={tabIndex}>
                       <span>{rs.platform}</span>
-                      <Icon classes="icon--arrow" url="/icons/arrow.svg" />
+                      <Icon classes="icon--arrow" url="icons/arrow.svg" />
                     </a>
                   </li>
                 );
