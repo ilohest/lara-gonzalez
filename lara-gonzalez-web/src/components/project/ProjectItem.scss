@@ -27,7 +27,7 @@
         flex-wrap: wrap;
         margin-bottom: calc(var(--s) * 5);
         column-gap: var(--s6);
-        row-gap: var(--s2);
+        row-gap: var(--s);
         > * {
             @include f('sec-md', 400, true);
         }
