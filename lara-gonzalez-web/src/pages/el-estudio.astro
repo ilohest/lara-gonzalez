@@ -13,7 +13,7 @@ const { Content } = await render(estudio[0])
 
 ---
 <Layout title="Estudio de branding y diseño gráfico | Lara Gonzalez estudio" description="Diseñadora gráfica y social media manager especializada en crear marcas estratégicas y emocionales. Ayudo a negocios a destacar en el mercado con soluciones creativas.">
-	<WrapperHeader hero={hero} client:load />
+	<WrapperHeader hero={hero} client:only />
 	<article class="studio">
 		<section class="studio__markdown-content wrapper-fluid">
 			<Content />

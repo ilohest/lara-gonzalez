@@ -13,7 +13,7 @@ const { Content } = await render(home[0])
 ---
 
 <Layout title="Lara Gonzalez estudio | Branding studio" description="Creamos marcas con personalidad porque creemos que es la única forma de hacerlo. Damos vida a ideas con diseño estratégico y creatividad logrando marcas que inspiran y dejan huella." classes="page__home">
-	<WrapperHeader hero={hero} client:load />	
+	<WrapperHeader hero={hero} client:only />	
 	<section class="home__projects wrapper-fluid">
 		<div class="home__projects--content">
 			<Content />
