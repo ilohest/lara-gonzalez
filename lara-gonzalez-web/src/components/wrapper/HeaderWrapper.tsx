@@ -1,7 +1,6 @@
 import Header from "@lara/layouts/Header";
 import React, { useEffect, useState } from "react";
 import Hero from "../hero/Hero";
-import "./HeaderWrapper.scss";
 
 interface HeroData {
   title: string;
@@ -27,17 +26,23 @@ const WrapperHeader = ({
   const [size, setSize] = useState<string>("lg");
 
   const pageTitles: { [key: string]: string } = {
-  "/": "page__home",
-  "/proyectos": "page__proyectos",
-  "/contacto": "page__contacto",
-  "/politica-privacidad": "page__legal",
-  "/politica-cookies": "page__legal",
-  "/el-estudio": "page__estudio"
-};
+    "/": "page__home",
+    "/proyectos": "page__proyectos",
+    "/contacto": "page__contacto",
+    "/politica-privacidad": "page__legal",
+    "/politica-cookies": "page__legal",
+    "/el-estudio": "page__estudio"
+  };
+
+  const getPageTitle = (path: string) => {
+    const cleanPath = path === "/" ? "/" : path.replace(/\/$/, "");
+   return pageTitles[cleanPath] || "Página No Encontrada";
+  };
 
 
   const getBackgroundColor = (path: string) => {
-    switch (path) {
+    const cleanPath = path.replace(/\/$/, '');
+    switch (cleanPath) {
       case "/":
         return "var(--color-primary)";
       case "/proyectos":
@@ -53,7 +58,8 @@ const WrapperHeader = ({
   };
 
   const getThemeMode = (path: string): "light-mode" | "dark-mode" => {
-    switch (path) {
+    const cleanPath = path.replace(/\/$/, '');
+    switch (cleanPath) {
       case "/":
         return "dark-mode"; 
       case "/proyectos":
@@ -66,12 +72,6 @@ const WrapperHeader = ({
         return "light-mode";
     }
   };
-
-
-  const getPageTitle = (path: string) => {
-    return pageTitles[path] || "Página No Encontrada";
-  };
-
 
   // Para el HERO, solo la home tiene size "hg", el resto tiene size "lg"
   const getHeadingSize = (path: string) => {
