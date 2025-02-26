@@ -155,6 +155,9 @@ html {
     display: none!important;
   }
 
+  .cky-audit-table-element .cky-table-wrapper {
+    margin-top: 1rem;
+  }
 
   .cky-consent-bar .cky-btn.cky-btn-customize,
   .cky-consent-bar .cky-btn.cky-btn-reject,
@@ -179,7 +182,7 @@ html {
     &:hover {
       color: #fff!important;
       background-color: #000!important;
-      border-color: #000!important;
+      border-color: #fff!important;
     }
   }
 
@@ -240,8 +243,10 @@ html {
       margin-top: calc(var(--s) * 3);
     }
     @include mq-sm {
-      margin-top: 0;
       justify-content: flex-end;
+    }
+    @include mq-md {
+      margin-top: 0;
     }
   }
 
