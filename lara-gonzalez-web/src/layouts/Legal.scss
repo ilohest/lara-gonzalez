@@ -3,13 +3,14 @@
 .legal-page {
     
     .heading {
+        @include f('xl', 400, true);
+        line-height: 1.2;
         @include mq-lg {
             margin-top: calc(var(--s) * 5);
         }
         @include mq-xl {
             margin-top: calc(var(--s) * 10);
         }
-        @include f('xl', 400, true);
     }
 
     .legal-content {

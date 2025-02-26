@@ -17,9 +17,11 @@ const { Content } = await render(privacy[0])
 >
   <section class="legal-page">
     <WrapperHeader client:load />
-      <Heading tag="h1" size="lg" className="wrapper-fluid">
+    <div class="wrapper-fluid">
+      <Heading tag="h1" size="lg">
         {title}
-    </Heading>
+      </Heading>
+    </div>
     <div class="legal-content wrapper-fluid">
       <Content />
     </div>
