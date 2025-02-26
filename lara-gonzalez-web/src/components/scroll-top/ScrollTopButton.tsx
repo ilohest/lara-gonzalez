@@ -2,15 +2,8 @@ import { useEffect, useState } from 'react';
 import { scrollToTop } from '@lara/utils/react.utils';
 import './ScrollTopButton.scss';
 import React from 'react';
+import Icon from '../shared/Icon';
 
-interface IconProps {
-  className?: string;
-  path: string;
-}
-
-const Icon: React.FC<IconProps> = ({ className, path }) => (
-  <img className={className} src={path} alt="Arrow up icon" />
-);
 
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,7 +39,7 @@ const BackToTopButton: React.FC = () => {
 
   return (
     <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
-      <Icon className="back-to-top__arrow" path={'/src/assets/icons/arrow-top.svg'} />
+      <Icon classes="back-to-top__arrow" url={'public/icons/arrow-top.svg'} />
       <a className="sr-only">
         <span>Back to top</span>
       </a>

@@ -1,6 +1,6 @@
 ---
 import type { RSModel } from "@lara/models/generic.model";
-import localImage from "../assets/icons/lara-gonzalez-dark.svg";
+import localImage from "public/icons/lara-gonzalez-dark.svg";
 import { Image } from "astro:assets";
 import Icon from '../components/shared/Icon';
 
@@ -26,7 +26,7 @@ const { rrss, footerClass } = Astro.props;
                 <li>
                   <a class="button button--link" href={rs.url} target="_blank">
                     <span>{rs.platform}</span>
-                    <Icon classes="icon--arrow" url="src/assets/icons/arrow.svg" />
+                    <Icon classes="icon--arrow" url="public/icons/arrow.svg" />
                   </a>
                 </li>
               );

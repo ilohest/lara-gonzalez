@@ -24,18 +24,20 @@
   &:hover,
   &:focus-visible {
     box-shadow: 0 calc(var(--s) * 1.6) calc(var(--s) * 2) rgba(0, 0, 0, 0.5);
-    .back-to-top__arrow {
+    .icon {
       margin-top: calc(var(--s) * -1);
     }
   }
 
-  &__arrow {
+  .icon {
     animation: bounce 0.5s ease infinite alternate;
     transition: all .2s ease-in-out;
-    width: calc(var(--s) * 9);
+    --width: calc(var(--s) * 9);
+    --height: calc(var(--s) * 9);
     --color: var(--color-dark);
     @include mq-sm {
-      width: calc(var(--s) * 11);
+      --width: calc(var(--s) * 11);
+      --height: calc(var(--s) * 11);
     }
   }
 }

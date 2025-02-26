@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import mainLogo from "../assets/icons/lara-gonzalez-light.svg";
+import mainLogo from "public/icons/lara-gonzalez-light.svg";
 import "./Header.scss";
 import type { RSModel } from "@lara/models/generic.model";
 import SideMenu from "@lara/components/side-menu/SideMenu";
@@ -68,8 +68,7 @@ const Header = ({
         className={`button-side-menu-open header__${themeMode}`}
         onClick={() => setOpen(prevState => !prevState)}
       >
-        {/* <img src={menuLogo.src} width={45} height={8} alt="Open menu" className="menu" /> */}
-        <Icon classes="icon--open" url="src/assets/icons/menu.svg" />
+        <Icon classes="icon--open" url="public/icons/menu.svg" />
       </button>
       <SideMenu 
         open={open} 
