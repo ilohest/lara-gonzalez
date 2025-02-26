@@ -29,7 +29,7 @@ textarea {
 
 .input--text,
 .input--email,
-.input--phone {
+.input--tel {
     @include mq-md {
         display: inline-block;
         --gap: calc(var(--s) * 3.2);
@@ -37,7 +37,7 @@ textarea {
     }
 }
 .input--text:first-child,
-.input--phone {
+.input--tel {
     @include mq-md {
         margin-right: var(--gap);
     }
@@ -99,7 +99,7 @@ textarea {
     }
 
     &--text,
-    &--phone,
+    &--tel,
     &--email {
         .input__label {
             display: block;
