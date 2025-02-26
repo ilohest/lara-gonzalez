@@ -173,7 +173,7 @@ const Form = ({}: {}) => {
           label="Teléfono"
           placeholder="Teléfono*"
           value={form.phone}
-          type="phone"
+          type="tel"
           style="primary"
           hiddenLabel={true}
           onChange={handleInputChange}
