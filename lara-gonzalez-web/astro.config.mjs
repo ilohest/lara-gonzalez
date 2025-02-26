@@ -9,13 +9,19 @@ const __dirname = dirname(__filename);
 // https://astro.build/config
 export default defineConfig({
     output: "static",
-    site: "https://www.laragonzalez.com",
+    site: "https://laragonzalez.com",
     outDir: "../lara-gonzalez-web/dist",
     integrations: [react()],
     devToolbar: {
       enabled: false
     },
     vite: {
+      server: {
+        headers: {
+          'Content-Security-Policy':
+            "script-src 'self' https://cdn-cookieyes.com 'wasm-unsafe-eval' 'inline-speculation-rules';",
+        },
+      },
       publicDir: 'public',
       resolve: {
           alias: {
