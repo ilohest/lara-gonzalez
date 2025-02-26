@@ -9,7 +9,7 @@ Puede contactar con el Titular por cualquiera de los siguientes medios:
 
 Correo electrónico de contacto: hola@laragonzalez.com
 
-Usted está visitando la página www.laragonzalez.com. Titularidad Lara González, en adelante, el TITULAR.
+Usted está visitando la página www.laragonzalez.com. Titularidad LARA GONZÁLEZ, con NIF 71348216P, en adelante, el TITULAR.
 
 ## **Usuarios**
 
