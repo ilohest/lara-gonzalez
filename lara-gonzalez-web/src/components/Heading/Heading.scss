@@ -1,14 +1,36 @@
 @use 'dawuti' as *;
 
+
+
+.page__home {
+
+  .heading {
+    &--primary {
+      @include f('hg', 600, true);
+    }
+    &--secondary {
+      @include f('hg', 400, true);
+      letter-spacing: -.06em;
+    }
+  }
+}
 .page__estudio {
   .heading {
-    &--primary{
-      font-weight: 400;
+    &--primary {
+      @include f('heading-lg', 400, true);
     }
     &--secondary{
+      @include f('heading-lg', 400, true);
       font-family: var(--font-secondary);
-      letter-spacing: calc(var(--s) * -.45);
+      letter-spacing: -.04em;
     }
+  }
+}
+
+.page__home,
+.page__estudio {
+  .heading--primary {
+    letter-spacing: -.06em;
   }
 }
 
@@ -18,6 +40,14 @@
   --text-transform: none;
   padding: var(--padding);
   margin: var(--margin);
+  
+  &--primary {
+    letter-spacing: -.06em;
+  }
+
+  span {
+    display: block;
+  }
 
   &--base {
     @include f('base', 400, true);
@@ -36,6 +66,7 @@
 
   &--xl {
     @include f('xl', 700, true);
+    letter-spacing: -.07em;
   }
   &--xxl {
     @include f('xxl', 300, true);

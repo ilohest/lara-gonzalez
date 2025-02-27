@@ -33,12 +33,7 @@
             "title title title title gallery gallery gallery gallery gallery";
         }
     }
-    .heading--primary {
-        font-weight: 600;
-    }
-    .heading--secondary {
-        @include f('hg', 400, true);
-    }
+
     .hero__gallery {
         grid-template-rows: 14dvh 14dvh auto;
         align-content: center;
@@ -332,9 +327,6 @@
     @include mq-lg {
         padding-top: calc(var(--s)* 12);
         min-height: calc(100dvh - var(--site-header));
-    }
-    .heading--primary {
-        letter-spacing: -.06em;
     }
 
     &__header {
