@@ -4,7 +4,7 @@
 
 .page__home {
 
-  .heading {
+  .hero .heading {
     &--primary {
       @include f('hg', 600, true);
     }
@@ -15,7 +15,7 @@
   }
 }
 .page__estudio {
-  .heading {
+  .hero .heading {
     &--primary {
       @include f('heading-lg', 400, true);
     }
@@ -29,7 +29,7 @@
 
 .page__home,
 .page__estudio {
-  .heading--primary {
+  .hero .heading--primary {
     letter-spacing: -.06em;
   }
 }

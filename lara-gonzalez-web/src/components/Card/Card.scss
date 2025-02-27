@@ -28,7 +28,7 @@
         @include f('sm', 400, true);
       }
     }
-    .heading {
+    :global(.heading) {
       font-weight: 700;
     }
   }
