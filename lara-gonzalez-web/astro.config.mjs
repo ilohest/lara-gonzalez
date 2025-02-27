@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 // https://astro.build/config
 export default defineConfig({
     output: "static",
-    site: "https://laragonzalez.com",
+    site: "https://www.laragonzalez.com",
     outDir: "../lara-gonzalez-web/dist",
     integrations: [react()],
     devToolbar: {

@@ -1,0 +1,31 @@
+---
+import Heading from '../heading/Heading';
+
+interface Props {
+  card: {
+    title: string;
+    list: string[];
+  };
+  index: number;
+}
+
+const { card, index } = Astro.props;
+---
+
+<article class="card swiper-slide">
+  <div class="card__header">
+    <span class="card__inner-step">Fase 0{index + 1}</span>
+    <Heading tag="h3" size="base" headingFontWeight={600}>{card.title}</Heading>
+  </div>
+  <ul class="card__list">
+    {card.list.map((listItem, i) => (
+      <li>
+        {listItem}
+      </li>
+    ))}
+  </ul>
+</article>
+
+<style>
+@import "./Card.scss";
+</style>

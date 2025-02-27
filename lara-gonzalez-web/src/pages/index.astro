@@ -2,9 +2,9 @@
 import Heading from '@lara/components/heading/Heading';
 import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
-import { Card } from '@lara/components/card/Card';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 import Icon from '../components/shared/Icon';
+import Card from '@lara/components/card/Card.astro';
 
 const home = await getCollection('home');
 const { hero, projectsSection, services, } = home[0].data; 
@@ -45,7 +45,9 @@ const { Content } = await render(home[0])
 					<div class="home__steps-block swiper">
 						<div class="home__steps swiper-wrapper">
 							{service.steps.map((step, i) => (
-								<Card card={step} index={i} key={i} />
+								<>
+									<Card card={step} index={i} />
+								</>
 							))}
 						</div>
 					</div>
@@ -143,6 +145,11 @@ const { Content } = await render(home[0])
 				padding-left: var(--safe-area)!important;
 				padding-right: var(--safe-area)!important;
 			}
+
+			.swiper-slide {
+				height: auto;
+				width: auto;
+			}
 		}
 
 		&__steps {
@@ -233,42 +240,43 @@ const { Content } = await render(home[0])
 <script>
   import Swiper from 'swiper';
 
-	let swipers: Swiper[] = [];
+let swipers: Swiper[] = [];
 
-	function initSwipers() {
-		swipers.forEach(swiper => swiper.destroy(true, true));
-		swipers = [];
-		document.querySelectorAll('.home__steps-block').forEach((s) => {
-		swipers.push(
-			new Swiper(s as HTMLElement, {
-				slidesPerView: 1.15,
-				spaceBetween: 16,
-				scrollbar: {
-					draggable: true,
+function initSwipers() {
+	swipers.forEach(swiper => swiper.destroy(true, true));
+	swipers = [];
+	document.querySelectorAll('.home__steps-block').forEach((s) => {
+	swipers.push(
+		new Swiper(s as HTMLElement, {
+			slidesPerView: 1.15,
+			spaceBetween: 16,
+			scrollbar: {
+				draggable: true,
+			},
+			breakpoints: {
+				667: {
+					slidesPerView: 1.5,
 				},
-				breakpoints: {
-					667: {
-						slidesPerView: 1.5,
-					},
-					768: {
-						slidesPerView: 1.7,
-					},
-					1024: {
-						slidesPerView: 2.3,
-					},
-					1200: {
-						slidesPerView: 3,
-					},
-					1920: {
-						slidesPerView: 4,
-					},
-				}
-			})
-		);
-	});
+				768: {
+					slidesPerView: 1.7,
+				},
+				1024: {
+					slidesPerView: 2.3,
+				},
+				1200: {
+					slidesPerView: 3,
+				},
+				1920: {
+					slidesPerView: 4,
+				},
+			}
+		})
+	);
+});
 }
 
 document.addEventListener('astro:after-swap', initSwipers);
 document.addEventListener('DOMContentLoaded', initSwipers);
+
 
 </script>
