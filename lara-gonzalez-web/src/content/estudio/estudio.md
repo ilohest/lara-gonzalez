@@ -21,7 +21,7 @@ marquee:
   text: 'proyectos'
   url: '/proyectos'
   separator: ' · '
-footerImage: "/static-images/estudio/lara-gonzalez-primer-plano-silla.png"
+footerImage: "/static-images/estudio/lara-gonzalez-primer-plano-silla.jpg"
 ---
 
 <p>Detrás del estudio me encuentro…¡yo misma! Diseñadora gráfica y social media manager. He dedicado mi carrera a ayudar a las marcas a aterrizar en el mercado a través de soluciones creativas y estratégicas.</p>
