@@ -21,7 +21,7 @@ const { Content } = await render(estudio[0])
 		<section class="studio__content wrapper-fluid">
 			{quotes && 
 			<>
-				<Heading tag="h2" size="md">{quotes.heading}</Heading>
+				<p class="studio__content--title">{quotes.heading}</p>
 				<div class="studio__content--col">
 					<ul class="studio__content--list">
 						{quotes.items.map((quote) => (
@@ -94,6 +94,10 @@ const { Content } = await render(estudio[0])
 			}
 
 			:global(.heading) {
+
+			}
+			&--title {
+				@include f('md', 600, true);
 				margin-bottom: var(--s5);
 				font-weight: 600;
 				@include mq-md {

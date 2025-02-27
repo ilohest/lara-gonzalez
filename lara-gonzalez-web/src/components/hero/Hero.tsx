@@ -17,8 +17,10 @@ const Hero: React.FC<HeroProps> = ({ hero, backgroundColor, themeMode, size }) =
   return (
     <section className="hero wrapper-fluid" style={{ backgroundColor }}>
       <div className="hero__header">
-        <Heading tag="h1" size={size} color={themeMode === "light-mode" ? "dark" : "light"}>{hero.title}</Heading>
-        <Heading tag="h2" size={size} color={themeMode === "light-mode" ? "dark" : "light"} fontFamily="secondary">{hero.subtitle}</Heading>
+        <Heading tag="h1" size={size} color={themeMode === "light-mode" ? "dark" : "light"}>
+        <span className="heading heading--primary">{hero.title}</span>
+        <span className="heading heading--secondary">{hero.subtitle}</span>
+        </Heading>
       </div>
       <div className="hero__gallery">
           {hero.gallery.map((img, index) => (
