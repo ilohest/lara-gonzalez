@@ -233,37 +233,42 @@ const { Content } = await render(home[0])
 <script>
   import Swiper from 'swiper';
 
-  const sliders = Array.from(
-    document.querySelectorAll('.home__steps-block')
-  ) as HTMLElement[];
-  sliders.forEach((s) => {
-    const swiper = new Swiper(s, {
-      loop: false,
-      slidesPerView: 1.15,
-      spaceBetween: 16,
-			scrollbar: {
-				draggable: true,
-			},
-			breakpoints: {
-				667: {
-					slidesPerView: 1.5,
-				},
-				768: {
-					slidesPerView: 1.7,
-				},
-				1024: {
-					slidesPerView: 2.3,
-				},
-				1200: {
-					slidesPerView: 3,
-				},
-				1920: {
-					slidesPerView: 4,
-				},
-			}
+	let swipers: Swiper[] = [];
 
-    });
+	function initSwipers() {
+		swipers.forEach(swiper => swiper.destroy(true, true));
+		swipers = [];
+		document.querySelectorAll('.home__steps-block').forEach((s) => {
+		swipers.push(
+			new Swiper(s as HTMLElement, {
+				slidesPerView: 1.15,
+				spaceBetween: 16,
+				scrollbar: {
+					draggable: true,
+				},
+				breakpoints: {
+					667: {
+						slidesPerView: 1.5,
+					},
+					768: {
+						slidesPerView: 1.7,
+					},
+					1024: {
+						slidesPerView: 2.3,
+					},
+					1200: {
+						slidesPerView: 3,
+					},
+					1920: {
+						slidesPerView: 4,
+					},
+				}
+			})
+		);
+	});
+}
 
-  });
+document.addEventListener('astro:after-swap', initSwipers);
+document.addEventListener('DOMContentLoaded', initSwipers);
 
 </script>
