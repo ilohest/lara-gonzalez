@@ -13,6 +13,9 @@
   @include mq-lg {
     aspect-ratio: 1/1.2;
   }
+  @include mq-xl {
+    aspect-ratio: unset;
+  }
 
   &__header {
     @include mq-xs {
