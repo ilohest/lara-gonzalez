@@ -38,8 +38,6 @@
         grid-template-rows: 14dvh 14dvh auto;
         align-content: center;
         justify-self: center;
-        @media (orientation: landscape) {
-        }
 
         @media (orientation: portrait) {
             max-width: 50dvh;

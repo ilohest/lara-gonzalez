@@ -140,6 +140,9 @@
         align-items: center;
         justify-content: center;
         @include mq-xs {
+            flex: 0 0 42%;
+        }
+        @include mq-sm {
             flex: 0 0 45%;
         }
 

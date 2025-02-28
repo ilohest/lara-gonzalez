@@ -20,7 +20,7 @@ projectsSection:
 services:
   - category: "Branding"
     button:
-      type: "outline"
+      type: "solid"
       link: "/contacto"
       text: "Pide información"
     steps:

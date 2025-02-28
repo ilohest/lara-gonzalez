@@ -144,6 +144,9 @@ body {
 
 html {
 
+  .cky-modal {
+    cursor: default;
+  }
   div[data-cky-tag="detail-powered-by"] {
     display: none!important;
   }
@@ -278,7 +281,7 @@ html {
     position: relative;
 
     .cky-preference-title {
-      @include f('base');
+      @include f('sm');
       color: var(--color-tertiary)!important;
     }
   }
