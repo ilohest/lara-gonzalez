@@ -192,13 +192,6 @@ html {
     }
   }
 
-  .cky-consent-container {
-    position: fixed;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 9999999;
-  }
-
   .cky-preference-body-wrapper {
     padding: calc(var(--s) * 4) calc(var(--s) * 5) calc(var(--s) * 7);
   }
@@ -214,10 +207,13 @@ html {
   }
 
   .cky-consent-container {
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 9999999;
     padding: var(--safe-area, 15px);
-    @include mq-sm {
-      padding: calc(var(--s) * 4);
-    }
+    cursor: default;
+
     .cky-consent-bar {
       box-shadow: none;
       @include mq-md {
