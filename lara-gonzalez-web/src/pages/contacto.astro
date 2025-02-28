@@ -3,7 +3,7 @@ import Heading from '@lara/components/heading/Heading';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
-import Form from '@lara/components/form/Form';
+import Form from '@lara/components/Form/Form';
 const contact = await getCollection('contacto');
 const { title, description } = contact[0].data; 
 
@@ -50,6 +50,19 @@ const { title, description } = contact[0].data;
 
 			:global(.heading) {
 				@include f('hero-title', 400, true);
+				margin-left: calc(var(--s) * -.9);
+				@include mq-xs {
+					margin-left: calc(var(--s) * -1.3);
+				}
+				@include mq-sm {
+					margin-left: calc(var(--s) * -1.6);
+				}
+				@include mq-md {
+					margin-left: calc(var(--s) * -2.1);
+				}
+				@include mq-lg {
+					margin-left: calc(var(--s) * -3.1);
+				}
 			}
 		}
 		

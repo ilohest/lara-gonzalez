@@ -12,11 +12,11 @@
     padding: var(--s8) var(--s10) var(--s6) var(--s5);
   }
   @include mq-lg {
-    //aspect-ratio: 1/1.2;
+    aspect-ratio: 1/1.14;
   }
-  @include mq-xl {
-    aspect-ratio: unset;
-  }
+  // @include mq-xl {
+  //   aspect-ratio: unset;
+  // }
 
   &__header {
     @include mq-xs {

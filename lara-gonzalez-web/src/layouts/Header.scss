@@ -51,6 +51,9 @@ header {
             @include mq-lg {
                 width: 16vw;
             }
+            @include mq-xl {
+                width: 13.2vw;
+            }
         }
     }
 
@@ -74,12 +77,11 @@ header {
             flex-basis: 100%;
             align-items: center;
         }
-        > a {
-            @include f('xs', 400, true);
-            text-transform: uppercase;
-        }
 
         &--item {
+            @include f('xs', 400, true);
+            text-transform: uppercase;
+            margin-top: calc(var(--s) * .2);
             padding: calc(var(--s)* 1.6) calc(var(--s)* 3.2);
             padding: 0;
             color: var(--mode-color);
@@ -88,6 +90,7 @@ header {
         }
 
         .button--regular {
+
             padding: calc(var(--s)* 1.6) calc(var(--s) * 3.2);
         }
     }

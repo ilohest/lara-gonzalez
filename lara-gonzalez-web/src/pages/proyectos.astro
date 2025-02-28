@@ -51,6 +51,19 @@ const { title, anchors, projectitem } = proyectos[0].data;
 			display: flex;
 			:global(.heading) {
 				@include f('hero-title', 400, true);
+				margin-left: calc(var(--s) * -1);
+				@include mq-xs {
+					margin-left: calc(var(--s) * -1.5);
+				}
+				@include mq-sm {
+					margin-left: calc(var(--s) * -1.7);
+				}
+				@include mq-md {
+					margin-left: calc(var(--s) * -2.3);
+				}
+				@include mq-lg {
+					margin-left: calc(var(--s) * -3.5);
+				}
 			}
 	  }
 

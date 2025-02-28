@@ -23,7 +23,7 @@ const { Content } = await render(home[0])
 			<img src={projectsSection.imageSm} alt="Diseño camiseta chica" />
 		</div>
 		<div class="actions-wrapper actions-wrapper--center">
-		 	<a class="button button--solid button--huge" href={projectsSection.cta.url}>{projectsSection.cta.text}</a>
+		 	<a class="button button--solid button--regular" href={projectsSection.cta.url}>{projectsSection.cta.text}</a>
 		</div>
 	</section>
 	
@@ -170,14 +170,24 @@ const { Content } = await render(home[0])
 			}
 
 			&--content {
-				:global(p) {
-					@include f('lg', 700, true);
-				}
+
 				@include mq-xs {
 					padding-right: size-by-cols(2, 12);
 				}
 				@include mq-xxl {
 					padding-right: size-by-cols(4, 12);
+				}
+				:global(p) {
+					@include f('lg', 700, true);
+					line-height: 1;
+					@include mq-sm {
+						line-height: var(--lh-lg);
+					}
+				}
+				:global(em) {
+					text-decoration: none;
+					background: var(--color-primary);
+					color: var(--color-primary-contrast);
 				}
 			}
 			&--images {
@@ -266,9 +276,9 @@ function initSwipers() {
 				1200: {
 					slidesPerView: 3,
 				},
-				1920: {
-					slidesPerView: 4,
-				},
+				// 1920: {
+				// 	slidesPerView: 4,
+				// },
 			}
 		})
 	);
