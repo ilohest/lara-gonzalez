@@ -1,7 +1,23 @@
 @font-face {
-    font-family: 'Behind';
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap; 
-    src: url('/fonts/BehindTheNinetiesRegular.woff2') format('woff2');
-  }
+  font-family: 'Helvetica';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; 
+  src: url('/fonts/Helvetica-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap; 
+  src: url('/fonts/Helvetica-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Behind';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; 
+  src: url('/fonts/BehindTheNinetiesRegular.woff2') format('woff2');
+}

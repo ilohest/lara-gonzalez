@@ -9,7 +9,7 @@ $sv: div(5.5555555, 20);
   --html-font-size-v: #{$html-font-size-v};
   --html-font-size: calc(var(--html-font-size-v) * 1px);
 
-  --font-primary: Helvetica, Sans-Serif;
+  --font-primary: 'Helvetica', sans-Serif;
   --font-secondary: 'Behind', sans-serif;
 
   --sv: #{$sv};
