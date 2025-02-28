@@ -24,7 +24,6 @@ const Hero: React.FC<HeroProps> = ({ hero, backgroundColor, themeMode, size }) =
           const deviceHeight = window.innerHeight;
           const pageHeaderHeight = pageHeader.offsetHeight;
           const heroHeight = deviceHeight - pageHeaderHeight;
-          console.log(heroHeight);
           pageHero.style.height = `${heroHeight}px`;
         }
       } else {
