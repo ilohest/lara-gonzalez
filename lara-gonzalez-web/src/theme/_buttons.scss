@@ -3,17 +3,18 @@
   .button {
     &--regular,
     &--big {
-      @include f('link', 400, true);
       &:focus-visible {
         outline-offset: calc(var(--s) * -.3);
       }
     }
 
     &--regular {
+      @include f('link', 400, true);
       padding: calc(var(--s) * 3.2) calc(var(--s) * 4.8);
     }
 
     &--big {
+      @include f('link-md', 400, true);
       padding: calc(var(--s)* 2.3) calc(var(--s)* 8);
     }
 
