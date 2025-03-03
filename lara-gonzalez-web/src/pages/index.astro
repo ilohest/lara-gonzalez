@@ -184,10 +184,13 @@ const { Content } = await render(home[0])
 						line-height: var(--lh-lg);
 					}
 				}
+
+				:global(p),
 				:global(em) {
-					text-decoration: none;
-					background: var(--color-primary);
-					color: var(--color-primary-contrast);
+					&::selection {
+						background-color: var(--color-primary);
+						color: var(--color-tertiary);
+					}
 				}
 			}
 			&--images {
