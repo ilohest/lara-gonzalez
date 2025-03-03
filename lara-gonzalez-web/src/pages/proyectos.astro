@@ -69,7 +69,10 @@ const { title, anchors, projectitem } = proyectos[0].data;
 
 	  :global(.projects__header) {
 			margin-top: calc(var(--s) * 3);
-			margin-bottom: calc(var(--s) * 3);
+			margin-bottom: calc(var(--s) * 1.5);
+			@include mq-sm {
+				margin-bottom: calc(var(--s) * 3);
+			}
 			@include mq-md {
 				display: flex;
 				flex-wrap: wrap;
@@ -80,7 +83,10 @@ const { title, anchors, projectitem } = proyectos[0].data;
 				gap: var(--s4);
 			}
 			:global(.heading) {
-				margin-bottom: var(--s3);
+				margin-bottom: calc(var(--s) * 1.5);
+				@include mq-sm {
+					margin-bottom: var(--s3);
+				}
 				@include mq-md {
 					margin-bottom: 0;
 				}
