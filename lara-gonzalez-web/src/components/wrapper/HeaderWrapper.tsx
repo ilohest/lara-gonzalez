@@ -1,7 +1,6 @@
 import Header from "@lara/layouts/Header";
 import React, { useEffect, useState, type CSSProperties } from "react";
 import Hero from "../hero/Hero";
-//import "./HeaderWrapper.scss";
 
 interface HeaderWrapperCustomCSSProps extends CSSProperties {
   '--hero-height': string;
@@ -108,7 +107,7 @@ const WrapperHeader = ({
       style={
         {
           backgroundColor,
-          ...(height ? { '--hero-height': `${height}px` } : undefined),
+          ...(hero ? { '--hero-height': height ? `${height}px` : '100dvh' } : undefined),
         } as HeaderWrapperCustomCSSProps
       }>
       <Header email={email} rrss={rrss} backgroundColor={backgroundColor} themeMode={themeMode} />

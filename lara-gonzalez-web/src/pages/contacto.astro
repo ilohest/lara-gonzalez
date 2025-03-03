@@ -3,7 +3,7 @@ import Heading from '@lara/components/heading/Heading';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
-import Form from '@lara/components/Form/Form';
+import Form from '@lara/components/form/Form';
 const contact = await getCollection('contacto');
 const { title, description } = contact[0].data; 
 

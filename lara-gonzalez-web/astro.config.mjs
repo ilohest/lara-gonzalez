@@ -12,6 +12,9 @@ export default defineConfig({
     site: "https://www.laragonzalez.com",
     outDir: "../lara-gonzalez-web/dist",
     integrations: [react()],
+    optimizeDeps: {
+      include: ['swiper/react']
+    },
     devToolbar: {
       enabled: false
     },
