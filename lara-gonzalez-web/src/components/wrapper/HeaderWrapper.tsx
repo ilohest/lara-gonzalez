@@ -1,6 +1,7 @@
 import Header from "@lara/layouts/Header";
 import React, { useEffect, useState, type CSSProperties } from "react";
 import Hero from "../hero/Hero";
+import "./HeaderWrapper.scss";
 
 interface HeaderWrapperCustomCSSProps extends CSSProperties {
   '--hero-height': string;
