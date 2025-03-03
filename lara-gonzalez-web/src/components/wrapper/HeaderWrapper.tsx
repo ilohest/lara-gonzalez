@@ -1,6 +1,10 @@
 import Header from "@lara/layouts/Header";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, type CSSProperties } from "react";
 import Hero from "../hero/Hero";
+
+interface HeaderWrapperCustomCSSProps extends CSSProperties {
+  '--hero-height': string;
+}
 
 interface HeroData {
   title: string;
@@ -24,6 +28,11 @@ const WrapperHeader = ({
   const [themeMode, setThemeMode] = useState<"light-mode" | "dark-mode">("light-mode");
   const [pageTitle, setPageTitle] = useState<string>("");
   const [size, setSize] = useState<string>("lg");
+  const [height, setHeight] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    setHeight(window.innerHeight);
+  }, []);
 
   const cleanPath = (path: string): string => {
     return path === "/" ? "/" : path.replace(/\/$/, "");
@@ -93,7 +102,14 @@ const WrapperHeader = ({
   }, []);
 
   return (
-    <header style={{ backgroundColor }} className={`header-wrapper ${pageTitle}`}>
+    <header 
+      className={`header-wrapper ${pageTitle}`}      
+      style={
+        {
+          backgroundColor,
+          ...(height ? { '--hero-height': `${height}px` } : undefined),
+        } as HeaderWrapperCustomCSSProps
+      }>
       <Header email={email} rrss={rrss} backgroundColor={backgroundColor} themeMode={themeMode} />
       {hero && <Hero hero={hero} size={size} backgroundColor={backgroundColor} themeMode={themeMode} />}
     </header>
