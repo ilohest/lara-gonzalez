@@ -1,7 +1,7 @@
 import Header from "@lara/layouts/Header";
 import React, { useEffect, useState, type CSSProperties } from "react";
 import Hero from "../hero/Hero";
-import "./HeaderWrapper.scss";
+//import "./HeaderWrapper.scss";
 
 interface HeaderWrapperCustomCSSProps extends CSSProperties {
   '--hero-height': string;
@@ -103,7 +103,7 @@ const WrapperHeader = ({
   }, []);
 
   return (
-    <header 
+    <section 
       className={`header-wrapper ${pageTitle}`}      
       style={
         {
@@ -113,7 +113,7 @@ const WrapperHeader = ({
       }>
       <Header email={email} rrss={rrss} backgroundColor={backgroundColor} themeMode={themeMode} />
       {hero && <Hero hero={hero} size={size} backgroundColor={backgroundColor} themeMode={themeMode} />}
-    </header>
+    </section>
   );
 };
 

@@ -50,6 +50,7 @@ $sv: div(5.5555555, 20);
 
   // Grid cols
   & {
+    //--h-height: calc(var(--s2)*9);
     --safe-area: calc(var(--s) * 3.2);
     --gutter: var(--s2);
     --cols: 6;
