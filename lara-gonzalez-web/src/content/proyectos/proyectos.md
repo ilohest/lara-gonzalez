@@ -30,6 +30,9 @@ projectitem:
       - url: "/static-images/proyectos/la-madre/vinilo-rosa-copas-rebranding.jpg"
         alt: "Vinilo La Madre"
         name: "vinilo-la-madre"
+      - url: "/static-images/proyectos/la-madre/cartel-rosa-rebranding-bar.jpg"
+        alt: "Cartel rebranding La Madre"
+        name: "cartel-rosa-rebranding-bar"
   - title: Aloha Paradiso
     sector: Agencia de viajes organizados
     location: Madrid
@@ -44,6 +47,9 @@ projectitem:
       - url: "/static-images/proyectos/aloha-paradiso/rosa-amarillo-rayas-aloha-paradiso.png"
         alt: "Proyecto Aloha Paradiso"
         name: "rosa-amarillo-rayas-aloha-paradiso"
+      - url: "/static-images/proyectos/aloha-paradiso/calendario-aloha-paradiso.jpg"
+        alt: "Calendario Aloha Paradiso"
+        name: "calendario-aloha-paradiso"
   - title: Horizon
     sector: Empresa de mudanzas
     location: Barcelona
@@ -58,6 +64,9 @@ projectitem:
       - url: "/static-images/proyectos/horizon/mockup-web-horizon.jpg"
         alt: "Proyecto Horizon mockup web"
         name: "mockup-web-horizon"
+      - url: "/static-images/proyectos/horizon/mockup-stories-horizon.jpg"
+        alt: "Stories Horizon"
+        name: "mockup-stories-horizon"
   - title: Puregrains
     sector: "Granola blends"
     # location: "Oslo, Noruega"
@@ -71,7 +80,10 @@ projectitem:
         name: "diseno-packaging-puregrains"
       - url: "/static-images/proyectos/puregrains/diseno-tote-bag-puregrains.jpg"
         alt: "Diseño tote bagPuregrains"
-        name: "diseno-tote-bag-puregrains"  
+        name: "diseno-tote-bag-puregrains"
+      - url: "/static-images/proyectos/puregrains/mockup-cartel-exterior.jpg"
+        alt: "Mockup cartel exterior"
+        name: "mockup-cartel-exterior"
   - title: Fauget
     sector: Moda
     # location: XXX, XXX
@@ -86,7 +98,9 @@ projectitem:
       - url: "/static-images/proyectos/fauget/slogan-fauget.jpg"
         alt: "Fauget"
         name: "slogan-fauget"
-
+      - url: "/static-images/proyectos/fauget/cartel-fauget.jpg"
+        alt: "Cartel Fauget"
+        name: "cartel-fauget"
   - title: Francachella Estudio
     sector: Wedding and event planner
     location: Asturias-Madrid
@@ -101,7 +115,9 @@ projectitem:
       - url: "/static-images/proyectos/francachella-estudio/tarjetas-visita.jpg"
         alt: "Tarjetas de visita Francachella"
         name: "tarjetas-visita"
-
+      - url: "/static-images/proyectos/francachella-estudio/dossier-servicios.jpg"
+        alt: "Dossier servicios"
+        name: "dossier-servicios"
   - title: Godo
     sector: Ropa deportiva
     # location: XXX, XXX
@@ -116,7 +132,9 @@ projectitem:
       - url: "/static-images/proyectos/godo/coming-soon-godo.jpg"
         alt: "Proyecto Godo porfolio 03"
         name: "coming-soon-godo"
-
+      - url: "/static-images/proyectos/godo/etiqueta-godo.jpg"
+        alt: "Etiqueta Godo"
+        name: "etiqueta-godo"
 
   - title: Vermicelli
     sector: Restaurante de cocina italiana
@@ -132,6 +150,9 @@ projectitem:
       - url: "/static-images/proyectos/vermicelli/senoras-mockup-vermicelli.png"
         alt: "Mockup Vermicelli"
         name: "senoras-mockup-vermicelli"
+      - url: "/static-images/proyectos/vermicelli/logo-vermicelli.jpg"
+        alt: "Logo Vermicelli"
+        name: "logo-vermicelli"
   - title: Mude
     sector: Estudio de cerámica
     # location: "París, Francia"
@@ -146,20 +167,26 @@ projectitem:
       - url: "/static-images/proyectos/mude/jarrones-mude-studio.jpg"
         alt: "Jarrones Mude Studio"
         name: "jarrones-mude-studio"
+      - url: "/static-images/proyectos/mude/mude-studio.jpg"
+        alt: "Mude Studio"
+        name: "mude-studio"
   - title: Didáctico
     sector: Juegos y juguetes educativos
     location: Miranda de Ebro
-    collaboration: Interiorismo @interior03_
+    collaboration: Fotografía e interiorismo de @interior03_
     images:
       - url: "/static-images/proyectos/didactico/diseno-packaging-caja.jpg"
-        alt: "Diseño packaging Didactico"
+        alt: "Diseño packaging Didáctico"
         name: "diseno-packaging-caja"
       - url: "/static-images/proyectos/didactico/diseno-bolsa-didactico.jpg"
-        alt: "Diseño bolsa Didactico"
+        alt: "Diseño bolsa Didáctico"
         name: "diseno-bolsa-didactico"
       - url: "/static-images/proyectos/didactico/cartel-slogan-didactico.jpg"
-        alt: "Cartel slogan Didactico"
+        alt: "Cartel slogan Didáctico"
         name: "cartel-slogan-didactico"
+      - url: "/static-images/proyectos/didactico/tienda-juguetes-didactico.jpg"
+        alt: "Tienda Didáctico"
+        name: "tienda-juguetes-didactico"
   - title: Tauro
     sector: Peluquería y estilistas
     location: Vitoria-Gasteiz
@@ -174,5 +201,8 @@ projectitem:
       - url: "/static-images/proyectos/tauro/cartel-verde-tauro.jpg"
         alt: "Cartel Tauro"
         name: "cartel-verde-tauro"
+      - url: "/static-images/proyectos/tauro/tarjeton-tauro.jpg"
+        alt: "Tarjetón Tauro"
+        name: "tarjeton-tauro"
 
 ---
