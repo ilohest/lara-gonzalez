@@ -1,12 +1,26 @@
 import { useEffect, useState } from 'react';
-import { scrollToTop } from '@lara/utils/react.utils';
-import './ScrollTopButton.scss';
 import React from 'react';
+import './ScrollTopButton.scss';
 import Icon from '../shared/Icon';
-
+import Lenis from 'lenis';
 
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [lenis, setLenis] = useState<Lenis | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const lenisInstance = new Lenis();
+      setLenis(lenisInstance);
+
+      function raf(time: number) {
+        lenisInstance.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    }
+  }, []);
 
   useEffect(() => {
     const firstProject = document.querySelector(".projects__item--first");
@@ -35,17 +49,18 @@ const BackToTopButton: React.FC = () => {
     };
   }, []);
 
+  const handleScrollToTop = () => {
+    lenis?.scrollTo(0, { duration: 1.5 });
+  };
+
   if (!isVisible) return null;
 
   return (
-    <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
+    <button className="back-to-top" onClick={handleScrollToTop} aria-label="Back to top">
       <Icon classes="back-to-top__arrow" url={'/static-icons/arrow-top.svg'} />
-      <a className="sr-only">
-        <span>Back to top</span>
-      </a>
+      <span className="sr-only">Back to top</span>
     </button>
   );
 };
 
 export default BackToTopButton;
-
