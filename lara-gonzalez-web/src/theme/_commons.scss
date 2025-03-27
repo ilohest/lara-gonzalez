@@ -25,13 +25,10 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   color: var(--color-text);
+  //scroll-behavior: smooth;
   @include mq-lg{
     cursor: none;
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 p,
