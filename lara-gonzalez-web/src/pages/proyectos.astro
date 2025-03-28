@@ -1,6 +1,4 @@
 ---
-
-import AnchorHandler from '@lara/components/anchor/AnchorHandler';
 import Heading from '@lara/components/heading/Heading';
 import ProjectItem from '@lara/components/project/ProjectItem';
 import BackToTopButton from '@lara/components/scroll-top/ScrollTopButton';
@@ -30,75 +28,116 @@ const { title, anchors, projectitem } = proyectos[0].data;
 			</a>
 			))}
 		</div>
-		<AnchorHandler client:load />
 		<ProjectItem projectitem={projectitem} client:load />
 	</section>
 	<BackToTopButton client:load />
 </Layout>
 
-  <style lang="scss">
-	@use "dawuti" as *;
+<script>
+ 	import Lenis from 'lenis';
 
-	.projects {
-		@include mq-sm {
-			margin-top: calc(var(--s) * 7);
+	declare global {
+	interface Window {
+		scrollInstance: Lenis;
+	}
+	}
+
+	// const lenis = new Lenis({ infinite: false, duration: 1.8 });
+	// window.scrollInstance = lenis;
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+	const lenis = new Lenis({
+        duration: 1.8
+      });
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      document.querySelectorAll(".button--link[data-anchor]").forEach(link => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = link.getAttribute("data-anchor") as string;
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+			lenis.scrollTo(targetElement, {
+              duration: 1.5,
+              offset: -50, 
+              easing: (t) => 1 - Math.pow(1 - t, 4)
+            });          
 		}
-		@include mq-lg {
-			margin-top: calc(var(--s) * 14);
-			margin-bottom: var(--s5);
-		}
-	  &__heading {
-			display: flex;
-			:global(.heading) {
-				@include f('hero-title', 400, true);
-				margin-left: calc(var(--s) * -1);
-				@include mq-xs {
-					margin-left: calc(var(--s) * -1.5);
-				}
-				@include mq-sm {
-					margin-left: calc(var(--s) * -1.7);
-				}
-				@include mq-md {
-					margin-left: calc(var(--s) * -2.3);
-				}
-				@include mq-lg {
-					margin-left: calc(var(--s) * -3.5);
-				}
+        });
+      });
+    });
+</script>
+
+<style lang="scss">
+@use "dawuti" as *;
+
+.projects {
+	@include mq-sm {
+		margin-top: calc(var(--s) * 7);
+	}
+	@include mq-lg {
+		margin-top: calc(var(--s) * 14);
+		margin-bottom: var(--s5);
+	}
+	&__heading {
+		display: flex;
+		:global(.heading) {
+			@include f('hero-title', 400, true);
+			margin-left: calc(var(--s) * -1);
+			@include mq-xs {
+				margin-left: calc(var(--s) * -1.5);
 			}
-	  }
-
-	  :global(.projects__header) {
-			margin-top: calc(var(--s) * 3);
-			margin-bottom: calc(var(--s) * 1.5);
 			@include mq-sm {
-				margin-bottom: calc(var(--s) * 3);
+				margin-left: calc(var(--s) * -1.7);
 			}
 			@include mq-md {
-				display: flex;
-				flex-wrap: wrap;
-				align-items: flex-end;
-				justify-content: space-between;
-				padding-right: calc(size-by-cols(1, 24) + 10px);
-				margin-bottom: calc(var(--s) * 4.5);
-				gap: var(--s4);
+				margin-left: calc(var(--s) * -2.3);
 			}
-			:global(.heading) {
-				margin-bottom: calc(var(--s) * 1.5);
-				@include mq-sm {
-					margin-bottom: var(--s3);
-				}
-				@include mq-md {
-					margin-bottom: 0;
-				}
+			@include mq-lg {
+				margin-left: calc(var(--s) * -3.5);
 			}
-	  }
+		}
+	}
 
-	  &__list{
-		margin: var(--s8) 0 var(--s7);
-		display: flex;
-		flex-wrap: wrap;
-		column-gap: var(--s5);
-		row-gap: var(--s);
+	:global(.projects__header) {
+		margin-top: calc(var(--s) * 3);
+		margin-bottom: calc(var(--s) * 1.5);
+		@include mq-sm {
+			margin-bottom: calc(var(--s) * 3);
+		}
+		@include mq-md {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-end;
+			justify-content: space-between;
+			padding-right: calc(size-by-cols(1, 24) + 10px);
+			margin-bottom: calc(var(--s) * 4.5);
+			gap: var(--s4);
+		}
+		:global(.heading) {
+			margin-bottom: calc(var(--s) * 1.5);
+			@include mq-sm {
+				margin-bottom: var(--s3);
+			}
+			@include mq-md {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__list{
+	margin: var(--s8) 0 var(--s7);
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: var(--s5);
+	row-gap: var(--s);
 		@include mq-xs {
 			padding-right: size-by-cols(3, 12);
 		}
@@ -135,9 +174,8 @@ const { title, anchors, projectitem } = proyectos[0].data;
 			&:focus-visible {
 				color: var(--color-primary);
 			}
-
 		}
-	  }
 	}
+}
 </style>
 
