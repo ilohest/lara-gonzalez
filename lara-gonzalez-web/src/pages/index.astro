@@ -5,6 +5,8 @@ import { getCollection, render } from 'astro:content';
 import WrapperHeader from '@lara/components/wrapper/HeaderWrapper';
 import Icon from '../components/shared/Icon';
 import Card from '@lara/components/card/Card.astro';
+import 'swiper/css';
+import 'swiper/css/scrollbar';
 
 const home = await getCollection('home');
 const { hero, projectsSection, services, } = home[0].data; 
@@ -19,8 +21,8 @@ const { Content } = await render(home[0])
 			<Content />
 		</div>
 		<div class="home__projects--images">
-			<img src={projectsSection.imageLg} alt="Rebranding La Madre" />
-			<img src={projectsSection.imageSm} alt="Diseño camiseta chica" />
+			<img src={projectsSection.imageLg} alt="Rebranding La Madre" loading="lazy"/>
+			<img src={projectsSection.imageSm} alt="Diseño camiseta chica"loading="lazy" />
 		</div>
 		<div class="actions-wrapper actions-wrapper--center">
 		 	<a class="button button--solid button--regular" href={projectsSection.cta.url}>{projectsSection.cta.text}</a>
@@ -30,7 +32,6 @@ const { Content } = await render(home[0])
 	<section class="home__services">
 		{services.map((service) => (
 			<>
-	  
 			{service.steps && service.steps.length > 0 && (
 				<div class="home__services-item has-steps">
 					<div class="home__services-header wrapper-fluid">
@@ -42,10 +43,11 @@ const { Content } = await render(home[0])
 							</a>
 						</div>
 					</div>
-					<div class="home__steps-block swiper">
-						<div class="home__steps swiper-wrapper">
+					<section class="js-lara-image-slider">
+						<div class="home__steps-block swiper">
+							<div class="home__steps swiper-wrapper">
 							{service.steps.map((step, i) => (
-								<>
+							 	<>
 									<Card card={step} index={i} />
 								</>
 							))}
@@ -58,6 +60,7 @@ const { Content } = await render(home[0])
 						</a>
 					</div>
 				</div>
+			</section>
 			)}
 
 			{!service.steps && (
@@ -249,47 +252,45 @@ const { Content } = await render(home[0])
 	}
 </style>
 
-
 <script>
-  import Swiper from 'swiper';
+	import Swiper from "swiper";
+	import "swiper/css";
 
-let swipers: Swiper[] = [];
+	let swipers: Swiper[] = [];
 
-function initSwipers() {
-	swipers.forEach(swiper => swiper.destroy(true, true));
+	// Función para inicializar Swiper
+	function initSwipers() {
+	// Destruir todos los Swipers existentes
+	swipers.forEach(swiper => swiper?.destroy(true, true));
 	swipers = [];
+
+	// Inicializar Swiper en los nuevos elementos
 	document.querySelectorAll('.home__steps-block').forEach((s) => {
-	swipers.push(
-		new Swiper(s as HTMLElement, {
+		if (s.querySelector('.swiper-wrapper')) {
+		swipers.push(
+			new Swiper(s, {
 			slidesPerView: 1.15,
 			spaceBetween: 16,
-			scrollbar: {
-				draggable: true,
-			},
+			scrollbar: { draggable: true },
 			breakpoints: {
-				667: {
-					slidesPerView: 1.5,
-				},
-				768: {
-					slidesPerView: 1.7,
-				},
-				1024: {
-					slidesPerView: 2.3,
-				},
-				1200: {
-					slidesPerView: 3,
-				},
-				// 1920: {
-				// 	slidesPerView: 4,
-				// },
+				667: { slidesPerView: 1.5 },
+				768: { slidesPerView: 1.7 },
+				1024: { slidesPerView: 2.3 },
+				1200: { slidesPerView: 3 },
 			}
-		})
-	);
-});
-}
+			})
+		);
+		}
+	});
+	}
 
-document.addEventListener('astro:after-swap', initSwipers);
-document.addEventListener('DOMContentLoaded', initSwipers);
+	// Evento de carga de la página, cuando se completa la transición con ClientRouter
+	document.addEventListener('astro:page-load', initSwipers);
+
+	// También aseguramos que Swiper se inicializa cuando el documento se carga inicialmente
+	document.addEventListener('DOMContentLoaded', initSwipers);
 
 
 </script>
+
+

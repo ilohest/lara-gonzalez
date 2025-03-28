@@ -34,45 +34,44 @@ const { title, anchors, projectitem } = proyectos[0].data;
 </Layout>
 
 <script>
- 	import Lenis from 'lenis';
-
+	import Lenis from 'lenis';
+  
 	declare global {
-	interface Window {
+	  interface Window {
 		scrollInstance: Lenis;
+	  }
 	}
-	}
-
-	// const lenis = new Lenis({ infinite: false, duration: 1.8 });
-	// window.scrollInstance = lenis;
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-	const lenis = new Lenis({
-        duration: 1.8
-      });
-
-      function raf(time: number) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-
-      document.querySelectorAll(".button--link[data-anchor]").forEach(link => {
-        link.addEventListener("click", (event) => {
-          event.preventDefault();
-          const targetId = link.getAttribute("data-anchor") as string;
-          const targetElement = document.getElementById(targetId);
-
-          if (targetElement) {
+  
+	function initializeLenis() {
+	  const lenis = new Lenis({ duration: 1.8 });
+	  window.scrollInstance = lenis;
+  
+	  function raf(time: number) {
+		lenis.raf(time);
+		requestAnimationFrame(raf);
+	  }
+	  requestAnimationFrame(raf);
+  
+	  document.querySelectorAll(".button--link[data-anchor]").forEach(link => {
+		link.addEventListener("click", (event) => {
+		  event.preventDefault();
+		  const targetId = link.getAttribute("data-anchor") as string;
+		  const targetElement = document.getElementById(targetId);
+  
+		  if (targetElement) {
 			lenis.scrollTo(targetElement, {
-              duration: 1.5,
-              offset: -50, 
-              easing: (t) => 1 - Math.pow(1 - t, 4)
-            });          
-		}
-        });
-      });
-    });
+			  duration: 1.5,
+			  offset: -50, 
+			  easing: (t) => 1 - Math.pow(1 - t, 4),
+			});
+		  }
+		});
+	  });
+	}
+  
+	// Ejecutar la inicialización al cargar la página o durante las transiciones
+	document.addEventListener("astro:page-load", initializeLenis);
+	document.addEventListener("DOMContentLoaded", initializeLenis);  // En caso de que se cargue inicialmente
 </script>
 
 <style lang="scss">
