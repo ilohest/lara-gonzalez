@@ -43,7 +43,12 @@ const { title, anchors, projectitem } = proyectos[0].data;
 	}
   
 	function initializeLenis() {
-	  const lenis = new Lenis({ duration: 1.8 });
+	  const lenis = new Lenis({ 
+		infinite: false,
+		duration: 1.8, 
+		smoothWheel: true
+		});
+		
 	  window.scrollInstance = lenis;
   
 	  function raf(time: number) {

@@ -100,16 +100,18 @@ const rrss = [
     }
   }
 
-  const lenis = new Lenis({ infinite: false, duration: 1.8 });
+  const lenis = new Lenis({ 
+    infinite: false,
+    duration: 1.8, 
+    smoothWheel: true
+  });
+  
   window.scrollInstance = lenis;
 
-  if (document.location.pathname === '/') {
-    lenis.scrollTo(0, { duration: 0.1 });
-  }
+  function animate(time: number) {
+  lenis.raf(time); 
+  requestAnimationFrame(animate);
+}
 
-  function raf(time: number) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
+requestAnimationFrame(animate);
 </script>
