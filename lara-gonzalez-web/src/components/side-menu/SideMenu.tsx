@@ -56,32 +56,33 @@ const SideMenu = ({ open, setOpen, email, rrss }: Props) => {
             </li>
           </ul>
         </nav>
-        <div className="side-menu__bottom">
+        <div className="side-menu__contact">
           <a className="button button--big button--solid-inverse" href="/contacto" tabIndex={tabIndex}>
             ¿Hablamos?
           </a>
-          {email && (
-            <div className="side-menu__email">
-              <a href={`emailto:${email}`} tabIndex={tabIndex}>
-                {email}
-              </a>
-            </div>
-          )}
-          {rrss && (
-            <ul className="side-menu__social">
-              {rrss.map((rs: RSModel, index: number) => {
-                return (
-                  <li key={index}>
-                    <a href={rs.url} className="button button--link" target="_blank" tabIndex={tabIndex}>
-                      <span>{rs.platform}</span>
-                      <Icon classes="icon--arrow" url="/static-icons/arrow.svg" />
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
         </div>
+        {email && (
+          <div className="side-menu__email">
+            <a href={`emailto:${email}`} tabIndex={tabIndex}>
+              {email}
+            </a>
+          </div>
+        )}
+        {rrss && (
+          <ul className="side-menu__social">
+            {rrss.map((rs: RSModel, index: number) => {
+              return (
+                <li key={index}>
+                  <a href={rs.url} className="button button--link" target="_blank" tabIndex={tabIndex}>
+                    <span>{rs.platform}</span>
+                    <Icon classes="icon--arrow" url="/static-icons/arrow.svg" />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+   
       </div>
     </dialog>
   );

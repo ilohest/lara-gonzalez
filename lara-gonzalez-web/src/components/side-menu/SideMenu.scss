@@ -2,7 +2,7 @@
 
 .side-menu {
     position: fixed;
-    overflow: hidden;
+    //overflow: hidden;
     top: 0;
     left: 0;
     width: 100%;
@@ -131,22 +131,22 @@
     .side-menu__wrapper{
         display: flex;
         flex-direction: column;
-        height: 100vh;
-        @include mq-xs {
-            row-gap: var(--s2);
-        }
+        align-items: center;
+        height: 100dvh;
+        gap: calc(var(--s2)*6);
     }
+
     .side-menu__nav {
-        flex: 0 0 40%;
         display: flex;
         align-items: center;
         justify-content: center;
-        @include mq-xs {
-            flex: 0 0 42%;
-        }
-        @include mq-sm {
-            flex: 0 0 45%;
-        }
+        margin: auto;
+        // @include mq-xs {
+        //     flex: 0 0 42%;
+        // }
+        // @include mq-sm {
+        //     flex: 0 0 45%;
+        // }
 
         li {
             text-align: center;
@@ -173,35 +173,44 @@
         }
     }
 
-    .side-menu__bottom {
-        flex: 1; 
-        text-align: center;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        "btn"
-        "email"
-        "rrss" ;
-        justify-items: center;
-        align-items: center;
-        justify-content: space-between;
-        //row-gap: calc(var(--s) * 9);
-        @include mq-xs {
-            @media (orientation: landscape) {
-                align-items: start;
-                row-gap: calc(var(--s) * 4);
-            }
-        }
-
-        @include mq-md {
-            padding-left: calc(var(--s) * 10);
-            padding-right: calc(var(--s) * 10);
-        }
+    .side-menu__contact, 
+    .side-menu__email, 
+    .side-menu__social{
         .button {
-            grid-area: btn;
             text-transform: uppercase;
             align-self: flex-start;
         }
     }
+
+    // .side-menu__bottom {
+    //     flex: 1; 
+    //     text-align: center;
+    //     height: 100%;
+    //     display: grid;
+    //     grid-template-columns: 1fr;
+    //     grid-template-areas: 
+    //     "btn"
+    //     "email"
+    //     "rrss" ;
+    //     justify-items: center;
+    //     align-items: center;
+    //     justify-content: space-between;
+    //     //row-gap: calc(var(--s) * 9);
+    //     @include mq-xs {
+    //         @media (orientation: landscape) {
+    //             align-items: start;
+    //             row-gap: calc(var(--s) * 4);
+    //         }
+    //     }
+
+    //     @include mq-md {
+    //         padding-left: calc(var(--s) * 10);
+    //         padding-right: calc(var(--s) * 10);
+    //     }
+    //     .button {
+    //         grid-area: btn;
+    //         text-transform: uppercase;
+    //         align-self: flex-start;
+    //     }
+    // }
 }
