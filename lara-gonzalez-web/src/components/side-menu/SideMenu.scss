@@ -2,45 +2,43 @@
 
 .side-menu {
     position: fixed;
-    //overflow: hidden;
     top: 0;
     left: 0;
-    width: 100%;
-
-    transition: transform .5s cubic-bezier(0.91, 0, 0.34, 0.99) .05s;
-    transform: translateX(100%);
+    width: 100vw;
+    height: 100vh;
+    max-height: 100dvh;
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity 0.4s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 100vw;
-    height: 100dvh;
     z-index: 10;
     background-color: var(--color-text);
-    color: var(--color-text-contrast);
-    border: none;
     padding: calc(var(--s) * 4) var(--safe-area, 15px) calc(var(--s) * 13);
-    @include mq-xs {
-        @media (orientation: landscape) {
-            padding-bottom: calc(var(--s) * 7);
-        }
-        @media (orientation: portrait) {
-            padding-bottom: calc(var(--s) * 22);
-        }
-    }
+    pointer-events: none;
 
-    @include mq-md {
-        padding-bottom: calc(var(--s) * 15);
-    }
-    @include mq-lg {
-        display: none; 
-    }
+    // @include mq-xs {
+    //     @media (orientation: landscape) {
+    //         padding-bottom: calc(var(--s) * 7);
+    //     }
+    //     @media (orientation: portrait) {
+    //         padding-bottom: calc(var(--s) * 22);
+    //     }
+    // }
+
+    // @include mq-md {
+    //     padding-bottom: calc(var(--s) * 15);
+    // }
+    // @include mq-lg {
+    //     display: none; 
+    // }
 
     &--open {
+        transform: translateX(0);
+        opacity: 1;
         pointer-events: all;
-        transform: translateX(0%); 
-        @include mq-lg {
-            display: none;
-        }
 
         .header__logotype img {
             filter: none;
