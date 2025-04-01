@@ -1,15 +1,17 @@
 @use "dawuti" as *;
 
 .side-menu {
+    position: fixed;
     overflow: hidden;
-    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+
     transition: transform .5s cubic-bezier(0.91, 0, 0.34, 0.99) .05s;
     transform: translateX(100%);
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow: scroll;
-    position: absolute;
-    top: 0;
     width: 100vw;
     height: 100dvh;
     z-index: 10;

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Header.scss";
 import type { RSModel } from "@lara/models/generic.model";
 import SideMenu from "@lara/components/side-menu/SideMenu";
+import Lenis from 'lenis';
 import Icon from '../components/shared/Icon';
 import LaraLight from "../assets/icons/lara-gonzalez-light.svg";
 
@@ -17,14 +18,36 @@ const Header = ({
   themeMode: "light-mode" | "dark-mode";
 }) => {
   const [open, setOpen] = useState(false);
+  const lenis = useRef<Lenis | null>(null); 
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
+    lenis.current = new Lenis({
+      smoothWheel: true,
+      syncTouch: true,
+    });
+
+    const raf = (time: number) => {
+      lenis.current?.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.current?.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (lenis.current) {
+      if (open) {
+        document.body.style.overflow = "hidden";
+        lenis.current.stop(); 
+      } else {
+        document.body.style.overflow = "visible";
+        lenis.current.start(); 
+      }
     }
-  });
+  }, [open]);
   
   return (
     <header className={`wrapper-fluid header header__${themeMode}`} style={{ backgroundColor }}>
