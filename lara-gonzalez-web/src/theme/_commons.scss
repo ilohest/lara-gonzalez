@@ -77,16 +77,6 @@ a {
   color: var(--color-text);
 }
 
-ul {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding-inline-start: 0;
-}
-
-li {
-  list-style: none;
-}
-
 strong, b {
   font-weight: 600;
 }
@@ -101,41 +91,22 @@ main {
   background-color: var(--color-light);
 }
 
-// ul, ol {
-//   margin-block-start: 0;
-//   margin-inline-start: 0;
-//   padding-inline-start: 0px;
-// }
-
 .grid {
   display: grid;
   column-gap: var(--gutter);
   grid-template-columns: repeat(var(--cols), 1fr);
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overscroll-behavior: none; 
-  >main {
-    flex: 1;
-    min-height: 100vh;
-    @include mq-lg {
-      min-height: unset;
-    }
-  }
-
-  ul {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-  }
-  
-  li {
-    list-style: none;
-  }
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
 }
+
+li {
+  list-style: none;
+}
+
 
 // Lenis scroll
 
