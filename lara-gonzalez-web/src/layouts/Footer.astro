@@ -2,6 +2,10 @@
 import type { RSModel } from "@lara/models/generic.model";
 import { Image } from "astro:assets";
 import Icon from '../components/shared/Icon';
+import { getCollection } from 'astro:content';
+
+const shared = await getCollection('shared');
+const { footerLogos } = shared[0].data; 
 
 // const d = new Date();
 // let currentYear = d.getFullYear();
@@ -15,26 +19,26 @@ const { rrss, footerClass } = Astro.props;
     src="/static-icons/lara-gonzalez-dark.svg"
     alt="Lara González estudio logo"
   />
-  <div class="footer__content">
-    {
-      rrss && (
-        <section class="footer__rrss">
-          <ul>
-            {rrss.map((rs: RSModel) => {
-              return (
-                <li>
-                  <a class="button button--link" href={rs.url} target="_blank">
-                    <span>{rs.platform}</span>
-                    <Icon classes="icon--arrow" url="/static-icons/arrow.svg" />
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      )
-    }
 
+  {
+    rrss && (
+      <section class="footer__rrss">
+        <ul>
+          {rrss.map((rs: RSModel) => {
+            return (
+              <li>
+                <a class="button button--link" href={rs.url} target="_blank">
+                  <span>{rs.platform}</span>
+                  <Icon classes="icon--arrow" url="/static-icons/arrow.svg" />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )
+  }
+  <div class="footer__content">
     <nav class="footer__legal">
       <ul>
         <li>
@@ -52,6 +56,16 @@ const { rrss, footerClass } = Astro.props;
             <span>Política de Privacidad</span>
           </a>
         </li>
+      </ul>
+    </nav>
+
+    <div class="footer__financiacion">
+      <ul>
+        {footerLogos.map((logo) => (
+          <li>
+            <img class="footer__financiacion--logo" src={logo.url} alt={logo.alt} />
+          </li>
+        ))}
       </ul>
     </div>
 
@@ -74,21 +88,27 @@ const { rrss, footerClass } = Astro.props;
       flex-direction: column;
       justify-content: space-between;
       @include mq-xs {
-        flex-direction: row;
-        align-items: flex-end;
+        margin-top: var(--s7);
+        align-items: flex-start;
+        justify-content: space-between;
       }
       @include mq-sm {
-        align-items: center;
+        margin-top: calc(var(--s) * 10);
+        column-gap: var(--s10);
       }
-      ul {
-        display: flex;
-        flex-direction: row;
+      @include mq-md {
+        flex-direction: row-reverse;
+        align-items: flex-end;
+      }
+      @include mq-lg {
+        margin-top: calc(var(--s) * 13);
       }
     }
 
     &__rrss {
-      @include mq-xs {
-        order: 1;
+      @include mq-md {
+        display: flex;
+        justify-content: flex-end;
       }
       ul {
         display: flex;
@@ -108,7 +128,49 @@ const { rrss, footerClass } = Astro.props;
           gap: var(--s);
         }
       }
+    }
 
+    &__financiacion {
+      width: 100%;
+      @include mq-xs {
+        order: 1;
+      }
+      @include mq-sm {
+        margin-bottom: calc(var(--s) * .8);
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: var(--s7);
+        align-items: center;
+        gap: var(--s4);
+        justify-content: flex-start;
+        @include mq-md {
+          gap: var(--s3);
+        }
+
+        @include mq-md {
+          margin-top: 0;
+          flex-wrap: nowrap;
+        }
+      }
+      li:nth-child(3) {
+        img {
+          max-height: var(--s6);
+        }
+      }
+
+      &--logo {
+        width: 100%;
+        height: var(--s6);
+        @include mq-md {
+          height: var(--s7);
+        }
+        @include mq-lg {
+         height: var(--s8);
+        }     
+      }
     }
 
     &__legal {
@@ -123,6 +185,7 @@ const { rrss, footerClass } = Astro.props;
           flex-direction: row;
           align-items: center;
           column-gap: calc(var(--s) * 3);
+          margin-top: calc(var(--s) * .3);
         }
       }
 
@@ -146,10 +209,7 @@ const { rrss, footerClass } = Astro.props;
       height: auto;
       margin-bottom: var(--s7);
       @include mq-md {
-        margin-bottom: var(--s9);
-      }
-      @include mq-lg {
-        margin-bottom: calc(var(--s) * 10)
+        margin-bottom: var(--s8);
       }
     }
     &-404 {

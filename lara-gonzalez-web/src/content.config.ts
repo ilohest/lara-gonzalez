@@ -5,6 +5,19 @@ const simpleTitleSchema = z.object({
   title: z.string(),
 });
 
+
+const sharedCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    footerLogos: z.array(
+      z.object({
+        url: z.string(),
+        alt: z.string(),
+      })
+    ),
+  }),
+})
+
 const homeCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -128,6 +141,7 @@ const projectsCollection = defineCollection({
   });
   
   export const collections = {
+    shared: sharedCollection,
     home: homeCollection,
     proyectos: projectsCollection,
     estudio: studioCollection,
