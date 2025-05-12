@@ -1,10 +1,17 @@
 import React from "react";
+import Picture from "src/atoms/Picture";
 
 const ImageWrapper = ({ image }: { image: any }) => {
     return (
-      <picture className="image-wrapper">
-        <img src={image.url} alt={image.alt} width={image.width} height={image.height} loading="lazy"/>
-      </picture>
+      <>
+        <Picture
+          className="image-wrapper"
+          fetchPriority="low"
+          blurPreload={true}
+          src={image.url}
+          alt={image.alt}
+        />
+      </>
     );
   };
   

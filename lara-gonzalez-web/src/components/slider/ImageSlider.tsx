@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs } from "swiper/modules"; 
 import "swiper/css/thumbs";
 import ImageWrapper from "../wrapper/ImageWrapper";
+import Picture from "src/atoms/Picture";
 
 
 interface ImageSliderProps {
@@ -71,11 +72,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, index }) => {
           >
             {images.map((slide, i) => (
               <SwiperSlide key={`thumb-${i}`}>
-                <img
+                <Picture
+                  fetchPriority="low"
+                  blurPreload={true}
                   src={slide.url}
                   alt={slide.alt}
-                  className="thumb"
-                  style={{ objectFit: "cover" }}
                 />
               </SwiperSlide>
             ))}

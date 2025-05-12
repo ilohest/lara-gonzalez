@@ -1,0 +1,40 @@
+@use "dawuti" as *;
+
+:host{
+    --color-secondary-rgb: 255, 88, 0;
+
+}
+
+.picture {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--color-secondary-rgb), 0.6);
+}
+
+.picture--animated {
+    opacity: 0;
+    &.picture--animate {
+        animation: defaultElementEntry 2000ms forwards;
+    }
+}
+  
+.picture--blurpreload {
+    background-image: var(--picture-url);
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px);
+    transition: filter 0.5s ease;
+}
+
+.picture--loaded {
+    filter: blur(0px);
+}
+
+@keyframes defaultElementEntry {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

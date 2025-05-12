@@ -1,6 +1,7 @@
 import React from "react";
 import "./Hero.scss";
 import Heading from "../heading/Heading";
+import Picture from "src/atoms/Picture";
 
 interface HeroProps {
   hero: {
@@ -25,7 +26,14 @@ const Hero: React.FC<HeroProps> = ({ hero, backgroundColor, themeMode, size }) =
       </div>
       <div className="hero__gallery">
           {hero.gallery.map((img, index) => (
-            <img key={`image-${index}`} className={`studio-gallery studio-gallery-${index}`} src={img.url} alt={img.alt} />
+            <Picture
+              key={`image-${index}`}
+              className={`studio-gallery studio-gallery-${index}`}
+              fetchPriority="high"
+              blurPreload={true}
+              src={img.url}
+              alt={img.alt}
+            />
           ))}
       </div>
     </section>
