@@ -84,90 +84,92 @@
         }
     }
 
-    .studio-gallery {
-        object-position: right;
-        @include mq-xl {
-            object-position: center;
-        }
-        &-0 {
-            grid-area: img0;
-            grid-column: 1 / 9;
-            @include mq-xs {
-                grid-column: 5 / 10;
-                @media (orientation: landscape) {
-                    margin-top: calc(var(--s) * -6);
-                }
-            }
-            @include mq-sm {
-                grid-column: 2 / 9;
-                @media (orientation: landscape) {
-                }
-            }
-            @include mq-md {
-                grid-column: 2 / 9;
-            }
-            @include mq-lg {
-                grid-column: 3 / 9;
-                max-height: 55vh;
-                margin-left: calc(var(--s) * -6.5);
-            }
-            @include mq-xl {
-                margin-left: 0;
-                grid-column: 2 / 9;
-            }
-            @include mq-xxl {
-                grid-column: 3 / 8;
-                max-height: 64vh;
-            }
-        }
-        &-1 {
-            grid-area: img1;
-            grid-column: 6 / 13;
-            @include mq-xs {
-                grid-column: 9 / 15;
-            }
 
-            @include mq-sm {
-                grid-column: 7 / 13;
-            }
-            @include mq-md {
-                grid-column: 7/ 12;
-            }
-            @include mq-lg {
-                max-height: 43dvh;
-                object-position: left;
-            }
-            @include mq-xxl {
-                grid-column: 7 / 11;
-                max-height: 51dvh;
+}
+
+.studio-gallery {
+    object-position: right;
+    @include mq-xl {
+        object-position: center;
+    }
+    &-0 {
+        grid-area: img0;
+        grid-column: 1 / 9;
+        @include mq-xs {
+            grid-column: 5 / 10;
+            @media (orientation: landscape) {
+                margin-top: calc(var(--s) * -6);
             }
         }
-        &-2 {
-            grid-area: img2;
+        @include mq-sm {
+            grid-column: 2 / 9;
+            @media (orientation: landscape) {
+            }
+        }
+        @include mq-md {
+            grid-column: 2 / 9;
+        }
+        @include mq-lg {
+            grid-column: 3 / 9;
+            max-height: 55vh;
+            margin-left: calc(var(--s) * -6.5);
+        }
+        @include mq-xl {
+            margin-left: 0;
+            grid-column: 2 / 9;
+        }
+        @include mq-xxl {
             grid-column: 3 / 8;
-            @include mq-xs {
-                grid-column: 7 / 10;
-            }
-           @include mq-sm {
-                @media (orientation: landscape) {
-                    grid-column: 5 / 9;
-                }
-                @media (orientation: portrait) {
-                    grid-column: 5 / 10;
-                }
-            }
-            @include mq-md {
+            max-height: 64vh;
+        }
+    }
+    &-1 {
+        grid-area: img1;
+        grid-column: 6 / 13;
+        @include mq-xs {
+            grid-column: 9 / 15;
+        }
+
+        @include mq-sm {
+            grid-column: 7 / 13;
+        }
+        @include mq-md {
+            grid-column: 7/ 12;
+        }
+        @include mq-lg {
+            max-height: 43dvh;
+            object-position: left;
+        }
+        @include mq-xxl {
+            grid-column: 7 / 11;
+            max-height: 51dvh;
+        }
+    }
+    &-2 {
+        grid-area: img2;
+        grid-column: 3 / 8;
+        @include mq-xs {
+            grid-column: 7 / 10;
+        }
+       @include mq-sm {
+            @media (orientation: landscape) {
                 grid-column: 5 / 9;
             }
-            @include mq-lg {
-                object-position: left;
-                grid-column: 4 / 8;
-                max-height: 33vh;
+            @media (orientation: portrait) {
+                grid-column: 5 / 10;
             }
-            @include mq-xl {
-                grid-column: 5 / 8;
-                max-height: 40vh;
-            }
+        }
+        @include mq-md {
+            grid-column: 5 / 9;
+        }
+        @include mq-lg {
+            object-position: left;
+            grid-column: 4 / 8;
+            max-height: 33vh;
+        }
+        @include mq-xl {
+            grid-column: 5 / 8;
+            max-height: 40vh;
         }
     }
 }

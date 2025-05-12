@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 export const classList = (
   classes: { [key: string]: boolean },
   stringClasses?: string
@@ -15,6 +17,17 @@ export const classList = (
   return classesResult.slice(0, 1) === " "
     ? classesResult.slice(1)
     : classesResult;
+};
+
+export const useStateRef = <T>(
+  initialState: T
+): [T, (state: T) => void, React.RefObject<T>] => {
+  const [state, setState] = useState(initialState);
+  const stateRef = useRef(state);
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
+  return [state, setState, stateRef];
 };
 
 export const slugify = (str: string): string => {
@@ -60,3 +73,5 @@ export const scrollToTop = (): void => {
     behavior: 'smooth',
   });
 };
+
+
