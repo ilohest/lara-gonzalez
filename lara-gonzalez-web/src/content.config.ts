@@ -1,5 +1,4 @@
 import { defineCollection, z } from "astro:content";
-import type ProjectItem from "./components/project/ProjectItem";
 
 const simpleTitleSchema = z.object({
   title: z.string(),
