@@ -21,7 +21,7 @@
         }
         @include mq-sm {
             padding-right: size-by-cols(5, 24);
-            padding-left: size-by-cols(1, 24);
+            // padding-left: size-by-cols(1, 24);
         }
 
         @include mq-lg {
