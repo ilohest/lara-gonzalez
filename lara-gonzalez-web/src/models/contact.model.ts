@@ -30,4 +30,5 @@ export interface ContactForm {
   company: string;
   message: string;
   privacyCheck: boolean;
+  website: string; // honeypot anti-spam (debe quedar vacío)
 }

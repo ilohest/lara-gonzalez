@@ -14,6 +14,7 @@ const Form = ({}: {}) => {
     company: "",
     message: "",
     privacyCheck: false,
+    website: "", // honeypot anti-spam
   } as ContactForm;
 
   const initialFormValidation = {
@@ -148,6 +149,27 @@ const Form = ({}: {}) => {
         method="post"
         onSubmit={handleSubmit}
         className={formSendState.sending ? "form--sending" : ""}>
+        {/* Honeypot anti-spam: invisible para usuarios reales, los bots lo rellenan */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: "-9999px",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+          }}>
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website}
+            onChange={(e) =>
+              setForm({ ...form, website: e.target.value })
+            }
+          />
+        </div>
         <Input
           name="name"
           label="Nombre"

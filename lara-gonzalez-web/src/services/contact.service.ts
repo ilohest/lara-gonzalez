@@ -9,9 +9,9 @@ const sendContactForm = ({
   successCallback: (res: string) => void;
   errorCallback: (res: string) => void;
 }) => {
-  const url = import.meta.env.PUBLIC_EMAIL_SERVICE_URL;
-  const emailClient = import.meta.env.PUBLIC_EMAIL_SERVICE_CLIENT;
-  const emailTemplate = import.meta.env.PUBLIC_EMAIL_SERVICE_CONTACT_TEMPLATE;
+  // Endpoint PHP alojado junto al sitio (mismo dominio). Envía los correos
+  // desde hola@laragonzalez.com a través del servidor de correo del hosting.
+  const url = "/contact.php";
 
   var form_data = new FormData();
   for (var key in formData) {
@@ -21,12 +21,6 @@ const sendContactForm = ({
   fetch(url, {
     method: "POST",
     body: form_data,
-    headers: {
-      // "Content-Type": "multipart/form-data",
-      Bearer: emailClient,
-      "x-dawuti-client": emailClient,
-      "x-dawuti-template": emailTemplate,
-    },
   })
     .then((res) => {
       return res.json();
