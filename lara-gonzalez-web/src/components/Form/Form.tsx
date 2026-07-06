@@ -14,7 +14,7 @@ const Form = ({}: {}) => {
     company: "",
     message: "",
     privacyCheck: false,
-    website: "", // honeypot anti-spam
+    botcheck: "", // honeypot anti-spam
   } as ContactForm;
 
   const initialFormValidation = {
@@ -161,12 +161,12 @@ const Form = ({}: {}) => {
           }}>
           <input
             type="text"
-            name="website"
+            name="botcheck"
             tabIndex={-1}
             autoComplete="off"
-            value={form.website}
+            value={form.botcheck}
             onChange={(e) =>
-              setForm({ ...form, website: e.target.value })
+              setForm({ ...form, botcheck: e.target.value })
             }
           />
         </div>
