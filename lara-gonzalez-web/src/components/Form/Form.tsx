@@ -150,20 +150,13 @@ const Form = ({}: {}) => {
         onSubmit={handleSubmit}
         className={formSendState.sending ? "form--sending" : ""}>
         {/* Honeypot anti-spam: invisible para usuarios reales, los bots lo rellenan */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            left: "-9999px",
-            width: "1px",
-            height: "1px",
-            overflow: "hidden",
-          }}>
+        <div aria-hidden="true" style={{ display: "none" }}>
           <input
             type="text"
             name="botcheck"
             tabIndex={-1}
             autoComplete="off"
+            aria-hidden="true"
             value={form.botcheck}
             onChange={(e) =>
               setForm({ ...form, botcheck: e.target.value })

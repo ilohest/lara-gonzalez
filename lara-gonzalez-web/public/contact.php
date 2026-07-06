@@ -25,7 +25,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     exit;
 }
 
-// --- Anti-spam: honeypot (nombre no autocompletable por el navegador) ---
+// --- Anti-spam: honeypot (campo oculto con display:none; debe quedar vacío) ---
 if (!empty($_POST['botcheck'])) {
     echo json_encode(['ok' => true, 'message' => '¡Gracias! Tu mensaje ha sido enviado correctamente.']);
     exit;
